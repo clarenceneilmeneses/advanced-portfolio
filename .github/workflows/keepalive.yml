@@ -1,0 +1,14 @@
+# Alternative keep-alive if you are not deploying on Vercel (or as a backup).
+# Pings Supabase directly twice a week so the free-tier project stays active.
+name: Supabase keep-alive
+on:
+  schedule:
+    - cron: "0 9 * * 1,4"
+  workflow_dispatch:
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl -sf "https://coxblavototbhnhhtprv.supabase.co/rest/v1/profile?select=id&limit=1" \
+            -H "apikey: sb_publishable_ouc5ZM4KwLo4P-pztfaLcg_njDthGxa" > /dev/null

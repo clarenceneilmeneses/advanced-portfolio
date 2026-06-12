@@ -1,0 +1,369 @@
+{
+  "profile": {
+    "id": "d3fa04e5-ca96-4044-bad0-310715360803",
+    "name": "Bryl Lim",
+    "verified": true,
+    "location": "Metro Manila, Philippines",
+    "headline": "AI \\ Software Engineer \\ Content Creator",
+    "badge_text": "DICT OpenGov Hackathon 2025 Champion",
+    "badge_url": "https://dict.gov.ph/news-and-updates/21070",
+    "about": "I'm a full-stack software engineer specializing in developing solutions with JavaScript, Python, and PHP. I work on projects including building modern web applications, mobile apps, search engine optimization, digital marketing, and making code tutorials.\n\nI've helped startups and MSMEs grow and streamline their processes through software solutions. I've also built a community of over 200,000 developers sharing knowledge and mentorship.\n\nLately, I've been diving deeper into the world of artificial intelligence, focusing on integrating AI tools and techniques into modern applications. My work now includes developing AI-powered solutions, creating intelligent applications, and leveraging generative AI to optimize development workflows and deliver cutting-edge technology.",
+    "avatar_url": "",
+    "email": "bryllim@gmail.com",
+    "calendly_url": "https://calendly.com/bryllim/consultation",
+    "blog_url": "https://blog.bryllim.com/",
+    "speaking_text": "Available for speaking at events about software development and emerging technologies."
+  },
+  "tech": [
+    {
+      "id": "63a1fbb7-8297-416e-a3d6-69b031b8e8f4",
+      "category": "Frontend",
+      "name": "JavaScript",
+      "featured": true,
+      "sort_order": 1
+    },
+    {
+      "id": "c464a54c-00ac-4947-9fd5-121c5036bef9",
+      "category": "Frontend",
+      "name": "TypeScript",
+      "featured": true,
+      "sort_order": 2
+    },
+    {
+      "id": "89a562d6-0b0c-46ed-afdf-514f02895b86",
+      "category": "Frontend",
+      "name": "React",
+      "featured": true,
+      "sort_order": 3
+    },
+    {
+      "id": "510dee55-54f5-4c16-8f58-7a1a9d9346c1",
+      "category": "Frontend",
+      "name": "Next.js",
+      "featured": true,
+      "sort_order": 4
+    },
+    {
+      "id": "3b5339c7-3a30-4af5-8afe-e4bd15c6cb34",
+      "category": "Frontend",
+      "name": "Vue.js",
+      "featured": true,
+      "sort_order": 5
+    },
+    {
+      "id": "9efa0f8c-48ca-41de-b372-3b53e77acae3",
+      "category": "Frontend",
+      "name": "Tailwind CSS",
+      "featured": true,
+      "sort_order": 6
+    },
+    {
+      "id": "92485e7a-9ad5-4287-bd52-6fe101c220cb",
+      "category": "Backend",
+      "name": "Node.js",
+      "featured": true,
+      "sort_order": 7
+    },
+    {
+      "id": "2776a045-9df5-49a8-a032-015d2d8f6fdc",
+      "category": "Backend",
+      "name": "Python",
+      "featured": true,
+      "sort_order": 8
+    },
+    {
+      "id": "b049130a-8f18-468b-97d2-c4552323aca8",
+      "category": "Backend",
+      "name": "PHP",
+      "featured": true,
+      "sort_order": 9
+    },
+    {
+      "id": "7299e12e-d539-4814-8ff1-1c9acb25602e",
+      "category": "Backend",
+      "name": "Laravel",
+      "featured": true,
+      "sort_order": 10
+    },
+    {
+      "id": "c9ed1f17-d1b2-480d-97ce-358484d864fd",
+      "category": "Backend",
+      "name": "PostgreSQL",
+      "featured": true,
+      "sort_order": 11
+    },
+    {
+      "id": "f529e99a-bcbf-4239-9c60-82aed5bcffc9",
+      "category": "Backend",
+      "name": "MongoDB",
+      "featured": true,
+      "sort_order": 12
+    },
+    {
+      "id": "36d5c3a2-f9a1-4f64-96c8-300e14530dfe",
+      "category": "DevOps & Cloud",
+      "name": "AWS",
+      "featured": true,
+      "sort_order": 13
+    },
+    {
+      "id": "1be23ccb-a68b-45cb-bef5-31c533319ae7",
+      "category": "DevOps & Cloud",
+      "name": "Docker",
+      "featured": true,
+      "sort_order": 14
+    },
+    {
+      "id": "4f6bf373-f927-47e3-a364-3649a2e1d49b",
+      "category": "DevOps & Cloud",
+      "name": "Kubernetes",
+      "featured": true,
+      "sort_order": 15
+    },
+    {
+      "id": "0106ffd5-f1f1-4b49-b32f-11097d3c6fc6",
+      "category": "DevOps & Cloud",
+      "name": "GitHub Actions",
+      "featured": true,
+      "sort_order": 16
+    }
+  ],
+  "projects": [
+    {
+      "id": "19a2c6b5-3fd0-4227-8fff-f482eabd199b",
+      "title": "CodeCred",
+      "description": "Online certifications for programmers",
+      "url": "https://codecred.dev/",
+      "display_url": "codecred.dev",
+      "slug": "codecred",
+      "tech": "Next.js, PostgreSQL, Tailwind CSS",
+      "cover_image_url": "",
+      "featured": true,
+      "sort_order": 1,
+      "published": true,
+      "blocks": [
+        {
+          "id": "fb-1",
+          "kind": "heading",
+          "text": "The problem",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 1
+        },
+        {
+          "id": "fb-2",
+          "kind": "text",
+          "text": "Developers collect skills faster than they can prove them. CodeCred started as a way to issue verifiable, shareable certifications that employers can actually trust.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 2
+        },
+        {
+          "id": "fb-3",
+          "kind": "heading",
+          "text": "What I built",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 3
+        },
+        {
+          "id": "fb-4",
+          "kind": "text",
+          "text": "I designed and shipped the full platform: assessment engine, certificate issuing with public verification pages, and the payment flow.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 4
+        }
+      ]
+    },
+    {
+      "id": "9885ef31-83b6-4966-b61a-a69e86339e55",
+      "title": "BASE404",
+      "description": "Online coding bootcamp",
+      "url": "https://base-404.com/",
+      "display_url": "base-404.com",
+      "slug": "base404",
+      "tech": "Laravel, Vue.js, MySQL",
+      "cover_image_url": "",
+      "featured": true,
+      "sort_order": 2,
+      "published": true,
+      "blocks": []
+    },
+    {
+      "id": "5534ad9c-fd22-4200-b09b-53156759dc08",
+      "title": "DIIN.PH",
+      "description": "AI-powered wardrobe assistant",
+      "url": "https://diin.ph/",
+      "display_url": "diin.ph",
+      "slug": "diin-ph",
+      "tech": "Next.js, Python, OpenAI",
+      "cover_image_url": "",
+      "featured": true,
+      "sort_order": 3,
+      "published": true,
+      "blocks": []
+    },
+    {
+      "id": "146972ca-af7a-45cc-a620-83cac532ac68",
+      "title": "DYNAMIS Workout Tracker",
+      "description": "AI-powered workout tracker",
+      "url": "https://dynamis-app.online/",
+      "display_url": "dynamis-app.online",
+      "slug": "dynamis",
+      "tech": "React, Node.js, MongoDB",
+      "cover_image_url": "",
+      "featured": true,
+      "sort_order": 4,
+      "published": true,
+      "blocks": []
+    }
+  ],
+  "experiences": [
+    {
+      "id": "d12f70e3-696f-448e-8a71-c4ab027a8351",
+      "title": "AI Engineer",
+      "organization": "Standard Chartered",
+      "year_label": "2025",
+      "is_current": true,
+      "sort_order": 1
+    },
+    {
+      "id": "8d40e7ca-0970-4ff8-815c-36942f1a89cc",
+      "title": "AI Ops Engineer",
+      "organization": "Centre of Excellence for GenAI, Cambridge",
+      "year_label": "2025",
+      "is_current": false,
+      "sort_order": 2
+    },
+    {
+      "id": "18d35fe5-3efa-4689-9db6-41742214c454",
+      "title": "Senior Full-Stack Developer",
+      "organization": "Core Technology, Cambridge",
+      "year_label": "2024",
+      "is_current": false,
+      "sort_order": 3
+    },
+    {
+      "id": "f336bb73-c7ae-4c48-84d6-7c9738352902",
+      "title": "Software Engineering Lead",
+      "organization": "PocketDevs",
+      "year_label": "2022",
+      "is_current": false,
+      "sort_order": 4
+    },
+    {
+      "id": "a2da183b-290b-407f-84f3-9cd76179c6ba",
+      "title": "Lead Application Developer",
+      "organization": "Bluewind Asia",
+      "year_label": "2021",
+      "is_current": false,
+      "sort_order": 5
+    },
+    {
+      "id": "8a60e00b-f50b-4779-a132-a8d9dcb2e02d",
+      "title": "Software Engineer",
+      "organization": "GCM",
+      "year_label": "2020",
+      "is_current": false,
+      "sort_order": 6
+    },
+    {
+      "id": "cec51541-d431-42fd-9167-f3014742d59a",
+      "title": "BS Information Technology",
+      "organization": "University of San Carlos",
+      "year_label": "2019",
+      "is_current": false,
+      "sort_order": 7
+    },
+    {
+      "id": "59b5d054-ddaf-4c38-84c2-2211582917ee",
+      "title": "Hello World! 👋🏻",
+      "organization": "Wrote my first line of code",
+      "year_label": "2015",
+      "is_current": false,
+      "sort_order": 8
+    }
+  ],
+  "certs": [
+    {
+      "id": "6d4fc348-3dc3-4ef7-81e8-a60d67d81f95",
+      "title": "Huawei Developer Expert",
+      "issuer": "Huawei",
+      "url": "",
+      "featured": true,
+      "sort_order": 1
+    },
+    {
+      "id": "9a9c262c-97e9-482a-92a3-4c33aae2a88d",
+      "title": "Generative AI Leader",
+      "issuer": "Google",
+      "url": "https://www.credly.com/badges/d4ea07f0-f7f1-4889-8b15-2a0ec22850ff/public_url",
+      "featured": true,
+      "sort_order": 2
+    },
+    {
+      "id": "e7d88702-d95c-4780-a928-f24a8c74114c",
+      "title": "Software Engineering",
+      "issuer": "TestDome",
+      "url": "https://app.testdome.com/cert/e802401d0f874e78b3e4bceff900c52f",
+      "featured": true,
+      "sort_order": 3
+    },
+    {
+      "id": "0b4bf0bb-4347-4c1c-bd6c-88c846733a56",
+      "title": "Generative AI Professional",
+      "issuer": "Oracle",
+      "url": "https://catalog-education.oracle.com/pls/certview/sharebadge?id=F0EB18EE68E7EB1AD69624684FB5B8ABB18AC8852C247882BE5DF4E51D7AAB07",
+      "featured": true,
+      "sort_order": 4
+    }
+  ],
+  "memberships": [
+    {
+      "id": "9a7b8637-60e4-42da-b4c8-bba0852fca25",
+      "name": "Analytics & Artificial Intelligence Association of the Philippines (AAP)",
+      "url": "https://www.aap.ph/",
+      "sort_order": 1
+    },
+    {
+      "id": "6d845e33-5c29-4027-a14d-58486ef7144d",
+      "name": "Philippine Software Industry Association",
+      "url": "https://www.psia.org.ph/",
+      "sort_order": 2
+    }
+  ],
+  "socials": [
+    {
+      "id": "1b31e7fc-fa81-408b-a8ac-cc4ea67c5142",
+      "platform": "LinkedIn",
+      "url": "https://linkedin.com/in/bryllim",
+      "sort_order": 1
+    },
+    {
+      "id": "af1efcc0-7019-48ed-8c2b-89fa994f2846",
+      "platform": "GitHub",
+      "url": "https://github.com/bryllim",
+      "sort_order": 2
+    },
+    {
+      "id": "033fa549-440e-4fe8-8452-b98587c18c18",
+      "platform": "Instagram",
+      "url": "https://www.instagram.com/bryl.lim/",
+      "sort_order": 3
+    }
+  ],
+  "gallery": [],
+  "highlights": [
+    {
+      "id": "25a6ab2f-c736-4fea-afe0-3d2433a894ae",
+      "kind": "access_card",
+      "title": "DEVS ONE HUNDRED",
+      "subtitle": "Founding Member",
+      "member_name": "BRYL",
+      "image_url": "",
+      "link_url": "",
+      "sort_order": 1
+    }
+  ]
+}
