@@ -704,7 +704,7 @@ function BentoEditor() {
         </button>
         <button className="glass-btn text-sm" onClick={reset}>Reset to default</button>
       </div>
-      <p className="text-xs text-zinc-400 dark:text-zinc-500">Changes appear on the public site within 60 seconds.</p>
+      <p className="text-xs text-zinc-400 dark:text-zinc-500 text-center">Changes appear on the public site within 60 seconds.</p>
     </div>
   );
 }
