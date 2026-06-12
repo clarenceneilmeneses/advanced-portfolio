@@ -241,6 +241,26 @@ export function Certifications({ items, full = false }) {
 
 const SOCIAL_ICONS = { linkedin: Linkedin, github: Github, instagram: Instagram };
 
+export function MembershipCard({ m }) {
+  return (
+    <a href={m.url || '#'} target="_blank" rel="noreferrer"
+      className="glass-card flex items-start justify-between gap-2 text-sm px-3 py-2.5">
+      <span className="font-medium">{m.name}</span>
+      <ExternalLink size={12} className="text-zinc-400 mt-0.5 flex-shrink-0" />
+    </a>
+  );
+}
+
+export function SocialLinkCard({ s }) {
+  const Icon = SOCIAL_ICONS[s.platform?.toLowerCase()] || LinkIcon;
+  return (
+    <a href={s.url} target="_blank" rel="noreferrer"
+      className="glass-card flex items-center gap-2 text-sm px-3 py-2.5">
+      <Icon size={15} /> {s.platform}
+    </a>
+  );
+}
+
 export function FooterGrid({ profile, memberships, socials }) {
   const p = profile || {};
   return (
@@ -249,30 +269,16 @@ export function FooterGrid({ profile, memberships, socials }) {
         <h3 className="font-semibold text-sm mb-3">A member of</h3>
         <ul className="space-y-2">
           {memberships.map((m) => (
-            <li key={m.id}>
-              <a href={m.url || '#'} target="_blank" rel="noreferrer"
-                className="glass-card flex items-start justify-between gap-2 text-sm px-3 py-2.5">
-                <span className="font-medium">{m.name}</span>
-                <ExternalLink size={12} className="text-zinc-400 mt-0.5 flex-shrink-0" />
-              </a>
-            </li>
+            <li key={m.id}><MembershipCard m={m} /></li>
           ))}
         </ul>
       </div>
       <div>
         <h3 className="font-semibold text-sm mb-3">Social Links</h3>
         <ul className="space-y-2">
-          {socials.map((s) => {
-            const Icon = SOCIAL_ICONS[s.platform.toLowerCase()] || LinkIcon;
-            return (
-              <li key={s.id}>
-                <a href={s.url} target="_blank" rel="noreferrer"
-                  className="glass-card flex items-center gap-2 text-sm px-3 py-2.5">
-                  <Icon size={15} /> {s.platform}
-                </a>
-              </li>
-            );
-          })}
+          {socials.map((s) => (
+            <li key={s.id}><SocialLinkCard s={s} /></li>
+          ))}
         </ul>
       </div>
       <div>

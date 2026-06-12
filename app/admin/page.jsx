@@ -22,6 +22,11 @@ import { CSS } from '@dnd-kit/utilities';
 import GridLayout from 'react-grid-layout/legacy';
 import ThemeToggle from '@/components/ThemeToggle';
 import {
+  Header, About, Highlights, Experience, TechStack, Projects, Certifications,
+  MembershipCard, SocialLinkCard,
+} from '@/components/sections';
+import Gallery from '@/components/Gallery';
+import {
   LogOut, Plus, Trash2, Save, Loader2, Upload, ExternalLink,
   Check, GripVertical, Eye, EyeOff, LayoutDashboard,
 } from 'lucide-react';
@@ -271,6 +276,37 @@ function ImageField({ field, value, onChange }) {
 }
 
 // ---------------------------------------------------------------------------
+// Live preview — renders the real public components with the in-progress data
+// ---------------------------------------------------------------------------
+const PREVIEW_RENDERERS = {
+  tech_stack: (row) => <TechStack items={[row]} full />,
+  projects: (row) => <Projects items={[row]} full />,
+  experiences: (row) => <Experience items={[row]} />,
+  certifications: (row) => <Certifications items={[row]} full />,
+  highlights: (row) => <Highlights items={[row]} />,
+  memberships: (row) => <MembershipCard m={row} />,
+  social_links: (row) => <SocialLinkCard s={row} />,
+  gallery: (row) => <Gallery items={[row]} />,
+};
+
+function PreviewBox({ children }) {
+  return (
+    <div>
+      <p className="text-xs font-medium text-zinc-500 dark:text-zinc-400 mb-1.5">Live preview</p>
+      <div className="portfolio-bg rounded-xl p-4 pointer-events-none select-none ring-1 ring-black/5 dark:ring-white/10">
+        {children}
+      </div>
+    </div>
+  );
+}
+
+function LivePreview({ collectionKey, row }) {
+  const render = PREVIEW_RENDERERS[collectionKey];
+  if (!render) return null;
+  return <PreviewBox>{render(row)}</PreviewBox>;
+}
+
+// ---------------------------------------------------------------------------
 // Generic collection editor — with drag-and-drop reordering
 // ---------------------------------------------------------------------------
 function CollectionEditor({ config }) {
@@ -395,6 +431,7 @@ function CollectionEditor({ config }) {
                           <Field key={f.name} field={f} value={row[f.name]}
                             onChange={(v) => update(row.id, f.name, v)} />
                         ))}
+                        <LivePreview collectionKey={config.key} row={row} />
                         <div className="flex items-center gap-2 pt-1">
                           <button className="glass-btn glass-btn-primary" onClick={() => save(row)} disabled={saving}>
                             {saving ? <Loader2 size={14} className="animate-spin" /> : <Save size={14} />} Save
@@ -749,16 +786,26 @@ function ProfileEditor() {
   );
 
   return (
-    <div className="space-y-4 max-w-xl">
-      {PROFILE_FIELDS.map((f) => (
-        <Field key={f.name} field={f} value={row[f.name]}
-          onChange={(v) => setRow((r) => ({ ...r, [f.name]: v }))} />
-      ))}
-      {error && <p className="text-sm text-red-500">{error}</p>}
-      <button className="glass-btn glass-btn-primary" onClick={save} disabled={saving}>
-        {saving ? <Loader2 size={14} className="animate-spin" /> : saved ? <Check size={14} /> : <Save size={14} />}
-        {saved ? 'Saved!' : 'Save profile'}
-      </button>
+    <div className="grid lg:grid-cols-2 gap-6 items-start">
+      <div className="space-y-4">
+        {PROFILE_FIELDS.map((f) => (
+          <Field key={f.name} field={f} value={row[f.name]}
+            onChange={(v) => setRow((r) => ({ ...r, [f.name]: v }))} />
+        ))}
+        {error && <p className="text-sm text-red-500">{error}</p>}
+        <button className="glass-btn glass-btn-primary" onClick={save} disabled={saving}>
+          {saving ? <Loader2 size={14} className="animate-spin" /> : saved ? <Check size={14} /> : <Save size={14} />}
+          {saved ? 'Saved!' : 'Save profile'}
+        </button>
+      </div>
+      <div className="lg:sticky lg:top-4">
+        <PreviewBox>
+          <div className="space-y-4">
+            <div className="glass-panel p-6"><Header profile={row} /></div>
+            <About profile={row} />
+          </div>
+        </PreviewBox>
+      </div>
     </div>
   );
 }
