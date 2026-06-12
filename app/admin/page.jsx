@@ -19,7 +19,7 @@ import {
   arrayMove,
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import GridLayout from 'react-grid-layout';
+import GridLayout from 'react-grid-layout/legacy';
 import ThemeToggle from '@/components/ThemeToggle';
 import {
   LogOut, Plus, Trash2, Save, Loader2, Upload, ExternalLink,
