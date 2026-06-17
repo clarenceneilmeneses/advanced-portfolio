@@ -264,7 +264,7 @@ export function SocialLinkCard({ s }) {
 export function FooterGrid({ profile, memberships, socials }) {
   const p = profile || {};
   return (
-    <section className="card p-6 grid md:grid-cols-4 gap-8">
+    <section className="card p-6 grid md:grid-cols-3 gap-8">
       <div>
         <h3 className="font-semibold text-sm mb-3">A member of</h3>
         <ul className="space-y-2">
@@ -281,22 +281,11 @@ export function FooterGrid({ profile, memberships, socials }) {
           ))}
         </ul>
       </div>
-      <div>
-        <h3 className="font-semibold text-sm mb-3">Speaking</h3>
-        <div className="glass-card p-3.5 text-sm text-zinc-600 dark:text-zinc-300">
-          <p>{p.speaking_text}</p>
-          {p.email && (
-            <a href={`mailto:${p.email}`} className="inline-flex items-center gap-1 font-medium mt-3 hover:text-zinc-900 dark:hover:text-white">
-              Get in touch <ChevronRight size={13} />
-            </a>
-          )}
-        </div>
-      </div>
       <div className="space-y-2">
         {p.email && (
           <a href={`mailto:${p.email}`} className="block text-sm border-b border-zinc-100 dark:border-zinc-800 pb-2.5">
             <span className="flex items-center gap-1.5 text-zinc-500"><Mail size={13} /> Email</span>
-            <span className="font-medium">{p.email}</span>
+            <span className="font-medium break-all">{p.email}</span>
           </a>
         )}
         {p.calendly_url && (

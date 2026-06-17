@@ -1,3 +1,7 @@
 node_modules
 .next
+.env
 .env*.local
+
+# Local working artifacts (raw export of the old MongoDB — contains personal data)
+old-portfolio-dump.json
