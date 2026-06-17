@@ -25,19 +25,20 @@
     -webkit-backdrop-filter: blur(32px) saturate(180%) brightness(1.01);
     border: 1.5px solid transparent;
     background:
-      rgba(255,255,255,0.82) padding-box,
+      rgba(255,255,255,0.88) padding-box,
       linear-gradient(145deg,
-        rgba(255,255,255,0.98) 0%,
-        rgba(255,255,255,0.58) 28%,
-        rgba(255,255,255,0.16) 62%,
-        rgba(255,255,255,0.62) 100%
+        rgba(255,255,255,1) 0%,
+        rgba(24,24,38,0.09) 30%,
+        rgba(24,24,38,0.14) 62%,
+        rgba(255,255,255,0.85) 100%
       ) border-box;
     box-shadow:
-      inset 0 2px 0 rgba(255,255,255,0.98),
-      inset 1.5px 0 0 rgba(255,255,255,0.65),
-      inset 0 -1px 0 rgba(0,0,0,0.04),
-      0 4px 20px -4px rgba(0,0,0,0.10),
-      0 1px 6px -1px rgba(0,0,0,0.06);
+      inset 0 2px 0 rgba(255,255,255,1),
+      inset 1.5px 0 0 rgba(255,255,255,0.70),
+      inset 0 -1px 0 rgba(24,24,38,0.05),
+      0 1px 2px rgba(24,24,38,0.04),
+      0 8px 24px -8px rgba(24,24,38,0.12),
+      0 24px 48px -20px rgba(24,24,38,0.10);
   }
   .section-title {
     @apply text-lg font-bold tracking-tight;
@@ -47,17 +48,19 @@
     @apply inline-flex items-center text-sm px-2.5 py-1 rounded-md text-zinc-700 dark:text-zinc-200;
     border: 1px solid transparent;
     background:
-      rgba(255,255,255,0.72) padding-box,
-      linear-gradient(145deg, rgba(255,255,255,0.96), rgba(255,255,255,0.38) 55%, rgba(255,255,255,0.62)) border-box;
+      rgba(255,255,255,0.85) padding-box,
+      linear-gradient(145deg, rgba(255,255,255,1), rgba(24,24,38,0.12) 55%, rgba(255,255,255,0.80)) border-box;
     backdrop-filter: blur(8px) saturate(160%);
     -webkit-backdrop-filter: blur(8px) saturate(160%);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.92);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.95),
+      0 1px 3px -1px rgba(24,24,38,0.08);
     transition: box-shadow 0.2s, transform 0.2s;
   }
   .chip:hover {
     box-shadow:
-      inset 0 1px 0 rgba(255,255,255,0.95),
-      0 4px 14px -3px rgba(0,0,0,0.14);
+      inset 0 1px 0 rgba(255,255,255,0.98),
+      0 4px 14px -3px rgba(24,24,38,0.16);
     transform: translateY(-1px);
   }
   .input {
@@ -80,6 +83,31 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ─── Page accent colour (profile.accent_color) ─────────────────────────────── */
+/* When set, --accent / --accent-contrast are applied to <main> and recolour the
+   primary CTA, the achievement badge, links and text selection. */
+.accent-on .btn-primary,
+.accent-on .btn-primary:hover {
+  background: var(--accent) !important;
+  color: var(--accent-contrast) !important;
+}
+.accent-on .btn-primary:hover { filter: brightness(1.08); }
+
+.accent-on .badge-accent,
+.accent-on .badge-accent:hover {
+  background: var(--accent) !important;
+  color: var(--accent-contrast) !important;
+}
+.accent-on .badge-accent:hover { filter: brightness(1.08); }
+
+.accent-on ::selection { background: var(--accent); color: var(--accent-contrast); }
+
+/* Links tint to the accent on hover; flagged icons/dots take the accent solid. */
+.accent-on .accent-link:hover,
+.accent-on .accent-link:hover * { color: var(--accent); }
+.accent-on .accent-ink { color: var(--accent); }
+.accent-on .accent-bg { background: var(--accent) !important; }
 
 /* ─── Public card + chip dark-mode overrides (must live outside @layer) ─────── */
 
@@ -116,7 +144,11 @@
 /* ─── Public portfolio background — iOS system palette ──────────────────────── */
 
 .portfolio-bg {
-  background: #f2f2f7; /* iOS systemGroupedBackground */
+  background:
+    radial-gradient(1100px 650px at 85% -10%, rgba(99,102,241,0.06), transparent 60%),
+    radial-gradient(900px 600px at -10% 25%, rgba(56,130,246,0.05), transparent 55%),
+    linear-gradient(180deg, #f4f4f9 0%, #e9e9f1 100%);
+  background-attachment: fixed;
 }
 .dark .portfolio-bg {
   background: #000000; /* iOS dark systemBackground */
@@ -126,7 +158,11 @@
 
 .admin-bg {
   min-height: 100vh;
-  background: #f2f2f7; /* iOS systemGroupedBackground */
+  background:
+    radial-gradient(1100px 650px at 85% -10%, rgba(99,102,241,0.06), transparent 60%),
+    radial-gradient(900px 600px at -10% 25%, rgba(56,130,246,0.05), transparent 55%),
+    linear-gradient(180deg, #f4f4f9 0%, #e9e9f1 100%);
+  background-attachment: fixed;
 }
 .dark .admin-bg {
   background: #000000; /* iOS dark systemBackground */
@@ -139,19 +175,20 @@
   border-radius: 1.125rem;
   border: 1.5px solid transparent;
   background:
-    rgba(255,255,255,0.82) padding-box,
+    rgba(255,255,255,0.88) padding-box,
     linear-gradient(145deg,
-      rgba(255,255,255,0.98) 0%,
-      rgba(255,255,255,0.58) 28%,
-      rgba(255,255,255,0.16) 62%,
-      rgba(255,255,255,0.62) 100%
+      rgba(255,255,255,1) 0%,
+      rgba(24,24,38,0.09) 30%,
+      rgba(24,24,38,0.14) 62%,
+      rgba(255,255,255,0.85) 100%
     ) border-box;
   box-shadow:
-    inset 0 2px 0 rgba(255,255,255,0.98),
-    inset 1.5px 0 0 rgba(255,255,255,0.65),
-    inset 0 -1px 0 rgba(0,0,0,0.04),
-    0 4px 20px -4px rgba(0,0,0,0.10),
-    0 1px 6px -1px rgba(0,0,0,0.06);
+    inset 0 2px 0 rgba(255,255,255,1),
+    inset 1.5px 0 0 rgba(255,255,255,0.70),
+    inset 0 -1px 0 rgba(24,24,38,0.05),
+    0 1px 2px rgba(24,24,38,0.04),
+    0 8px 24px -8px rgba(24,24,38,0.12),
+    0 24px 48px -20px rgba(24,24,38,0.10);
 }
 .dark .glass-panel {
   background:
@@ -177,18 +214,19 @@
   border-radius: 0.875rem;
   border: 1.5px solid transparent;
   background:
-    rgba(255,255,255,0.78) padding-box,
+    rgba(255,255,255,0.85) padding-box,
     linear-gradient(145deg,
-      rgba(255,255,255,0.97) 0%,
-      rgba(255,255,255,0.50) 32%,
-      rgba(255,255,255,0.14) 65%,
-      rgba(255,255,255,0.54) 100%
+      rgba(255,255,255,1) 0%,
+      rgba(24,24,38,0.08) 34%,
+      rgba(24,24,38,0.13) 65%,
+      rgba(255,255,255,0.80) 100%
     ) border-box;
   box-shadow:
-    inset 0 1.5px 0 rgba(255,255,255,0.98),
-    inset 1px 0 0 rgba(255,255,255,0.55),
-    inset 0 -1px 0 rgba(0,0,0,0.03),
-    0 1px 6px -1px rgba(0,0,0,0.06);
+    inset 0 1.5px 0 rgba(255,255,255,1),
+    inset 1px 0 0 rgba(255,255,255,0.60),
+    inset 0 -1px 0 rgba(24,24,38,0.04),
+    0 1px 2px rgba(24,24,38,0.04),
+    0 4px 14px -4px rgba(24,24,38,0.10);
   transition: box-shadow 0.2s, transform 0.2s;
 }
 .dark .glass-card {
@@ -208,9 +246,10 @@
 }
 .glass-card:hover {
   box-shadow:
-    inset 0 1.5px 0 rgba(255,255,255,0.95),
-    inset 1px 0 0 rgba(255,255,255,0.50),
-    0 6px 28px -4px rgba(0,0,0,0.16);
+    inset 0 1.5px 0 rgba(255,255,255,1),
+    inset 1px 0 0 rgba(255,255,255,0.60),
+    0 2px 4px rgba(24,24,38,0.05),
+    0 10px 32px -6px rgba(24,24,38,0.16);
   transform: translateY(-1px);
 }
 .dark .glass-card:hover {
@@ -226,9 +265,9 @@
   border-radius: 0.75rem;
   border: 1px solid transparent;
   background:
-    rgba(255,255,255,0.50) padding-box,
-    linear-gradient(145deg, rgba(255,255,255,0.80), rgba(255,255,255,0.28) 50%, rgba(255,255,255,0.52)) border-box;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.90);
+    rgba(255,255,255,0.55) padding-box,
+    linear-gradient(145deg, rgba(255,255,255,0.95), rgba(24,24,38,0.09) 50%, rgba(255,255,255,0.70)) border-box;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.92);
 }
 .dark .glass-inner {
   background:
@@ -246,11 +285,11 @@
   border-radius: 0.625rem;
   border: 1px solid transparent;
   background:
-    rgba(255,255,255,0.68) padding-box,
-    linear-gradient(145deg, rgba(255,255,255,0.96), rgba(255,255,255,0.42) 55%, rgba(255,255,255,0.65)) border-box;
+    rgba(255,255,255,0.78) padding-box,
+    linear-gradient(145deg, rgba(255,255,255,0.98), rgba(24,24,38,0.14) 55%, rgba(255,255,255,0.78)) border-box;
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.92),
-    inset 0 1px 3px rgba(0,0,0,0.04);
+    inset 0 1px 0 rgba(255,255,255,0.95),
+    inset 0 1px 3px rgba(24,24,38,0.05);
   color: rgba(0, 0, 0, 0.88);
   outline: none;
   transition: box-shadow 0.15s, background 0.15s;
@@ -287,11 +326,11 @@
   border-radius: 0.75rem;
   border: 1px solid transparent;
   background:
-    rgba(255,255,255,0.80) padding-box,
-    linear-gradient(145deg, rgba(255,255,255,0.97), rgba(255,255,255,0.44) 50%, rgba(255,255,255,0.70)) border-box;
+    rgba(255,255,255,0.88) padding-box,
+    linear-gradient(145deg, rgba(255,255,255,1), rgba(24,24,38,0.12) 50%, rgba(255,255,255,0.82)) border-box;
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.98),
-    0 1px 4px rgba(0,0,0,0.06);
+    inset 0 1px 0 rgba(255,255,255,1),
+    0 1px 4px rgba(24,24,38,0.07);
   cursor: pointer;
   transition: all 0.15s;
   color: inherit;
@@ -301,11 +340,11 @@
 }
 .glass-btn:hover:not(:disabled) {
   background:
-    rgba(255,255,255,0.95) padding-box,
-    linear-gradient(145deg, rgba(255,255,255,0.99), rgba(255,255,255,0.62) 50%, rgba(255,255,255,0.88)) border-box;
+    rgba(255,255,255,0.97) padding-box,
+    linear-gradient(145deg, rgba(255,255,255,1), rgba(24,24,38,0.16) 50%, rgba(255,255,255,0.90)) border-box;
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.99),
-    0 3px 12px rgba(0,0,0,0.09);
+    inset 0 1px 0 rgba(255,255,255,1),
+    0 3px 12px rgba(24,24,38,0.11);
   transform: translateY(-1px);
 }
 .glass-btn:active:not(:disabled) { transform: translateY(0); }
@@ -446,13 +485,21 @@
 
 /* ─── Public bento grid ─────────────────────────────────────────────────────── */
 
-.bento-grid {
+/* Masonry: 4 columns, fine implicit rows; each cell spans rows to its content
+   height (set inline) so columns pack independently with no gaps or voids. */
+.bento-masonry {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
+  grid-auto-flow: row dense;
 }
 @media (max-width: 639px) {
-  .bento-grid > div {
+  /* Single column on phones — natural heights, normal vertical gap. */
+  .bento-masonry {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .bento-cell {
     grid-column: 1 / -1 !important;
     grid-row: auto !important;
   }

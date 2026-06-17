@@ -7,7 +7,7 @@ import ThemeToggle from './ThemeToggle';
 
 export function ViewAll({ href }) {
   return (
-    <Link href={href} className="flex items-center gap-0.5 text-sm text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100">
+    <Link href={href} className="accent-link flex items-center gap-0.5 text-sm text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100">
       View All <ChevronRight size={14} />
     </Link>
   );
@@ -30,7 +30,7 @@ export function Header({ profile }) {
           <div className="flex items-center justify-between gap-2">
             <h1 className="text-lg md:text-2xl font-bold truncate flex items-center gap-1.5">
               {p.name}
-              {p.verified && <BadgeCheck size={20} className="text-blue-500 flex-shrink-0" fill="currentColor" stroke="white" />}
+              {p.verified && <BadgeCheck size={20} className="accent-ink text-blue-500 flex-shrink-0" fill="currentColor" stroke="white" />}
             </h1>
             <ThemeToggle />
           </div>
@@ -43,7 +43,7 @@ export function Header({ profile }) {
             {p.headline && <p className="text-sm md:text-base font-medium">{p.headline}</p>}
             {p.badge_text && (
               <a href={p.badge_url || '#'} target="_blank" rel="noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-medium text-white bg-zinc-900 hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200 px-3 py-1.5 rounded-md">
+                className="badge-accent inline-flex items-center gap-1.5 text-xs font-medium text-white bg-zinc-900 hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200 px-3 py-1.5 rounded-md">
                 <Trophy size={13} /> {p.badge_text}
               </a>
             )}
@@ -118,8 +118,10 @@ function AccessCard({ h }) {
     >
       <Terminal size={28} className="mb-10 opacity-90" />
       <p className="text-xl font-bold tracking-wide">{h.title}</p>
-      <p className="text-[10px] uppercase tracking-[0.2em] text-white/60 mt-1">Access Card</p>
-      <div className="flex items-end justify-between mt-10">
+      {!h.hide_label && (
+        <p className="text-[10px] uppercase tracking-[0.2em] text-white/60 mt-1">Access Card</p>
+      )}
+      <div className={`flex items-end justify-between ${h.hide_label ? 'mt-6' : 'mt-10'}`}>
         <div>
           <p className="text-[10px] uppercase tracking-[0.2em] text-white/60">{h.subtitle}</p>
           <p className="text-sm font-semibold mt-1">{h.member_name}</p>
@@ -154,7 +156,7 @@ export function Experience({ items }) {
       <ol className="relative border-l border-zinc-200 dark:border-zinc-800 ml-1.5 space-y-6">
         {items.map((e) => (
           <li key={e.id} className="pl-5 relative">
-            <span className={`absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-sm ${e.is_current ? 'bg-zinc-900 dark:bg-zinc-100' : 'bg-zinc-200 dark:bg-zinc-700 border border-zinc-300 dark:border-zinc-600'}`} />
+            <span className={`absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-sm ${e.is_current ? 'accent-bg bg-zinc-900 dark:bg-zinc-100' : 'bg-zinc-200 dark:bg-zinc-700 border border-zinc-300 dark:border-zinc-600'}`} />
             <div className="flex items-start justify-between gap-3">
               <div>
                 <p className="font-semibold text-[15px]">{e.title}</p>
@@ -210,7 +212,7 @@ export function Projects({ items, full = false }) {
             <div key={p.id} className="glass-card relative p-4">
               <div className="flex items-start justify-between gap-2">
                 {hasStory ? (
-                  <Link href={`/projects/${p.slug}`} className="font-semibold after:absolute after:inset-0">
+                  <Link href={`/projects/${p.slug}`} className="accent-link font-semibold after:absolute after:inset-0">
                     {p.title}
                   </Link>
                 ) : (
@@ -222,7 +224,7 @@ export function Projects({ items, full = false }) {
               <div className="flex items-center gap-2 mt-3">
                 {p.url && (
                   <a href={p.url} target="_blank" rel="noreferrer"
-                    className="relative z-10 inline-flex items-center gap-1 font-mono text-xs px-2 py-1 glass-card text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white">
+                    className="accent-link relative z-10 inline-flex items-center gap-1 font-mono text-xs px-2 py-1 glass-card text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white">
                     {p.display_url || p.url.replace(/^https?:\/\//, '').replace(/\/$/, '')}
                   </a>
                 )}
@@ -271,7 +273,7 @@ const SOCIAL_ICONS = { linkedin: Linkedin, github: Github, instagram: Instagram 
 export function MembershipCard({ m }) {
   return (
     <a href={m.url || '#'} target="_blank" rel="noreferrer"
-      className="glass-card flex items-start justify-between gap-2 text-sm px-3 py-2.5">
+      className="accent-link glass-card flex items-start justify-between gap-2 text-sm px-3 py-2.5">
       <span className="font-medium">{m.name}</span>
       <ExternalLink size={12} className="text-zinc-400 mt-0.5 flex-shrink-0" />
     </a>
@@ -282,7 +284,7 @@ export function SocialLinkCard({ s }) {
   const Icon = SOCIAL_ICONS[s.platform?.toLowerCase()] || LinkIcon;
   return (
     <a href={s.url} target="_blank" rel="noreferrer"
-      className="glass-card flex items-center gap-2 text-sm px-3 py-2.5">
+      className="accent-link glass-card flex items-center gap-2 text-sm px-3 py-2.5">
       <Icon size={15} /> {s.platform}
     </a>
   );
@@ -310,13 +312,13 @@ export function FooterGrid({ profile, memberships, socials }) {
       </div>
       <div className="space-y-2">
         {p.email && (
-          <a href={`mailto:${p.email}`} className="block text-sm border-b border-zinc-100 dark:border-zinc-800 pb-2.5">
+          <a href={`mailto:${p.email}`} className="accent-link block text-sm border-b border-zinc-100 dark:border-zinc-800 pb-2.5">
             <span className="flex items-center gap-1.5 text-zinc-500"><Mail size={13} /> Email</span>
             <span className="font-medium break-all">{p.email}</span>
           </a>
         )}
         {p.calendly_url && (
-          <a href={p.calendly_url} target="_blank" rel="noreferrer" className="flex items-center justify-between text-sm border-b border-zinc-100 dark:border-zinc-800 pb-2.5 hover:text-zinc-900 dark:hover:text-white">
+          <a href={p.calendly_url} target="_blank" rel="noreferrer" className="accent-link flex items-center justify-between text-sm border-b border-zinc-100 dark:border-zinc-800 pb-2.5 hover:text-zinc-900 dark:hover:text-white">
             <span>
               <span className="flex items-center gap-1.5 text-zinc-500"><Calendar size={13} /> Let&apos;s Talk</span>
               <span className="font-medium">Schedule a Call</span>
@@ -325,7 +327,7 @@ export function FooterGrid({ profile, memberships, socials }) {
           </a>
         )}
         {p.blog_url && (
-          <a href={p.blog_url} target="_blank" rel="noreferrer" className="flex items-center justify-between text-sm hover:text-zinc-900 dark:hover:text-white">
+          <a href={p.blog_url} target="_blank" rel="noreferrer" className="accent-link flex items-center justify-between text-sm hover:text-zinc-900 dark:hover:text-white">
             <span>
               <span className="flex items-center gap-1.5 text-zinc-500"><FileText size={13} /> Blog</span>
               <span className="font-medium">Read my blog</span>

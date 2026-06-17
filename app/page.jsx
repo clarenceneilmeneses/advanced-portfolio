@@ -1,6 +1,7 @@
 import { getPortfolioData } from '@/lib/publicData';
 import { Header, About, Highlights, Experience, TechStack, Projects, Certifications, FooterGrid } from '@/components/sections';
 import Gallery from '@/components/Gallery';
+import BentoGrid from '@/components/BentoGrid';
 import Link from 'next/link';
 
 // ISR: regenerated in the background at most once a minute.
@@ -37,6 +38,20 @@ const DEFAULT_LAYOUT = [
   { i: 'gallery',        x: 0, y: 7,  w: 4, h: 1, visible: true },
   { i: 'footer',         x: 0, y: 8,  w: 4, h: 1, visible: true },
 ];
+
+// Turn profile.accent_color into CSS variables for <main>. Picks a readable
+// text colour for elements painted with the accent. Returns null if unset/invalid.
+function accentStyle(hex) {
+  if (!hex) return null;
+  const m = hex.replace('#', '');
+  const n = m.length === 3 ? m.split('').map((c) => c + c).join('') : m;
+  if (!/^[0-9a-fA-F]{6}$/.test(n)) return null;
+  const r = parseInt(n.slice(0, 2), 16);
+  const g = parseInt(n.slice(2, 4), 16);
+  const b = parseInt(n.slice(4, 6), 16);
+  const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+  return { '--accent': `#${n}`, '--accent-contrast': luminance > 0.6 ? '#000000' : '#ffffff' };
+}
 
 function renderSection(key, data) {
   const { profile, tech, projects, experiences, certs, memberships, socials, gallery, highlights } = data;
@@ -112,27 +127,17 @@ export default async function Home() {
     .filter((s) => s.visible !== false)
     .sort((a, b) => a.y - b.y || a.x - b.x);
 
+  const accent = accentStyle(profile.accent_color);
+
   return (
-    <main className="max-w-5xl mx-auto px-4 py-8">
+    <main className={`max-w-5xl mx-auto px-4 py-8${accent ? ' accent-on' : ''}`} style={accent || undefined}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <div className="bento-grid">
-        {visibleItems.map((s) => {
-          const rendered = renderSection(s.i, data);
-          if (!rendered) return null;
-          return (
-            <div
-              key={s.i}
-              style={{
-                gridColumn: `${s.x + 1} / span ${s.w}`,
-                gridRow: `${s.y + 1} / span ${s.h}`,
-              }}
-            >
-              {rendered}
-            </div>
-          );
-        })}
-      </div>
+      <BentoGrid
+        items={visibleItems
+          .map((s) => ({ i: s.i, x: s.x, w: s.w, h: s.h, node: renderSection(s.i, data) }))
+          .filter((it) => it.node)}
+      />
 
       <footer className="text-center text-sm text-zinc-500 mt-12 pb-4 border-t border-zinc-200/60 dark:border-zinc-800/60 pt-6">
         © {new Date().getFullYear()} {profile.name}. All rights reserved.

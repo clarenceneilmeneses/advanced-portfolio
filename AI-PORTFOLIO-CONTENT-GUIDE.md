@@ -72,7 +72,8 @@ A good case study alternates `heading` → `text` → `image` → `text` …
 ```
 profile         (single row) — name, verified(bool), location, headline,
                   badge_text, badge_url, about (paragraphs sep. by blank lines),
-                  avatar_url, email, calendly_url, blog_url
+                  avatar_url, email, calendly_url, blog_url,
+                  accent_color (hex page accent, '' = default theme)
 tech_stack      — category, name, sort_order        (one row per skill)
 experiences     — title, organization, year_label, is_current(bool), sort_order
 certifications  — title, issuer, url, featured(bool), sort_order
@@ -82,6 +83,7 @@ gallery         — image_url, caption, sort_order
 highlights      — kind ('image' | 'access_card'), title, subtitle,
                   member_name, image_url (access_card: a logo, replaces the QR),
                   card_color (access_card: hex bg, '' = default dark),
+                  hide_label (access_card bool: hide the "ACCESS CARD" label),
                   link_url, sort_order
 ```
 

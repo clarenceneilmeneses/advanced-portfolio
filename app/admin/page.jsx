@@ -88,6 +88,7 @@ const COLLECTIONS = [
       { name: 'member_name', label: 'Member name (access card)' },
       { name: 'image_url', label: 'Logo / image (access card: replaces the QR)', type: 'image' },
       { name: 'card_color', label: 'Card color (access card)', type: 'color' },
+      { name: 'hide_label', label: 'Hide the "ACCESS CARD" label (access card)', type: 'bool' },
       { name: 'link_url', label: 'Link URL' },
       { name: 'sort_order', label: 'Order', type: 'number' },
     ],
@@ -130,7 +131,7 @@ const PROFILE_FIELDS = [
   { name: 'email', label: 'Email' },
   { name: 'calendly_url', label: 'Schedule a Call URL' },
   { name: 'blog_url', label: 'Blog URL' },
-  { name: 'speaking_text', label: 'Speaking blurb', type: 'textarea', rows: 3 },
+  { name: 'accent_color', label: 'Page accent color (blank = default theme)', type: 'color' },
 ];
 
 // ---------------------------------------------------------------------------
