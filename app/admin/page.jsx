@@ -185,7 +185,7 @@ function SortableWrapper({ id, children }) {
 // ---------------------------------------------------------------------------
 // Shared field input
 // ---------------------------------------------------------------------------
-function Field({ field, value, onChange }) {
+function Field({ field, value, onChange, onCommit }) {
   const id = `f-${field.name}`;
   if (field.type === 'bool') {
     return (
@@ -200,7 +200,7 @@ function Field({ field, value, onChange }) {
       </label>
     );
   }
-  if (field.type === 'image') return <ImageField field={field} value={value} onChange={onChange} />;
+  if (field.type === 'image') return <ImageField field={field} value={value} onChange={onChange} onCommit={onCommit} />;
   if (field.type === 'color') {
     return (
       <div>
@@ -258,19 +258,44 @@ function Field({ field, value, onChange }) {
   );
 }
 
-function ImageField({ field, value, onChange }) {
+// Best-effort delete of a previously-uploaded object in our `media` bucket so
+// replacing/removing an image doesn't leave orphaned duplicates behind.
+// Only touches files we uploaded — external/pasted URLs are left alone.
+async function removeStorageObject(url) {
+  if (!url) return;
+  const marker = '/media/';
+  const i = url.indexOf(marker);
+  if (i === -1) return;
+  const path = url.slice(i + marker.length);
+  if (!path) return;
+  try { await supabase.storage.from('media').remove([path]); } catch { /* ignore */ }
+}
+
+function ImageField({ field, value, onChange, onCommit }) {
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState('');
+  // `onCommit` (when provided) persists the value immediately — used by the
+  // blocks editor so an uploaded image is saved without a separate "Save" click.
+  const persisted = !!onCommit;
+  const commit = onCommit || onChange;
   async function upload(e) {
     const file = e.target.files?.[0];
+    e.target.value = ''; // reset so the same file can be re-selected later
     if (!file) return;
     setBusy(true); setErr('');
     const path = `${Date.now()}-${file.name.replace(/[^a-zA-Z0-9.\-_]/g, '_')}`;
     const { error } = await supabase.storage.from('media').upload(path, file);
     if (error) { setErr(error.message); setBusy(false); return; }
+    const prev = value;
     const { data } = supabase.storage.from('media').getPublicUrl(path);
-    onChange(data.publicUrl);
+    commit(data.publicUrl);
+    if (persisted) removeStorageObject(prev);
     setBusy(false);
+  }
+  function clear() {
+    const prev = value;
+    commit('');
+    if (persisted) removeStorageObject(prev);
   }
   return (
     <div>
@@ -288,7 +313,7 @@ function ImageField({ field, value, onChange }) {
           <input type="file" accept="image/*" className="hidden" onChange={upload} disabled={busy} />
         </label>
         {value && (
-          <button type="button" onClick={() => onChange('')}
+          <button type="button" onClick={clear}
             className="text-xs text-zinc-500 hover:text-red-500 transition-colors">
             Remove
           </button>
@@ -298,6 +323,7 @@ function ImageField({ field, value, onChange }) {
         className="glass-input mt-2" value={value ?? ''}
         placeholder="…or paste an image URL"
         onChange={(e) => onChange(e.target.value)}
+        onBlur={(e) => persisted && onCommit(e.target.value)}
       />
       {err && <p className="text-xs text-red-500 mt-1">{err}</p>}
     </div>
@@ -515,6 +541,14 @@ function BlocksEditor({ projectId, slug }) {
     setBlocks((bs) => bs.map((b) => (b.id === id ? { ...b, [name]: value } : b)));
   }
 
+  // Persist a single field immediately (used for image uploads so they save
+  // without a separate "Save block" click — the source of the disappearing-image bug).
+  async function commitField(id, name, value) {
+    setBlocks((bs) => bs.map((b) => (b.id === id ? { ...b, [name]: value } : b)));
+    const { error } = await supabase.from('project_blocks').update({ [name]: value }).eq('id', id);
+    if (error) setError(error.message);
+  }
+
   async function add(kind) {
     const { data, error } = await supabase.from('project_blocks')
       .insert({ project_id: projectId, kind, sort_order: (blocks?.length || 0) + 1 })
@@ -591,7 +625,8 @@ function BlocksEditor({ projectId, slug }) {
                       </div>
                       {BLOCK_FIELDS[b.kind].map((f) => (
                         <Field key={f.name} field={f} value={b[f.name]}
-                          onChange={(v) => update(b.id, f.name, v)} />
+                          onChange={(v) => update(b.id, f.name, v)}
+                          onCommit={(v) => commitField(b.id, f.name, v)} />
                       ))}
                       <button
                         className="glass-btn text-xs !py-1 !px-2.5"
