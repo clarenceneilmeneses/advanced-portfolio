@@ -80,7 +80,9 @@ memberships     — name, url, sort_order
 social_links    — platform, url, sort_order
 gallery         — image_url, caption, sort_order
 highlights      — kind ('image' | 'access_card'), title, subtitle,
-                  member_name, image_url, link_url, sort_order
+                  member_name, image_url (access_card: a logo, replaces the QR),
+                  card_color (access_card: hex bg, '' = default dark),
+                  link_url, sort_order
 ```
 
 `headline` uses ` \ ` as a visual separator, e.g. `Full-Stack Web Developer \ Data Analyst`.

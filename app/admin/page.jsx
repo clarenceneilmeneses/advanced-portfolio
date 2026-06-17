@@ -86,7 +86,8 @@ const COLLECTIONS = [
       { name: 'title', label: 'Title' },
       { name: 'subtitle', label: 'Subtitle (access card role line)' },
       { name: 'member_name', label: 'Member name (access card)' },
-      { name: 'image_url', label: 'Image', type: 'image' },
+      { name: 'image_url', label: 'Logo / image (access card: replaces the QR)', type: 'image' },
+      { name: 'card_color', label: 'Card color (access card)', type: 'color' },
       { name: 'link_url', label: 'Link URL' },
       { name: 'sort_order', label: 'Order', type: 'number' },
     ],
@@ -199,6 +200,33 @@ function Field({ field, value, onChange }) {
     );
   }
   if (field.type === 'image') return <ImageField field={field} value={value} onChange={onChange} />;
+  if (field.type === 'color') {
+    return (
+      <div>
+        <label htmlFor={id} className="block text-xs font-medium text-zinc-500 dark:text-zinc-400 mb-1">
+          {field.label}
+        </label>
+        <div className="flex items-center gap-3">
+          <input
+            id={id} type="color" value={value || '#18181b'}
+            onChange={(e) => onChange(e.target.value)}
+            className="h-9 w-12 rounded-lg cursor-pointer bg-transparent border border-zinc-200 dark:border-zinc-700"
+          />
+          <input
+            type="text" className="glass-input flex-1" value={value ?? ''}
+            placeholder={field.placeholder || 'e.g. #7a0c2e — leave blank for default'}
+            onChange={(e) => onChange(e.target.value)}
+          />
+          {value && (
+            <button type="button" onClick={() => onChange('')}
+              className="text-xs text-zinc-500 hover:text-red-500 transition-colors">
+              Reset
+            </button>
+          )}
+        </div>
+      </div>
+    );
+  }
   return (
     <div>
       <label htmlFor={id} className="block text-xs font-medium text-zinc-500 dark:text-zinc-400 mb-1">

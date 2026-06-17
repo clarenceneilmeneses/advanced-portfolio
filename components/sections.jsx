@@ -94,19 +94,46 @@ export function Highlights({ items }) {
   );
 }
 
+// Scale a #rgb / #rrggbb hex toward black (factor < 1). Returns an rgb() string,
+// or null if the input isn't a valid hex so we can fall back to the default look.
+function shade(hex, factor) {
+  if (!hex) return null;
+  const m = hex.replace('#', '');
+  const n = m.length === 3 ? m.split('').map((c) => c + c).join('') : m;
+  if (!/^[0-9a-fA-F]{6}$/.test(n)) return null;
+  const c = (i) => Math.round(parseInt(n.slice(i, i + 2), 16) * factor);
+  return `rgb(${c(0)}, ${c(2)}, ${c(4)})`;
+}
+
 function AccessCard({ h }) {
+  // A custom card_color renders as a tasteful dark gradient of that hue so the
+  // white text stays readable on any colour the user picks.
+  const tinted = shade(h.card_color, 0.9)
+    ? { background: `linear-gradient(135deg, ${shade(h.card_color, 0.9)}, ${shade(h.card_color, 0.5)}, ${shade(h.card_color, 0.3)})` }
+    : undefined;
   return (
-    <div className="rounded-2xl bg-gradient-to-br from-zinc-800 via-zinc-900 to-black text-white p-6 font-mono shadow-lg">
-      <Terminal size={28} className="mb-10" />
+    <div
+      className={`rounded-2xl text-white p-6 font-mono shadow-lg ${tinted ? '' : 'bg-gradient-to-br from-zinc-800 via-zinc-900 to-black'}`}
+      style={tinted}
+    >
+      <Terminal size={28} className="mb-10 opacity-90" />
       <p className="text-xl font-bold tracking-wide">{h.title}</p>
-      <p className="text-[10px] uppercase tracking-[0.2em] text-zinc-400 mt-1">Access Card</p>
+      <p className="text-[10px] uppercase tracking-[0.2em] text-white/60 mt-1">Access Card</p>
       <div className="flex items-end justify-between mt-10">
         <div>
-          <p className="text-[10px] uppercase tracking-[0.2em] text-zinc-500">{h.subtitle}</p>
+          <p className="text-[10px] uppercase tracking-[0.2em] text-white/60">{h.subtitle}</p>
           <p className="text-sm font-semibold mt-1">{h.member_name}</p>
-          <p className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 mt-6">Developer</p>
         </div>
-        <QrCode size={48} className="text-zinc-400" />
+        {h.image_url ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={h.image_url}
+            alt={h.title || 'Logo'}
+            className="w-14 h-14 rounded-lg object-contain bg-white/10 p-1.5"
+          />
+        ) : (
+          <QrCode size={48} className="text-white/50" />
+        )}
       </div>
     </div>
   );
