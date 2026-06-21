@@ -141,8 +141,6 @@ export default async function Home() {
 
       <footer className="text-center text-sm text-zinc-500 mt-12 pb-4 border-t border-zinc-200/60 dark:border-zinc-800/60 pt-6">
         © {new Date().getFullYear()} {profile.name}. All rights reserved.
-        {' · '}
-        <Link href="/admin" className="hover:text-zinc-900 dark:hover:text-zinc-200">Admin</Link>
       </footer>
     </main>
   );
