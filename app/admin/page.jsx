@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { supabase } from '@/lib/supabaseClient';
 import {
@@ -20,15 +20,19 @@ import {
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import GridLayout from 'react-grid-layout/legacy';
-import ThemeToggle from '@/components/ThemeToggle';
 import {
   Header, About, Highlights, Experience, TechStack, Projects, Certifications,
   MembershipCard, SocialLinkCard,
 } from '@/components/sections';
 import Gallery from '@/components/Gallery';
+import BentoGrid from '@/components/BentoGrid';
+import { DEFAULT_LAYOUT, accentStyle, renderSection } from '@/components/portfolioSections';
 import {
   LogOut, Plus, Trash2, Save, Loader2, Upload, ExternalLink,
-  Check, GripVertical, Eye, EyeOff, LayoutDashboard,
+  Check, GripVertical, EyeOff, LayoutDashboard, RefreshCw,
+  UserRound, LayoutGrid, Globe, Cpu, FolderKanban, Briefcase, Award,
+  Sparkles, Users, Share2, Image as ImageIcon,
+  Sun, Moon, PanelLeftClose, PanelLeftOpen,
 } from 'lucide-react';
 
 // ---------------------------------------------------------------------------
@@ -152,19 +156,6 @@ const PORTFOLIO_SECTIONS = [
 // Bento grid constants
 const BENTO_COLS = 4;
 const BENTO_ROW_HEIGHT = 130; // px per grid row unit in the admin editor
-
-// Default bento layout — mirrors the original 2-column portfolio design
-const DEFAULT_LAYOUT = [
-  { i: 'header',         x: 0, y: 0,  w: 4, h: 1, visible: true },
-  { i: 'about',          x: 0, y: 1,  w: 2, h: 2, visible: true },
-  { i: 'highlights',     x: 2, y: 1,  w: 2, h: 2, visible: true },
-  { i: 'tech_stack',     x: 0, y: 3,  w: 4, h: 1, visible: true },
-  { i: 'projects',       x: 0, y: 4,  w: 3, h: 2, visible: true },
-  { i: 'experience',     x: 3, y: 4,  w: 1, h: 2, visible: true },
-  { i: 'certifications', x: 0, y: 6,  w: 2, h: 1, visible: true },
-  { i: 'gallery',        x: 0, y: 7,  w: 4, h: 1, visible: true },
-  { i: 'footer',         x: 0, y: 8,  w: 4, h: 1, visible: true },
-];
 
 // ---------------------------------------------------------------------------
 // Sortable wrapper — render-prop gives children the drag-handle attributes
@@ -721,10 +712,11 @@ function BentoEditor() {
   }
 
   return (
-    <div className="space-y-4 max-w-2xl mx-auto">
+    <div className="xl:flex xl:items-start xl:gap-6">
+      <div className="space-y-4 max-w-2xl mx-auto xl:flex-1 xl:min-w-0">
       <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center">
-        Drag cards to rearrange. Pull any edge or corner handle to resize — other sections reflow automatically.
-        Click 👁 to hide a section from your public portfolio.
+        Drag cards to rearrange. Pull a side or bottom handle to resize — other sections reflow automatically.
+        Use the “Hide” button on a card to remove it from your public portfolio.
       </p>
 
       <div ref={gridRef} className="w-full">
@@ -736,7 +728,9 @@ function BentoEditor() {
           width={gridWidth}
           onLayoutChange={onLayoutChange}
           draggableHandle=".bento-grip"
-          resizeHandles={['s', 'e', 'se', 'sw', 'w', 'n', 'ne', 'nw']}
+          // No top handles — they'd sit on top of the drag strip and the Hide
+          // button (invisible 28px hit areas), making both a pain to click.
+          resizeHandles={['s', 'e', 'se', 'sw', 'w']}
           compactType="vertical"
           margin={[8, 8]}
           containerPadding={[8, 8]}
@@ -755,11 +749,13 @@ function BentoEditor() {
                   </span>
                   <button
                     onMouseDown={(e) => e.stopPropagation()}
+                    onTouchStart={(e) => e.stopPropagation()}
                     onClick={() => toggleVisibility(s.i)}
-                    className="flex-shrink-0 p-1 rounded-md hover:bg-black/10 dark:hover:bg-white/10 transition-colors"
-                    title="Hide section"
+                    className="relative z-20 flex-shrink-0 flex items-center gap-1 px-1.5 py-1 rounded-md text-[10px] font-medium text-zinc-500 dark:text-zinc-400 hover:bg-black/10 dark:hover:bg-white/10 hover:text-zinc-900 dark:hover:text-white transition-colors"
+                    title="Hide this section from the public site"
+                    aria-label={`Hide ${meta?.label || s.i}`}
                   >
-                    <Eye size={12} className="text-zinc-500 dark:text-zinc-400" />
+                    <EyeOff size={13} /> Hide
                   </button>
                 </div>
                 {/* Card body */}
@@ -806,6 +802,14 @@ function BentoEditor() {
         <button className="glass-btn text-sm" onClick={reset}>Reset to default</button>
       </div>
       <p className="text-xs text-zinc-400 dark:text-zinc-500 text-center">Changes appear on the public site within 60 seconds.</p>
+      </div>
+
+      {/* Live preview of the real homepage, driven by the in-progress layout.
+          Sits beside the editor on wide screens (sticky, own scrollbar) so
+          there's no scrolling back and forth; stacks below on smaller ones. */}
+      <div className="no-scrollbar mt-6 pt-5 border-t border-black/[0.07] dark:border-white/10 xl:mt-0 xl:pt-0 xl:border-0 xl:w-[46%] xl:flex-shrink-0 xl:sticky xl:top-6 xl:max-h-[calc(100vh-3rem)] xl:overflow-y-auto">
+        <SitePreview layout={layout} />
+      </div>
     </div>
   );
 }
@@ -875,6 +879,133 @@ function ProfileEditor() {
 }
 
 // ---------------------------------------------------------------------------
+// Scale-to-fit frame — renders children at a fixed desktop width, then
+// transform-scales them down to the container so the preview always shows the
+// homepage's real desktop arrangement, even in a narrow column.
+// ---------------------------------------------------------------------------
+function ScaledFrame({ width = 1024, children }) {
+  const outerRef = useRef(null);
+  const innerRef = useRef(null);
+  const [scale, setScale] = useState(1);
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    const outer = outerRef.current;
+    const inner = innerRef.current;
+    if (!outer || !inner) return;
+    // offsetWidth/offsetHeight ignore the transform, so this never feeds back.
+    const measure = () => {
+      const s = Math.min(1, outer.offsetWidth / width);
+      setScale(s);
+      setHeight(inner.offsetHeight * s);
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(outer);
+    ro.observe(inner);
+    return () => ro.disconnect();
+  }, [width]);
+
+  return (
+    <div ref={outerRef} style={{ height }} className="overflow-hidden">
+      <div ref={innerRef} style={{ width, transform: `scale(${scale})`, transformOrigin: 'top left' }}>
+        {children}
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Full-site preview — the real homepage (BentoGrid + public components),
+// rendered from the latest saved content. When the layout editor passes its
+// in-progress `layout`, the preview rearranges live as cards are dragged.
+// ---------------------------------------------------------------------------
+function SitePreview({ layout: layoutProp }) {
+  const [data, setData] = useState(null);
+  const [refreshing, setRefreshing] = useState(false);
+  const [error, setError] = useState('');
+
+  const load = useCallback(async () => {
+    setRefreshing(true); setError('');
+    const [profile, tech, projects, experiences, certs, memberships, socials, gallery, highlights] =
+      await Promise.all([
+        supabase.from('profile').select('*').limit(1).maybeSingle(),
+        supabase.from('tech_stack').select('*').order('sort_order'),
+        supabase.from('projects').select('*').order('sort_order'),
+        supabase.from('experiences').select('*').order('sort_order'),
+        supabase.from('certifications').select('*').order('sort_order'),
+        supabase.from('memberships').select('*').order('sort_order'),
+        supabase.from('social_links').select('*').order('sort_order'),
+        supabase.from('gallery').select('*').order('sort_order'),
+        supabase.from('highlights').select('*').order('sort_order'),
+      ]);
+    if (profile.error) setError(profile.error.message);
+    else setData({
+      profile: profile.data,
+      tech: tech.data || [],
+      projects: projects.data || [],
+      experiences: experiences.data || [],
+      certs: certs.data || [],
+      memberships: memberships.data || [],
+      socials: socials.data || [],
+      gallery: gallery.data || [],
+      highlights: highlights.data || [],
+    });
+    setRefreshing(false);
+  }, []);
+
+  useEffect(() => { load(); }, [load]);
+
+  if (error) return <p className="text-sm text-red-500">{error}</p>;
+  if (!data) return (
+    <p className="text-sm text-zinc-500 flex items-center gap-2">
+      <Loader2 size={14} className="animate-spin" /> Loading…
+    </p>
+  );
+
+  const rawConfig = data.profile?.section_config;
+  const layout = layoutProp || (Array.isArray(rawConfig) ? rawConfig : DEFAULT_LAYOUT);
+  const visibleItems = layout
+    .filter((s) => s.visible !== false)
+    .sort((a, b) => a.y - b.y || a.x - b.x);
+  const accent = accentStyle(data.profile?.accent_color);
+
+  return (
+    <div className="space-y-3">
+      <div className="flex items-center justify-between gap-3 flex-wrap">
+        <p className="text-sm text-zinc-500 dark:text-zinc-400">
+          {layoutProp
+            ? 'Your real homepage — it rearranges as you edit above. Save layout to publish.'
+            : 'Your homepage with the latest saved content — the public site catches up within 60 seconds.'}
+        </p>
+        <div className="flex items-center gap-2">
+          <button className="glass-btn text-xs" onClick={load} disabled={refreshing}>
+            <RefreshCw size={13} className={refreshing ? 'animate-spin' : ''} /> Refresh
+          </button>
+          <Link href="/" target="_blank" className="glass-btn text-xs">
+            <ExternalLink size={13} /> Open site
+          </Link>
+        </div>
+      </div>
+      <div className="portfolio-bg rounded-2xl ring-1 ring-black/5 dark:ring-white/10 overflow-hidden">
+        <ScaledFrame width={1024}>
+          <div
+            className={`p-6 pointer-events-none select-none${accent ? ' accent-on' : ''}`}
+            style={accent || undefined}
+          >
+            <BentoGrid
+              items={visibleItems
+                .map((s) => ({ i: s.i, x: s.x, w: s.w, h: s.h, node: renderSection(s.i, data) }))
+                .filter((it) => it.node)}
+            />
+          </div>
+        </ScaledFrame>
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Auth
 // ---------------------------------------------------------------------------
 function Login() {
@@ -925,11 +1056,63 @@ function Login() {
 }
 
 // ---------------------------------------------------------------------------
-// Shell
+// Shell — sidebar navigation + content pane
 // ---------------------------------------------------------------------------
+const COLLECTION_ICONS = {
+  tech_stack: Cpu,
+  projects: FolderKanban,
+  experiences: Briefcase,
+  certifications: Award,
+  highlights: Sparkles,
+  memberships: Users,
+  social_links: Share2,
+  gallery: ImageIcon,
+};
+
+const NAV_ITEMS = [
+  { key: 'profile', label: 'Profile', icon: UserRound },
+  { key: 'layout',  label: 'Layout & Preview', icon: LayoutGrid },
+  ...COLLECTIONS.map((c) => ({ key: c.key, label: c.label, icon: COLLECTION_ICONS[c.key], content: true })),
+];
+
+// Sidebar item styling — shared by nav tabs and the footer actions.
+// `collapsed` only applies on md+ screens; mobile always shows labels.
+function navCls(active, collapsed) {
+  return `w-full flex items-center gap-2.5 text-sm px-3 py-2 rounded-xl font-medium text-left whitespace-nowrap transition-all ${
+    collapsed ? 'md:justify-center md:px-0 md:gap-0' : ''
+  } ${
+    active
+      ? 'bg-black/[0.09] dark:bg-white/[0.13] text-zinc-900 dark:text-white shadow-inner ring-1 ring-inset ring-black/[0.07] dark:ring-white/[0.12]'
+      : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-black/[0.05] dark:hover:bg-white/[0.08]'
+  }`;
+}
+
+// Same behaviour as components/ThemeToggle, restyled as a sidebar item.
+function SidebarThemeButton({ collapsed }) {
+  const [dark, setDark] = useState(false);
+  useEffect(() => {
+    setDark(document.documentElement.classList.contains('dark'));
+  }, []);
+  function toggle() {
+    const next = !dark;
+    setDark(next);
+    document.documentElement.classList.toggle('dark', next);
+    try { localStorage.theme = next ? 'dark' : 'light'; } catch {}
+  }
+  const label = dark ? 'Light mode' : 'Dark mode';
+  return (
+    <button onClick={toggle} className={navCls(false, collapsed)}
+      title={collapsed ? label : undefined} aria-label={label}>
+      {dark ? <Sun size={15} className="flex-shrink-0" /> : <Moon size={15} className="flex-shrink-0" />}
+      <span className={collapsed ? 'md:hidden' : ''}>{label}</span>
+    </button>
+  );
+}
+
 export default function AdminPage() {
   const [session, setSession] = useState(undefined);
   const [tab, setTab] = useState('profile');
+  const [collapsed, setCollapsed] = useState(false);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => setSession(data.session));
@@ -937,11 +1120,17 @@ export default function AdminPage() {
     return () => sub.subscription.unsubscribe();
   }, []);
 
-  const tabs = useMemo(() => [
-    { key: 'profile', label: 'Profile' },
-    { key: 'layout', label: 'Layout' },
-    ...COLLECTIONS,
-  ], []);
+  // Restore the collapsed state after mount (avoids SSR hydration mismatch)
+  useEffect(() => {
+    try { if (localStorage.adminSidebarCollapsed === '1') setCollapsed(true); } catch {}
+  }, []);
+
+  function toggleCollapsed() {
+    setCollapsed((c) => {
+      try { localStorage.adminSidebarCollapsed = c ? '' : '1'; } catch {}
+      return !c;
+    });
+  }
 
   if (session === undefined) {
     return (
@@ -952,52 +1141,92 @@ export default function AdminPage() {
   }
   if (!session) return <Login />;
 
+  const active = NAV_ITEMS.find((t) => t.key === tab);
+
   return (
     <div className="admin-bg">
-      <div className="max-w-5xl mx-auto px-4 py-8 space-y-4">
+      <div className="max-w-[100rem] mx-auto px-4 py-6">
+        <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-start">
 
-        {/* Header */}
-        <div className="glass-panel px-6 py-4 flex items-center justify-between">
-          <div>
-            <h1 className="text-xl font-bold flex items-center gap-2">
-              <LayoutDashboard size={20} className="text-zinc-700 dark:text-zinc-300" />
-              Portfolio CMS
-            </h1>
-            <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">{session.user.email}</p>
-          </div>
-          <div className="flex items-center gap-2">
-            <ThemeToggle />
-            <Link href="/" className="glass-btn text-sm"><ExternalLink size={14} /> View site</Link>
-            <button className="glass-btn text-sm" onClick={() => supabase.auth.signOut()}>
-              <LogOut size={14} /> Sign out
-            </button>
-          </div>
+          {/* Sidebar — sticky + collapsible on desktop, a top panel on mobile */}
+          <aside
+            className={`glass-panel w-full md:flex-shrink-0 md:sticky md:top-6 md:max-h-[calc(100vh-3rem)] p-3 flex flex-col gap-3 transition-[width] duration-200 ${
+              collapsed ? 'md:w-[68px]' : 'md:w-60'
+            }`}
+          >
+            {/* Brand + collapse toggle */}
+            <div className={`flex items-center gap-2.5 px-1 ${collapsed ? 'md:flex-col md:gap-1.5 md:px-0' : ''}`}>
+              <div className="w-9 h-9 rounded-xl glass-inner flex items-center justify-center flex-shrink-0">
+                <LayoutDashboard size={18} className="text-zinc-700 dark:text-zinc-300" />
+              </div>
+              <div className={`min-w-0 flex-1 ${collapsed ? 'md:hidden' : ''}`}>
+                <h1 className="text-sm font-bold leading-tight">Portfolio CMS</h1>
+                <p className="text-[11px] text-zinc-500 dark:text-zinc-400 truncate">{session.user.email}</p>
+              </div>
+              <button
+                onClick={toggleCollapsed}
+                className="hidden md:flex items-center justify-center p-1.5 rounded-lg flex-shrink-0 text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-black/[0.05] dark:hover:bg-white/[0.08] transition-colors"
+                title={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+                aria-label={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+              >
+                {collapsed ? <PanelLeftOpen size={15} /> : <PanelLeftClose size={15} />}
+              </button>
+            </div>
+
+            {/* Nav — horizontal scroll strip on mobile, vertical list on desktop */}
+            <nav className="no-scrollbar flex md:flex-col gap-1 overflow-x-auto md:overflow-x-visible md:overflow-y-auto md:flex-1 -mx-1 px-1 pb-1 md:pb-0">
+              {NAV_ITEMS.map((t, idx) => {
+                const Icon = t.icon;
+                const firstCollection = t.content && !NAV_ITEMS[idx - 1]?.content;
+                return (
+                  <div key={t.key} className="flex-shrink-0 md:flex-shrink">
+                    {firstCollection && (collapsed ? (
+                      <div className="hidden md:block border-t border-black/[0.07] dark:border-white/10 my-2 mx-2" />
+                    ) : (
+                      <p className="hidden md:block text-[10px] uppercase tracking-widest text-zinc-400 dark:text-zinc-500 px-3 pt-3 pb-1">
+                        Content
+                      </p>
+                    ))}
+                    <button
+                      onClick={() => setTab(t.key)}
+                      className={navCls(tab === t.key, collapsed)}
+                      title={collapsed ? t.label : undefined}
+                    >
+                      {Icon && <Icon size={15} className="flex-shrink-0" />}
+                      <span className={collapsed ? 'md:hidden' : ''}>{t.label}</span>
+                    </button>
+                  </div>
+                );
+              })}
+            </nav>
+
+            {/* Footer actions — same style as nav items */}
+            <div className="no-scrollbar pt-2 border-t border-black/[0.07] dark:border-white/10 flex md:flex-col gap-1 overflow-x-auto md:overflow-visible -mx-1 px-1 md:mx-0 md:px-0">
+              <Link href="/" target="_blank" className={navCls(false, collapsed)}
+                title={collapsed ? 'View site' : undefined}>
+                <Globe size={15} className="flex-shrink-0" />
+                <span className={collapsed ? 'md:hidden' : ''}>View site</span>
+              </Link>
+              <SidebarThemeButton collapsed={collapsed} />
+              <button onClick={() => supabase.auth.signOut()} className={navCls(false, collapsed)}
+                title={collapsed ? 'Sign out' : undefined}>
+                <LogOut size={15} className="flex-shrink-0" />
+                <span className={collapsed ? 'md:hidden' : ''}>Sign out</span>
+              </button>
+            </div>
+          </aside>
+
+          {/* Content */}
+          <main className="flex-1 min-w-0">
+            <div className="glass-panel px-4 sm:px-6 py-6">
+              <h2 className="text-lg font-bold tracking-tight mb-5">{active?.label}</h2>
+              {tab === 'profile' ? <ProfileEditor /> :
+               tab === 'layout'  ? <BentoEditor /> :
+               <CollectionEditor key={tab} config={COLLECTIONS.find((c) => c.key === tab)} />}
+            </div>
+          </main>
+
         </div>
-
-        {/* Tab bar */}
-        <div className="glass-panel px-3 py-2.5 flex flex-wrap gap-1">
-          {tabs.map((t) => (
-            <button
-              key={t.key}
-              onClick={() => setTab(t.key)}
-              className={`text-sm px-3 py-1.5 rounded-xl font-medium transition-all ${
-                tab === t.key
-                  ? 'bg-black/[0.09] dark:bg-white/[0.13] text-zinc-900 dark:text-white shadow-inner ring-1 ring-inset ring-black/[0.07] dark:ring-white/[0.12]'
-                  : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-black/[0.05] dark:hover:bg-white/[0.08]'
-              }`}
-            >
-              {t.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Content */}
-        <div className="glass-panel px-6 py-6">
-          {tab === 'profile' ? <ProfileEditor /> :
-           tab === 'layout'  ? <BentoEditor /> :
-           <CollectionEditor key={tab} config={COLLECTIONS.find((c) => c.key === tab)} />}
-        </div>
-
       </div>
     </div>
   );

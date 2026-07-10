@@ -16,6 +16,12 @@ export default function BentoGrid({ items }) {
   const innerRefs = useRef({});
   const [spans, setSpans] = useState({});
 
+  // Until heights are measured (SSR + before hydration), fall back to plain
+  // auto-sized grid rows: every card gets its natural height and nothing can
+  // ever overlap — the editor's `h` units say nothing about real content
+  // height, so using them as pixel spans rendered garbage on slow loads.
+  const measured = Object.keys(spans).length > 0;
+
   useIsoLayoutEffect(() => {
     function measure() {
       setSpans((prev) => {
@@ -24,7 +30,9 @@ export default function BentoGrid({ items }) {
         for (const it of items) {
           const el = innerRefs.current[it.i];
           if (!el) continue;
-          const height = el.getBoundingClientRect().height;
+          // offsetHeight ignores CSS transforms — keeps the math right when the
+          // grid renders inside the admin's scaled-down preview frame.
+          const height = el.offsetHeight;
           const span = Math.max(1, Math.ceil((height + GAP) / ROW_UNIT));
           next[it.i] = span;
           if (prev[it.i] !== span) changed = true;
@@ -49,7 +57,11 @@ export default function BentoGrid({ items }) {
   return (
     <div
       className="bento-masonry"
-      style={{ gridAutoRows: `${ROW_UNIT}px`, columnGap: `${GAP}px` }}
+      style={
+        measured
+          ? { gridAutoRows: `${ROW_UNIT}px`, columnGap: `${GAP}px` }
+          : { gridAutoRows: 'auto', columnGap: `${GAP}px`, rowGap: `${GAP}px` }
+      }
     >
       {items.map((it) => (
         <div
@@ -57,9 +69,7 @@ export default function BentoGrid({ items }) {
           className="bento-cell"
           style={{
             gridColumn: `${it.x + 1} / span ${it.w}`,
-            // Before measurement, fall back to the editor's height units so SSR
-            // is close and there's minimal shift on hydration.
-            gridRowEnd: `span ${spans[it.i] || (it.h || 1) * 40}`,
+            gridRowEnd: measured ? `span ${spans[it.i] || 1}` : 'auto',
           }}
         >
           <div ref={(el) => (innerRefs.current[it.i] = el)}>{it.node}</div>
