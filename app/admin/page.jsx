@@ -26,11 +26,11 @@ import {
 } from '@/components/sections';
 import Gallery from '@/components/Gallery';
 import BentoGrid from '@/components/BentoGrid';
-import { DEFAULT_LAYOUT, accentStyle, renderSection } from '@/components/portfolioSections';
+import { DEFAULT_LAYOUT, accentStyle, mergeLayout, renderSection } from '@/components/portfolioSections';
 import {
   LogOut, Plus, Trash2, Save, Loader2, Upload, ExternalLink,
   Check, GripVertical, EyeOff, LayoutDashboard, RefreshCw,
-  UserRound, LayoutGrid, Globe, Cpu, FolderKanban, Briefcase, Award,
+  UserRound, LayoutGrid, Globe, Cpu, BarChart3, FolderKanban, Briefcase, Award,
   Sparkles, Users, Share2, Image as ImageIcon,
   Sun, Moon, PanelLeftClose, PanelLeftOpen,
 } from 'lucide-react';
@@ -60,6 +60,14 @@ const COLLECTIONS = [
       { name: 'cover_image_url', label: 'Cover image', type: 'image' },
       { name: 'tech', label: 'Tech used (comma-separated)', placeholder: 'Next.js, Node.js, PostgreSQL' },
       { name: 'featured', label: 'Show on home page', type: 'bool', default: true },
+      { name: 'sort_order', label: 'Order', type: 'number' },
+    ],
+  },
+  {
+    key: 'stats', label: 'Stats', titleField: 'label',
+    fields: [
+      { name: 'value', label: 'Value (the big number)', placeholder: '2,000+' },
+      { name: 'label', label: 'Label', placeholder: 'records digitized' },
       { name: 'sort_order', label: 'Order', type: 'number' },
     ],
   },
@@ -135,6 +143,8 @@ const PROFILE_FIELDS = [
   { name: 'email', label: 'Email' },
   { name: 'calendly_url', label: 'Schedule a Call URL' },
   { name: 'blog_url', label: 'Blog URL' },
+  { name: 'resume_dev_url', label: 'Developer resume (PDF)', type: 'file' },
+  { name: 'resume_analytics_url', label: 'Analytics resume (PDF)', type: 'file' },
   { name: 'accent_color', label: 'Page accent color (blank = default theme)', type: 'color' },
 ];
 
@@ -146,6 +156,7 @@ const PORTFOLIO_SECTIONS = [
   { key: 'about',          label: 'About',           desc: 'Bio paragraphs' },
   { key: 'highlights',     label: 'Highlights',      desc: 'Featured cards & access cards' },
   { key: 'tech_stack',     label: 'Tech Stack',      desc: 'Technology chips by category' },
+  { key: 'stats',          label: 'Stats',           desc: '"By the numbers" stat strip' },
   { key: 'projects',       label: 'Projects',        desc: 'Featured project cards' },
   { key: 'experience',     label: 'Experience',      desc: 'Work history timeline' },
   { key: 'certifications', label: 'Certifications',  desc: 'Credentials & awards' },
@@ -192,6 +203,7 @@ function Field({ field, value, onChange, onCommit }) {
     );
   }
   if (field.type === 'image') return <ImageField field={field} value={value} onChange={onChange} onCommit={onCommit} />;
+  if (field.type === 'file') return <FileField field={field} value={value} onChange={onChange} onCommit={onCommit} />;
   if (field.type === 'color') {
     return (
       <div>
@@ -313,6 +325,65 @@ function ImageField({ field, value, onChange, onCommit }) {
       <input
         className="glass-input mt-2" value={value ?? ''}
         placeholder="…or paste an image URL"
+        onChange={(e) => onChange(e.target.value)}
+        onBlur={(e) => persisted && onCommit(e.target.value)}
+      />
+      {err && <p className="text-xs text-red-500 mt-1">{err}</p>}
+    </div>
+  );
+}
+
+// Like ImageField, but for documents (resume PDF): no thumbnail, and the
+// current file shows as an "Open" link so you can verify what's uploaded.
+function FileField({ field, value, onChange, onCommit }) {
+  const [busy, setBusy] = useState(false);
+  const [err, setErr] = useState('');
+  const persisted = !!onCommit;
+  const commit = onCommit || onChange;
+  async function upload(e) {
+    const file = e.target.files?.[0];
+    e.target.value = '';
+    if (!file) return;
+    setBusy(true); setErr('');
+    const path = `${Date.now()}-${file.name.replace(/[^a-zA-Z0-9.\-_]/g, '_')}`;
+    const { error } = await supabase.storage.from('media').upload(path, file);
+    if (error) { setErr(error.message); setBusy(false); return; }
+    const prev = value;
+    const { data } = supabase.storage.from('media').getPublicUrl(path);
+    commit(data.publicUrl);
+    if (persisted) removeStorageObject(prev);
+    setBusy(false);
+  }
+  function clear() {
+    const prev = value;
+    commit('');
+    if (persisted) removeStorageObject(prev);
+  }
+  return (
+    <div>
+      <label className="block text-xs font-medium text-zinc-500 dark:text-zinc-400 mb-1">{field.label}</label>
+      <div className="flex items-center gap-3">
+        <label className="glass-btn cursor-pointer">
+          {busy ? <Loader2 size={14} className="animate-spin" /> : <Upload size={14} />}
+          {busy ? 'Uploading…' : 'Upload PDF'}
+          <input type="file" accept="application/pdf" className="hidden" onChange={upload} disabled={busy} />
+        </label>
+        {value && (
+          <a href={value} target="_blank" rel="noreferrer"
+            className="inline-flex items-center gap-1 text-xs text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100">
+            <ExternalLink size={12} /> Open
+          </a>
+        )}
+        {value && (
+          <button type="button" onClick={clear}
+            className="text-xs text-zinc-500 hover:text-red-500 transition-colors">
+            Remove
+          </button>
+        )}
+      </div>
+      <input
+        className="glass-input mt-2" value={value ?? ''}
+        placeholder="…or paste a link (Google Drive, etc.)"
         onChange={(e) => onChange(e.target.value)}
         onBlur={(e) => persisted && onCommit(e.target.value)}
       />
@@ -672,10 +743,8 @@ function BentoEditor() {
       if (!data) return;
       setProfileId(data.id);
       if (Array.isArray(data.section_config)) {
-        const saved = data.section_config;
-        const savedKeys = saved.map((s) => s.i);
         // Append any new sections not yet in the saved config
-        setLayout([...saved, ...DEFAULT_LAYOUT.filter((s) => !savedKeys.includes(s.i))]);
+        setLayout(mergeLayout(data.section_config));
       }
     });
   }, []);
@@ -927,7 +996,7 @@ function SitePreview({ layout: layoutProp }) {
 
   const load = useCallback(async () => {
     setRefreshing(true); setError('');
-    const [profile, tech, projects, experiences, certs, memberships, socials, gallery, highlights] =
+    const [profile, tech, projects, experiences, certs, memberships, socials, gallery, highlights, stats] =
       await Promise.all([
         supabase.from('profile').select('*').limit(1).maybeSingle(),
         supabase.from('tech_stack').select('*').order('sort_order'),
@@ -938,6 +1007,7 @@ function SitePreview({ layout: layoutProp }) {
         supabase.from('social_links').select('*').order('sort_order'),
         supabase.from('gallery').select('*').order('sort_order'),
         supabase.from('highlights').select('*').order('sort_order'),
+        supabase.from('stats').select('*').order('sort_order'),
       ]);
     if (profile.error) setError(profile.error.message);
     else setData({
@@ -950,6 +1020,7 @@ function SitePreview({ layout: layoutProp }) {
       socials: socials.data || [],
       gallery: gallery.data || [],
       highlights: highlights.data || [],
+      stats: stats.data || [],
     });
     setRefreshing(false);
   }, []);
@@ -963,8 +1034,7 @@ function SitePreview({ layout: layoutProp }) {
     </p>
   );
 
-  const rawConfig = data.profile?.section_config;
-  const layout = layoutProp || (Array.isArray(rawConfig) ? rawConfig : DEFAULT_LAYOUT);
+  const layout = layoutProp || mergeLayout(data.profile?.section_config);
   const visibleItems = layout
     .filter((s) => s.visible !== false)
     .sort((a, b) => a.y - b.y || a.x - b.x);
@@ -1060,6 +1130,7 @@ function Login() {
 // ---------------------------------------------------------------------------
 const COLLECTION_ICONS = {
   tech_stack: Cpu,
+  stats: BarChart3,
   projects: FolderKanban,
   experiences: Briefcase,
   certifications: Award,

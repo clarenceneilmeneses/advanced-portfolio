@@ -1,5 +1,5 @@
 import { getPortfolioData } from '@/lib/publicData';
-import { DEFAULT_LAYOUT, accentStyle, renderSection } from '@/components/portfolioSections';
+import { accentStyle, mergeLayout, renderSection } from '@/components/portfolioSections';
 import BentoGrid from '@/components/BentoGrid';
 import Link from 'next/link';
 
@@ -19,9 +19,9 @@ export async function generateMetadata() {
       title,
       description,
       type: 'profile',
-      images: profile?.avatar_url ? [profile.avatar_url] : [],
+      // Image comes from app/opengraph-image.jsx (generated from CMS content)
     },
-    twitter: { card: 'summary', title, description },
+    twitter: { card: 'summary_large_image', title, description },
   };
 }
 
@@ -55,10 +55,7 @@ export default async function Home() {
   };
 
   // Support both new bento format (array) and old section_config format (object)
-  const rawConfig = profile.section_config;
-  const layout = Array.isArray(rawConfig)
-    ? rawConfig
-    : DEFAULT_LAYOUT;
+  const layout = mergeLayout(profile.section_config);
 
   const visibleItems = layout
     .filter((s) => s.visible !== false)
@@ -77,7 +74,13 @@ export default async function Home() {
       />
 
       <footer className="text-center text-sm text-zinc-500 mt-12 pb-4 border-t border-zinc-200/60 dark:border-zinc-800/60 pt-6">
-        © {new Date().getFullYear()} {profile.name}. All rights reserved.
+        <p>© {new Date().getFullYear()} {profile.name}. All rights reserved.</p>
+        <p className="text-xs text-zinc-400 dark:text-zinc-600 mt-1.5">
+          Design inspired by{' '}
+          <a href="https://bryllim.com" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-zinc-600 dark:hover:text-zinc-400">
+            bryllim.com
+          </a>
+        </p>
       </footer>
     </main>
   );

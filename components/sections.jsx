@@ -4,6 +4,7 @@ import {
   Terminal, Linkedin, Github, Instagram, Link as LinkIcon, ExternalLink, QrCode,
 } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
+import ResumeButton from './ResumeModal';
 
 export function ViewAll({ href }) {
   return (
@@ -59,6 +60,7 @@ export function Header({ profile }) {
                 <Mail size={15} /> Send Email
               </a>
             )}
+            <ResumeButton profile={p} />
             {p.blog_url && (
               <a href={p.blog_url} target="_blank" rel="noreferrer" className="btn-ghost">
                 <FileText size={15} /> Read my blog
@@ -147,6 +149,22 @@ function HighlightImage({ h }) {
     <img src={h.image_url} alt={h.title || 'Highlight'} className="w-full rounded-xl border border-zinc-200 dark:border-zinc-800" />
   );
   return h.link_url ? <a href={h.link_url} target="_blank" rel="noreferrer">{img}</a> : img;
+}
+
+export function Stats({ items }) {
+  if (!items?.length) return null;
+  return (
+    <section className="card p-6">
+      <div className="flex flex-wrap justify-around gap-x-8 gap-y-6 text-center">
+        {items.map((s) => (
+          <div key={s.id} className="min-w-[8rem]">
+            <p className="accent-ink text-3xl font-bold tracking-tight">{s.value}</p>
+            <p className="text-sm text-zinc-500 mt-1">{s.label}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 }
 
 export function Experience({ items }) {
@@ -326,6 +344,7 @@ export function FooterGrid({ profile, memberships, socials }) {
             <ChevronRight size={14} />
           </a>
         )}
+        <ResumeButton profile={p} variant="row" />
         {p.blog_url && (
           <a href={p.blog_url} target="_blank" rel="noreferrer" className="accent-link flex items-center justify-between text-sm hover:text-zinc-900 dark:hover:text-white">
             <span>

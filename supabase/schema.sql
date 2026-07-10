@@ -18,6 +18,8 @@ create table if not exists profile (
   email text default '',
   calendly_url text default '',
   blog_url text default '',
+  resume_dev_url text default '',        -- development resume PDF (uploaded or external link)
+  resume_analytics_url text default '',  -- analytics resume PDF (uploaded or external link)
   speaking_text text default '',
   updated_at timestamptz not null default now()
 );
@@ -94,6 +96,14 @@ create table if not exists gallery (
   sort_order int not null default 0
 );
 
+-- "By the numbers" stat strip on the home page
+create table if not exists stats (
+  id uuid primary key default gen_random_uuid(),
+  value text not null default '',        -- the big number, e.g. "2,000+"
+  label text not null default '',        -- what it counts, e.g. "records digitized"
+  sort_order int not null default 0
+);
+
 -- Right-column cards/banners (e.g. the "DEVS ONE HUNDRED" access card, PH100 banner)
 create table if not exists highlights (
   id uuid primary key default gen_random_uuid(),
@@ -113,7 +123,7 @@ do $$
 declare t text;
 begin
   foreach t in array array['profile','tech_stack','projects','project_blocks','experiences','certifications',
-                           'memberships','social_links','gallery','highlights']
+                           'memberships','social_links','gallery','highlights','stats']
   loop
     execute format('alter table %I enable row level security', t);
     execute format('drop policy if exists "public read" on %I', t);

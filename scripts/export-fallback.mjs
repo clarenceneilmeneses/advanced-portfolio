@@ -17,7 +17,7 @@ const db = createClient(env.NEXT_PUBLIC_SUPABASE_URL, env.NEXT_PUBLIC_SUPABASE_A
 const tables = {
   tech: "tech_stack", projects: "projects", experiences: "experiences",
   certs: "certifications", memberships: "memberships", socials: "social_links",
-  gallery: "gallery", highlights: "highlights",
+  gallery: "gallery", highlights: "highlights", stats: "stats",
 };
 
 const out = {};

@@ -1,369 +1,943 @@
 {
   "profile": {
-    "id": "d3fa04e5-ca96-4044-bad0-310715360803",
-    "name": "Bryl Lim",
+    "id": "dbf14857-a0c9-4145-a4ce-618e9c7baa16",
+    "name": "Clarence Neil Meneses",
     "verified": true,
-    "location": "Metro Manila, Philippines",
-    "headline": "AI \\ Software Engineer \\ Content Creator",
-    "badge_text": "DICT OpenGov Hackathon 2025 Champion",
-    "badge_url": "https://dict.gov.ph/news-and-updates/21070",
-    "about": "I'm a full-stack software engineer specializing in developing solutions with JavaScript, Python, and PHP. I work on projects including building modern web applications, mobile apps, search engine optimization, digital marketing, and making code tutorials.\n\nI've helped startups and MSMEs grow and streamline their processes through software solutions. I've also built a community of over 200,000 developers sharing knowledge and mentorship.\n\nLately, I've been diving deeper into the world of artificial intelligence, focusing on integrating AI tools and techniques into modern applications. My work now includes developing AI-powered solutions, creating intelligent applications, and leveraging generative AI to optimize development workflows and deliver cutting-edge technology.",
-    "avatar_url": "",
-    "email": "bryllim@gmail.com",
-    "calendly_url": "https://calendly.com/bryllim/consultation",
-    "blog_url": "https://blog.bryllim.com/",
-    "speaking_text": "Available for speaking at events about software development and emerging technologies."
+    "location": "Tanauan City, Batangas",
+    "headline": "Full-Stack Web Developer \\ Data Analyst",
+    "badge_text": "",
+    "badge_url": "",
+    "about": "I'm a full-stack developer and Business Analytics student at Batangas State University (BS IT, Class of 2026). \n\nI build systems that replace manual workflows — like the sales platform I built during my internship at NAM Builders Supply Corp, which took the company from spreadsheets to one-click dashboards and now runs ₱1M+ in monthly sales daily. Shipped in PHP/MySQL, later re-architected in React + TypeScript on Supabase.\n\nI work across React, TypeScript, PHP, PostgreSQL, and REST APIs, with a stubborn QA habit — nothing ships without tests. Google-certified in Analytics and Ads Measurement.",
+    "avatar_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1781658892211-IMG_4527.jpg",
+    "email": "clarenceneilpamplona@gmail.com",
+    "calendly_url": "https://calendly.com/clarenceneilpamplona/30min",
+    "blog_url": "",
+    "speaking_text": "Open for Inquiries",
+    "updated_at": "2026-07-10T05:36:01.005+00:00",
+    "section_config": [
+      {
+        "h": 1,
+        "i": "header",
+        "w": 3,
+        "x": 0,
+        "y": 0,
+        "visible": true
+      },
+      {
+        "h": 1,
+        "i": "about",
+        "w": 3,
+        "x": 0,
+        "y": 1,
+        "visible": true
+      },
+      {
+        "h": 1,
+        "i": "highlights",
+        "w": 1,
+        "x": 3,
+        "y": 0,
+        "visible": true
+      },
+      {
+        "h": 1,
+        "i": "tech_stack",
+        "w": 3,
+        "x": 0,
+        "y": 2,
+        "visible": true
+      },
+      {
+        "h": 1,
+        "i": "projects",
+        "w": 3,
+        "x": 0,
+        "y": 3,
+        "visible": true
+      },
+      {
+        "h": 2,
+        "i": "experience",
+        "w": 1,
+        "x": 3,
+        "y": 1,
+        "visible": true
+      },
+      {
+        "h": 1,
+        "i": "certifications",
+        "w": 4,
+        "x": 0,
+        "y": 4,
+        "visible": true
+      },
+      {
+        "h": 1,
+        "i": "gallery",
+        "w": 4,
+        "x": 0,
+        "y": 5,
+        "visible": true
+      },
+      {
+        "h": 1,
+        "i": "footer",
+        "w": 4,
+        "x": 0,
+        "y": 6,
+        "visible": true
+      }
+    ],
+    "accent_color": "#1b1818",
+    "resume_dev_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1783661488621-Clarence_Meneses_Developer_updated.pdf",
+    "resume_analytics_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1783661493231-Clarence_Meneses_Analytics_updated.pdf"
   },
   "tech": [
     {
-      "id": "63a1fbb7-8297-416e-a3d6-69b031b8e8f4",
-      "category": "Frontend",
-      "name": "JavaScript",
+      "id": "feda84ef-0ef6-4ad6-89b1-dd351d0d2cff",
+      "category": "Backend & Databases",
+      "name": "PHP",
       "featured": true,
       "sort_order": 1
     },
     {
-      "id": "c464a54c-00ac-4947-9fd5-121c5036bef9",
-      "category": "Frontend",
-      "name": "TypeScript",
+      "id": "147e88d7-2d9d-406e-9852-40e7995e8830",
+      "category": "Backend & Databases",
+      "name": "MySQL",
       "featured": true,
       "sort_order": 2
     },
     {
-      "id": "89a562d6-0b0c-46ed-afdf-514f02895b86",
-      "category": "Frontend",
-      "name": "React",
+      "id": "e38c44fa-5a7b-4827-b086-8a0f0d3e766e",
+      "category": "Backend & Databases",
+      "name": "SQL",
       "featured": true,
       "sort_order": 3
     },
     {
-      "id": "510dee55-54f5-4c16-8f58-7a1a9d9346c1",
-      "category": "Frontend",
-      "name": "Next.js",
+      "id": "b31df44b-1933-4c7e-97ef-39c10c1c4467",
+      "category": "Backend & Databases",
+      "name": "REST APIs",
       "featured": true,
       "sort_order": 4
     },
     {
-      "id": "3b5339c7-3a30-4af5-8afe-e4bd15c6cb34",
-      "category": "Frontend",
-      "name": "Vue.js",
+      "id": "92be3945-44c6-4bb6-9457-5459a4bab2a1",
+      "category": "Backend & Databases",
+      "name": "Python",
       "featured": true,
       "sort_order": 5
     },
     {
-      "id": "9efa0f8c-48ca-41de-b372-3b53e77acae3",
+      "id": "b67d737d-6403-405d-9f1a-5e8d305a95b6",
       "category": "Frontend",
-      "name": "Tailwind CSS",
+      "name": "JavaScript",
       "featured": true,
       "sort_order": 6
     },
     {
-      "id": "92485e7a-9ad5-4287-bd52-6fe101c220cb",
-      "category": "Backend",
-      "name": "Node.js",
+      "id": "55f56dfa-7524-4cae-b6f9-16712999497c",
+      "category": "Frontend",
+      "name": "HTML5",
       "featured": true,
       "sort_order": 7
     },
     {
-      "id": "2776a045-9df5-49a8-a032-015d2d8f6fdc",
-      "category": "Backend",
-      "name": "Python",
+      "id": "456567fd-cb95-4bca-b734-31b499e8dd3a",
+      "category": "Frontend",
+      "name": "CSS3",
       "featured": true,
       "sort_order": 8
     },
     {
-      "id": "b049130a-8f18-468b-97d2-c4552323aca8",
-      "category": "Backend",
-      "name": "PHP",
+      "id": "49a1d708-30de-48a1-a727-fb2e1c72d6ee",
+      "category": "Frontend",
+      "name": "Bootstrap",
       "featured": true,
       "sort_order": 9
     },
     {
-      "id": "7299e12e-d539-4814-8ff1-1c9acb25602e",
-      "category": "Backend",
-      "name": "Laravel",
+      "id": "a75bc1fd-f457-4bf9-8b18-6006f31682cc",
+      "category": "Frontend",
+      "name": "Figma",
       "featured": true,
       "sort_order": 10
     },
     {
-      "id": "c9ed1f17-d1b2-480d-97ce-358484d864fd",
-      "category": "Backend",
-      "name": "PostgreSQL",
+      "id": "0ffb8f19-e456-4cb8-a9c0-47761ab7bbad",
+      "category": "Data & Analytics",
+      "name": "Power BI",
       "featured": true,
       "sort_order": 11
     },
     {
-      "id": "f529e99a-bcbf-4239-9c60-82aed5bcffc9",
-      "category": "Backend",
-      "name": "MongoDB",
+      "id": "5dcc29b6-8231-4d90-a33a-97aa8d5ef1c9",
+      "category": "Data & Analytics",
+      "name": "Microsoft Excel",
       "featured": true,
       "sort_order": 12
     },
     {
-      "id": "36d5c3a2-f9a1-4f64-96c8-300e14530dfe",
-      "category": "DevOps & Cloud",
-      "name": "AWS",
+      "id": "e349c64a-b8d8-40cc-8425-5d521ba6b3bc",
+      "category": "Data & Analytics",
+      "name": "Google Analytics",
       "featured": true,
       "sort_order": 13
     },
     {
-      "id": "1be23ccb-a68b-45cb-bef5-31c533319ae7",
-      "category": "DevOps & Cloud",
-      "name": "Docker",
+      "id": "a490aa13-b7ce-40e7-8e8b-c586b6699422",
+      "category": "Data & Analytics",
+      "name": "Google Ads",
       "featured": true,
       "sort_order": 14
     },
     {
-      "id": "4f6bf373-f927-47e3-a364-3649a2e1d49b",
-      "category": "DevOps & Cloud",
-      "name": "Kubernetes",
+      "id": "9bea0c86-1858-40d3-9da2-fd5cb4ba2f7c",
+      "category": "QA & Tools",
+      "name": "Git/GitHub",
       "featured": true,
       "sort_order": 15
     },
     {
-      "id": "0106ffd5-f1f1-4b49-b32f-11097d3c6fc6",
-      "category": "DevOps & Cloud",
-      "name": "GitHub Actions",
+      "id": "a01cda96-8cab-4923-ab60-b45e91bf606a",
+      "category": "QA & Tools",
+      "name": "VS Code",
       "featured": true,
       "sort_order": 16
+    },
+    {
+      "id": "4bc4463c-fe32-4c22-a4bd-be6b78011986",
+      "category": "QA & Tools",
+      "name": "GIS Mapping",
+      "featured": true,
+      "sort_order": 17
+    },
+    {
+      "id": "5ed75423-4b23-4222-b779-03fe2b54de27",
+      "category": "QA & Tools",
+      "name": "UAT & System Testing",
+      "featured": true,
+      "sort_order": 18
     }
   ],
   "projects": [
     {
-      "id": "19a2c6b5-3fd0-4227-8fff-f482eabd199b",
-      "title": "CodeCred",
-      "description": "Online certifications for programmers",
-      "url": "https://codecred.dev/",
-      "display_url": "codecred.dev",
-      "slug": "codecred",
-      "tech": "Next.js, PostgreSQL, Tailwind CSS",
-      "cover_image_url": "",
+      "id": "37a694a1-e927-4f56-ad9f-b88da45e8a57",
+      "title": "Portfolio Revamped: Portfolio & CMS",
+      "description": "A self-hosted portfolio with a built-in admin CMS, where every section is editable without redeploying.",
+      "url": "https://clarenceneilmeneses.vercel.app/",
+      "display_url": "clarenceneilmeneses.vercel.app",
       "featured": true,
       "sort_order": 1,
+      "slug": "portfolio-revamped",
+      "cover_image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1782046657116-screencapture-clarenceneilmeneses-vercel-app-2026-06-21-20_53_07.png",
+      "tech": "Next.js, React, Supabase, PostgreSQL, Tailwind CSS",
       "published": true,
       "blocks": [
         {
-          "id": "fb-1",
-          "kind": "heading",
-          "text": "The problem",
+          "id": "cda0b182-d24d-473b-adab-d9ef6789051e",
+          "project_id": "37a694a1-e927-4f56-ad9f-b88da45e8a57",
+          "kind": "text",
+          "text": "I wanted a portfolio I could keep current without touching code or redeploying every time. So I rebuilt mine as a fully content-managed site: every section, from my profile and tech stack to\r\nprojects, experience, certifications, and gallery, is editable from a private admin panase.",
           "image_url": "",
           "caption": "",
           "sort_order": 1
         },
         {
-          "id": "fb-2",
-          "kind": "text",
-          "text": "Developers collect skills faster than they can prove them. CodeCred started as a way to issue verifiable, shareable certifications that employers can actually trust.",
+          "id": "9d614e3d-3b6e-4b8f-ae38-6cda61cca278",
+          "project_id": "37a694a1-e927-4f56-ad9f-b88da45e8a57",
+          "kind": "heading",
+          "text": "What I built",
           "image_url": "",
           "caption": "",
           "sort_order": 2
         },
         {
-          "id": "fb-3",
+          "id": "892a1d71-b0aa-4a38-9d2a-4184b3eea202",
+          "project_id": "37a694a1-e927-4f56-ad9f-b88da45e8a57",
+          "kind": "image",
+          "text": "",
+          "image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1782046518337-screencapture-clarenceneilmeneses-vercel-app-admin-2026-06-21-20_54_46.png",
+          "caption": "The admin CMS, where I edit and reorder every section of the live site.",
+          "sort_order": 3
+        },
+        {
+          "id": "e292190d-4b8a-47a4-a658-f205b31eaeb8",
+          "project_id": "37a694a1-e927-4f56-ad9f-b88da45e8a57",
+          "kind": "text",
+          "text": "I built it on Next.js 14 with the App Router and Tailwind CSS, backed by Sud image Storage. The admin lives at /admin behind Supabase Auth, and I deliberately kept all secret keys out of the app. Every write is gated by row-level security, so the public site only ever uses the publishable key.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 4
+        },
+        {
+          "id": "b05f114b-5d06-4d6f-9901-98bdb3033db4",
+          "project_id": "37a694a1-e927-4f56-ad9f-b88da45e8a57",
           "kind": "heading",
-          "text": "What I built",
+          "text": "Everything is editable",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 5
+        },
+        {
+          "id": "00520118-1851-43c7-932e-48033117f3b1",
+          "project_id": "37a694a1-e927-4f56-ad9f-b88da45e8a57",
+          "kind": "text",
+          "text": "There are no hard-coded sections. I manage projects, work history, skills, certifications, social links, and gallery photos directly in the CMS, with drag-and-drop reordering. Slugs are generated automatically, drafts stay hidden until I publish, and changes appear on the live site within seconds.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 6
+        },
+        {
+          "id": "29a8c63e-24fe-4e2b-855f-a8ee6013cffc",
+          "project_id": "37a694a1-e927-4f56-ad9f-b88da45e8a57",
+          "kind": "heading",
+          "text": "The challenge: free-tier cold starts",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 7
+        },
+        {
+          "id": "d221cef1-4784-44b0-8f39-54662e980527",
+          "project_id": "37a694a1-e927-4f56-ad9f-b88da45e8a57",
+          "kind": "text",
+          "text": "Supabase pauses free projects after about a week of inactivity, which would leave a portfolio loading slowly or blank. I solved this in three layers: a daily keep-alive cron that pings a lightweight endpoint so the project never registers as idle, ISR caching so visitors always get an instant cached page, and a bundled fallback snapshot that renders the site from local content if the\r\ndatabase is ever truly unreachable.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 8
+        },
+        {
+          "id": "407bbaad-39f3-4462-87c4-f09824d6ac64",
+          "project_id": "37a694a1-e927-4f56-ad9f-b88da45e8a57",
+          "kind": "heading",
+          "text": "SEO that maintains itself",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 9
+        },
+        {
+          "id": "1016bc10-6330-4a9a-959b-2ccfcc28bb29",
+          "project_id": "37a694a1-e927-4f56-ad9f-b88da45e8a57",
+          "kind": "text",
+          "text": "Per-page titles, descriptions, canonical URLs, and Open Graph and Twitter tags are generated from the same CMS content. A sitemap that includes every published case study and a robots.txt are produced automatically, so my SEO stays correct as I add new work, with no manual upkeep.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 10
+        },
+        {
+          "id": "08642d7d-97c7-44f9-bb0e-eb360aba7eb3",
+          "project_id": "37a694a1-e927-4f56-ad9f-b88da45e8a57",
+          "kind": "text",
+          "text": "The result is the site you are viewing right now. I can publish a new projeswap an image in seconds, with no deploy and no downtime. It is the foundation I use tokeep my entire portfolio current.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 11
+        }
+      ]
+    },
+    {
+      "id": "1c21bb06-3f46-4a0d-a9d6-d6ffd3edee19",
+      "title": "NAM Builders Supply Corp - Inventory & Sales Analytics System",
+      "description": "Transforming manual operations into data-driven success.",
+      "url": "https://nam-internal.org/",
+      "display_url": "nam-internal.org",
+      "featured": true,
+      "sort_order": 2,
+      "slug": "nam-inventory-system",
+      "cover_image_url": "https://i.imgur.com/9Ook8yd.png",
+      "tech": "PHP, Full-Stack Development, Data Analytics, Database Management, System Architecture, Business Intelligence",
+      "published": true,
+      "blocks": [
+        {
+          "id": "fdb38a27-ad57-4f6d-b38c-52e26cf77b07",
+          "project_id": "1c21bb06-3f46-4a0d-a9d6-d6ffd3edee19",
+          "kind": "text",
+          "text": "Landing an internship at NAM Builders Supply Corp was the perfect opportunity to bridge the gap between classroom theory and real-world application. I noticed their operations could benefit from a more streamlined approach to tracking inventory and sales. Taking the initiative, I began developing a full-stack inventory and sales analytics system from the ground up, diving deep into PHP and database management to build a solution tailored specifically to their daily workflow.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 1
+        },
+        {
+          "id": "9f566fe7-09b7-46a0-b92f-45f7c2f76e0b",
+          "project_id": "1c21bb06-3f46-4a0d-a9d6-d6ffd3edee19",
+          "kind": "image",
+          "text": "",
+          "image_url": "https://i.imgur.com/EuIy8Ht.png",
+          "caption": "Tracking total sales and key metrics at a glance.",
+          "sort_order": 2
+        },
+        {
+          "id": "f80103ba-0a15-4b06-b33c-a7d7448e7445",
+          "project_id": "1c21bb06-3f46-4a0d-a9d6-d6ffd3edee19",
+          "kind": "text",
+          "text": "The development process was a massive learning curve. I implemented features like automated quotation generation, delivery tracking, and centralized supplier price management. I had to learn how to structure the database to handle bulk CSV imports and manage different user roles securely. It was incredibly rewarding to figure out how to take raw data and turn it into actionable insights that the company could actually use to make business decisions.",
           "image_url": "",
           "caption": "",
           "sort_order": 3
         },
         {
-          "id": "fb-4",
+          "id": "9ad39085-d4f7-423f-a83f-b9d88fa9ea82",
+          "project_id": "1c21bb06-3f46-4a0d-a9d6-d6ffd3edee19",
+          "kind": "image",
+          "text": "",
+          "image_url": "https://i.imgur.com/7hpDunP.png",
+          "caption": "Inventory Management: Centralized supplier pricing and bulk data handling.",
+          "sort_order": 4
+        },
+        {
+          "id": "6a4b55c5-d52a-4b99-9bd0-9e56ae447e27",
+          "project_id": "1c21bb06-3f46-4a0d-a9d6-d6ffd3edee19",
           "kind": "text",
-          "text": "I designed and shipped the full platform: assessment engine, certificate issuing with public verification pages, and the payment flow.",
+          "text": "The most fulfilling part of this project was seeing it go live. The system was officially implemented and is now actively being used by the company's staff. It replaced their old manual processes, significantly boosting their operational performance and contributing to a noticeable increase in company revenue. Building a full-stack system that solves a real business problem and delivers tangible results was an invaluable experience.",
           "image_url": "",
           "caption": "",
-          "sort_order": 4
+          "sort_order": 5
         }
       ]
     },
     {
-      "id": "9885ef31-83b6-4966-b61a-a69e86339e55",
-      "title": "BASE404",
-      "description": "Online coding bootcamp",
-      "url": "https://base-404.com/",
-      "display_url": "base-404.com",
-      "slug": "base404",
-      "tech": "Laravel, Vue.js, MySQL",
-      "cover_image_url": "",
-      "featured": true,
-      "sort_order": 2,
-      "published": true,
-      "blocks": []
-    },
-    {
-      "id": "5534ad9c-fd22-4200-b09b-53156759dc08",
-      "title": "DIIN.PH",
-      "description": "AI-powered wardrobe assistant",
-      "url": "https://diin.ph/",
-      "display_url": "diin.ph",
-      "slug": "diin-ph",
-      "tech": "Next.js, Python, OpenAI",
-      "cover_image_url": "",
+      "id": "c9cd2488-7d66-41cf-b596-12f95548c457",
+      "title": "NAM Builders Supply Corp - Official Website",
+      "description": "Establishing a digital presence with a dynamic, custom-built CMS.",
+      "url": "https://nambuildersandsupplycorp.com/",
+      "display_url": "nambuildersandsupplycorp.com",
       "featured": true,
       "sort_order": 3,
-      "published": true,
-      "blocks": []
+      "slug": "nam-landing-page",
+      "cover_image_url": "https://i.imgur.com/I5algSI.png",
+      "tech": "PHP, CMS Development, Front-End Design, JavaScript, Web Architecture, MySQL",
+      "published": false,
+      "blocks": [
+        {
+          "id": "9caccd1c-74b3-49ab-8854-b1ff2df315ac",
+          "project_id": "c9cd2488-7d66-41cf-b596-12f95548c457",
+          "kind": "text",
+          "text": "Continuing my work with NAM Builders Supply Corp, I noticed that while their internal operations were becoming more efficient, they needed a strong public-facing digital presence. I took the initiative to design and develop their official company website from scratch. The goal was to create a modern, responsive platform to showcase their building materials, services, and company milestones to potential clients.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 1
+        },
+        {
+          "id": "eb15028d-8fa6-443e-aa6e-ccc0c30c1691",
+          "project_id": "c9cd2488-7d66-41cf-b596-12f95548c457",
+          "kind": "image",
+          "text": "",
+          "image_url": "https://i.imgur.com/ANs0s1j.jpeg",
+          "caption": "Official Website: A responsive and modern digital storefront to attract new clients.",
+          "sort_order": 2
+        },
+        {
+          "id": "ff71af54-b4b9-497d-8d5e-3bc54cb59af9",
+          "project_id": "c9cd2488-7d66-41cf-b596-12f95548c457",
+          "kind": "text",
+          "text": "I knew a static website wouldn't be enough for a growing business, so I built a fully functional, custom Content Management System (CMS) alongside it using PHP and MySQL. I developed a secure admin dashboard that allows the company's staff to dynamically update the website's content themselves. They can seamlessly add new supply categories, update live business statistics, and manage incoming client messages directly from the backend without needing to touch a single line of code.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 3
+        },
+        {
+          "id": "2049c9e7-6c5a-40af-b03f-050699d2f315",
+          "project_id": "c9cd2488-7d66-41cf-b596-12f95548c457",
+          "kind": "image",
+          "text": "",
+          "image_url": "https://i.imgur.com/PxRGLfT.png",
+          "caption": "Custom Admin Dashboard: Empowering staff to manage website content and client messages dynamically.",
+          "sort_order": 4
+        },
+        {
+          "id": "c83c91c1-b071-4d2d-8bce-8a72f4142909",
+          "project_id": "c9cd2488-7d66-41cf-b596-12f95548c457",
+          "kind": "text",
+          "text": "Developing this system pushed my full-stack skills to the next level, particularly in building secure backend interfaces and connecting them to dynamic front-end components. The website is now officially deployed and serves as the company's primary online footprint. Seeing the staff actively use the admin panel to update their services and interact with website data is incredibly rewarding, proving the value of building scalable, user-friendly tech solutions for real businesses.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 5
+        },
+        {
+          "id": "bc93942d-b2e6-41bb-977d-9cee9b3ab694",
+          "project_id": "c9cd2488-7d66-41cf-b596-12f95548c457",
+          "kind": "image",
+          "text": "",
+          "image_url": "https://i.imgur.com/Ygerhu2.png",
+          "caption": "Content Management: Real-time database updates for seamless website maintenance.",
+          "sort_order": 6
+        }
+      ]
     },
     {
-      "id": "146972ca-af7a-45cc-a620-83cac532ac68",
-      "title": "DYNAMIS Workout Tracker",
-      "description": "AI-powered workout tracker",
-      "url": "https://dynamis-app.online/",
-      "display_url": "dynamis-app.online",
-      "slug": "dynamis",
-      "tech": "React, Node.js, MongoDB",
-      "cover_image_url": "",
+      "id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
+      "title": "PapaFix — Service Marketplace Admin Panel",
+      "description": "A real-time admin and analytics dashboard for an on-demand home-repair marketplace in the Philippines.",
+      "url": "https://papafix.vercel.app/",
+      "display_url": "papafix-admin.com",
       "featured": true,
       "sort_order": 4,
+      "slug": "papafix-admin",
+      "cover_image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1781685024610-screencapture-papafix-vercel-app-2026-06-17-15_59_01.png",
+      "tech": "React, Vite, Supabase, PostgreSQL, Leaflet, Recharts",
       "published": true,
-      "blocks": []
+      "blocks": [
+        {
+          "id": "7ac06ac8-4c65-43ac-8dcf-15ab14391510",
+          "project_id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
+          "kind": "text",
+          "text": "PapaFix is an on-demand home-repair marketplace for the Philippines: customers book electricians, plumbers, and aircon technicians from one mobile app, while technicians accept and complete those jobs from another. Both apps write to a single Supabase Postgres database, but the business had no way to actually oversee the operation — which jobs were stalling, which payments hadn't cleared, where technicians were in the field, or whether a record had been quietly altered. I built the admin panel that sits over all of it: the control room for the entire platform.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 1
+        },
+        {
+          "id": "0025258d-0fe2-44c3-91bb-514bd6f2a249",
+          "project_id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
+          "kind": "heading",
+          "text": "What I built",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 2
+        },
+        {
+          "id": "6fb5bbf9-2038-48bd-984f-32ea6e6d66c5",
+          "project_id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
+          "kind": "text",
+          "text": "I designed and developed a dark-mode admin panel in React and Supabase that reads, oversees, and corrects everything the two mobile apps generate. The customer app, the technician app, and this panel all share one Postgres database — the apps own the operational writes, and the panel is the layer that gives the business visibility and control over them. It is locked to admin accounts only, enforced not just in the UI but by Postgres row-level security, so it holds full oversight without ever shipping a service key to the browser.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 3
+        },
+        {
+          "id": "0b5d35a1-40a6-4499-b06f-902e9722cd56",
+          "project_id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
+          "kind": "heading",
+          "text": "Day-to-day operations",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 4
+        },
+        {
+          "id": "cc02e11f-037c-44c1-b020-aaac33276589",
+          "project_id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
+          "kind": "image",
+          "text": "",
+          "image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1781685086690-screencapture-papafix-vercel-app-2026-06-17-16_31_15.png",
+          "caption": "The Profiles tab managing customers, technicians, and admins, with role filters and server-side user creation.",
+          "sort_order": 5
+        },
+        {
+          "id": "78b5202c-2340-4428-aece-89be218ba03f",
+          "project_id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
+          "kind": "text",
+          "text": "The management tabs cover the operational core. I built full create-read-update-delete for user profiles — searchable and role-filtered across customers, technicians, and admins — with account creation and email changes routed through a secure server-side Edge Function so the service key never touches the browser. Bookings get the same treatment with status, category, payment, and date filters plus a full detail view down to the inspection checklist and on-site QR token. Alongside these sit saved customer locations with inline map previews, a technician availability scheduler with per-slot toggles, and a support-ticket queue with status and priority. Rounding it out are a settings panel for appearance and data preferences and a profile page for managing my own admin account.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 6
+        },
+        {
+          "id": "07391ce8-9282-4756-bb27-14aba4aa3e08",
+          "project_id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
+          "kind": "heading",
+          "text": "Seeing the field in real time",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 7
+        },
+        {
+          "id": "83eddd9b-07c6-4a1f-9690-fc6d433661d6",
+          "project_id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
+          "kind": "text",
+          "text": "Because technicians work in the field, the panel tracks them in real time. The Live Map renders every technician on an interactive Leaflet map — green when online, grey when offline — alongside the blue pins of active customer job sites, and it auto-refreshes on its own. A companion Tech Locations view lists each technician's last-known coordinates and how long ago they reported in, for when I need the data as a table rather than a map.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 8
+        },
+        {
+          "id": "c83ce243-e10a-4241-b008-e823380b8b65",
+          "project_id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
+          "kind": "image",
+          "text": "",
+          "image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1781685154894-screencapture-papafix-vercel-app-2026-06-17-16_01_10.png",
+          "caption": "The Live Map tracking technicians (online and offline) and customer job sites in real time across Batangas.",
+          "sort_order": 9
+        },
+        {
+          "id": "a92632f0-4391-4cf0-a65d-131dc389947c",
+          "project_id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
+          "kind": "heading",
+          "text": "Analytics and insight",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 10
+        },
+        {
+          "id": "e6c40112-8620-45b4-9f4a-1eac921ce564",
+          "project_id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
+          "kind": "text",
+          "text": "The Overview dashboard is the at-a-glance health check: headline KPIs against the previous period, a bookings-and-revenue trend, demand patterns by hour and weekday, a top-technicians leaderboard, and a needs-attention queue that surfaces stale jobs, unpaid completed work, and low ratings. The Analytics tab goes deeper, with drill-downs by category, status, and payment, and a technician ranking where clicking one bar cross-filters every chart on the page. Both started out pulling thousands of raw booking rows into the browser to crunch client-side, which doesn't scale — so I moved all of that aggregation into PostgreSQL functions that return pre-summarised JSON, backed by targeted indexes and server-side pagination so the panel stays responsive into the hundreds of thousands of rows.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 11
+        },
+        {
+          "id": "ebbc8c64-7093-4271-987d-0ddce95cfd1a",
+          "project_id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
+          "kind": "image",
+          "text": "",
+          "image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1781685210658-screencapture-papafix-vercel-app-2026-06-17-16_03_12.png",
+          "caption": "The Analytics tab with a technician selected — one click cross-filters every chart on the page.",
+          "sort_order": 12
+        },
+        {
+          "id": "af8f5f68-1d3c-486a-a02b-0d21c3394167",
+          "project_id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
+          "kind": "heading",
+          "text": "Oversight and integrity",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 13
+        },
+        {
+          "id": "af9f3d2c-f267-4096-9141-4c2d256f50ac",
+          "project_id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
+          "kind": "text",
+          "text": "Oversight only means something if the records can be trusted. The audit trail records every booking and payment event the moment a row changes — created, status moved, technician reassigned, payment captured, fee adjusted — written by Postgres triggers through a SECURITY DEFINER function under row-level security with no update or delete policy, so even an admin can't forge or erase one. I deliberately scoped it to the facts that change a record rather than taps, locations, or message contents: a complete paper trail without surveilling users. A separate activity log captures what admins themselves do inside the panel, keeping the two concerns cleanly apart.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 14
+        },
+        {
+          "id": "6a1784d1-cbcd-42ae-9f1f-e5bdd62f4c19",
+          "project_id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
+          "kind": "image",
+          "text": "",
+          "image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1781685276643-screencapture-papafix-vercel-app-2026-06-17-16_23_37.png",
+          "caption": "The append-only audit trail, with every booking and payment event recorded server-side by database triggers.",
+          "sort_order": 15
+        },
+        {
+          "id": "60ed4e17-d52f-4317-895a-1627f82e2c71",
+          "project_id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
+          "kind": "heading",
+          "text": "Conclusion",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 16
+        },
+        {
+          "id": "15202585-4ca4-4d20-8860-601e85a23205",
+          "project_id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
+          "kind": "text",
+          "text": "PapaFix is the project where I owned an entire operational surface end to end — from the React interface down to the Postgres triggers, RPCs, row-level security policies, and the Edge Function that keeps privileged work off the client. The throughline was building for scale and trust: aggregate on the server so it holds up as the data grows, and push integrity into the database where it can't be bypassed. It is the clearest example of how I think about full-stack work — that the hard guarantees belong close to the data, and the browser is just an untrusted client looking in.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 17
+        }
+      ]
+    },
+    {
+      "id": "0a42e092-5dc6-407b-8230-239483663690",
+      "title": "PDAO Helps: PWD Services & Data Management System (City Government of Sto. Tomas, Batangas Persons with Disability Affairs Office)",
+      "description": "A centralized web platform digitizing PWD ID applications, appointment scheduling, and demographic mapping for local government units.",
+      "url": "",
+      "display_url": "",
+      "featured": true,
+      "sort_order": 5,
+      "slug": "pdao-helps",
+      "cover_image_url": "https://i.imgur.com/iD0KcsF.jpeg",
+      "tech": "PHP, MySQL, JavaScript, Leaflet.js, Chart.js, GIS Mapping, Web Accessibility, Full Stack Development, Capstone Project",
+      "published": false,
+      "blocks": [
+        {
+          "id": "9c3fafa6-8338-4aa0-9f0b-81b3c1d4ea1a",
+          "project_id": "0a42e092-5dc6-407b-8230-239483663690",
+          "kind": "text",
+          "text": "I developed this entirely as a capstone project for my 4th-year thesis, this system addresses the lack of digital infrastructure in local PWD Affairs Offices (PDAO). It transitions manual, paper-based workflows into a secure web application, allowing constituents to access services remotely while giving administrators powerful tools to manage records and visualize community data.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 1
+        },
+        {
+          "id": "3a2136ee-d4b4-4e55-bf11-535a74c9ded9",
+          "project_id": "0a42e092-5dc6-407b-8230-239483663690",
+          "kind": "image",
+          "text": "",
+          "image_url": "https://i.imgur.com/zhuQrSq.png",
+          "caption": "The public-facing portal featuring a custom-built accessibility widget for inclusive navigation.",
+          "sort_order": 2
+        },
+        {
+          "id": "acade871-4e0d-421f-995e-b68b2d0635f9",
+          "project_id": "0a42e092-5dc6-407b-8230-239483663690",
+          "kind": "text",
+          "text": "A core requirement was ensuring the platform was truly usable by its target audience. I engineered a dedicated Accessibility Widget that allows users to toggle High Contrast Mode, Grayscale, and Dyslexia-Friendly fonts without relying on third-party overlays. This required writing extensive CSS overrides and JavaScript handlers to dynamically manipulate the DOM in real-time.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 3
+        },
+        {
+          "id": "563b6009-57cb-4db5-85ca-717b4c970287",
+          "project_id": "0a42e092-5dc6-407b-8230-239483663690",
+          "kind": "image",
+          "text": "",
+          "image_url": "https://i.imgur.com/T1QKCvh.png",
+          "caption": "The multi-step application form that handles personal data, document uploads, and scheduling.",
+          "sort_order": 4
+        },
+        {
+          "id": "e1498851-8bc6-439e-bf11-69bce0356e6e",
+          "project_id": "0a42e092-5dc6-407b-8230-239483663690",
+          "kind": "text",
+          "text": "The system features a comprehensive backend to handle PWD ID applications and appointment bookings. I implemented a secure file upload system for sensitive documents (like medical certificates) and a scheduling algorithm that prevents overbooking by checking daily slot limits against the database. Applicants receive a unique reference number to track their status online, reducing the need for physical follow-ups.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 5
+        },
+        {
+          "id": "5113db1c-b325-4cfb-bd88-665f4e195db7",
+          "project_id": "0a42e092-5dc6-407b-8230-239483663690",
+          "kind": "image",
+          "text": "",
+          "image_url": "https://i.imgur.com/Fz9LVlL.png",
+          "caption": "The administrative command center providing real-time insights into application processing and daily schedules.",
+          "sort_order": 6
+        },
+        {
+          "id": "c1143bda-6c1b-4ea8-85c6-1e94df3daafd",
+          "project_id": "0a42e092-5dc6-407b-8230-239483663690",
+          "kind": "text",
+          "text": "To assist local government in resource allocation, I built a GIS (Geographic Information System) module using Leaflet.js. This feature visualizes the distribution of PWDs across different barangays using interactive markers and choropleth layers. It allows officials to filter data by disability type or status, identifying specific areas that may require targeted medical missions or support programs.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 7
+        },
+        {
+          "id": "6e1eea58-aac2-45ad-afdf-861c7613ee89",
+          "project_id": "0a42e092-5dc6-407b-8230-239483663690",
+          "kind": "image",
+          "text": "",
+          "image_url": "https://i.imgur.com/Tr2BXpY.png",
+          "caption": "Interactive geospatial map helping administrators visualize PWD density across barangays.",
+          "sort_order": 8
+        },
+        {
+          "id": "ecf0eea5-0678-4ee3-9290-b2adab3be9ea",
+          "project_id": "0a42e092-5dc6-407b-8230-239483663690",
+          "kind": "image",
+          "text": "",
+          "image_url": "https://i.imgur.com/YCqK1Ot.png",
+          "caption": "",
+          "sort_order": 9
+        },
+        {
+          "id": "b44649db-9886-47e0-887a-9e6c633f86b6",
+          "project_id": "0a42e092-5dc6-407b-8230-239483663690",
+          "kind": "text",
+          "text": "The Analytics module transforms raw database records into actionable insights. Using Chart.js, I created dynamic visualizations for demographic data, including age distribution, gender, and employment status. The system also generates printable PDF reports, automating what used to be a tedious manual compilation process for monthly reporting.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 10
+        },
+        {
+          "id": "a20b4d36-0968-4784-b624-338fa96f3e1c",
+          "project_id": "0a42e092-5dc6-407b-8230-239483663690",
+          "kind": "text",
+          "text": "This capstone project was a culmination of my studies, challenging me to architect a full-scale system from the database schema up to the user interface. By solving real-world problems like data inaccessibility and manual processing, PDAO Helps demonstrates how student-led innovation can provide tangible value to public service administration.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 11
+        }
+      ]
     }
   ],
   "experiences": [
     {
-      "id": "d12f70e3-696f-448e-8a71-c4ab027a8351",
-      "title": "AI Engineer",
-      "organization": "Standard Chartered",
-      "year_label": "2025",
-      "is_current": true,
+      "id": "afc47a20-06b9-4085-8413-e4e952c6a233",
+      "title": "IT Intern / Systems Developer",
+      "organization": "ALM Management Services & NAM Builders Supply Corp",
+      "year_label": "2026",
+      "is_current": false,
       "sort_order": 1
     },
     {
-      "id": "8d40e7ca-0970-4ff8-815c-36942f1a89cc",
-      "title": "AI Ops Engineer",
-      "organization": "Centre of Excellence for GenAI, Cambridge",
+      "id": "add80698-4687-4efd-a31a-d9018aa9550b",
+      "title": "Full-Stack Web Developer ",
+      "organization": "Persons with Disability Affairs Office (PDAO), City of Sto. Tomas",
       "year_label": "2025",
       "is_current": false,
       "sort_order": 2
     },
     {
-      "id": "18d35fe5-3efa-4689-9db6-41742214c454",
-      "title": "Senior Full-Stack Developer",
-      "organization": "Core Technology, Cambridge",
-      "year_label": "2024",
-      "is_current": false,
-      "sort_order": 3
-    },
-    {
-      "id": "f336bb73-c7ae-4c48-84d6-7c9738352902",
-      "title": "Software Engineering Lead",
-      "organization": "PocketDevs",
-      "year_label": "2022",
-      "is_current": false,
-      "sort_order": 4
-    },
-    {
-      "id": "a2da183b-290b-407f-84f3-9cd76179c6ba",
-      "title": "Lead Application Developer",
-      "organization": "Bluewind Asia",
-      "year_label": "2021",
-      "is_current": false,
+      "id": "a5a0a005-55a0-4b9e-95a2-e632d71f8612",
+      "title": "BS Information Technology Major in Business Analytics",
+      "organization": "Batangas State University",
+      "year_label": "2022 – 2026",
+      "is_current": true,
       "sort_order": 5
     },
     {
-      "id": "8a60e00b-f50b-4779-a132-a8d9dcb2e02d",
-      "title": "Software Engineer",
-      "organization": "GCM",
-      "year_label": "2020",
+      "id": "478dda5c-c1c3-4366-8bc1-39a9ea2bad53",
+      "title": "Hello World! ",
+      "organization": "Wrote my first line of code",
+      "year_label": "2022",
       "is_current": false,
       "sort_order": 6
-    },
-    {
-      "id": "cec51541-d431-42fd-9167-f3014742d59a",
-      "title": "BS Information Technology",
-      "organization": "University of San Carlos",
-      "year_label": "2019",
-      "is_current": false,
-      "sort_order": 7
-    },
-    {
-      "id": "59b5d054-ddaf-4c38-84c2-2211582917ee",
-      "title": "Hello World! 👋🏻",
-      "organization": "Wrote my first line of code",
-      "year_label": "2015",
-      "is_current": false,
-      "sort_order": 8
     }
   ],
   "certs": [
     {
-      "id": "6d4fc348-3dc3-4ef7-81e8-a60d67d81f95",
-      "title": "Huawei Developer Expert",
-      "issuer": "Huawei",
-      "url": "",
+      "id": "d00684f8-e09f-43c9-a38c-744833104d38",
+      "title": "Google Analytics Certification",
+      "issuer": "Google Digital Academy (Skillshop)",
+      "url": "https://skillshop.credential.net/d7e607f2-2faa-4da6-be75-c4a36bca279f#acc.BIlNfKc6",
       "featured": true,
       "sort_order": 1
     },
     {
-      "id": "9a9c262c-97e9-482a-92a3-4c33aae2a88d",
-      "title": "Generative AI Leader",
-      "issuer": "Google",
-      "url": "https://www.credly.com/badges/d4ea07f0-f7f1-4889-8b15-2a0ec22850ff/public_url",
+      "id": "2e2662e7-a54a-4242-9161-fc233f3e774a",
+      "title": "Google Ads Measurement Certification",
+      "issuer": "Google Digital Academy (Skillshop)",
+      "url": "https://skillshop.credential.net/d7e607f2-2faa-4da6-be75-c4a36bca279f#acc.BIlNfKc6",
       "featured": true,
       "sort_order": 2
     },
     {
-      "id": "e7d88702-d95c-4780-a928-f24a8c74114c",
-      "title": "Software Engineering",
-      "issuer": "TestDome",
-      "url": "https://app.testdome.com/cert/e802401d0f874e78b3e4bceff900c52f",
-      "featured": true,
+      "id": "4fc604ab-dd0c-4628-9dff-c5509c1fe142",
+      "title": "Introduction to Data Science",
+      "issuer": "Cisco Networking Academy",
+      "url": "https://www.credly.com/badges/93c9dc92-0cc2-49f3-852c-94ad43e5e20f",
+      "featured": false,
       "sort_order": 3
     },
     {
-      "id": "0b4bf0bb-4347-4c1c-bd6c-88c846733a56",
-      "title": "Generative AI Professional",
-      "issuer": "Oracle",
-      "url": "https://catalog-education.oracle.com/pls/certview/sharebadge?id=F0EB18EE68E7EB1AD69624684FB5B8ABB18AC8852C247882BE5DF4E51D7AAB07",
-      "featured": true,
+      "id": "3ece39ff-6af7-48cb-98de-7ff5e54d1a84",
+      "title": "Introduction to Cybersecurity",
+      "issuer": "Cisco Networking Academy",
+      "url": "https://www.credly.com/badges/66dc61e7-c5ee-41ea-b795-c73bcca81991",
+      "featured": false,
       "sort_order": 4
     }
   ],
   "memberships": [
     {
-      "id": "9a7b8637-60e4-42da-b4c8-bba0852fca25",
-      "name": "Analytics & Artificial Intelligence Association of the Philippines (AAP)",
-      "url": "https://www.aap.ph/",
+      "id": "9d00cfd4-3f8a-4055-bf93-15b0bb1e151b",
+      "name": "College of Informatics and Computing Sciences Student Council",
+      "url": "",
       "sort_order": 1
-    },
-    {
-      "id": "6d845e33-5c29-4027-a14d-58486ef7144d",
-      "name": "Philippine Software Industry Association",
-      "url": "https://www.psia.org.ph/",
-      "sort_order": 2
     }
   ],
   "socials": [
     {
-      "id": "1b31e7fc-fa81-408b-a8ac-cc4ea67c5142",
-      "platform": "LinkedIn",
-      "url": "https://linkedin.com/in/bryllim",
+      "id": "72f35a74-c3a7-4915-acfd-811e8483a883",
+      "platform": "GitHub",
+      "url": "https://github.com/clarenceneilmeneses",
       "sort_order": 1
     },
     {
-      "id": "af1efcc0-7019-48ed-8c2b-89fa994f2846",
-      "platform": "GitHub",
-      "url": "https://github.com/bryllim",
+      "id": "1bdd506e-c637-409c-be9e-fd994524dd16",
+      "platform": "LinkedIn",
+      "url": "https://linkedin.com/in/clarenceneilmeneses",
+      "sort_order": 2
+    }
+  ],
+  "gallery": [
+    {
+      "id": "08525fb1-8d47-4540-9e22-53297fe9eb9a",
+      "image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1783659188492-IMG_6603.jpeg",
+      "caption": "",
+      "sort_order": 1
+    },
+    {
+      "id": "432e6ede-27ed-4874-a400-f975f8fcf7c0",
+      "image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1781230932492-IMG_5707.jpg",
+      "caption": "",
       "sort_order": 2
     },
     {
-      "id": "033fa549-440e-4fe8-8452-b98587c18c18",
-      "platform": "Instagram",
-      "url": "https://www.instagram.com/bryl.lim/",
+      "id": "f4b74a81-829a-4a76-be85-74e516cda689",
+      "image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1781230942592-IMG_5902.jpg",
+      "caption": "",
       "sort_order": 3
+    },
+    {
+      "id": "52016ff2-26fa-4192-91db-87803f0b565b",
+      "image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1781698426724-11.jpg",
+      "caption": "",
+      "sort_order": 4
+    },
+    {
+      "id": "737383ea-c3f5-4bc8-b017-a0b8b8dd7888",
+      "image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1781698438895-222.jpg",
+      "caption": "",
+      "sort_order": 5
+    },
+    {
+      "id": "574fd76d-e40e-4b38-802c-32083612c18b",
+      "image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1781698448846-333.jpg",
+      "caption": "",
+      "sort_order": 6
+    },
+    {
+      "id": "f73cf6ea-9faf-4c23-8047-7052b7e0c5f9",
+      "image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1781698463280-444.jpg",
+      "caption": "",
+      "sort_order": 7
+    },
+    {
+      "id": "d00d3ef2-f7af-4c9a-8a7d-417139582dda",
+      "image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1781698480683-555.jpg",
+      "caption": "",
+      "sort_order": 8
+    },
+    {
+      "id": "cba7cbde-bf8b-4d50-a348-8cdd4aead716",
+      "image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1783659103818-IMG_6426.jpeg",
+      "caption": "",
+      "sort_order": 9
+    },
+    {
+      "id": "e26c2caa-77b9-4e0b-9f77-a5426d43b1f7",
+      "image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1781698496742-6666.jpg",
+      "caption": "",
+      "sort_order": 10
     }
   ],
-  "gallery": [],
   "highlights": [
     {
-      "id": "25a6ab2f-c736-4fea-afe0-3d2433a894ae",
+      "id": "2e6f1a45-5b18-48d7-9bea-a5e02bae587b",
       "kind": "access_card",
-      "title": "DEVS ONE HUNDRED",
-      "subtitle": "Founding Member",
-      "member_name": "BRYL",
-      "image_url": "",
+      "title": "BS INFORMATION TECHNOLOGY",
+      "subtitle": "Class of 2026",
+      "member_name": "CLARENCE NEIL P. MENESES",
+      "image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1781659650476-Batangas_State_Logo.png",
       "link_url": "",
+      "sort_order": 1,
+      "card_color": "#d0112b",
+      "hide_text": false,
+      "hide_label": true
+    }
+  ],
+  "stats": [
+    {
+      "id": "938b0c2e-7653-4fc3-98a2-a08dd2d5e742",
+      "value": "₱1M+",
+      "label": "monthly sales running through my system",
       "sort_order": 1
+    },
+    {
+      "id": "0a48aa4f-ac50-4aa5-9d8d-969eb5bfac2a",
+      "value": "5",
+      "label": "projects shipped",
+      "sort_order": 2
+    },
+    {
+      "id": "0e1315e8-cf90-49c6-b270-b86db29b7bab",
+      "value": "2,000+",
+      "label": "government records digitized",
+      "sort_order": 3
+    },
+    {
+      "id": "e2e5bd26-eed7-44eb-b0a0-13a08c82f9a1",
+      "value": "4",
+      "label": "Google & Cisco certifications",
+      "sort_order": 4
     }
   ]
 }

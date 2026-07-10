@@ -1,5 +1,8 @@
 # Portfolio Revamped — Portfolio + CMS
 
+Design inspired by the original [bryllim.com](https://bryllim.com) portfolio by
+Bryl Lim — rebuilt from scratch as a CMS-driven template with a live admin panel.
+
 A bryllim.com-style portfolio with a built-in admin CMS, backed by your Supabase
 project (`portfolio-revamped`). Everything on the public site — profile, tech stack,
 projects (with full case-study pages), experience, certifications, highlights,
@@ -15,7 +18,8 @@ memberships, social links, gallery — is editable at `/admin`.
 ### 1. Create the database
 Supabase dashboard → **SQL Editor**:
 - **Fresh database**: run `supabase/schema.sql`, then `supabase/seed.sql`.
-- **Already ran the v1 schema**: run `supabase/migration-002.sql` instead.
+- **Existing database**: run each `supabase/migration-*.sql` you haven't run yet, in order
+  (they're idempotent — re-running one is harmless).
 
 ### 2. Create your admin user
 **Authentication → Users → Add user** (enable "Auto confirm user"). That's your `/admin` login.
@@ -40,6 +44,17 @@ title, description, tech chips, cover image, then any sequence of content blocks
 **Projects** tab in the admin — expand a project to edit its fields and its blocks
 (add / reorder / delete). The "Case study visible to the public" toggle lets you
 keep drafts hidden; slugs are auto-generated from the title if left blank.
+
+### Resumes
+Upload up to two resume PDFs (development + analytics) in **Admin → Profile** —
+each shows as its own button in the header and a row in the footer contact column.
+PDFs upload to the same Supabase `media` bucket as images; pasting an external
+link (e.g. Google Drive) works too.
+
+### "By the numbers" stat strip
+A `stats` section shows big headline numbers (records digitized, projects
+shipped, …). Manage rows in **Admin → Stats**; the strip only renders when at
+least one stat exists, and you can reposition it in **Layout & Preview**.
 
 ### Gallery
 Photos open in a fullscreen preview with arrow-key / swipe-through navigation,

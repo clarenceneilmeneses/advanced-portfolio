@@ -1,4 +1,4 @@
-import { Header, About, Highlights, Experience, TechStack, Projects, Certifications, FooterGrid } from './sections';
+import { Header, About, Highlights, Experience, TechStack, Projects, Certifications, FooterGrid, Stats } from './sections';
 import Gallery from './Gallery';
 
 // Default bento layout — shared by the public homepage and the admin editor/preview.
@@ -7,12 +7,21 @@ export const DEFAULT_LAYOUT = [
   { i: 'about',          x: 0, y: 1,  w: 2, h: 2, visible: true },
   { i: 'highlights',     x: 2, y: 1,  w: 2, h: 2, visible: true },
   { i: 'tech_stack',     x: 0, y: 3,  w: 4, h: 1, visible: true },
-  { i: 'projects',       x: 0, y: 4,  w: 3, h: 2, visible: true },
-  { i: 'experience',     x: 3, y: 4,  w: 1, h: 2, visible: true },
-  { i: 'certifications', x: 0, y: 6,  w: 2, h: 1, visible: true },
-  { i: 'gallery',        x: 0, y: 7,  w: 4, h: 1, visible: true },
-  { i: 'footer',         x: 0, y: 8,  w: 4, h: 1, visible: true },
+  { i: 'stats',          x: 0, y: 4,  w: 4, h: 1, visible: true },
+  { i: 'projects',       x: 0, y: 5,  w: 3, h: 2, visible: true },
+  { i: 'experience',     x: 3, y: 5,  w: 1, h: 2, visible: true },
+  { i: 'certifications', x: 0, y: 7,  w: 2, h: 1, visible: true },
+  { i: 'gallery',        x: 0, y: 8,  w: 4, h: 1, visible: true },
+  { i: 'footer',         x: 0, y: 9,  w: 4, h: 1, visible: true },
 ];
+
+// Saved layouts predate newly added sections — append any defaults they lack
+// so new sections still show up (each only renders when it has content).
+export function mergeLayout(rawConfig) {
+  if (!Array.isArray(rawConfig)) return DEFAULT_LAYOUT;
+  const savedKeys = rawConfig.map((s) => s.i);
+  return [...rawConfig, ...DEFAULT_LAYOUT.filter((s) => !savedKeys.includes(s.i))];
+}
 
 // Turn profile.accent_color into CSS variables. Picks a readable text colour
 // for elements painted with the accent. Returns null if unset/invalid.
@@ -29,7 +38,7 @@ export function accentStyle(hex) {
 }
 
 export function renderSection(key, data) {
-  const { profile, tech, projects, experiences, certs, memberships, socials, gallery, highlights } = data;
+  const { profile, tech, projects, experiences, certs, memberships, socials, gallery, highlights, stats } = data;
   switch (key) {
     case 'header':
       return (
@@ -43,6 +52,8 @@ export function renderSection(key, data) {
       return highlights?.length > 0 ? <Highlights items={highlights} /> : null;
     case 'tech_stack':
       return <TechStack items={tech} />;
+    case 'stats':
+      return stats?.length > 0 ? <Stats items={stats} /> : null;
     case 'projects':
       return <Projects items={projects} />;
     case 'experience':
