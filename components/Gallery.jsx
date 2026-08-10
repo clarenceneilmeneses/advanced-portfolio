@@ -2,6 +2,22 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
+// Gallery photos are uploaded straight from a phone, so the originals run to
+// several MB each. Supabase Storage can resize on request: swapping the public
+// object path for the render path turns a 9 MB photo into a ~20 KB thumbnail,
+// and the browser negotiates WebP on its own. URLs that aren't Supabase Storage
+// (placehold.co, imgur, ...) are passed through untouched.
+const OBJECT_PATH = "/storage/v1/object/public/";
+const RENDER_PATH = "/storage/v1/render/image/public/";
+
+const THUMB = "width=400&height=400&resize=cover&quality=70";
+const FULL = "width=1600&quality=75";
+
+function sized(url, params) {
+  if (!url || !url.includes(OBJECT_PATH)) return url;
+  return `${url.replace(OBJECT_PATH, RENDER_PATH)}?${params}`;
+}
+
 export default function Gallery({ items }) {
   const ref = useRef(null);
   const [open, setOpen] = useState(null); // index of fullscreen image, or null
@@ -27,6 +43,15 @@ export default function Gallery({ items }) {
     };
   }, [open, close, step]);
 
+  // Warm the neighbours so arrow-key paging doesn't stall on a cold fetch.
+  useEffect(() => {
+    if (open === null || items.length < 2) return;
+    for (const dir of [1, -1]) {
+      const next = items[(open + dir + items.length) % items.length];
+      if (next?.image_url) new Image().src = sized(next.image_url, FULL);
+    }
+  }, [open, items]);
+
   if (!items.length) return null;
   const scroll = (dir) => ref.current?.scrollBy({ left: dir * 360, behavior: "smooth" });
 
@@ -41,7 +66,8 @@ export default function Gallery({ items }) {
           <button key={g.id} onClick={() => setOpen(i)} aria-label={`Open photo ${i + 1} fullscreen`}
             className="flex-shrink-0 group">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={g.image_url} alt={g.caption || "Gallery photo"}
+            <img src={sized(g.image_url, THUMB)} alt={g.caption || "Gallery photo"}
+              width={400} height={400} loading="lazy" decoding="async" fetchPriority="low"
               className="h-44 w-44 md:h-48 md:w-48 object-cover rounded-lg border border-zinc-200 dark:border-zinc-800 group-hover:opacity-90 transition-opacity" />
           </button>
         ))}
@@ -66,7 +92,8 @@ export default function Gallery({ items }) {
           )}
           <figure className="max-w-[92vw] max-h-[90vh] flex flex-col items-center" onClick={(e) => e.stopPropagation()}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={items[open].image_url} alt={items[open].caption || "Gallery photo"}
+            <img src={sized(items[open].image_url, FULL)} alt={items[open].caption || "Gallery photo"}
+              decoding="async"
               className="max-w-full max-h-[82vh] object-contain rounded-lg" />
             <figcaption className="text-sm text-white/70 mt-3 text-center">
               {items[open].caption}{items[open].caption ? " · " : ""}{open + 1} / {items.length}
