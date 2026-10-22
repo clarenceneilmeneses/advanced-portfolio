@@ -7,13 +7,13 @@
     "headline": "Full-Stack Web Developer \\ Data Analyst",
     "badge_text": "",
     "badge_url": "",
-    "about": "I'm a full-stack developer and Business Analytics student at Batangas State University (BS IT, Class of 2026). \n\nI build systems that replace manual workflows — like the sales platform I built during my internship at NAM Builders Supply Corp, which took the company from spreadsheets to one-click dashboards and now runs ₱1M+ in monthly sales daily. Shipped in PHP/MySQL, later re-architected in React + TypeScript on Supabase.\n\nI work across React, TypeScript, PHP, PostgreSQL, and REST APIs, with a stubborn QA habit — nothing ships without tests. Google-certified in Analytics and Ads Measurement.",
+    "about": "I'm a full-stack developer and a BS Information Technology graduate of Batangas State University, major in Business Analytics (Class of 2026).\r\n\r\nI build the systems small businesses run on. Right now that's Malaya Villas, a private rental business with ten villas: I built its booking site and staff back office on React, TypeScript, and Supabase, and on October 1 it replaced the owner's spreadsheets for every villa, with Xendit checkout and Airbnb calendar sync so nothing double-books.\r\n\r\nI'm also the founding developer of PapaFix, a funded home-services marketplace under NAM Builders Supply Corp. They retained me after my internship, where I built the company's first sales platform, now handling ₱1M+ in monthly sales. On the side I build Shopify stores: custom Liquid product pages and a catalog pipeline for a German beauty brand.\r\n\r\nI work across React, TypeScript, PostgreSQL, PHP, Shopify, and REST APIs, and I ship through reviewed pull requests with a test checklist for every change. Google-certified in Analytics and Ads Measurement.",
     "avatar_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1781658892211-IMG_4527.jpg",
     "email": "clarenceneilpamplona@gmail.com",
     "calendly_url": "https://calendly.com/clarenceneilpamplona/30min",
     "blog_url": "",
     "speaking_text": "Open for Inquiries",
-    "updated_at": "2026-07-10T05:36:01.005+00:00",
+    "updated_at": "2026-10-22T23:23:38.181+00:00",
     "section_config": [
       {
         "h": 1,
@@ -86,166 +86,230 @@
         "x": 0,
         "y": 6,
         "visible": true
+      },
+      {
+        "h": 1,
+        "i": "stats",
+        "w": 4,
+        "x": 0,
+        "y": 5,
+        "visible": false
       }
     ],
     "accent_color": "#1b1818",
-    "resume_dev_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1783661488621-Clarence_Meneses_Developer_updated.pdf",
-    "resume_analytics_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1783661493231-Clarence_Meneses_Analytics_updated.pdf"
+    "resume_dev_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1792711409221-Clarence_Meneses_-_Web_Developer_Resume.pdf",
+    "resume_analytics_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1792711416488-Clarence_Meneses_-_Data_Analyst_Resume.pdf"
   },
   "tech": [
     {
-      "id": "feda84ef-0ef6-4ad6-89b1-dd351d0d2cff",
+      "id": "4315e890-eab3-4aca-9cb5-6b9f4eed6a51",
       "category": "Backend & Databases",
-      "name": "PHP",
+      "name": "PostgreSQL",
       "featured": true,
       "sort_order": 1
     },
     {
-      "id": "147e88d7-2d9d-406e-9852-40e7995e8830",
+      "id": "1d790087-b72e-4573-9b4c-bdb946c24111",
       "category": "Backend & Databases",
-      "name": "MySQL",
+      "name": "Supabase",
       "featured": true,
       "sort_order": 2
     },
     {
-      "id": "e38c44fa-5a7b-4827-b086-8a0f0d3e766e",
+      "id": "508f1fc9-3863-4665-b572-2352ff578f32",
       "category": "Backend & Databases",
-      "name": "SQL",
+      "name": "PHP",
       "featured": true,
       "sort_order": 3
     },
     {
-      "id": "b31df44b-1933-4c7e-97ef-39c10c1c4467",
+      "id": "fa181448-065f-4bda-82f4-86a3a2db462b",
       "category": "Backend & Databases",
-      "name": "REST APIs",
+      "name": "MySQL",
       "featured": true,
       "sort_order": 4
     },
     {
-      "id": "92be3945-44c6-4bb6-9457-5459a4bab2a1",
+      "id": "6c2ebc9a-1652-4033-ab1f-df9a9984d55a",
       "category": "Backend & Databases",
-      "name": "Python",
+      "name": "REST APIs",
       "featured": true,
       "sort_order": 5
     },
     {
-      "id": "b67d737d-6403-405d-9f1a-5e8d305a95b6",
-      "category": "Frontend",
-      "name": "JavaScript",
+      "id": "eae27c1d-471c-46a7-8797-a5a3433c6a17",
+      "category": "Backend & Databases",
+      "name": "Python",
       "featured": true,
       "sort_order": 6
     },
     {
-      "id": "55f56dfa-7524-4cae-b6f9-16712999497c",
+      "id": "d37f2229-cfd7-42cb-9f77-8864edea099c",
       "category": "Frontend",
-      "name": "HTML5",
+      "name": "React",
       "featured": true,
       "sort_order": 7
     },
     {
-      "id": "456567fd-cb95-4bca-b734-31b499e8dd3a",
+      "id": "62f251f0-13e9-4ac3-9070-d59721b4baa3",
       "category": "Frontend",
-      "name": "CSS3",
+      "name": "TypeScript",
       "featured": true,
       "sort_order": 8
     },
     {
-      "id": "49a1d708-30de-48a1-a727-fb2e1c72d6ee",
+      "id": "05a431b4-af79-4910-8477-fbb0abe31641",
       "category": "Frontend",
-      "name": "Bootstrap",
+      "name": "Next.js",
       "featured": true,
       "sort_order": 9
     },
     {
-      "id": "a75bc1fd-f457-4bf9-8b18-6006f31682cc",
+      "id": "a265f045-6688-4030-ad47-c81386efde1e",
       "category": "Frontend",
-      "name": "Figma",
+      "name": "Tailwind CSS",
       "featured": true,
       "sort_order": 10
     },
     {
-      "id": "0ffb8f19-e456-4cb8-a9c0-47761ab7bbad",
-      "category": "Data & Analytics",
-      "name": "Power BI",
+      "id": "6e50bd19-9093-4bb6-9dd0-fe4f655cc258",
+      "category": "Frontend",
+      "name": "JavaScript",
       "featured": true,
       "sort_order": 11
     },
     {
-      "id": "5dcc29b6-8231-4d90-a33a-97aa8d5ef1c9",
-      "category": "Data & Analytics",
-      "name": "Microsoft Excel",
+      "id": "a17dde51-bf98-4c55-8db0-0d58230fffc3",
+      "category": "Frontend",
+      "name": "HTML5",
       "featured": true,
       "sort_order": 12
     },
     {
-      "id": "e349c64a-b8d8-40cc-8425-5d521ba6b3bc",
-      "category": "Data & Analytics",
-      "name": "Google Analytics",
+      "id": "7091c3bc-e510-41c9-9d40-c311ef7cacd2",
+      "category": "Frontend",
+      "name": "CSS3",
       "featured": true,
       "sort_order": 13
     },
     {
-      "id": "a490aa13-b7ce-40e7-8e8b-c586b6699422",
+      "id": "34b1afe6-40eb-4735-8517-e6d0ffe0cae5",
       "category": "Data & Analytics",
-      "name": "Google Ads",
+      "name": "Power BI",
       "featured": true,
       "sort_order": 14
     },
     {
-      "id": "9bea0c86-1858-40d3-9da2-fd5cb4ba2f7c",
-      "category": "QA & Tools",
-      "name": "Git/GitHub",
+      "id": "17d16eb8-d944-4878-ab42-c42f4d892c56",
+      "category": "Data & Analytics",
+      "name": "SQL",
       "featured": true,
       "sort_order": 15
     },
     {
-      "id": "a01cda96-8cab-4923-ab60-b45e91bf606a",
-      "category": "QA & Tools",
-      "name": "VS Code",
+      "id": "199cddc7-848d-4e5d-8bc7-576a662e7958",
+      "category": "Data & Analytics",
+      "name": "Microsoft Excel",
       "featured": true,
       "sort_order": 16
     },
     {
-      "id": "4bc4463c-fe32-4c22-a4bd-be6b78011986",
-      "category": "QA & Tools",
-      "name": "GIS Mapping",
+      "id": "0f2b4ac6-02f6-44da-a4c3-fd4712e85cf6",
+      "category": "Data & Analytics",
+      "name": "Google Analytics",
       "featured": true,
       "sort_order": 17
     },
     {
-      "id": "5ed75423-4b23-4222-b779-03fe2b54de27",
+      "id": "146470e5-ebf0-432c-97ae-7b2316ac0c99",
+      "category": "Data & Analytics",
+      "name": "Google Ads",
+      "featured": true,
+      "sort_order": 18
+    },
+    {
+      "id": "f75375de-c4db-4d22-91a9-4b49bd6b7941",
+      "category": "Data & Analytics",
+      "name": "GIS Mapping",
+      "featured": true,
+      "sort_order": 19
+    },
+    {
+      "id": "d8cb63b9-a446-484f-9fd5-e72a986ef618",
+      "category": "QA & Tools",
+      "name": "Git/GitHub",
+      "featured": true,
+      "sort_order": 20
+    },
+    {
+      "id": "396d63d2-2afe-4ec3-a3e6-b8bd9c45cd37",
+      "category": "QA & Tools",
+      "name": "Vite",
+      "featured": true,
+      "sort_order": 21
+    },
+    {
+      "id": "74cd9d0e-83e3-4d13-864c-b767e515cbe6",
+      "category": "QA & Tools",
+      "name": "Vitest",
+      "featured": true,
+      "sort_order": 22
+    },
+    {
+      "id": "760ad2f7-7575-400e-ab2d-33dde62b23f1",
       "category": "QA & Tools",
       "name": "UAT & System Testing",
       "featured": true,
-      "sort_order": 18
+      "sort_order": 23
+    },
+    {
+      "id": "695d4279-da17-4de9-bc5b-6382de8cfd25",
+      "category": "QA & Tools",
+      "name": "Figma",
+      "featured": true,
+      "sort_order": 24
+    },
+    {
+      "id": "21fd289e-147a-4d70-9cd0-de717152b62b",
+      "category": "Frontend",
+      "name": "Shopify (Liquid)",
+      "featured": true,
+      "sort_order": 25
+    },
+    {
+      "id": "203b4029-9a75-4607-a35d-fafbc1eacd96",
+      "category": "QA & Tools",
+      "name": "Claude Code",
+      "featured": true,
+      "sort_order": 26
     }
   ],
   "projects": [
     {
-      "id": "37a694a1-e927-4f56-ad9f-b88da45e8a57",
-      "title": "Portfolio Revamped: Portfolio & CMS",
-      "description": "A self-hosted portfolio with a built-in admin CMS, where every section is editable without redeploying.",
-      "url": "https://clarenceneilmeneses.vercel.app/",
-      "display_url": "clarenceneilmeneses.vercel.app",
+      "id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
+      "title": "Malaya OBS — Villa Operations & Business System",
+      "description": "The booking site and staff back office a ten-villa rental business runs on: bookings, Xendit payments, Airbnb calendar sync, finance and owner P&L. It replaced the owner's spreadsheets on October 1.",
+      "url": "https://malayavillas.com",
+      "display_url": "malayavillas.com",
       "featured": true,
-      "sort_order": 1,
-      "slug": "portfolio-revamped",
-      "cover_image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1782046657116-screencapture-clarenceneilmeneses-vercel-app-2026-06-21-20_53_07.png",
-      "tech": "Next.js, React, Supabase, PostgreSQL, Tailwind CSS",
+      "sort_order": 0,
+      "slug": "malaya-obs",
+      "cover_image_url": "",
+      "tech": "React 19, TypeScript, TanStack Start, TanStack Router, Vite, Tailwind CSS 4, Supabase, PostgreSQL, Row Level Security, Xendit, Airbnb iCal, Claude API, Recharts, Vercel",
       "published": true,
       "blocks": [
         {
-          "id": "cda0b182-d24d-473b-adab-d9ef6789051e",
-          "project_id": "37a694a1-e927-4f56-ad9f-b88da45e8a57",
+          "id": "15aada8d-6e0c-4515-9156-ec8e3bc926d3",
+          "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "text",
-          "text": "I wanted a portfolio I could keep current without touching code or redeploying every time. So I rebuilt mine as a fully content-managed site: every section, from my profile and tech stack to\r\nprojects, experience, certifications, and gallery, is editable from a private admin panase.",
+          "text": "Malaya Villas rents out ten private villas, and until this year the business ran on spreadsheets and Messenger threads. In August 2026 I took on Malaya OBS as its developer. What I was handed was a click-through prototype: no database, no login, no public site, and every number invented in the browser. The job was to turn it into the system the company actually runs on.",
           "image_url": "",
           "caption": "",
           "sort_order": 1
         },
         {
-          "id": "9d614e3d-3b6e-4b8f-ae38-6cda61cca278",
-          "project_id": "37a694a1-e927-4f56-ad9f-b88da45e8a57",
+          "id": "d61f323f-9242-48ea-9663-e0aecbc68070",
+          "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "heading",
           "text": "What I built",
           "image_url": "",
@@ -253,379 +317,136 @@
           "sort_order": 2
         },
         {
-          "id": "892a1d71-b0aa-4a38-9d2a-4184b3eea202",
-          "project_id": "37a694a1-e927-4f56-ad9f-b88da45e8a57",
-          "kind": "image",
-          "text": "",
-          "image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1782046518337-screencapture-clarenceneilmeneses-vercel-app-admin-2026-06-21-20_54_46.png",
-          "caption": "The admin CMS, where I edit and reorder every section of the live site.",
+          "id": "8f8c0274-f672-49f3-b124-3fba486fda5b",
+          "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
+          "kind": "text",
+          "text": "A booking website for guests and a back office for staff, on one Supabase Postgres database with row-level security per role. A guest picks dates and pays on the public site; the stay blocks the calendar, the payment lands in Finance, and staff see the next step on the booking page. Around that loop sit the calendar and pricing, an inbox, maintenance, team roles, and the owner's reports.",
+          "image_url": "",
+          "caption": "",
           "sort_order": 3
         },
         {
-          "id": "e292190d-4b8a-47a4-a658-f205b31eaeb8",
-          "project_id": "37a694a1-e927-4f56-ad9f-b88da45e8a57",
-          "kind": "text",
-          "text": "I built it on Next.js 14 with the App Router and Tailwind CSS, backed by Sud image Storage. The admin lives at /admin behind Supabase Auth, and I deliberately kept all secret keys out of the app. Every write is gated by row-level security, so the public site only ever uses the publishable key.",
+          "id": "d14b76d0-51fd-458e-959f-2a958010b20a",
+          "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
+          "kind": "heading",
+          "text": "Going live",
           "image_url": "",
           "caption": "",
           "sort_order": 4
         },
         {
-          "id": "b05f114b-5d06-4d6f-9901-98bdb3033db4",
-          "project_id": "37a694a1-e927-4f56-ad9f-b88da45e8a57",
-          "kind": "heading",
-          "text": "Everything is editable",
+          "id": "0a265c10-61ce-412b-ae9c-24323597e85d",
+          "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
+          "kind": "text",
+          "text": "On October 1 the system replaced the owner's spreadsheets as the record for all ten villas. Before the switch I imported each villa's booking and cash-flow workbook and reconciled it line by line, and every month since is crosschecked against the sheets, ending in a to-do list for the staff. Guests pay through Xendit checkout, and nine villa calendars sync with Airbnb, so nothing gets double-booked.",
           "image_url": "",
           "caption": "",
           "sort_order": 5
         },
         {
-          "id": "00520118-1851-43c7-932e-48033117f3b1",
-          "project_id": "37a694a1-e927-4f56-ad9f-b88da45e8a57",
-          "kind": "text",
-          "text": "There are no hard-coded sections. I manage projects, work history, skills, certifications, social links, and gallery photos directly in the CMS, with drag-and-drop reordering. Slugs are generated automatically, drafts stay hidden until I publish, and changes appear on the live site within seconds.",
+          "id": "9c049580-b578-4610-b4e7-b7c5939c362b",
+          "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
+          "kind": "heading",
+          "text": "A database that refuses to be wrong",
           "image_url": "",
           "caption": "",
           "sort_order": 6
         },
         {
-          "id": "29a8c63e-24fe-4e2b-855f-a8ee6013cffc",
-          "project_id": "37a694a1-e927-4f56-ad9f-b88da45e8a57",
-          "kind": "heading",
-          "text": "The challenge: free-tier cold starts",
+          "id": "92ba7a57-41a3-40a1-972a-83525f8c9d64",
+          "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
+          "kind": "text",
+          "text": "Business rules live in constraints, not just TypeScript. Money is numeric, stay dates are calendar dates so Manila bookings never drift a day on a UTC server, and a GiST exclusion constraint makes a double booking physically impossible. A trigger on every table writes an audit log, so every change shows up as a plain sentence: who did what to which booking.",
           "image_url": "",
           "caption": "",
           "sort_order": 7
         },
         {
-          "id": "d221cef1-4784-44b0-8f39-54662e980527",
-          "project_id": "37a694a1-e927-4f56-ad9f-b88da45e8a57",
-          "kind": "text",
-          "text": "Supabase pauses free projects after about a week of inactivity, which would leave a portfolio loading slowly or blank. I solved this in three layers: a daily keep-alive cron that pings a lightweight endpoint so the project never registers as idle, ISR caching so visitors always get an instant cached page, and a bundled fallback snapshot that renders the site from local content if the\r\ndatabase is ever truly unreachable.",
+          "id": "8912de53-174b-4d34-bd53-b4778f5e2aaf",
+          "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
+          "kind": "heading",
+          "text": "Security in the database, not the sidebar",
           "image_url": "",
           "caption": "",
           "sort_order": 8
         },
         {
-          "id": "407bbaad-39f3-4462-87c4-f09824d6ac64",
-          "project_id": "37a694a1-e927-4f56-ad9f-b88da45e8a57",
-          "kind": "heading",
-          "text": "SEO that maintains itself",
+          "id": "ab9445b8-2e40-45ef-b8d2-606cab46270a",
+          "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
+          "kind": "text",
+          "text": "Staff, owners and guests share the same tables. The sidebar hides tabs and screens refuse actions, but only Postgres policies are the real boundary: a caretaker cannot read the P&L even by calling the API directly. When the owner asked for custom roles, roles became data, so policies check has_permission() instead of naming a role, and staff can be scoped to only the villas they are assigned.",
           "image_url": "",
           "caption": "",
           "sort_order": 9
         },
         {
-          "id": "1016bc10-6330-4a9a-959b-2ccfcc28bb29",
-          "project_id": "37a694a1-e927-4f56-ad9f-b88da45e8a57",
-          "kind": "text",
-          "text": "Per-page titles, descriptions, canonical URLs, and Open Graph and Twitter tags are generated from the same CMS content. A sitemap that includes every published case study and a robots.txt are produced automatically, so my SEO stays correct as I add new work, with no manual upkeep.",
+          "id": "e982e2dd-290a-48fb-86ce-55cd53602755",
+          "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
+          "kind": "heading",
+          "text": "Finance built to the owner's own workbooks",
           "image_url": "",
           "caption": "",
           "sort_order": 10
         },
         {
-          "id": "08642d7d-97c7-44f9-bb0e-eb360aba7eb3",
-          "project_id": "37a694a1-e927-4f56-ad9f-b88da45e8a57",
+          "id": "cb162bd6-7181-45ef-96fb-2c92a0bcb2fe",
+          "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "text",
-          "text": "The result is the site you are viewing right now. I can publish a new projeswap an image in seconds, with no deploy and no downtime. It is the foundation I use tokeep my entire portfolio current.",
-          "image_url": "",
-          "caption": "",
-          "sort_order": 11
-        }
-      ]
-    },
-    {
-      "id": "1c21bb06-3f46-4a0d-a9d6-d6ffd3edee19",
-      "title": "NAM Builders Supply Corp - Inventory & Sales Analytics System",
-      "description": "Transforming manual operations into data-driven success.",
-      "url": "https://nam-internal.org/",
-      "display_url": "nam-internal.org",
-      "featured": true,
-      "sort_order": 2,
-      "slug": "nam-inventory-system",
-      "cover_image_url": "https://i.imgur.com/9Ook8yd.png",
-      "tech": "PHP, Full-Stack Development, Data Analytics, Database Management, System Architecture, Business Intelligence",
-      "published": true,
-      "blocks": [
-        {
-          "id": "fdb38a27-ad57-4f6d-b38c-52e26cf77b07",
-          "project_id": "1c21bb06-3f46-4a0d-a9d6-d6ffd3edee19",
-          "kind": "text",
-          "text": "Landing an internship at NAM Builders Supply Corp was the perfect opportunity to bridge the gap between classroom theory and real-world application. I noticed their operations could benefit from a more streamlined approach to tracking inventory and sales. Taking the initiative, I began developing a full-stack inventory and sales analytics system from the ground up, diving deep into PHP and database management to build a solution tailored specifically to their daily workflow.",
-          "image_url": "",
-          "caption": "",
-          "sort_order": 1
-        },
-        {
-          "id": "9f566fe7-09b7-46a0-b92f-45f7c2f76e0b",
-          "project_id": "1c21bb06-3f46-4a0d-a9d6-d6ffd3edee19",
-          "kind": "image",
-          "text": "",
-          "image_url": "https://i.imgur.com/EuIy8Ht.png",
-          "caption": "Tracking total sales and key metrics at a glance.",
-          "sort_order": 2
-        },
-        {
-          "id": "f80103ba-0a15-4b06-b33c-a7d7448e7445",
-          "project_id": "1c21bb06-3f46-4a0d-a9d6-d6ffd3edee19",
-          "kind": "text",
-          "text": "The development process was a massive learning curve. I implemented features like automated quotation generation, delivery tracking, and centralized supplier price management. I had to learn how to structure the database to handle bulk CSV imports and manage different user roles securely. It was incredibly rewarding to figure out how to take raw data and turn it into actionable insights that the company could actually use to make business decisions.",
-          "image_url": "",
-          "caption": "",
-          "sort_order": 3
-        },
-        {
-          "id": "9ad39085-d4f7-423f-a83f-b9d88fa9ea82",
-          "project_id": "1c21bb06-3f46-4a0d-a9d6-d6ffd3edee19",
-          "kind": "image",
-          "text": "",
-          "image_url": "https://i.imgur.com/7hpDunP.png",
-          "caption": "Inventory Management: Centralized supplier pricing and bulk data handling.",
-          "sort_order": 4
-        },
-        {
-          "id": "6a4b55c5-d52a-4b99-9bd0-9e56ae447e27",
-          "project_id": "1c21bb06-3f46-4a0d-a9d6-d6ffd3edee19",
-          "kind": "text",
-          "text": "The most fulfilling part of this project was seeing it go live. The system was officially implemented and is now actively being used by the company's staff. It replaced their old manual processes, significantly boosting their operational performance and contributing to a noticeable increase in company revenue. Building a full-stack system that solves a real business problem and delivers tangible results was an invaluable experience.",
-          "image_url": "",
-          "caption": "",
-          "sort_order": 5
-        }
-      ]
-    },
-    {
-      "id": "c9cd2488-7d66-41cf-b596-12f95548c457",
-      "title": "NAM Builders Supply Corp - Official Website",
-      "description": "Establishing a digital presence with a dynamic, custom-built CMS.",
-      "url": "https://nambuildersandsupplycorp.com/",
-      "display_url": "nambuildersandsupplycorp.com",
-      "featured": true,
-      "sort_order": 3,
-      "slug": "nam-landing-page",
-      "cover_image_url": "https://i.imgur.com/I5algSI.png",
-      "tech": "PHP, CMS Development, Front-End Design, JavaScript, Web Architecture, MySQL",
-      "published": false,
-      "blocks": [
-        {
-          "id": "9caccd1c-74b3-49ab-8854-b1ff2df315ac",
-          "project_id": "c9cd2488-7d66-41cf-b596-12f95548c457",
-          "kind": "text",
-          "text": "Continuing my work with NAM Builders Supply Corp, I noticed that while their internal operations were becoming more efficient, they needed a strong public-facing digital presence. I took the initiative to design and develop their official company website from scratch. The goal was to create a modern, responsive platform to showcase their building materials, services, and company milestones to potential clients.",
-          "image_url": "",
-          "caption": "",
-          "sort_order": 1
-        },
-        {
-          "id": "eb15028d-8fa6-443e-aa6e-ccc0c30c1691",
-          "project_id": "c9cd2488-7d66-41cf-b596-12f95548c457",
-          "kind": "image",
-          "text": "",
-          "image_url": "https://i.imgur.com/ANs0s1j.jpeg",
-          "caption": "Official Website: A responsive and modern digital storefront to attract new clients.",
-          "sort_order": 2
-        },
-        {
-          "id": "ff71af54-b4b9-497d-8d5e-3bc54cb59af9",
-          "project_id": "c9cd2488-7d66-41cf-b596-12f95548c457",
-          "kind": "text",
-          "text": "I knew a static website wouldn't be enough for a growing business, so I built a fully functional, custom Content Management System (CMS) alongside it using PHP and MySQL. I developed a secure admin dashboard that allows the company's staff to dynamically update the website's content themselves. They can seamlessly add new supply categories, update live business statistics, and manage incoming client messages directly from the backend without needing to touch a single line of code.",
-          "image_url": "",
-          "caption": "",
-          "sort_order": 3
-        },
-        {
-          "id": "2049c9e7-6c5a-40af-b03f-050699d2f315",
-          "project_id": "c9cd2488-7d66-41cf-b596-12f95548c457",
-          "kind": "image",
-          "text": "",
-          "image_url": "https://i.imgur.com/PxRGLfT.png",
-          "caption": "Custom Admin Dashboard: Empowering staff to manage website content and client messages dynamically.",
-          "sort_order": 4
-        },
-        {
-          "id": "c83c91c1-b071-4d2d-8bce-8a72f4142909",
-          "project_id": "c9cd2488-7d66-41cf-b596-12f95548c457",
-          "kind": "text",
-          "text": "Developing this system pushed my full-stack skills to the next level, particularly in building secure backend interfaces and connecting them to dynamic front-end components. The website is now officially deployed and serves as the company's primary online footprint. Seeing the staff actively use the admin panel to update their services and interact with website data is incredibly rewarding, proving the value of building scalable, user-friendly tech solutions for real businesses.",
-          "image_url": "",
-          "caption": "",
-          "sort_order": 5
-        },
-        {
-          "id": "bc93942d-b2e6-41bb-977d-9cee9b3ab694",
-          "project_id": "c9cd2488-7d66-41cf-b596-12f95548c457",
-          "kind": "image",
-          "text": "",
-          "image_url": "https://i.imgur.com/Ygerhu2.png",
-          "caption": "Content Management: Real-time database updates for seamless website maintenance.",
-          "sort_order": 6
-        }
-      ]
-    },
-    {
-      "id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
-      "title": "PapaFix — Service Marketplace Admin Panel",
-      "description": "A real-time admin and analytics dashboard for an on-demand home-repair marketplace in the Philippines.",
-      "url": "https://papafix.vercel.app/",
-      "display_url": "papafix-admin.com",
-      "featured": true,
-      "sort_order": 4,
-      "slug": "papafix-admin",
-      "cover_image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1781685024610-screencapture-papafix-vercel-app-2026-06-17-15_59_01.png",
-      "tech": "React, Vite, Supabase, PostgreSQL, Leaflet, Recharts",
-      "published": true,
-      "blocks": [
-        {
-          "id": "7ac06ac8-4c65-43ac-8dcf-15ab14391510",
-          "project_id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
-          "kind": "text",
-          "text": "PapaFix is an on-demand home-repair marketplace for the Philippines: customers book electricians, plumbers, and aircon technicians from one mobile app, while technicians accept and complete those jobs from another. Both apps write to a single Supabase Postgres database, but the business had no way to actually oversee the operation — which jobs were stalling, which payments hadn't cleared, where technicians were in the field, or whether a record had been quietly altered. I built the admin panel that sits over all of it: the control room for the entire platform.",
-          "image_url": "",
-          "caption": "",
-          "sort_order": 1
-        },
-        {
-          "id": "0025258d-0fe2-44c3-91bb-514bd6f2a249",
-          "project_id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
-          "kind": "heading",
-          "text": "What I built",
-          "image_url": "",
-          "caption": "",
-          "sort_order": 2
-        },
-        {
-          "id": "6fb5bbf9-2038-48bd-984f-32ea6e6d66c5",
-          "project_id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
-          "kind": "text",
-          "text": "I designed and developed a dark-mode admin panel in React and Supabase that reads, oversees, and corrects everything the two mobile apps generate. The customer app, the technician app, and this panel all share one Postgres database — the apps own the operational writes, and the panel is the layer that gives the business visibility and control over them. It is locked to admin accounts only, enforced not just in the UI but by Postgres row-level security, so it holds full oversight without ever shipping a service key to the browser.",
-          "image_url": "",
-          "caption": "",
-          "sort_order": 3
-        },
-        {
-          "id": "0b5d35a1-40a6-4499-b06f-902e9722cd56",
-          "project_id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
-          "kind": "heading",
-          "text": "Day-to-day operations",
-          "image_url": "",
-          "caption": "",
-          "sort_order": 4
-        },
-        {
-          "id": "cc02e11f-037c-44c1-b020-aaac33276589",
-          "project_id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
-          "kind": "image",
-          "text": "",
-          "image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1781685086690-screencapture-papafix-vercel-app-2026-06-17-16_31_15.png",
-          "caption": "The Profiles tab managing customers, technicians, and admins, with role filters and server-side user creation.",
-          "sort_order": 5
-        },
-        {
-          "id": "78b5202c-2340-4428-aece-89be218ba03f",
-          "project_id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
-          "kind": "text",
-          "text": "The management tabs cover the operational core. I built full create-read-update-delete for user profiles — searchable and role-filtered across customers, technicians, and admins — with account creation and email changes routed through a secure server-side Edge Function so the service key never touches the browser. Bookings get the same treatment with status, category, payment, and date filters plus a full detail view down to the inspection checklist and on-site QR token. Alongside these sit saved customer locations with inline map previews, a technician availability scheduler with per-slot toggles, and a support-ticket queue with status and priority. Rounding it out are a settings panel for appearance and data preferences and a profile page for managing my own admin account.",
-          "image_url": "",
-          "caption": "",
-          "sort_order": 6
-        },
-        {
-          "id": "07391ce8-9282-4756-bb27-14aba4aa3e08",
-          "project_id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
-          "kind": "heading",
-          "text": "Seeing the field in real time",
-          "image_url": "",
-          "caption": "",
-          "sort_order": 7
-        },
-        {
-          "id": "83eddd9b-07c6-4a1f-9690-fc6d433661d6",
-          "project_id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
-          "kind": "text",
-          "text": "Because technicians work in the field, the panel tracks them in real time. The Live Map renders every technician on an interactive Leaflet map — green when online, grey when offline — alongside the blue pins of active customer job sites, and it auto-refreshes on its own. A companion Tech Locations view lists each technician's last-known coordinates and how long ago they reported in, for when I need the data as a table rather than a map.",
-          "image_url": "",
-          "caption": "",
-          "sort_order": 8
-        },
-        {
-          "id": "c83ce243-e10a-4241-b008-e823380b8b65",
-          "project_id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
-          "kind": "image",
-          "text": "",
-          "image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1781685154894-screencapture-papafix-vercel-app-2026-06-17-16_01_10.png",
-          "caption": "The Live Map tracking technicians (online and offline) and customer job sites in real time across Batangas.",
-          "sort_order": 9
-        },
-        {
-          "id": "a92632f0-4391-4cf0-a65d-131dc389947c",
-          "project_id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
-          "kind": "heading",
-          "text": "Analytics and insight",
-          "image_url": "",
-          "caption": "",
-          "sort_order": 10
-        },
-        {
-          "id": "e6c40112-8620-45b4-9f4a-1eac921ce564",
-          "project_id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
-          "kind": "text",
-          "text": "The Overview dashboard is the at-a-glance health check: headline KPIs against the previous period, a bookings-and-revenue trend, demand patterns by hour and weekday, a top-technicians leaderboard, and a needs-attention queue that surfaces stale jobs, unpaid completed work, and low ratings. The Analytics tab goes deeper, with drill-downs by category, status, and payment, and a technician ranking where clicking one bar cross-filters every chart on the page. Both started out pulling thousands of raw booking rows into the browser to crunch client-side, which doesn't scale — so I moved all of that aggregation into PostgreSQL functions that return pre-summarised JSON, backed by targeted indexes and server-side pagination so the panel stays responsive into the hundreds of thousands of rows.",
+          "text": "The owner's spreadsheets outranked the spec for Finance, so the module was built to match them cell by cell: per-villa monthly P&L, owner earnings and cash position, with breakdowns that drill down to each receipt. The importers were ported from Python to TypeScript line for line, with a verifier that had to print IDENTICAL before either changed. Payments and expenses only count once a person has verified them.",
           "image_url": "",
           "caption": "",
           "sort_order": 11
         },
         {
-          "id": "ebbc8c64-7093-4271-987d-0ddce95cfd1a",
-          "project_id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
-          "kind": "image",
-          "text": "",
-          "image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1781685210658-screencapture-papafix-vercel-app-2026-06-17-16_03_12.png",
-          "caption": "The Analytics tab with a technician selected — one click cross-filters every chart on the page.",
+          "id": "1e47ddf0-04ab-4a2a-9725-7191cf86ad6b",
+          "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
+          "kind": "heading",
+          "text": "Designed for the people using it",
+          "image_url": "",
+          "caption": "",
           "sort_order": 12
         },
         {
-          "id": "af8f5f68-1d3c-486a-a02b-0d21c3394167",
-          "project_id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
-          "kind": "heading",
-          "text": "Oversight and integrity",
+          "id": "eaebc669-761f-4e20-a8d0-ef29f200acbb",
+          "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
+          "kind": "text",
+          "text": "Eighteen staff use it every day. When some of them missed that an action was a button at all, I gave the interface a small, strict vocabulary: brown for the main step, green to confirm, red to remove, white for everything safe, every clickable word underlined, and a confirmation that names the guest, the amount and the booking code before any one-click approval. Depth comes from shades instead of lines, and related controls sit together in rounded pills. This portfolio now follows the same rules.",
           "image_url": "",
           "caption": "",
           "sort_order": 13
         },
         {
-          "id": "af9f3d2c-f267-4096-9141-4c2d256f50ac",
-          "project_id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
-          "kind": "text",
-          "text": "Oversight only means something if the records can be trusted. The audit trail records every booking and payment event the moment a row changes — created, status moved, technician reassigned, payment captured, fee adjusted — written by Postgres triggers through a SECURITY DEFINER function under row-level security with no update or delete policy, so even an admin can't forge or erase one. I deliberately scoped it to the facts that change a record rather than taps, locations, or message contents: a complete paper trail without surveilling users. A separate activity log captures what admins themselves do inside the panel, keeping the two concerns cleanly apart.",
+          "id": "85d6ad46-fa5a-4f94-9d86-00280c3b8535",
+          "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
+          "kind": "heading",
+          "text": "Payments and AI, kept honest",
           "image_url": "",
           "caption": "",
           "sort_order": 14
         },
         {
-          "id": "6a1784d1-cbcd-42ae-9f1f-e5bdd62f4c19",
-          "project_id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
-          "kind": "image",
-          "text": "",
-          "image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1781685276643-screencapture-papafix-vercel-app-2026-06-17-16_23_37.png",
-          "caption": "The append-only audit trail, with every booking and payment event recorded server-side by database triggers.",
+          "id": "d7c05e5d-83e3-4595-b347-2aa8ade93758",
+          "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
+          "kind": "text",
+          "text": "Online payments go through Xendit, and the webhook records the payment and confirms the booking in one transaction. Maya, the built-in assistant, is a real Claude call over the figures already on screen. It is never allowed to query the database or calculate a number itself, so it can never disagree with the Finance tab.",
+          "image_url": "",
+          "caption": "",
           "sort_order": 15
         },
         {
-          "id": "60ed4e17-d52f-4317-895a-1627f82e2c71",
-          "project_id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
+          "id": "ae6074f5-c8f7-463b-8ed5-e2952e62291c",
+          "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "heading",
-          "text": "Conclusion",
+          "text": "How I work",
           "image_url": "",
           "caption": "",
           "sort_order": 16
         },
         {
-          "id": "15202585-4ca4-4d20-8860-601e85a23205",
-          "project_id": "6e1c1aa7-e70c-43a4-8d9a-ae69b310a35e",
+          "id": "64f73014-19b1-4086-a051-fa636c8ff27b",
+          "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "text",
-          "text": "PapaFix is the project where I owned an entire operational surface end to end — from the React interface down to the Postgres triggers, RPCs, row-level security policies, and the Edge Function that keeps privileged work off the client. The throughline was building for scale and trust: aggregate on the server so it holds up as the data grows, and push integrity into the database where it can't be bypassed. It is the clearest example of how I think about full-stack work — that the hard guarantees belong close to the data, and the browser is just an untrusted client looking in.",
+          "text": "Every change ships through a pull request the owner reviews, with a test checklist that says who checks what, and I recorded a training video for the staff. This is the project where I learned to own a system a business depends on: reading a spec closely enough to find its contradictions, asking the questions only the owner can answer, and refusing to invent a number. It is ongoing.",
           "image_url": "",
           "caption": "",
           "sort_order": 17
@@ -633,30 +454,668 @@
       ]
     },
     {
-      "id": "0a42e092-5dc6-407b-8230-239483663690",
-      "title": "PDAO Helps: PWD Services & Data Management System (City Government of Sto. Tomas, Batangas Persons with Disability Affairs Office)",
-      "description": "A centralized web platform digitizing PWD ID applications, appointment scheduling, and demographic mapping for local government units.",
-      "url": "",
-      "display_url": "",
+      "id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
+      "title": "PapaFix — Home-Services Marketplace Platform",
+      "description": "The web platform a funded home-repair marketplace runs on: 15 modules for bookings, technician onboarding, payment settlement, pricing and live dispatch, backed by a 292-case test suite.",
+      "url": "https://www.papafixph.com/",
+      "display_url": "papafixph.com",
       "featured": true,
-      "sort_order": 5,
-      "slug": "pdao-helps",
-      "cover_image_url": "https://i.imgur.com/iD0KcsF.jpeg",
-      "tech": "PHP, MySQL, JavaScript, Leaflet.js, Chart.js, GIS Mapping, Web Accessibility, Full Stack Development, Capstone Project",
-      "published": false,
+      "sort_order": 1,
+      "slug": "papafix-admin",
+      "cover_image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1781685024610-screencapture-papafix-vercel-app-2026-06-17-15_59_01.png",
+      "tech": "React 19, Vite, Supabase, PostgreSQL, Edge Functions, RLS, Leaflet, Recharts",
+      "published": true,
       "blocks": [
         {
-          "id": "9c3fafa6-8338-4aa0-9f0b-81b3c1d4ea1a",
-          "project_id": "0a42e092-5dc6-407b-8230-239483663690",
+          "id": "bfc42db6-5b78-4631-899e-f9d243e905fe",
+          "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
           "kind": "text",
-          "text": "I developed this entirely as a capstone project for my 4th-year thesis, this system addresses the lack of digital infrastructure in local PWD Affairs Offices (PDAO). It transitions manual, paper-based workflows into a secure web application, allowing constituents to access services remotely while giving administrators powerful tools to manage records and visualize community data.",
+          "text": "PapaFix is an on-demand home-repair marketplace for the Philippines, a funded venture under NAM Builders Supply Corp: customers book electricians, plumbers, and aircon technicians from one mobile app, while technicians accept and complete those jobs from another — both now through Google Play closed testing. The two apps write to a single Supabase Postgres database, but the business had no way to actually oversee the operation — which jobs were stalling, which payments hadn't cleared, where technicians were in the field, or whether a record had been quietly altered. As founding developer I built the web platform that sits over all of it: the control room for the entire business.",
           "image_url": "",
           "caption": "",
           "sort_order": 1
         },
         {
-          "id": "3a2136ee-d4b4-4e55-bf11-535a74c9ded9",
-          "project_id": "0a42e092-5dc6-407b-8230-239483663690",
+          "id": "8b64f416-31ea-43fd-83cf-4d097ad91be3",
+          "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
+          "kind": "heading",
+          "text": "What I built",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 2
+        },
+        {
+          "id": "9ad256a8-60b5-459b-a9d7-218244ebd802",
+          "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
+          "kind": "text",
+          "text": "I designed and developed a dark-mode admin panel in React and Supabase that reads, oversees, and corrects everything the two mobile apps generate. The customer app, the technician app, and this panel all share one Postgres database — the apps own the operational writes, and the panel is the layer that gives the business visibility and control over them. It is locked to admin accounts only, enforced not just in the UI but by Postgres row-level security, so it holds full oversight without ever shipping a service key to the browser.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 3
+        },
+        {
+          "id": "db27fc27-a363-4b42-8793-f694576f49db",
+          "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
+          "kind": "heading",
+          "text": "Day-to-day operations",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 4
+        },
+        {
+          "id": "b4205374-61ad-48f5-8480-4caf0dafb03a",
+          "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
+          "kind": "image",
+          "text": "",
+          "image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1781685086690-screencapture-papafix-vercel-app-2026-06-17-16_31_15.png",
+          "caption": "The Profiles tab managing customers, technicians, and admins, with role filters and server-side user creation.",
+          "sort_order": 5
+        },
+        {
+          "id": "4be7b5cd-dc9a-45f7-b462-aa80a1232be6",
+          "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
+          "kind": "text",
+          "text": "The management tabs cover the operational core. I built full create-read-update-delete for user profiles — searchable and role-filtered across customers, technicians, and admins, with base location, service categories and service radius for technicians — and routed account creation and email changes through a secure server-side Edge Function so the service key never touches the browser. Bookings get the same treatment with status, category, payment, and date filters plus a full detail view down to the inspection checklist and on-site QR token. Alongside these sit saved customer locations with inline map previews, a technician availability scheduler with per-slot toggles, and a support-ticket queue with status and priority.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 6
+        },
+        {
+          "id": "5c9dc988-8da8-4470-9549-6dc0e67f9a93",
+          "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
+          "kind": "heading",
+          "text": "Seeing the field in real time",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 7
+        },
+        {
+          "id": "2aa5505a-a98f-4a57-a276-be5d9080dea4",
+          "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
+          "kind": "text",
+          "text": "Because technicians work in the field, the panel tracks them in real time. The Live Map renders every technician on an interactive Leaflet map — green when online, grey when offline — alongside the blue pins of active customer job sites, and it auto-refreshes on its own. A companion Tech Locations view lists each technician's last-known coordinates and how long ago they reported in, for when I need the data as a table rather than a map.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 8
+        },
+        {
+          "id": "9d68b3b3-525d-4ecc-ab0a-4f582761338c",
+          "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
+          "kind": "image",
+          "text": "",
+          "image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1781685154894-screencapture-papafix-vercel-app-2026-06-17-16_01_10.png",
+          "caption": "The Live Map tracking technicians (online and offline) and customer job sites in real time across Batangas.",
+          "sort_order": 9
+        },
+        {
+          "id": "4359d73d-6960-4fe9-8363-111e24250836",
+          "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
+          "kind": "heading",
+          "text": "Pricing and getting paid",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 10
+        },
+        {
+          "id": "19ae565d-8ef3-4ef3-8a47-502293e1642f",
+          "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
+          "kind": "text",
+          "text": "A marketplace is only as trustworthy as its prices, so the panel owns them outright. I built a pricing surface where an admin sets the aircon price grid and per-category base prices, then layers on the add-on admin fee, VAT, and distance-banded travel-fee tiers — the same numbers the customer app quotes upfront, edited in one place instead of hard-coded in an app release. Payment is the other half: a verification queue moves jobs through awaiting, paid, and unpaid, with cash-proof photos reviewed and rejected with a reason, and settlement handled by a dedicated Edge Function rather than a client-side write. A separate tab manages the GCash, Maya, and bank QR codes customers actually pay against.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 11
+        },
+        {
+          "id": "f326792c-6be7-4171-9675-0f1164e46d37",
+          "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
+          "kind": "heading",
+          "text": "Analytics and insight",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 12
+        },
+        {
+          "id": "c414aba4-1743-4f9d-8a0e-700462f4b0e1",
+          "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
+          "kind": "text",
+          "text": "The Overview dashboard is the at-a-glance health check: headline KPIs against the previous period, a bookings-and-revenue trend, demand patterns by hour and weekday, a top-technicians leaderboard, a per-city revenue split with an adjustable manager-share percentage, and a needs-attention queue that surfaces stale jobs, unpaid completed work, and low ratings. The Analytics tab goes deeper, with drill-downs by category, status, and payment, and a technician ranking where clicking one bar cross-filters every chart on the page. Both started out pulling thousands of raw booking rows into the browser to crunch client-side, which doesn't scale — so I moved all of that aggregation into PostgreSQL functions that return pre-summarised JSON, backed by targeted indexes and server-side pagination so the panel stays responsive into the hundreds of thousands of rows.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 13
+        },
+        {
+          "id": "05812913-6aad-4b58-b826-4d3f7f8994da",
+          "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
+          "kind": "image",
+          "text": "",
+          "image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1781685210658-screencapture-papafix-vercel-app-2026-06-17-16_03_12.png",
+          "caption": "The Analytics tab with a technician selected — one click cross-filters every chart on the page.",
+          "sort_order": 14
+        },
+        {
+          "id": "cc74f9d8-4b07-4c92-82ca-2e3b9df03840",
+          "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
+          "kind": "heading",
+          "text": "Oversight and integrity",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 15
+        },
+        {
+          "id": "27fe56a0-9f3f-4b7f-b327-82ff6f2cc503",
+          "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
+          "kind": "text",
+          "text": "Oversight only means something if the records can be trusted. The audit trail records every booking and payment event the moment a row changes — created, status moved, technician reassigned, payment captured, fee adjusted — written by Postgres triggers through a SECURITY DEFINER function under row-level security with no update or delete policy, so even an admin can't forge or erase one. I deliberately scoped it to the facts that change a record rather than taps, locations, or message contents: a complete paper trail without surveilling users. A separate activity log captures what admins themselves do inside the panel, keeping the two concerns cleanly apart.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 16
+        },
+        {
+          "id": "3402ee30-cbe4-4d83-a609-8c1d7e969165",
+          "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
+          "kind": "image",
+          "text": "",
+          "image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1781685276643-screencapture-papafix-vercel-app-2026-06-17-16_23_37.png",
+          "caption": "The append-only audit trail, with every booking and payment event recorded server-side by database triggers.",
+          "sort_order": 17
+        },
+        {
+          "id": "65639af1-1567-4cd6-bcce-e2e43c509188",
+          "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
+          "kind": "text",
+          "text": "Admin itself is tiered rather than all-or-nothing: a roles-and-access screen, reachable only by a super admin, decides which admins can touch pricing, payments, or accounts. Beside it sits a user-reports queue where misconduct reports filed in either direction — customer against technician, or technician against customer — are triaged, so the same trail that protects the records also protects the people using them.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 18
+        },
+        {
+          "id": "90b7b022-0c2e-4f61-94c7-693041d448d1",
+          "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
+          "kind": "heading",
+          "text": "Conclusion",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 19
+        },
+        {
+          "id": "ff4980d1-f17d-4189-b46c-a440180e720b",
+          "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
+          "kind": "text",
+          "text": "PapaFix is the project where I owned an entire operational surface end to end — from the React interface down to the Postgres triggers, RPCs, row-level security policies, and the Edge Functions that keep privileged work off the client. The throughline was building for scale and trust: aggregate on the server so it holds up as the data grows, and push integrity into the database where it can't be bypassed. It is the clearest example of how I think about full-stack work — that the hard guarantees belong close to the data, and the browser is just an untrusted client looking in.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 20
+        }
+      ]
+    },
+    {
+      "id": "1a417af0-7508-4cdb-b2ba-b764c4614044",
+      "title": "NAM Builders Supply Corp — Sales & Inventory Platform",
+      "description": "The company's first sales system — quotations, inventory, and finance in one place, now running ₱1M+ in monthly operations.",
+      "url": "https://nam-refactored.vercel.app/",
+      "display_url": "nam-internal.org",
+      "featured": true,
+      "sort_order": 2,
+      "slug": "nam-inventory-system",
+      "cover_image_url": "https://i.imgur.com/9Ook8yd.png",
+      "tech": "React 19, TypeScript, Vite, Supabase, PostgreSQL, TanStack Query, Tailwind CSS, Recharts, Vitest, PHP, MySQL",
+      "published": true,
+      "blocks": [
+        {
+          "id": "4c444ee6-09e7-4ccc-8030-36a676d7ade2",
+          "project_id": "1a417af0-7508-4cdb-b2ba-b764c4614044",
+          "kind": "text",
+          "text": "NAM Builders Supply Corp was running a building-supply business on spreadsheets. Quotations were typed by hand, sales lived in one workbook and inventory in another, and putting a single report in front of management meant a week of chasing files across departments. I joined as an IT intern for a 500-hour internship and built the company its first real system.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 1
+        },
+        {
+          "id": "64754111-a908-4d88-ac87-f9727af0c55a",
+          "project_id": "1a417af0-7508-4cdb-b2ba-b764c4614044",
+          "kind": "heading",
+          "text": "What I built",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 2
+        },
+        {
+          "id": "0dc67fa2-52bf-4a19-b72d-df889e10768c",
+          "project_id": "1a417af0-7508-4cdb-b2ba-b764c4614044",
+          "kind": "text",
+          "text": "I replaced the spreadsheet workflow with one platform covering quotations, sales entry, the sales ledger, products and stock, finance, logistics, and bulk imports. It is now used daily by staff to run over ₱1M in monthly sales operations. The goal was never to digitise the spreadsheets — it was to make the numbers agree with each other for the first time.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 3
+        },
+        {
+          "id": "1f4c12cd-5a59-4d3a-8abc-682e773fd967",
+          "project_id": "1a417af0-7508-4cdb-b2ba-b764c4614044",
+          "kind": "image",
+          "text": "",
+          "image_url": "https://i.imgur.com/EuIy8Ht.png",
+          "caption": "The executive dashboard — sales performance and key metrics in one view, replacing a week of manual compilation.",
+          "sort_order": 4
+        },
+        {
+          "id": "9c91fbd3-235e-40cc-9564-0ffd48f76368",
+          "project_id": "1a417af0-7508-4cdb-b2ba-b764c4614044",
+          "kind": "heading",
+          "text": "Quotation to sale",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 5
+        },
+        {
+          "id": "d31312ce-19db-4220-932b-2f89fc3c9d76",
+          "project_id": "1a417af0-7508-4cdb-b2ba-b764c4614044",
+          "kind": "text",
+          "text": "The core workflow moves a quotation through drafting and approval into a confirmed sale, deducting stock as it goes. Quotations print in the company's existing formal document format, so staff did not have to change how they present to clients, and a quote can be converted partially when a client only takes some of the line items. Deliveries carry their own DR numbers through logistics, and finance tracks receivables against payment status.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 6
+        },
+        {
+          "id": "5f447067-f3cd-4ff9-8f18-5e9532a9da69",
+          "project_id": "1a417af0-7508-4cdb-b2ba-b764c4614044",
+          "kind": "image",
+          "text": "",
+          "image_url": "https://i.imgur.com/7hpDunP.png",
+          "caption": "Inventory management — centralized supplier pricing with bulk CSV import.",
+          "sort_order": 7
+        },
+        {
+          "id": "d1aabd11-0c16-4bca-ba2a-27e966082f20",
+          "project_id": "1a417af0-7508-4cdb-b2ba-b764c4614044",
+          "kind": "heading",
+          "text": "Numbers that reconcile",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 8
+        },
+        {
+          "id": "23ebe8ad-8a4f-4226-920c-a0c40cddd39c",
+          "project_id": "1a417af0-7508-4cdb-b2ba-b764c4614044",
+          "kind": "text",
+          "text": "On top of the operational data I built a reporting layer: an executive view with cross-filtering drilldowns by company, category, and account manager. The hard part was trust, not charts. I wrote the pricing and margin logic — income, markup and margin solvers, withholding tax, and the formal-document arithmetic — as a unit-tested calculation engine, so that what the dashboard shows reconciles with what finance calculates by hand.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 9
+        },
+        {
+          "id": "8dd4d94b-06ee-40c3-9c78-05e4cff20689",
+          "project_id": "1a417af0-7508-4cdb-b2ba-b764c4614044",
+          "kind": "heading",
+          "text": "Re-architecting on Postgres",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 10
+        },
+        {
+          "id": "46607742-7d07-4ad6-9dac-3337817616ea",
+          "project_id": "1a417af0-7508-4cdb-b2ba-b764c4614044",
+          "kind": "text",
+          "text": "The system shipped first in PHP and MySQL. I later re-architected it as a React and TypeScript single-page app on Supabase, which meant moving years of live production data without losing any of it. I wrote the migration myself: a converter that reads the legacy MySQL dump, scrubs currency-formatted values back into numerics, normalises malformed and zero dates, and corrects timezone handling that would otherwise have shifted historical records by a day. A Legacy Restore screen inside the app lets that import be re-run and checked rather than trusted blindly.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 11
+        },
+        {
+          "id": "89f6ff59-32f9-4fac-b2c9-3b4fabac2b6d",
+          "project_id": "1a417af0-7508-4cdb-b2ba-b764c4614044",
+          "kind": "heading",
+          "text": "Who can see what",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 12
+        },
+        {
+          "id": "ef3d96de-5883-4350-8cea-92360ce81022",
+          "project_id": "1a417af0-7508-4cdb-b2ba-b764c4614044",
+          "kind": "text",
+          "text": "Several departments touch the same record, so access is a first-class feature rather than a checkbox. Roles and per-privilege gates are defined in the database and enforced by row-level security, account managers are assigned to the companies they handle, sessions are limited to one active login per account, and an activity log records who changed what. The frontend only ever holds the publishable key.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 13
+        },
+        {
+          "id": "776d69dc-f7d4-4325-91d5-2e98ff6cc2bb",
+          "project_id": "1a417af0-7508-4cdb-b2ba-b764c4614044",
+          "kind": "text",
+          "text": "I finished the internship with a full handover — per-module technical documentation plus training, so staff could run their own reporting without me. The system stayed in daily use after I left, which is the part I judge it by.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 14
+        }
+      ]
+    },
+    {
+      "id": "f7f08f61-16d2-4458-9ba7-47657475eb3f",
+      "title": "Lumea: Shopify Product Pages & Catalog",
+      "description": "Custom Liquid product-page templates for a German beauty store, built from conversion research, with the catalog generated through the Shopify Admin API instead of by hand.",
+      "url": "https://lumea-de.com",
+      "display_url": "lumea-de.com",
+      "featured": true,
+      "sort_order": 3,
+      "slug": "lumea",
+      "cover_image_url": "",
+      "tech": "Shopify, Liquid, Python, Shopify GraphQL Admin API, Kaching Bundles",
+      "published": false,
+      "blocks": []
+    },
+    {
+      "id": "bd5efa44-3e9e-4c5a-bb90-2ac416960cd6",
+      "title": "Portfolio Revamped: Portfolio & CMS",
+      "description": "A self-hosted portfolio with a built-in admin CMS, where every section is editable without redeploying.",
+      "url": "https://clarenceneilmeneses.vercel.app/",
+      "display_url": "clarenceneilmeneses.vercel.app",
+      "featured": true,
+      "sort_order": 4,
+      "slug": "portfolio-revamped",
+      "cover_image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1782046657116-screencapture-clarenceneilmeneses-vercel-app-2026-06-21-20_53_07.png",
+      "tech": "Next.js 14, React, Supabase, PostgreSQL, Tailwind CSS, Vercel",
+      "published": true,
+      "blocks": [
+        {
+          "id": "5949d77c-c642-4b19-a9c5-6ed4aa0f2561",
+          "project_id": "bd5efa44-3e9e-4c5a-bb90-2ac416960cd6",
+          "kind": "text",
+          "text": "I wanted a portfolio I could keep current without touching code or redeploying every time. So I rebuilt mine as a fully content-managed site: every section, from my profile and tech stack to projects, experience, certifications, and gallery, is editable from a private admin panel.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 1
+        },
+        {
+          "id": "f5d3177b-e49a-400b-bb70-0e58cf3bd85d",
+          "project_id": "bd5efa44-3e9e-4c5a-bb90-2ac416960cd6",
+          "kind": "heading",
+          "text": "What I built",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 2
+        },
+        {
+          "id": "6e4a81bf-c54d-4bc5-80b3-f26adcf55028",
+          "project_id": "bd5efa44-3e9e-4c5a-bb90-2ac416960cd6",
+          "kind": "image",
+          "text": "",
+          "image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1782046518337-screencapture-clarenceneilmeneses-vercel-app-admin-2026-06-21-20_54_46.png",
+          "caption": "The admin CMS, where I edit and reorder every section of the live site.",
+          "sort_order": 3
+        },
+        {
+          "id": "860ca7a9-6fee-44bd-a096-0ede86476c06",
+          "project_id": "bd5efa44-3e9e-4c5a-bb90-2ac416960cd6",
+          "kind": "text",
+          "text": "I built it on Next.js 14 with the App Router and Tailwind CSS, backed by Supabase for Postgres, Auth, and image Storage. The admin lives at /admin behind Supabase Auth, and I deliberately kept all secret keys out of the app. Every write is gated by row-level security, so the public site only ever uses the publishable key.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 4
+        },
+        {
+          "id": "fb49454c-8cab-4ce6-bc4a-9aa76efef20f",
+          "project_id": "bd5efa44-3e9e-4c5a-bb90-2ac416960cd6",
+          "kind": "heading",
+          "text": "Everything is editable",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 5
+        },
+        {
+          "id": "1694f4f8-d607-4fd2-9b2e-7cb82893b466",
+          "project_id": "bd5efa44-3e9e-4c5a-bb90-2ac416960cd6",
+          "kind": "text",
+          "text": "There are no hard-coded sections. I manage projects, work history, skills, certifications, social links, and gallery photos directly in the CMS, with drag-and-drop reordering. Slugs are generated automatically, drafts stay hidden until I publish, and changes appear on the live site within seconds.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 6
+        },
+        {
+          "id": "0010836a-c51d-4685-b038-b90801c88c4f",
+          "project_id": "bd5efa44-3e9e-4c5a-bb90-2ac416960cd6",
+          "kind": "heading",
+          "text": "The challenge: free-tier cold starts",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 7
+        },
+        {
+          "id": "261dfd01-994f-4b5e-b2f4-e73885ffa288",
+          "project_id": "bd5efa44-3e9e-4c5a-bb90-2ac416960cd6",
+          "kind": "text",
+          "text": "Supabase pauses free projects after about a week of inactivity, which would leave a portfolio loading slowly or blank. I solved this in three layers: a daily keep-alive cron that pings a lightweight endpoint so the project never registers as idle, ISR caching so visitors always get an instant cached page, and a bundled fallback snapshot that renders the site from local content if the database is ever truly unreachable.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 8
+        },
+        {
+          "id": "26ee54aa-c880-4015-9d33-5a2b580efd1a",
+          "project_id": "bd5efa44-3e9e-4c5a-bb90-2ac416960cd6",
+          "kind": "heading",
+          "text": "SEO that maintains itself",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 9
+        },
+        {
+          "id": "cdea9862-81d2-45b2-afdb-f199abc95856",
+          "project_id": "bd5efa44-3e9e-4c5a-bb90-2ac416960cd6",
+          "kind": "text",
+          "text": "Per-page titles, descriptions, canonical URLs, and Open Graph and Twitter tags are generated from the same CMS content. A sitemap that includes every published case study and a robots.txt are produced automatically, so my SEO stays correct as I add new work, with no manual upkeep.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 10
+        },
+        {
+          "id": "145fb395-2b65-442d-8a35-6a407feadfca",
+          "project_id": "bd5efa44-3e9e-4c5a-bb90-2ac416960cd6",
+          "kind": "text",
+          "text": "The result is the site you are viewing right now. I can publish a new project or swap an image in seconds, with no deploy and no downtime. It is the foundation I use to keep my entire portfolio current.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 11
+        }
+      ]
+    },
+    {
+      "id": "62d52e35-a304-452f-9902-fcc2b69a319c",
+      "title": "Lexus Industrial — Catalog Website & CMS",
+      "description": "A production catalog site with a role-secured admin dashboard, so staff manage the product range themselves.",
+      "url": "",
+      "display_url": "",
+      "featured": true,
+      "sort_order": 5,
+      "slug": "lexus-industrial",
+      "cover_image_url": "",
+      "tech": "React, TypeScript, Vite, Supabase, PostgreSQL, Tailwind CSS, GSAP",
+      "published": true,
+      "blocks": [
+        {
+          "id": "cb96423a-1379-42db-84ea-b833d3668e86",
+          "project_id": "62d52e35-a304-452f-9902-fcc2b69a319c",
+          "kind": "text",
+          "text": "A product catalog is the worst possible thing to hard-code. The range changes, prices move, photos get replaced — and if every one of those edits needs a developer and a deploy, the site is out of date within weeks and the business stops trusting it. So the brief was less \"build a website\" than \"build something the staff can own\".",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 1
+        },
+        {
+          "id": "472f5f80-c4df-49a3-92a8-bbc40733e29e",
+          "project_id": "62d52e35-a304-452f-9902-fcc2b69a319c",
+          "kind": "heading",
+          "text": "What I built",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 2
+        },
+        {
+          "id": "c72356d8-4a36-472a-bf2d-7988a85df312",
+          "project_id": "62d52e35-a304-452f-9902-fcc2b69a319c",
+          "kind": "text",
+          "text": "I built the public site and its admin dashboard as one React and TypeScript application on Supabase. Visitors get a catalog with product listings and detail pages, services, company information, and an enquiry form. Staff sign in to an admin area covering products with image upload, categories, the enquiries that come in through the site, editable page content, user accounts, and settings — no developer in the loop, no redeploy.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 3
+        },
+        {
+          "id": "6a2b30b4-3817-45c0-920c-6e742057b68e",
+          "project_id": "62d52e35-a304-452f-9902-fcc2b69a319c",
+          "kind": "heading",
+          "text": "Three tiers of access",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 4
+        },
+        {
+          "id": "f8482fac-fac3-4deb-bc77-c76a0ae73c8a",
+          "project_id": "62d52e35-a304-452f-9902-fcc2b69a319c",
+          "kind": "text",
+          "text": "Not everyone who edits the site should be able to create logins for it, so I modelled access as three roles rather than a single admin flag: admin, editor, and viewer. The distinction is enforced by row-level security in Postgres, not by hiding buttons — an editor who forged a request would still be refused by the database. Creating and deleting login accounts genuinely needs a privileged key, so I moved that into a Supabase Edge Function that checks the caller is an admin before it acts, which keeps the service key on the server where it belongs.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 5
+        },
+        {
+          "id": "ca9cb4d5-6d5e-4c26-82c3-a556f26d8b6b",
+          "project_id": "62d52e35-a304-452f-9902-fcc2b69a319c",
+          "kind": "heading",
+          "text": "Finding things",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 6
+        },
+        {
+          "id": "67509b7c-1cf6-4ab5-b142-1e3c8d245046",
+          "project_id": "62d52e35-a304-452f-9902-fcc2b69a319c",
+          "kind": "text",
+          "text": "An industrial catalog is only useful if you can find the one part you came for. I used Postgres full-text search rather than filtering in the browser, so the work happens where the data is and search keeps up as the catalog grows. Product images live in their own storage bucket with its own policies, and every query in the app goes through a single typed API layer, so the shape of the data is checked at compile time instead of discovered in production.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 7
+        },
+        {
+          "id": "92dfd621-4ed0-4fd4-9319-c4ded23c8bcd",
+          "project_id": "62d52e35-a304-452f-9902-fcc2b69a319c",
+          "kind": "text",
+          "text": "What I like about this one is how boring it became to maintain. The catalog stays current because the people who actually know the products are the ones editing it, and the security model means handing someone a login is a low-stakes decision rather than a risk.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 8
+        }
+      ]
+    },
+    {
+      "id": "f0bb8d48-6bd3-497f-b909-dd2e199edc21",
+      "title": "NAM Builders Supply Corp — Official Website",
+      "description": "A public company site backed by a custom CMS, so staff can keep it current without a developer.",
+      "url": "https://nambuildersandsupplycorp.com/",
+      "display_url": "nambuildersandsupplycorp.com",
+      "featured": true,
+      "sort_order": 6,
+      "slug": "nam-landing-page",
+      "cover_image_url": "https://i.imgur.com/I5algSI.png",
+      "tech": "PHP, MySQL, JavaScript, Bootstrap, HTML5, CSS3",
+      "published": false,
+      "blocks": [
+        {
+          "id": "594b4d0e-f24d-4192-9698-7d6be4281532",
+          "project_id": "f0bb8d48-6bd3-497f-b909-dd2e199edc21",
+          "kind": "text",
+          "text": "With the internal system in place, NAM still had no public presence — clients found them by word of mouth or by walking in. They needed a site that showed their materials and services, and more importantly one they could keep current themselves. A static page would have been out of date within a month.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 1
+        },
+        {
+          "id": "329e15ca-5d07-4d42-8f0f-e74e7874992a",
+          "project_id": "f0bb8d48-6bd3-497f-b909-dd2e199edc21",
+          "kind": "image",
+          "text": "",
+          "image_url": "https://i.imgur.com/ANs0s1j.jpeg",
+          "caption": "The public site — product categories, services, and company information.",
+          "sort_order": 2
+        },
+        {
+          "id": "8fb345ca-edae-4c20-bcc1-94348d96f6fa",
+          "project_id": "f0bb8d48-6bd3-497f-b909-dd2e199edc21",
+          "kind": "heading",
+          "text": "A CMS, not a static site",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 3
+        },
+        {
+          "id": "89ae7b2d-9438-4747-936c-f7ef57d67001",
+          "project_id": "f0bb8d48-6bd3-497f-b909-dd2e199edc21",
+          "kind": "text",
+          "text": "So I built the site on a custom content management system in PHP and MySQL rather than hard-coding the pages. The front end is a responsive Bootstrap layout — hero, company profile, a services gallery, and a continuously scrolling client carousel — but every one of those sections reads from the database. Staff sign in to a secure admin dashboard and manage services, clients, business statistics, and incoming enquiries directly. Nobody needs to touch code, and nobody needs to call me to change a price list.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 4
+        },
+        {
+          "id": "9da917c6-ae38-4ee2-85f6-3e79a37e3473",
+          "project_id": "f0bb8d48-6bd3-497f-b909-dd2e199edc21",
+          "kind": "image",
+          "text": "",
+          "image_url": "https://i.imgur.com/PxRGLfT.png",
+          "caption": "The admin dashboard where staff manage site content and client messages.",
+          "sort_order": 5
+        },
+        {
+          "id": "bfe70e30-e9ce-4e39-af35-3d9a34dc068d",
+          "project_id": "f0bb8d48-6bd3-497f-b909-dd2e199edc21",
+          "kind": "text",
+          "text": "Building the admin side was the real work — session-guarded login, input validation on every write, image upload and replacement for services and client logos, and an editing flow simple enough that non-technical staff would actually use it rather than reverting to phone calls. Contact-form submissions land in the same dashboard, so an enquiry is a record to work through rather than an email someone might miss.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 6
+        },
+        {
+          "id": "59133c59-7140-41d6-a2c7-62ed34b139a0",
+          "project_id": "f0bb8d48-6bd3-497f-b909-dd2e199edc21",
+          "kind": "image",
+          "text": "",
+          "image_url": "https://i.imgur.com/Ygerhu2.png",
+          "caption": "Content updates writing straight to the database and appearing live on the site.",
+          "sort_order": 7
+        },
+        {
+          "id": "63560e22-d594-4eec-89a2-c0edf5a67e32",
+          "project_id": "f0bb8d48-6bd3-497f-b909-dd2e199edc21",
+          "kind": "text",
+          "text": "The site is deployed as the company's primary online presence, and staff update it themselves. Paired with the internal sales platform, it means both sides of the business — what clients see and what the company runs on — are systems the company owns rather than documents they maintain by hand.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 8
+        }
+      ]
+    },
+    {
+      "id": "b6e29e85-41b0-4990-80a4-1e7c23599c89",
+      "title": "PDAO Helps: PWD Services & Data Management System",
+      "description": "A constituent-services portal for a city PWD affairs office — ID applications, appointments, and demographic mapping across 30 barangays.",
+      "url": "",
+      "display_url": "",
+      "featured": true,
+      "sort_order": 7,
+      "slug": "pdao-helps",
+      "cover_image_url": "https://i.imgur.com/iD0KcsF.jpeg",
+      "tech": "PHP, MySQL, JavaScript, Leaflet.js, Chart.js, GIS Mapping, Web Accessibility",
+      "published": false,
+      "blocks": [
+        {
+          "id": "d9c48714-b666-4b95-9e8a-b0345f438fd7",
+          "project_id": "b6e29e85-41b0-4990-80a4-1e7c23599c89",
+          "kind": "text",
+          "text": "The Persons with Disability Affairs Office of Sto. Tomas ran on paper. Every ID application, renewal, and appointment for the city's roughly 4,000 registered PWDs moved through physical forms and in-person visits, so constituents travelled to the office just to check a status and staff had no way to see the data as a whole. I built this portal as my capstone project, under a memorandum of agreement with the city government.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 1
+        },
+        {
+          "id": "8334fa2c-a41d-4f38-8dc7-ce7c51f71a2b",
+          "project_id": "b6e29e85-41b0-4990-80a4-1e7c23599c89",
           "kind": "image",
           "text": "",
           "image_url": "https://i.imgur.com/zhuQrSq.png",
@@ -664,8 +1123,8 @@
           "sort_order": 2
         },
         {
-          "id": "acade871-4e0d-421f-995e-b68b2d0635f9",
-          "project_id": "0a42e092-5dc6-407b-8230-239483663690",
+          "id": "5b446d1d-24e8-46ef-ac05-7b7563f43d31",
+          "project_id": "b6e29e85-41b0-4990-80a4-1e7c23599c89",
           "kind": "text",
           "text": "A core requirement was ensuring the platform was truly usable by its target audience. I engineered a dedicated Accessibility Widget that allows users to toggle High Contrast Mode, Grayscale, and Dyslexia-Friendly fonts without relying on third-party overlays. This required writing extensive CSS overrides and JavaScript handlers to dynamically manipulate the DOM in real-time.",
           "image_url": "",
@@ -673,8 +1132,8 @@
           "sort_order": 3
         },
         {
-          "id": "563b6009-57cb-4db5-85ca-717b4c970287",
-          "project_id": "0a42e092-5dc6-407b-8230-239483663690",
+          "id": "2790732b-6608-4126-b708-edf2e538380f",
+          "project_id": "b6e29e85-41b0-4990-80a4-1e7c23599c89",
           "kind": "image",
           "text": "",
           "image_url": "https://i.imgur.com/T1QKCvh.png",
@@ -682,8 +1141,8 @@
           "sort_order": 4
         },
         {
-          "id": "e1498851-8bc6-439e-bf11-69bce0356e6e",
-          "project_id": "0a42e092-5dc6-407b-8230-239483663690",
+          "id": "ca2cc9e3-994e-4046-9cde-ece70ef776d4",
+          "project_id": "b6e29e85-41b0-4990-80a4-1e7c23599c89",
           "kind": "text",
           "text": "The system features a comprehensive backend to handle PWD ID applications and appointment bookings. I implemented a secure file upload system for sensitive documents (like medical certificates) and a scheduling algorithm that prevents overbooking by checking daily slot limits against the database. Applicants receive a unique reference number to track their status online, reducing the need for physical follow-ups.",
           "image_url": "",
@@ -691,8 +1150,8 @@
           "sort_order": 5
         },
         {
-          "id": "5113db1c-b325-4cfb-bd88-665f4e195db7",
-          "project_id": "0a42e092-5dc6-407b-8230-239483663690",
+          "id": "c7c6ce9f-6bda-4e52-8a28-041b2c43b4ec",
+          "project_id": "b6e29e85-41b0-4990-80a4-1e7c23599c89",
           "kind": "image",
           "text": "",
           "image_url": "https://i.imgur.com/Fz9LVlL.png",
@@ -700,8 +1159,8 @@
           "sort_order": 6
         },
         {
-          "id": "c1143bda-6c1b-4ea8-85c6-1e94df3daafd",
-          "project_id": "0a42e092-5dc6-407b-8230-239483663690",
+          "id": "b5de6eac-9859-479c-b951-b1285b451277",
+          "project_id": "b6e29e85-41b0-4990-80a4-1e7c23599c89",
           "kind": "text",
           "text": "To assist local government in resource allocation, I built a GIS (Geographic Information System) module using Leaflet.js. This feature visualizes the distribution of PWDs across different barangays using interactive markers and choropleth layers. It allows officials to filter data by disability type or status, identifying specific areas that may require targeted medical missions or support programs.",
           "image_url": "",
@@ -709,8 +1168,8 @@
           "sort_order": 7
         },
         {
-          "id": "6e1eea58-aac2-45ad-afdf-861c7613ee89",
-          "project_id": "0a42e092-5dc6-407b-8230-239483663690",
+          "id": "77fe13e5-ab2e-466b-a76b-03b552896bdf",
+          "project_id": "b6e29e85-41b0-4990-80a4-1e7c23599c89",
           "kind": "image",
           "text": "",
           "image_url": "https://i.imgur.com/Tr2BXpY.png",
@@ -718,8 +1177,8 @@
           "sort_order": 8
         },
         {
-          "id": "ecf0eea5-0678-4ee3-9290-b2adab3be9ea",
-          "project_id": "0a42e092-5dc6-407b-8230-239483663690",
+          "id": "d7e04f23-4d4b-4d2a-a935-d60ac20c8a49",
+          "project_id": "b6e29e85-41b0-4990-80a4-1e7c23599c89",
           "kind": "image",
           "text": "",
           "image_url": "https://i.imgur.com/YCqK1Ot.png",
@@ -727,8 +1186,8 @@
           "sort_order": 9
         },
         {
-          "id": "b44649db-9886-47e0-887a-9e6c633f86b6",
-          "project_id": "0a42e092-5dc6-407b-8230-239483663690",
+          "id": "497fcf4e-f927-4e46-983a-76f50d5829a4",
+          "project_id": "b6e29e85-41b0-4990-80a4-1e7c23599c89",
           "kind": "text",
           "text": "The Analytics module transforms raw database records into actionable insights. Using Chart.js, I created dynamic visualizations for demographic data, including age distribution, gender, and employment status. The system also generates printable PDF reports, automating what used to be a tedious manual compilation process for monthly reporting.",
           "image_url": "",
@@ -736,10 +1195,10 @@
           "sort_order": 10
         },
         {
-          "id": "a20b4d36-0968-4784-b624-338fa96f3e1c",
-          "project_id": "0a42e092-5dc6-407b-8230-239483663690",
+          "id": "aa614975-a053-4387-a906-386a9e3b9907",
+          "project_id": "b6e29e85-41b0-4990-80a4-1e7c23599c89",
           "kind": "text",
-          "text": "This capstone project was a culmination of my studies, challenging me to architect a full-scale system from the database schema up to the user interface. By solving real-world problems like data inaccessibility and manual processing, PDAO Helps demonstrates how student-led innovation can provide tangible value to public service administration.",
+          "text": "I verified the system through structured testing and UAT with office staff before turnover. Throughout development and every demo, the database held synthetic records I generated to match the city's real per-barangay PWD counts — realistic enough to prove the reporting worked, without a single real constituent record ever leaving the office. It was handed over as a system the staff could run themselves.",
           "image_url": "",
           "caption": "",
           "sort_order": 11
@@ -749,27 +1208,51 @@
   ],
   "experiences": [
     {
-      "id": "afc47a20-06b9-4085-8413-e4e952c6a233",
-      "title": "IT Intern / Systems Developer",
-      "organization": "ALM Management Services & NAM Builders Supply Corp",
-      "year_label": "2026",
-      "is_current": false,
+      "id": "9fa8df18-58cd-4c87-bac5-d16c62edfa27",
+      "title": "Full-Stack Developer (Freelance)",
+      "organization": "Malaya Villas",
+      "year_label": "Aug 2026 – Present",
+      "is_current": true,
+      "sort_order": 0
+    },
+    {
+      "id": "0512438b-5afe-4f59-96c7-0170551c95d5",
+      "title": "Founding Developer (Contract)",
+      "organization": "PapaFix · NAM Builders Supply Corp",
+      "year_label": "Jun 2026 – Present",
+      "is_current": true,
       "sort_order": 1
     },
     {
-      "id": "add80698-4687-4efd-a31a-d9018aa9550b",
-      "title": "Full-Stack Web Developer ",
-      "organization": "Persons with Disability Affairs Office (PDAO), City of Sto. Tomas",
-      "year_label": "2025",
+      "id": "38a45814-b729-4c59-afd3-128a19b54dfd",
+      "title": "Shopify Developer (Freelance)",
+      "organization": "Lumea · German beauty e-commerce store",
+      "year_label": "Oct 2026",
       "is_current": false,
       "sort_order": 2
+    },
+    {
+      "id": "afc47a20-06b9-4085-8413-e4e952c6a233",
+      "title": "IT Intern / Systems Developer",
+      "organization": "ALM Management Services & NAM Builders Supply Corp",
+      "year_label": "Feb – Apr 2026",
+      "is_current": false,
+      "sort_order": 3
+    },
+    {
+      "id": "add80698-4687-4efd-a31a-d9018aa9550b",
+      "title": "Full-Stack Developer (Capstone)",
+      "organization": "PDAO, City of Sto. Tomas",
+      "year_label": "2025",
+      "is_current": false,
+      "sort_order": 4
     },
     {
       "id": "a5a0a005-55a0-4b9e-95a2-e632d71f8612",
       "title": "BS Information Technology Major in Business Analytics",
       "organization": "Batangas State University",
       "year_label": "2022 – 2026",
-      "is_current": true,
+      "is_current": false,
       "sort_order": 5
     },
     {
@@ -922,21 +1405,21 @@
       "sort_order": 1
     },
     {
-      "id": "0a48aa4f-ac50-4aa5-9d8d-969eb5bfac2a",
-      "value": "5",
-      "label": "projects shipped",
+      "id": "e2e5bd26-eed7-44eb-b0a0-13a08c82f9a1",
+      "value": "10",
+      "label": "villas run on the booking system I built",
       "sort_order": 2
+    },
+    {
+      "id": "0a48aa4f-ac50-4aa5-9d8d-969eb5bfac2a",
+      "value": "9",
+      "label": "projects shipped",
+      "sort_order": 3
     },
     {
       "id": "0e1315e8-cf90-49c6-b270-b86db29b7bab",
       "value": "2,000+",
       "label": "government records digitized",
-      "sort_order": 3
-    },
-    {
-      "id": "e2e5bd26-eed7-44eb-b0a0-13a08c82f9a1",
-      "value": "4",
-      "label": "Google & Cisco certifications",
       "sort_order": 4
     }
   ]

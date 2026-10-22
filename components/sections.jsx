@@ -175,14 +175,12 @@ export function Experience({ items }) {
       <ol className="relative border-l-2 border-zinc-100 dark:border-zinc-800 ml-1.5 space-y-6">
         {items.map((e) => (
           <li key={e.id} className="pl-5 relative">
-            <span className={`absolute -left-[6px] top-1.5 w-2.5 h-2.5 rounded-full ${e.is_current ? 'accent-bg bg-zinc-900 dark:bg-zinc-100' : 'bg-zinc-300 dark:bg-zinc-600'}`} />
-            <div className="flex items-start justify-between gap-3">
-              <div>
-                <p className="font-semibold text-[15px]">{e.title}</p>
-                <p className="text-sm text-zinc-500">{e.organization}</p>
-              </div>
-              <span className="text-xs text-zinc-400 mt-0.5 flex-shrink-0">{e.year_label}</span>
-            </div>
+            <span className={`absolute -left-[6px] top-[3px] w-2.5 h-2.5 rounded-full ${e.is_current ? 'accent-bg bg-zinc-900 dark:bg-zinc-100' : 'bg-zinc-300 dark:bg-zinc-600'}`} />
+            {/* Date on its own line above the title, so long labels never push
+                out of a narrow card. */}
+            <p className="text-xs text-zinc-500">{e.year_label}</p>
+            <p className="font-semibold text-[15px] mt-0.5">{e.title}</p>
+            <p className="text-sm text-zinc-500">{e.organization}</p>
           </li>
         ))}
       </ol>
