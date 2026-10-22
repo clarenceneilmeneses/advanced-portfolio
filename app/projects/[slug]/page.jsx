@@ -29,7 +29,7 @@ function Block({ block }) {
       <figure className="my-7">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={block.image_url} alt={block.caption || ""}
-          className="w-full rounded-xl border border-zinc-200 dark:border-zinc-800" />
+          className="w-full rounded-2xl" />
         {block.caption && (
           <figcaption className="text-sm text-zinc-500 text-center mt-2">{block.caption}</figcaption>
         )}
@@ -50,7 +50,7 @@ export default async function ProjectPage({ params }) {
 
   return (
     <main className="max-w-2xl mx-auto px-4 py-10">
-      <Link href="/" className="inline-flex items-center gap-1.5 text-sm text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100">
+      <Link href="/" className="link-action inline-flex items-center gap-1.5 text-sm">
         <ArrowLeft size={15} /> {profile?.name || "Home"}
       </Link>
 
@@ -59,12 +59,12 @@ export default async function ProjectPage({ params }) {
         {project.description && <p className="text-zinc-500 mt-2">{project.description}</p>}
         <div className="flex flex-wrap items-center gap-2 mt-4">
           {(project.tech || "").split(",").map((t) => t.trim()).filter(Boolean).map((t) => (
-            <span key={t} className="chip">{t}</span>
+            <span key={t} className="chip !bg-white dark:!bg-zinc-900">{t}</span>
           ))}
         </div>
         {project.url && (
           <a href={project.url} target="_blank" rel="noreferrer"
-            className="inline-flex items-center gap-1.5 font-mono text-sm mt-4 text-blue-600 hover:underline">
+            className="link-action inline-flex items-center gap-1.5 font-mono text-sm mt-4">
             {project.display_url || project.url} <ExternalLink size={13} />
           </a>
         )}
@@ -73,7 +73,7 @@ export default async function ProjectPage({ params }) {
       {project.cover_image_url && (
         // eslint-disable-next-line @next/next/no-img-element
         <img src={project.cover_image_url} alt={project.title}
-          className="w-full rounded-xl border border-zinc-200 dark:border-zinc-800 mt-8" />
+          className="w-full rounded-2xl mt-8" />
       )}
 
       <article className="mt-6">
@@ -84,8 +84,8 @@ export default async function ProjectPage({ params }) {
         )}
       </article>
 
-      <footer className="mt-12 border-t border-zinc-100 dark:border-zinc-900 pt-6">
-        <Link href="/projects" className="text-sm text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100">
+      <footer className="mt-12">
+        <Link href="/projects" className="link-action text-sm">
           ← All projects
         </Link>
       </footer>

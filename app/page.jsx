@@ -73,7 +73,7 @@ export default async function Home() {
           .filter((it) => it.node)}
       />
 
-      <footer className="text-center text-sm text-zinc-500 mt-12 pb-4 border-t border-zinc-200/60 dark:border-zinc-800/60 pt-6">
+      <footer className="text-center text-sm text-zinc-500 mt-10 pb-4">
         <p>© {new Date().getFullYear()} {profile.name}. All rights reserved.</p>
         <p className="text-xs text-zinc-400 dark:text-zinc-600 mt-1.5">
           Design inspired by{' '}

@@ -58,7 +58,7 @@ export default function Gallery({ items }) {
   return (
     <div className="relative">
       <button onClick={() => scroll(-1)} aria-label="Scroll gallery left"
-        className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 z-10 p-1.5 rounded-full border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 shadow-sm">
+        className="icon-pill !hidden md:!inline-flex absolute -left-4 top-1/2 -translate-y-1/2 z-10">
         <ChevronLeft size={16} />
       </button>
       <div ref={ref} className="flex gap-3 overflow-x-auto scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
@@ -68,12 +68,12 @@ export default function Gallery({ items }) {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={sized(g.image_url, THUMB)} alt={g.caption || "Gallery photo"}
               width={400} height={400} loading="lazy" decoding="async" fetchPriority="low"
-              className="h-44 w-44 md:h-48 md:w-48 object-cover rounded-lg border border-zinc-200 dark:border-zinc-800 group-hover:opacity-90 transition-opacity" />
+              className="h-44 w-44 md:h-48 md:w-48 object-cover rounded-2xl group-hover:opacity-90 transition-opacity" />
           </button>
         ))}
       </div>
       <button onClick={() => scroll(1)} aria-label="Scroll gallery right"
-        className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-10 p-1.5 rounded-full border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 shadow-sm">
+        className="icon-pill !hidden md:!inline-flex absolute -right-4 top-1/2 -translate-y-1/2 z-10">
         <ChevronRight size={16} />
       </button>
 

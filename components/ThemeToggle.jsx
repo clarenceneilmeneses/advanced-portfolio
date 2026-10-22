@@ -17,7 +17,8 @@ export default function ThemeToggle() {
     <button
       onClick={toggle}
       aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
-      className="glass-btn !px-2 !py-2 text-zinc-600 dark:text-zinc-300"
+      title={dark ? 'Switch to light mode' : 'Switch to dark mode'}
+      className="icon-pill"
     >
       {dark ? <Sun size={16} /> : <Moon size={16} />}
     </button>

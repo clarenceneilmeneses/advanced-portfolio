@@ -34,7 +34,14 @@ export function accentStyle(hex) {
   const g = parseInt(n.slice(2, 4), 16);
   const b = parseInt(n.slice(4, 6), 16);
   const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-  return { '--accent': `#${n}`, '--accent-contrast': luminance > 0.6 ? '#000000' : '#ffffff' };
+  // A near-black accent vanishes on the dark theme, so dark mode swaps it for near-white.
+  const tooDark = luminance < 0.3;
+  return {
+    '--accent': `#${n}`,
+    '--accent-contrast': luminance > 0.6 ? '#000000' : '#ffffff',
+    '--accent-dark': tooDark ? '#fafafa' : `#${n}`,
+    '--accent-dark-contrast': tooDark || luminance > 0.6 ? '#000000' : '#ffffff',
+  };
 }
 
 export function renderSection(key, data) {
@@ -42,7 +49,7 @@ export function renderSection(key, data) {
   switch (key) {
     case 'header':
       return (
-        <div className="glass-panel p-6">
+        <div className="card p-6">
           <Header profile={profile} />
         </div>
       );

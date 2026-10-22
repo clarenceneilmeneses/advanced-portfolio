@@ -38,7 +38,7 @@ export default function ResumeButton({ profile, variant = "button" }) {
     <>
       {variant === "row" ? (
         <button onClick={() => setOpen(true)}
-          className="accent-link w-full flex items-center justify-between text-sm border-b border-zinc-100 dark:border-zinc-800 pb-2.5 hover:text-zinc-900 dark:hover:text-white">
+          className="tile-link w-full flex items-center justify-between text-sm px-3.5 py-2.5">
           <span className="text-left">
             <span className="flex items-center gap-1.5 text-zinc-500"><FileText size={13} /> Resume</span>
             <span className="font-medium">{resumes.map((r) => r.label).join(" / ")}</span>
@@ -46,7 +46,7 @@ export default function ResumeButton({ profile, variant = "button" }) {
           <ChevronRight size={14} />
         </button>
       ) : (
-        <button onClick={() => setOpen(true)} className="btn-ghost">
+        <button onClick={() => setOpen(true)} className="btn-outline">
           <FileText size={15} /> View Resume
         </button>
       )}
@@ -57,17 +57,13 @@ export default function ResumeButton({ profile, variant = "button" }) {
         <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-3 md:p-6"
           role="dialog" aria-modal="true" onClick={() => setOpen(false)}>
           <div onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-4xl h-[88vh] flex flex-col rounded-xl overflow-hidden bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 shadow-2xl">
-            <div className="flex items-center gap-2 px-3 py-2.5 md:px-4 border-b border-zinc-200 dark:border-zinc-800">
+            className="w-full max-w-4xl h-[88vh] flex flex-col rounded-[1.25rem] overflow-hidden bg-zinc-100 dark:bg-zinc-950 shadow-2xl">
+            {/* Header sits a shade above the PDF well — no rule between them. */}
+            <div className="flex items-center gap-2 px-3 py-2.5 md:px-4 bg-white dark:bg-zinc-900">
               {resumes.length > 1 ? (
-                <div className="flex rounded-lg bg-zinc-100 dark:bg-zinc-800 p-0.5">
+                <div className="segmented" role="group" aria-label="Choose a resume">
                   {resumes.map((r, i) => (
-                    <button key={r.key} onClick={() => setActive(i)}
-                      className={`px-3 py-1.5 text-xs md:text-sm font-medium rounded-md transition-colors ${
-                        i === active
-                          ? "bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white shadow-sm"
-                          : "text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200"
-                      }`}>
+                    <button key={r.key} onClick={() => setActive(i)} aria-pressed={i === active}>
                       {r.label}
                     </button>
                   ))}
@@ -76,19 +72,22 @@ export default function ResumeButton({ profile, variant = "button" }) {
                 <span className="text-sm font-medium px-1">{current.label} Resume</span>
               )}
               <div className="flex-1" />
-              <a href={downloadUrl} className="p-2 rounded-md text-zinc-500 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800"
-                aria-label="Download resume" title="Download">
-                <Download size={17} />
-              </a>
-              <a href={current.url} target="_blank" rel="noreferrer"
-                className="p-2 rounded-md text-zinc-500 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800"
-                aria-label="Open resume in new tab" title="Open in new tab">
-                <ExternalLink size={17} />
-              </a>
-              <button onClick={() => setOpen(false)} aria-label="Close resume preview"
-                className="p-2 rounded-md text-zinc-500 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800">
-                <X size={18} />
-              </button>
+              {/* Download / open / close grouped in one pill. */}
+              <div className="segmented">
+                <a href={downloadUrl} className="p-2 rounded-full text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+                  aria-label="Download resume" title="Download resume">
+                  <Download size={16} />
+                </a>
+                <a href={current.url} target="_blank" rel="noreferrer"
+                  className="p-2 rounded-full text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+                  aria-label="Open resume in new tab" title="Open resume in new tab">
+                  <ExternalLink size={16} />
+                </a>
+                <button onClick={() => setOpen(false)} aria-label="Close resume preview" title="Close resume preview"
+                  className="!p-2 !text-zinc-600 dark:!text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800">
+                  <X size={16} />
+                </button>
+              </div>
             </div>
             <iframe key={current.key} src={current.url} title={`${current.label} resume`}
               className="flex-1 w-full bg-zinc-100 dark:bg-zinc-950" />

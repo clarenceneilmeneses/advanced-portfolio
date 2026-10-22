@@ -8,8 +8,8 @@ import ResumeButton from './ResumeModal';
 
 export function ViewAll({ href }) {
   return (
-    <Link href={href} className="accent-link flex items-center gap-0.5 text-sm text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100">
-      View All <ChevronRight size={14} />
+    <Link href={href} className="link-action inline-flex items-center gap-0.5 text-sm">
+      View all <ChevronRight size={14} />
     </Link>
   );
 }
@@ -21,17 +21,18 @@ export function Header({ profile }) {
       <div className="flex items-start md:items-center gap-4 md:gap-6">
         {p.avatar_url ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={p.avatar_url} alt={p.name} className="rounded-lg w-28 h-28 md:w-40 md:h-40 object-cover flex-shrink-0" />
+          <img src={p.avatar_url} alt={p.name} className="rounded-2xl w-28 h-28 md:w-40 md:h-40 object-cover flex-shrink-0" />
         ) : (
-          <div className="rounded-lg w-28 h-28 md:w-40 md:h-40 flex-shrink-0 bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-3xl font-bold text-zinc-400">
+          <div className="rounded-2xl w-28 h-28 md:w-40 md:h-40 flex-shrink-0 bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-3xl font-bold text-zinc-400">
             {(p.name || '?').split(' ').map((w) => w[0]).slice(0, 2).join('')}
           </div>
         )}
         <div className="flex-1 min-w-0">
-          <div className="flex items-center justify-between gap-2">
-            <h1 className="text-lg md:text-2xl font-bold truncate flex items-center gap-1.5">
+          <div className="flex items-start justify-between gap-2">
+            <h1 className="text-lg md:text-2xl font-bold leading-snug">
               {p.name}
-              {p.verified && <BadgeCheck size={20} className="accent-ink text-blue-500 flex-shrink-0" fill="currentColor" stroke="white" />}
+              {/* Inline so the check stays on the line with the last word when the name wraps. */}
+              {p.verified && <BadgeCheck size={20} className="accent-ink text-blue-500 inline-block align-[-3px] ml-1.5 stroke-white dark:stroke-zinc-900" fill="currentColor" />}
             </h1>
             <ThemeToggle />
           </div>
@@ -44,7 +45,7 @@ export function Header({ profile }) {
             {p.headline && <p className="text-sm md:text-base font-medium">{p.headline}</p>}
             {p.badge_text && (
               <a href={p.badge_url || '#'} target="_blank" rel="noreferrer"
-                className="badge-accent inline-flex items-center gap-1.5 text-xs font-medium text-white bg-zinc-900 hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200 px-3 py-1.5 rounded-md">
+                className="badge-accent inline-flex items-center gap-1.5 text-xs font-medium text-white bg-zinc-900 hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200 px-3 py-1.5 rounded-full">
                 <Trophy size={13} /> {p.badge_text}
               </a>
             )}
@@ -56,13 +57,13 @@ export function Header({ profile }) {
               </a>
             )}
             {p.email && (
-              <a href={`mailto:${p.email}`} className="btn-ghost">
+              <a href={`mailto:${p.email}`} className="btn-outline">
                 <Mail size={15} /> Send Email
               </a>
             )}
             <ResumeButton profile={p} />
             {p.blog_url && (
-              <a href={p.blog_url} target="_blank" rel="noreferrer" className="btn-ghost">
+              <a href={p.blog_url} target="_blank" rel="noreferrer" className="btn-outline">
                 <FileText size={15} /> Read my blog
               </a>
             )}
@@ -146,7 +147,7 @@ function AccessCard({ h }) {
 function HighlightImage({ h }) {
   const img = (
     // eslint-disable-next-line @next/next/no-img-element
-    <img src={h.image_url} alt={h.title || 'Highlight'} className="w-full rounded-xl border border-zinc-200 dark:border-zinc-800" />
+    <img src={h.image_url} alt={h.title || 'Highlight'} className="w-full rounded-2xl" />
   );
   return h.link_url ? <a href={h.link_url} target="_blank" rel="noreferrer">{img}</a> : img;
 }
@@ -171,10 +172,10 @@ export function Experience({ items }) {
   return (
     <section className="card p-6">
       <h2 className="text-xl font-bold tracking-tight mb-5">Experience</h2>
-      <ol className="relative border-l border-zinc-200 dark:border-zinc-800 ml-1.5 space-y-6">
+      <ol className="relative border-l-2 border-zinc-100 dark:border-zinc-800 ml-1.5 space-y-6">
         {items.map((e) => (
           <li key={e.id} className="pl-5 relative">
-            <span className={`absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-sm ${e.is_current ? 'accent-bg bg-zinc-900 dark:bg-zinc-100' : 'bg-zinc-200 dark:bg-zinc-700 border border-zinc-300 dark:border-zinc-600'}`} />
+            <span className={`absolute -left-[6px] top-1.5 w-2.5 h-2.5 rounded-full ${e.is_current ? 'accent-bg bg-zinc-900 dark:bg-zinc-100' : 'bg-zinc-300 dark:bg-zinc-600'}`} />
             <div className="flex items-start justify-between gap-3">
               <div>
                 <p className="font-semibold text-[15px]">{e.title}</p>
@@ -227,26 +228,26 @@ export function Projects({ items, full = false }) {
         {list.map((p) => {
           const hasStory = !!p.slug && p.published !== false;
           return (
-            <div key={p.id} className="glass-card relative p-4">
+            <div key={p.id} className={`${hasStory ? 'tile-link' : 'tile'} relative p-4`}>
               <div className="flex items-start justify-between gap-2">
                 {hasStory ? (
-                  <Link href={`/projects/${p.slug}`} className="accent-link font-semibold after:absolute after:inset-0">
+                  <Link href={`/projects/${p.slug}`} className="font-semibold after:absolute after:inset-0 after:rounded-2xl">
                     {p.title}
                   </Link>
                 ) : (
                   <p className="font-semibold">{p.title}</p>
                 )}
-                {hasStory && <ChevronRight size={15} className="text-zinc-400 mt-1 flex-shrink-0" />}
+                {hasStory && <ChevronRight size={16} className="text-zinc-500 mt-0.5 flex-shrink-0" />}
               </div>
               <p className="text-sm text-zinc-500 mt-0.5">{p.description}</p>
-              <div className="flex items-center gap-2 mt-3">
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-3">
                 {p.url && (
                   <a href={p.url} target="_blank" rel="noreferrer"
-                    className="accent-link relative z-10 inline-flex items-center gap-1 font-mono text-xs px-2 py-1 glass-card text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white">
-                    {p.display_url || p.url.replace(/^https?:\/\//, '').replace(/\/$/, '')}
+                    className="link-action relative z-10 inline-flex items-center gap-1 font-mono text-xs">
+                    {p.display_url || p.url.replace(/^https?:\/\//, '').replace(/\/$/, '')} <ExternalLink size={11} />
                   </a>
                 )}
-                {hasStory && <span className="text-xs text-zinc-400">Read the story</span>}
+                {hasStory && <span className="text-xs font-medium text-zinc-500">Read the story</span>}
               </div>
             </div>
           );
@@ -267,17 +268,17 @@ export function Certifications({ items, full = false }) {
       <ul className="space-y-2.5">
         {list.map((c) => {
           const body = (
-            <div className="glass-card flex items-center justify-between gap-2 px-4 py-3">
+            <div className={`${c.url ? 'tile-link' : 'tile'} flex items-center justify-between gap-2 px-4 py-3`}>
               <div>
                 <p className="font-semibold text-sm">{c.title}</p>
                 <p className="text-sm text-zinc-500">{c.issuer}</p>
               </div>
-              {c.url && <ExternalLink size={14} className="text-zinc-400 flex-shrink-0" />}
+              {c.url && <ExternalLink size={14} className="text-zinc-500 flex-shrink-0" />}
             </div>
           );
           return (
             <li key={c.id}>
-              {c.url ? <a href={c.url} target="_blank" rel="noreferrer" className="block hover:opacity-80">{body}</a> : body}
+              {c.url ? <a href={c.url} target="_blank" rel="noreferrer" className="block">{body}</a> : body}
             </li>
           );
         })}
@@ -291,9 +292,9 @@ const SOCIAL_ICONS = { linkedin: Linkedin, github: Github, instagram: Instagram 
 export function MembershipCard({ m }) {
   return (
     <a href={m.url || '#'} target="_blank" rel="noreferrer"
-      className="accent-link glass-card flex items-start justify-between gap-2 text-sm px-3 py-2.5">
+      className="tile-link flex items-start justify-between gap-2 text-sm px-3.5 py-2.5">
       <span className="font-medium">{m.name}</span>
-      <ExternalLink size={12} className="text-zinc-400 mt-0.5 flex-shrink-0" />
+      <ExternalLink size={12} className="text-zinc-500 mt-0.5 flex-shrink-0" />
     </a>
   );
 }
@@ -302,7 +303,7 @@ export function SocialLinkCard({ s }) {
   const Icon = SOCIAL_ICONS[s.platform?.toLowerCase()] || LinkIcon;
   return (
     <a href={s.url} target="_blank" rel="noreferrer"
-      className="accent-link glass-card flex items-center gap-2 text-sm px-3 py-2.5">
+      className="tile-link flex items-center gap-2 text-sm font-medium px-3.5 py-2.5">
       <Icon size={15} /> {s.platform}
     </a>
   );
@@ -330,13 +331,13 @@ export function FooterGrid({ profile, memberships, socials }) {
       </div>
       <div className="space-y-2">
         {p.email && (
-          <a href={`mailto:${p.email}`} className="accent-link block text-sm border-b border-zinc-100 dark:border-zinc-800 pb-2.5">
+          <a href={`mailto:${p.email}`} className="tile-link block text-sm px-3.5 py-2.5">
             <span className="flex items-center gap-1.5 text-zinc-500"><Mail size={13} /> Email</span>
             <span className="font-medium break-all">{p.email}</span>
           </a>
         )}
         {p.calendly_url && (
-          <a href={p.calendly_url} target="_blank" rel="noreferrer" className="accent-link flex items-center justify-between text-sm border-b border-zinc-100 dark:border-zinc-800 pb-2.5 hover:text-zinc-900 dark:hover:text-white">
+          <a href={p.calendly_url} target="_blank" rel="noreferrer" className="tile-link flex items-center justify-between text-sm px-3.5 py-2.5">
             <span>
               <span className="flex items-center gap-1.5 text-zinc-500"><Calendar size={13} /> Let&apos;s Talk</span>
               <span className="font-medium">Schedule a Call</span>
@@ -346,7 +347,7 @@ export function FooterGrid({ profile, memberships, socials }) {
         )}
         <ResumeButton profile={p} variant="row" />
         {p.blog_url && (
-          <a href={p.blog_url} target="_blank" rel="noreferrer" className="accent-link flex items-center justify-between text-sm hover:text-zinc-900 dark:hover:text-white">
+          <a href={p.blog_url} target="_blank" rel="noreferrer" className="tile-link flex items-center justify-between text-sm px-3.5 py-2.5">
             <span>
               <span className="flex items-center gap-1.5 text-zinc-500"><FileText size={13} /> Blog</span>
               <span className="font-medium">Read my blog</span>
