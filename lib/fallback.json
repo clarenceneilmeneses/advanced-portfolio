@@ -7,13 +7,13 @@
     "headline": "Full-Stack Web Developer \\ Data Analyst",
     "badge_text": "",
     "badge_url": "",
-    "about": "I'm a full-stack developer and a BS Information Technology graduate of Batangas State University, major in Business Analytics (Class of 2026).\n\nI build the systems small businesses run on. Right now that's Malaya Villas, a private rental business with ten villas: I built its booking site and staff back office on React, TypeScript, and Supabase, and on October 1 it replaced the owner's spreadsheets for every villa, with Xendit checkout and Airbnb calendar sync so nothing double-books.\n\nI'm also the founding developer of PapaFix, a funded home-services marketplace under NAM Builders Supply Corp. They retained me after my internship, where I built the company's first sales platform, now handling ₱1M+ in monthly sales. I built PapaFix's web platform, and in November I redesigned both of its mobile apps, customer and technician, on one shared design kit. For the same company I'm now building a KPI board that scores its three businesses against one scorecard.\n\nI design the interfaces I build, and I make product walkthrough films in code with Remotion, for my own projects and on commission. On the side I also build Shopify stores: custom Liquid product pages and a catalog pipeline for a German beauty brand.\n\nI work across React, TypeScript, React Native, PostgreSQL, PHP, Shopify, and REST APIs, and I ship through reviewed pull requests with a test checklist for every change. Google-certified in Analytics and Ads Measurement.",
+    "about": "I'm a full-stack developer and a BS Information Technology graduate of Batangas State University, major in Business Analytics (Class of 2026).\r\n\r\nI build the systems small businesses run on. Right now that's Malaya Villas, a private rental business with ten villas: I built its booking site and staff back office on React, TypeScript, and Supabase, and on October 1 it replaced the owner's spreadsheets for every villa, with Xendit checkout and Airbnb calendar sync so nothing double-books.\r\n\r\nI'm also the founding developer of PapaFix, a funded home-services marketplace under NAM Builders Supply Corp. They retained me after my internship, where I built the company's first sales platform, now handling ₱1M+ in monthly sales. I built PapaFix's web platform, and in November I redesigned both of its mobile apps, customer and technician, on one shared design kit. For the same company I'm now building a KPI board that scores its three businesses against one scorecard.\r\n\r\nI design the interfaces I build, and I make product walkthrough films in code with Remotion, for my own projects and on commission. On the side I also build Shopify stores: custom Liquid product pages and a catalog pipeline for a German beauty brand.\r\n\r\nI work across React, TypeScript, React Native, PostgreSQL, PHP, Shopify, and REST APIs, and I ship through reviewed pull requests with a test checklist for every change. Google-certified in Analytics and Ads Measurement.",
     "avatar_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1781658892211-IMG_4527.jpg",
     "email": "clarenceneilpamplona@gmail.com",
     "calendly_url": "https://calendly.com/clarenceneilpamplona/30min",
     "blog_url": "",
     "speaking_text": "Open for Inquiries",
-    "updated_at": "2026-10-22T23:23:38.181+00:00",
+    "updated_at": "2026-11-10T08:28:07.057732+00:00",
     "section_config": [
       {
         "h": 1,
@@ -165,21 +165,21 @@
       "sort_order": 9
     },
     {
-      "id": "27049d35-abd5-471c-9388-937aa9d269c5",
+      "id": "b3598cb7-104a-46ab-827e-5dd35e7bdac5",
       "category": "Frontend",
       "name": "React Native",
       "featured": true,
       "sort_order": 10
     },
     {
-      "id": "d2900975-96fa-4d98-b037-dbdf12825027",
+      "id": "bd227ffa-1789-40a7-8477-4914ddfa9da6",
       "category": "Frontend",
       "name": "Expo",
       "featured": true,
       "sort_order": 11
     },
     {
-      "id": "aec82cb9-c563-414f-9546-a5c42d2f24ec",
+      "id": "f5aa74cd-2487-4e30-b8d9-8b5b3b881dec",
       "category": "Frontend",
       "name": "TanStack Start",
       "featured": true,
@@ -270,7 +270,7 @@
       "sort_order": 24
     },
     {
-      "id": "ddebbe59-3ec6-421a-8bf7-517faf8e7d73",
+      "id": "bbf62ba4-d600-43c1-a60b-51232cf8d97b",
       "category": "Design & Motion",
       "name": "Remotion",
       "featured": true,
@@ -328,7 +328,7 @@
       "logo_url": "/logos/malaya-mono.png",
       "blocks": [
         {
-          "id": "aac04e39-a45e-4183-ba44-319920af4473",
+          "id": "0deb7f8e-904c-4068-a564-acb590b180ae",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "text",
           "text": "Malaya Villas rents out ten private villas, and until this year the business ran on spreadsheets and Messenger threads. In August 2026 I took on Malaya OBS as its developer. What I was handed was a click-through prototype: no database, no login, no public site, and every number invented in the browser. The job was to turn it into the system the company actually runs on.",
@@ -337,7 +337,7 @@
           "sort_order": 1
         },
         {
-          "id": "37f00a29-229e-40c7-b402-033f4ec81ab8",
+          "id": "22358a72-299d-48e1-b66a-e3771c1cc4d0",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "heading",
           "text": "What I built",
@@ -346,7 +346,7 @@
           "sort_order": 2
         },
         {
-          "id": "adfacab2-33f8-4f64-bcdb-8d672296ccf8",
+          "id": "1af88f12-3311-4323-a5c9-94e77163b964",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "text",
           "text": "A booking website for guests and a back office for staff, on one Supabase Postgres database with row-level security per role. A guest picks dates and pays on the public site; the stay blocks the calendar, the payment lands in Finance, and staff see the next step on the booking page. Around that loop sit the calendar and pricing, an inbox, maintenance, team roles, and the owner's reports.",
@@ -355,7 +355,7 @@
           "sort_order": 3
         },
         {
-          "id": "a4737ec9-e772-49c9-bd65-c512c391b58d",
+          "id": "5d94973f-2ac7-4d31-87a4-07a930f47174",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "heading",
           "text": "Going live",
@@ -364,7 +364,7 @@
           "sort_order": 4
         },
         {
-          "id": "e5410aaf-7fd4-4d32-89ba-7da5084e0afc",
+          "id": "8e87d734-669e-4d03-9796-2247e6735969",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "text",
           "text": "On October 1 the system replaced the owner's spreadsheets as the record for all ten villas. Before the switch I imported each villa's booking and cash-flow workbook and reconciled it line by line, and every month since is crosschecked against the sheets, ending in a to-do list for the staff. Guests pay through Xendit checkout, and nine villa calendars sync with Airbnb, so nothing gets double-booked.",
@@ -373,7 +373,7 @@
           "sort_order": 5
         },
         {
-          "id": "0ad39af9-2b66-427c-a764-df4dced93ddb",
+          "id": "69f2a513-270c-495c-a3bd-1c609ebdbc96",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "heading",
           "text": "A database that refuses to be wrong",
@@ -382,7 +382,7 @@
           "sort_order": 6
         },
         {
-          "id": "52f3dd55-6880-407f-9037-3da236cdcbfb",
+          "id": "5c99571f-ff35-4b88-83b8-8dbbc5e7fe84",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "text",
           "text": "Business rules live in constraints, not just TypeScript. Money is numeric, stay dates are calendar dates so Manila bookings never drift a day on a UTC server, and a GiST exclusion constraint makes a double booking physically impossible. A trigger on every table writes an audit log, so every change shows up as a plain sentence: who did what to which booking.",
@@ -391,7 +391,7 @@
           "sort_order": 7
         },
         {
-          "id": "9bfb6df0-7f3c-4a21-a53b-c809c11d6415",
+          "id": "7c2e0a78-cad4-4dbe-a005-8139694606b8",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "heading",
           "text": "Security in the database, not the sidebar",
@@ -400,7 +400,7 @@
           "sort_order": 8
         },
         {
-          "id": "5a132ffb-b94b-49fa-9bea-f4c2892ef813",
+          "id": "221cb413-cb8b-4af1-bcb2-971c0dedf6b1",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "text",
           "text": "Staff, owners and guests share the same tables. The sidebar hides tabs and screens refuse actions, but only Postgres policies are the real boundary: a caretaker cannot read the P&L even by calling the API directly. When the owner asked for custom roles, roles became data, so policies check has_permission() instead of naming a role, and staff can be scoped to only the villas they are assigned.",
@@ -409,7 +409,7 @@
           "sort_order": 9
         },
         {
-          "id": "bb5b74f8-f5aa-4f7d-bc20-7f7c90eb8ca4",
+          "id": "844fd26d-d97c-418f-be7b-b5e21360b76c",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "heading",
           "text": "Finance built to the owner's own workbooks",
@@ -418,7 +418,7 @@
           "sort_order": 10
         },
         {
-          "id": "b8372530-db2c-4a4e-899a-d8079c5d6b06",
+          "id": "172b3044-16ab-49a9-8596-5425fae04881",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "text",
           "text": "The owner's spreadsheets outranked the spec for Finance, so the module was built to match them cell by cell: per-villa monthly P&L, owner earnings and cash position, with breakdowns that drill down to each receipt. The importers were ported from Python to TypeScript line for line, with a verifier that had to print IDENTICAL before either changed. Payments and expenses only count once a person has verified them.",
@@ -427,7 +427,7 @@
           "sort_order": 11
         },
         {
-          "id": "634f3078-008f-40bf-84e8-f8c5a50608a3",
+          "id": "3232f44e-c02a-4a45-abc3-522f7544afdc",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "heading",
           "text": "Designed for the people using it",
@@ -436,7 +436,7 @@
           "sort_order": 12
         },
         {
-          "id": "a3ba81a8-f797-4b55-aea3-f205724f48f8",
+          "id": "be5400ca-3c7d-4833-8104-a929ec092b9d",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "text",
           "text": "Eighteen staff use it every day. When some of them missed that an action was a button at all, I gave the interface a small, strict vocabulary: brown for the main step, green to confirm, red to remove, white for everything safe, every clickable word underlined, and a confirmation that names the guest, the amount and the booking code before any one-click approval. Depth comes from shades instead of lines, and related controls sit together in rounded pills. This portfolio follows the same rules, and so do the PapaFix mobile apps I redesigned afterwards.",
@@ -445,7 +445,7 @@
           "sort_order": 13
         },
         {
-          "id": "6ec89ee6-4061-4f49-9d45-4f81cf60a2ed",
+          "id": "5bf30eed-473e-42e8-877f-007c9a49b908",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "heading",
           "text": "Payments and AI, kept honest",
@@ -454,7 +454,7 @@
           "sort_order": 14
         },
         {
-          "id": "214848c6-bf85-4136-ac42-ff53b9e293fe",
+          "id": "73411e00-8b3b-4374-9017-06d44a50a307",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "text",
           "text": "Online payments go through Xendit, and the webhook records the payment and confirms the booking in one transaction. Maya, the built-in assistant, is a real Claude call over the figures already on screen. It is never allowed to query the database or calculate a number itself, so it can never disagree with the Finance tab.",
@@ -463,7 +463,7 @@
           "sort_order": 15
         },
         {
-          "id": "22653039-a236-4ceb-a1b2-bd7f3c1e6a71",
+          "id": "11d35dfa-07d2-4bdb-9fd6-f15107011c92",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "heading",
           "text": "Since the switch-over",
@@ -472,7 +472,7 @@
           "sort_order": 16
         },
         {
-          "id": "0c89ad84-04e3-40ac-9811-3a8390b3484a",
+          "id": "22fe88df-e4e0-49e3-8aca-dc84cbf95434",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "text",
           "text": "The system has kept growing with the business. The owner now gets a report by email every night. Receipts are filed in folders that download as one archive. Xendit's fees are reconciled against the gateway's own records. The P&L was rebuilt around one date rule, with a break-even per villa and a forecast. Investors sign in to see only their own branch, and affiliates earn a share of the bookings they bring.",
@@ -481,7 +481,7 @@
           "sort_order": 17
         },
         {
-          "id": "973a535f-1f29-4cea-8b6d-3134753b83b1",
+          "id": "039a7610-acbd-49da-af37-dc0306cd5f17",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "heading",
           "text": "How I work",
@@ -490,7 +490,7 @@
           "sort_order": 18
         },
         {
-          "id": "cb7c9e35-0eaa-44cc-aef6-dc5d820dbd1d",
+          "id": "f58aaa97-fbae-4f1f-9157-e53c9faeea99",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "text",
           "text": "Every change ships through a pull request the owner reviews, more than 150 so far, each with a test checklist that says who checks what, and I recorded a training video for the staff. Type-checking and tests now run on every pull request before it can merge. This is the project where I learned to own a system a business depends on: reading a spec closely enough to find its contradictions, asking the questions only the owner can answer, and refusing to invent a number. It is ongoing.",
@@ -501,22 +501,22 @@
       ]
     },
     {
-      "id": "f34a1405-f1d0-4592-b9d3-7a873b390444",
-      "slug": "papafix-mobile",
+      "id": "b67b1f20-6b65-4297-b62b-15e7d0220dfe",
       "title": "PapaFix Mobile: Customer & Technician Apps",
       "description": "A full UI/UX redesign of both Android apps on one shared design kit: 40+ screens, a guided booking flow and a mascot with 14 poses, shipped over the air with no new store build.",
       "url": "https://play.google.com/store/apps/details?id=com.papafix.customer",
       "display_url": "Google Play",
-      "cover_image_url": "",
-      "tech": "React Native, Expo, Expo Router, TypeScript, Supabase, EAS Update",
-      "logo_url": "/logos/papafix.png",
-      "published": true,
       "featured": true,
       "sort_order": 1,
+      "slug": "papafix-mobile",
+      "cover_image_url": "",
+      "tech": "React Native, Expo, Expo Router, TypeScript, Supabase, EAS Update",
+      "published": true,
+      "logo_url": "/logos/papafix.png",
       "blocks": [
         {
-          "id": "1cfd106d-f92d-4fa8-a7b6-fd4912dca08d",
-          "project_id": "f34a1405-f1d0-4592-b9d3-7a873b390444",
+          "id": "1424d8d1-8579-41a4-8f0a-7fdb9fc5d3c8",
+          "project_id": "b67b1f20-6b65-4297-b62b-15e7d0220dfe",
           "kind": "text",
           "text": "PapaFix has two Android apps on Google Play: one where customers book an aircon, plumbing or electrical technician, and one where technicians take and finish those jobs. Both worked, but they had grown one screen at a time. An audit found about 150 hand-bordered cards, no shared button, and type as small as 9 points. In November 2026 I redesigned both apps without changing how anything works.",
           "image_url": "",
@@ -524,8 +524,8 @@
           "sort_order": 1
         },
         {
-          "id": "980a3b12-c4bc-490e-a016-4cfc34b11cd5",
-          "project_id": "f34a1405-f1d0-4592-b9d3-7a873b390444",
+          "id": "ae5b26f3-1c69-4c59-bcef-ef0530d3d2b2",
+          "project_id": "b67b1f20-6b65-4297-b62b-15e7d0220dfe",
           "kind": "image",
           "text": "",
           "image_url": "/work/papafix/customer-app-1.webp",
@@ -533,8 +533,8 @@
           "sort_order": 2
         },
         {
-          "id": "3828e7cb-6524-4329-bd24-a0565c970350",
-          "project_id": "f34a1405-f1d0-4592-b9d3-7a873b390444",
+          "id": "71dcd78a-9599-4516-940a-165c0b39245e",
+          "project_id": "b67b1f20-6b65-4297-b62b-15e7d0220dfe",
           "kind": "heading",
           "text": "One kit, two apps",
           "image_url": "",
@@ -542,8 +542,8 @@
           "sort_order": 3
         },
         {
-          "id": "06fdb9c4-7ab7-4cde-8775-09ab1d73e0f0",
-          "project_id": "f34a1405-f1d0-4592-b9d3-7a873b390444",
+          "id": "5c938562-ab24-4272-bb1f-043a532a01c1",
+          "project_id": "b67b1f20-6b65-4297-b62b-15e7d0220dfe",
           "kind": "text",
           "text": "The two apps live in one monorepo and share a package, so the redesign started there: colour and spacing tokens, a card, one button with a few tones, a text field, status pills, tab pills, list cards and stat tiles. Every screen in both apps was then rebuilt from those pieces. The customer app is blue and the technician app is orange, and that accent is the only thing that differs between them.",
           "image_url": "",
@@ -551,8 +551,8 @@
           "sort_order": 4
         },
         {
-          "id": "d8f7ef6c-1638-456d-90ba-4e3ab447a378",
-          "project_id": "f34a1405-f1d0-4592-b9d3-7a873b390444",
+          "id": "3c41f24e-88a3-4741-b226-0f198475af40",
+          "project_id": "b67b1f20-6b65-4297-b62b-15e7d0220dfe",
           "kind": "heading",
           "text": "The same language as Malaya",
           "image_url": "",
@@ -560,8 +560,8 @@
           "sort_order": 5
         },
         {
-          "id": "c43467ac-2fb0-40ae-9c0c-fe9f69c4ce43",
-          "project_id": "f34a1405-f1d0-4592-b9d3-7a873b390444",
+          "id": "5feeb602-1b15-4683-9ee6-3586c07c2ee8",
+          "project_id": "b67b1f20-6b65-4297-b62b-15e7d0220dfe",
           "kind": "text",
           "text": "The look follows the design language I built for Malaya Villas' back office: depth from shades instead of drawn lines, related controls grouped in rounded pills, the open tab as a soft fill, and one typeface at light weights under spaced small-caps labels. The bottom navigation is a floating pill with a separate round + button that opens the app's main actions.",
           "image_url": "",
@@ -569,8 +569,8 @@
           "sort_order": 6
         },
         {
-          "id": "a1f937f5-5f4c-40b0-8ca9-fdca94016a70",
-          "project_id": "f34a1405-f1d0-4592-b9d3-7a873b390444",
+          "id": "d09a6ee1-883b-4b69-b8ea-7e2362a69fca",
+          "project_id": "b67b1f20-6b65-4297-b62b-15e7d0220dfe",
           "kind": "heading",
           "text": "Booking, one decision at a time",
           "image_url": "",
@@ -578,8 +578,8 @@
           "sort_order": 7
         },
         {
-          "id": "55935d2d-e06f-4a86-820f-70740db6a7fc",
-          "project_id": "f34a1405-f1d0-4592-b9d3-7a873b390444",
+          "id": "b3e7ed00-17ce-483a-becd-51e498fbde44",
+          "project_id": "b67b1f20-6b65-4297-b62b-15e7d0220dfe",
           "kind": "text",
           "text": "Booking a technician became a four-step flow with a progress bar and a card for each decision. The price stays pinned to the bottom of the screen the whole way through, so a customer sees what they will pay before they commit. Aircon, plumbing and electrical get the same treatment, each with its own colour and icon.",
           "image_url": "",
@@ -587,8 +587,8 @@
           "sort_order": 8
         },
         {
-          "id": "03d590fa-c7e9-4adc-bd69-bbf687344148",
-          "project_id": "f34a1405-f1d0-4592-b9d3-7a873b390444",
+          "id": "12b26442-bc07-4c8b-88a6-db5d6ea70bdd",
+          "project_id": "b67b1f20-6b65-4297-b62b-15e7d0220dfe",
           "kind": "image",
           "text": "",
           "image_url": "/work/papafix/customer-app-2.webp",
@@ -596,8 +596,8 @@
           "sort_order": 9
         },
         {
-          "id": "3e580391-eb20-4e28-a45a-15bf092b6160",
-          "project_id": "f34a1405-f1d0-4592-b9d3-7a873b390444",
+          "id": "434a42b0-9c93-4bdc-bd59-f35d30b7c263",
+          "project_id": "b67b1f20-6b65-4297-b62b-15e7d0220dfe",
           "kind": "image",
           "text": "",
           "image_url": "/work/papafix/technician-app.webp",
@@ -605,8 +605,8 @@
           "sort_order": 10
         },
         {
-          "id": "610e3356-a4c0-44fc-ad62-4cbbcec6129f",
-          "project_id": "f34a1405-f1d0-4592-b9d3-7a873b390444",
+          "id": "7d769ae4-c4fb-4657-8150-7f1ce3eff307",
+          "project_id": "b67b1f20-6b65-4297-b62b-15e7d0220dfe",
           "kind": "heading",
           "text": "Papa, the mascot",
           "image_url": "",
@@ -614,8 +614,8 @@
           "sort_order": 11
         },
         {
-          "id": "25ca4863-7ce9-426e-a67d-300ae151608d",
-          "project_id": "f34a1405-f1d0-4592-b9d3-7a873b390444",
+          "id": "22e8fc80-e43e-4b6f-b199-da346e118fab",
+          "project_id": "b67b1f20-6b65-4297-b62b-15e7d0220dfe",
           "kind": "text",
           "text": "The apps' mascot, Papa, used to appear only on the launch screen. I produced a set of 14 poses in one consistent style, generated from the original art and cleaned up by hand, and gave him a job. He greets you on the home screen, searches while a technician is being matched, shrugs at an empty list, and owns up when something fails to load. Every full-screen loading spinner in both apps became Papa.",
           "image_url": "",
@@ -623,8 +623,8 @@
           "sort_order": 12
         },
         {
-          "id": "7c1057a5-822c-45b3-875b-6e24811e81fe",
-          "project_id": "f34a1405-f1d0-4592-b9d3-7a873b390444",
+          "id": "56371596-d0c4-429e-a071-bacc16e660d8",
+          "project_id": "b67b1f20-6b65-4297-b62b-15e7d0220dfe",
           "kind": "image",
           "text": "",
           "image_url": "/work/papafix/papa-poses.webp",
@@ -632,8 +632,8 @@
           "sort_order": 13
         },
         {
-          "id": "d4d5538a-9e36-4d60-b01a-cbc705540a1b",
-          "project_id": "f34a1405-f1d0-4592-b9d3-7a873b390444",
+          "id": "6b5cf274-fe6c-4309-9662-0721fcf2df6d",
+          "project_id": "b67b1f20-6b65-4297-b62b-15e7d0220dfe",
           "kind": "heading",
           "text": "Shipped without a store release",
           "image_url": "",
@@ -641,8 +641,8 @@
           "sort_order": 14
         },
         {
-          "id": "cb10146a-14e8-4f1f-9f57-534e87fd7243",
-          "project_id": "f34a1405-f1d0-4592-b9d3-7a873b390444",
+          "id": "5e92a6b3-efd9-451c-b5af-fd508fcb8988",
+          "project_id": "b67b1f20-6b65-4297-b62b-15e7d0220dfe",
           "kind": "text",
           "text": "The redesign changed 91 files, and none of it needed a new build. I kept every change inside JavaScript and compared each branch's native fingerprint with the released apps', so the mobile lead could publish it over the air and users got the new look the next time they opened the app. The one native change, a cleaner launch screen, went into its own pull request to wait for the next store build.",
           "image_url": "",
@@ -650,8 +650,8 @@
           "sort_order": 15
         },
         {
-          "id": "ccce7ab7-b73c-416b-b89d-55b33022d2e9",
-          "project_id": "f34a1405-f1d0-4592-b9d3-7a873b390444",
+          "id": "fcf53b51-9dd5-43a2-8d7a-f7844a3d0395",
+          "project_id": "b67b1f20-6b65-4297-b62b-15e7d0220dfe",
           "kind": "heading",
           "text": "How I worked",
           "image_url": "",
@@ -659,8 +659,8 @@
           "sort_order": 16
         },
         {
-          "id": "a43ed74c-6345-442e-8282-e8efaf84ddc3",
-          "project_id": "f34a1405-f1d0-4592-b9d3-7a873b390444",
+          "id": "64f4da84-c978-4a26-af5c-f30ba97f1894",
+          "project_id": "b67b1f20-6b65-4297-b62b-15e7d0220dfe",
           "kind": "text",
           "text": "It is another developer's codebase, so everything went through pull requests he reviewed: three merged within two days. To test, I set up an Android emulator and local builds of both apps. Along the way I found and fixed a bug older than the redesign, where customers who skipped entering a name were bounced away from every Book button.",
           "image_url": "",
@@ -866,22 +866,22 @@
       ]
     },
     {
-      "id": "099ea56a-a4aa-4a52-8d3b-ef1af08f6a42",
-      "slug": "motion-films",
+      "id": "69042d51-687c-4ead-87e9-da59b6be0b22",
       "title": "Product Walkthrough Films: Motion Graphics",
       "description": "Motion-graphics films that walk through an app one action at a time. Built in code with Remotion, for my own projects and on commission.",
       "url": "",
       "display_url": "",
-      "cover_image_url": "",
-      "tech": "Remotion, React, TypeScript, FFmpeg",
-      "logo_url": "tech:remotion",
-      "published": true,
       "featured": true,
       "sort_order": 3,
+      "slug": "motion-films",
+      "cover_image_url": "",
+      "tech": "Remotion, React, TypeScript, FFmpeg",
+      "published": true,
+      "logo_url": "tech:remotion",
       "blocks": [
         {
-          "id": "49304223-8af4-4dbb-b8b3-fffbb948affb",
-          "project_id": "099ea56a-a4aa-4a52-8d3b-ef1af08f6a42",
+          "id": "c6ae7f59-5259-44d9-b850-66f3be3d6cff",
+          "project_id": "69042d51-687c-4ead-87e9-da59b6be0b22",
           "kind": "text",
           "text": "I make product films the way I make products: in code. Each one is a React project rendered with Remotion, so a screen in the film is a real component, a wrong number is fixed by changing a line, and a new cut is a re-render instead of a re-edit.",
           "image_url": "",
@@ -889,8 +889,8 @@
           "sort_order": 1
         },
         {
-          "id": "acc046df-e12e-44db-98e7-f7f52ba8fa2f",
-          "project_id": "099ea56a-a4aa-4a52-8d3b-ef1af08f6a42",
+          "id": "67572f8b-9c46-46c6-b2de-32272ed06779",
+          "project_id": "69042d51-687c-4ead-87e9-da59b6be0b22",
           "kind": "heading",
           "text": "FixLink: app walkthrough (commission)",
           "image_url": "",
@@ -898,8 +898,8 @@
           "sort_order": 2
         },
         {
-          "id": "3bb9ea5b-cd76-4808-a49d-4bc91b598a76",
-          "project_id": "099ea56a-a4aa-4a52-8d3b-ef1af08f6a42",
+          "id": "87996986-53d7-49e4-b68c-8d3627a58d8a",
+          "project_id": "69042d51-687c-4ead-87e9-da59b6be0b22",
           "kind": "video",
           "text": "",
           "image_url": "/work/films/fixlink-walkthrough.mp4",
@@ -907,8 +907,8 @@
           "sort_order": 3
         },
         {
-          "id": "cb771928-2608-477f-a0b2-1b4c1fd35bbe",
-          "project_id": "099ea56a-a4aa-4a52-8d3b-ef1af08f6a42",
+          "id": "00e66043-ba97-44c4-91e8-214ab7ca8192",
+          "project_id": "69042d51-687c-4ead-87e9-da59b6be0b22",
           "kind": "text",
           "text": "FixLink is a home-services app concept from a student's research, and the brief was a film that explains it from sign-up to review. I followed the client's own flow chart: nine steps, each shown on one phone, with the step's name on the left and a callout on the right. The app's screens are rebuilt as clean cards and made to work. A fingertip taps, fields fill in, a quote adds up, and the camera leans in on each tap. The soundtrack is written in code too, timed to the cuts, with a sound for every tap.",
           "image_url": "",
@@ -916,8 +916,8 @@
           "sort_order": 4
         },
         {
-          "id": "e061ff4d-9f8c-463a-8278-dbe9d0922c0a",
-          "project_id": "099ea56a-a4aa-4a52-8d3b-ef1af08f6a42",
+          "id": "fd49aa06-9366-4cd1-9c85-554ef57f3968",
+          "project_id": "69042d51-687c-4ead-87e9-da59b6be0b22",
           "kind": "heading",
           "text": "Malaya Villas: guest features",
           "image_url": "",
@@ -925,8 +925,8 @@
           "sort_order": 5
         },
         {
-          "id": "1ba261e9-d779-480f-83d6-3c9d852a61d9",
-          "project_id": "099ea56a-a4aa-4a52-8d3b-ef1af08f6a42",
+          "id": "1d6c893f-fc57-4d23-b412-652d6749115b",
+          "project_id": "69042d51-687c-4ead-87e9-da59b6be0b22",
           "kind": "video",
           "text": "",
           "image_url": "/work/films/malaya-features.mp4",
@@ -934,8 +934,8 @@
           "sort_order": 6
         },
         {
-          "id": "eb7296fc-9e80-4a96-ad07-ecafa08a48e0",
-          "project_id": "099ea56a-a4aa-4a52-8d3b-ef1af08f6a42",
+          "id": "053ff648-4762-4faa-a26a-080a616fc6c6",
+          "project_id": "69042d51-687c-4ead-87e9-da59b6be0b22",
           "kind": "text",
           "text": "Made for the villa business whose booking system I build. It shows the guest's side, from searching dates to signing the waiver, one feature per beat, in the brand's own type and colours.",
           "image_url": "",
@@ -943,8 +943,8 @@
           "sort_order": 7
         },
         {
-          "id": "13d57741-787e-4823-8481-56d15ca6f9bf",
-          "project_id": "099ea56a-a4aa-4a52-8d3b-ef1af08f6a42",
+          "id": "c26758b7-25fb-4cd4-819a-9107521547b2",
+          "project_id": "69042d51-687c-4ead-87e9-da59b6be0b22",
           "kind": "heading",
           "text": "PapaFix: product reel",
           "image_url": "",
@@ -952,8 +952,8 @@
           "sort_order": 8
         },
         {
-          "id": "eda37f97-ab86-4a44-b1f5-24d857e2a923",
-          "project_id": "099ea56a-a4aa-4a52-8d3b-ef1af08f6a42",
+          "id": "c2b596fc-c691-4d06-ab20-00e34319ddc9",
+          "project_id": "69042d51-687c-4ead-87e9-da59b6be0b22",
           "kind": "video",
           "text": "",
           "image_url": "/work/films/papafix-reel.mp4",
@@ -961,8 +961,8 @@
           "sort_order": 9
         },
         {
-          "id": "c4a6745a-1119-4243-9f2b-10ec8ea5013a",
-          "project_id": "099ea56a-a4aa-4a52-8d3b-ef1af08f6a42",
+          "id": "d930e350-3699-4cbe-b65d-584763cdad74",
+          "project_id": "69042d51-687c-4ead-87e9-da59b6be0b22",
           "kind": "text",
           "text": "A reel for the home-services app: booking, matching, live tracking, the QR check at the door, and payment. It comes in a wide cut and a vertical cut that share every frame and one soundtrack.",
           "image_url": "",
@@ -970,8 +970,8 @@
           "sort_order": 10
         },
         {
-          "id": "60ed0c38-699b-4ac3-95b5-78feab01c77b",
-          "project_id": "099ea56a-a4aa-4a52-8d3b-ef1af08f6a42",
+          "id": "c16f9bda-80e7-4b4c-9402-633c12ac3e8b",
+          "project_id": "69042d51-687c-4ead-87e9-da59b6be0b22",
           "kind": "heading",
           "text": "Why code",
           "image_url": "",
@@ -979,8 +979,8 @@
           "sort_order": 11
         },
         {
-          "id": "a6645875-97ab-409b-8326-0ff117d10351",
-          "project_id": "099ea56a-a4aa-4a52-8d3b-ef1af08f6a42",
+          "id": "523e761f-d66e-48b8-ad88-e2b020c7b9b9",
+          "project_id": "69042d51-687c-4ead-87e9-da59b6be0b22",
           "kind": "text",
           "text": "A film built this way stays editable for as long as the product does. When a screen changes, I change the component and render again. I made a seven-minute training video for Malaya's staff the same way, from real screens with guest names replaced, so the people using the system could learn it without having to explore on their own.",
           "image_url": "",
@@ -988,8 +988,8 @@
           "sort_order": 12
         },
         {
-          "id": "c96cfcce-fc61-4775-a155-8d193cb7735c",
-          "project_id": "099ea56a-a4aa-4a52-8d3b-ef1af08f6a42",
+          "id": "d0e51e2b-0587-4455-af1d-88e0b206303a",
+          "project_id": "69042d51-687c-4ead-87e9-da59b6be0b22",
           "kind": "text",
           "text": "Music in the FixLink film uses the Salamander Grand Piano by Alexander Holm (CC BY 3.0), with instruments from Versilian Studios, FreePats and Karoryfer Samples.",
           "image_url": "",
@@ -999,22 +999,22 @@
       ]
     },
     {
-      "id": "fd42454b-09b3-4f77-be17-fa2888909b51",
-      "slug": "nam-kpi-board",
+      "id": "51681002-0825-497d-836f-6f413689deb2",
       "title": "Mainframe: KPI Board for Three Businesses",
       "description": "A board that scores a company's three businesses against one weighted KPI scorecard, with every score traceable to the figures behind it.",
       "url": "",
       "display_url": "",
-      "cover_image_url": "",
-      "tech": "React 19, TypeScript, Vite, Tailwind CSS 4, Supabase, PostgreSQL, Row Level Security, Recharts",
-      "logo_url": "/logos/nam-mono.png",
-      "published": true,
       "featured": true,
       "sort_order": 4,
+      "slug": "nam-kpi-board",
+      "cover_image_url": "",
+      "tech": "React 19, TypeScript, Vite, Tailwind CSS 4, Supabase, PostgreSQL, Row Level Security, Recharts",
+      "published": true,
+      "logo_url": "/logos/nam-mono.png",
       "blocks": [
         {
-          "id": "9b2aa068-a9ca-4874-a0ee-55f8a5592886",
-          "project_id": "fd42454b-09b3-4f77-be17-fa2888909b51",
+          "id": "eaa24400-d932-4b8d-ad96-266c56de5f03",
+          "project_id": "51681002-0825-497d-836f-6f413689deb2",
           "kind": "text",
           "text": "NAM's CEO runs three businesses and grades them on one scorecard: nine categories, from sales and finance to quality and governance, each with a weight, adding up to 100. He asked for a board that shows where each business stands without anyone compiling a spreadsheet. It is phase one of a larger internal system, started in November 2026.",
           "image_url": "",
@@ -1022,8 +1022,8 @@
           "sort_order": 1
         },
         {
-          "id": "576bf93c-c030-4231-8809-d048f391cc65",
-          "project_id": "fd42454b-09b3-4f77-be17-fa2888909b51",
+          "id": "c9848b20-7e68-4553-bdbc-360af235c60d",
+          "project_id": "51681002-0825-497d-836f-6f413689deb2",
           "kind": "heading",
           "text": "What it shows",
           "image_url": "",
@@ -1031,8 +1031,8 @@
           "sort_order": 2
         },
         {
-          "id": "7de2e18b-37a9-4619-a2c3-0a33fb5caf91",
-          "project_id": "fd42454b-09b3-4f77-be17-fa2888909b51",
+          "id": "92ec6712-8d0a-4061-8dcf-82b6c6718be4",
+          "project_id": "51681002-0825-497d-836f-6f413689deb2",
           "kind": "text",
           "text": "One screen answers the first question: a group score, a heatmap of businesses against categories, and a list of what is costing the most points, ranked. Every tile opens the list behind it, every score opens a breakdown of where it came from, and a twelve-month trend sits against the target.",
           "image_url": "",
@@ -1040,8 +1040,8 @@
           "sort_order": 3
         },
         {
-          "id": "d1511ef4-0ac1-48d6-a0a2-c60dc3a9b209",
-          "project_id": "fd42454b-09b3-4f77-be17-fa2888909b51",
+          "id": "460a8748-cf6d-4c56-9148-33cd75de164b",
+          "project_id": "51681002-0825-497d-836f-6f413689deb2",
           "kind": "heading",
           "text": "Scoring that can be explained",
           "image_url": "",
@@ -1049,8 +1049,8 @@
           "sort_order": 4
         },
         {
-          "id": "53cc7c82-74ce-4284-a86f-bd90555cfe3b",
-          "project_id": "fd42454b-09b3-4f77-be17-fa2888909b51",
+          "id": "79ab6327-e2db-4f1b-bbb4-8766fb68f215",
+          "project_id": "51681002-0825-497d-836f-6f413689deb2",
           "kind": "text",
           "text": "A score nobody can explain gets ignored, so the rules are plain. Attainment is capped at 100 percent, so one great month cannot hide a weak category. A figure nobody reported shows as a gap instead of counting as a zero. A \"How it works\" page walks through the arithmetic using the board's own live numbers.",
           "image_url": "",
@@ -1058,8 +1058,8 @@
           "sort_order": 5
         },
         {
-          "id": "3529d61b-f0d1-4dc4-94f5-b17902dccf1e",
-          "project_id": "fd42454b-09b3-4f77-be17-fa2888909b51",
+          "id": "33d9ae36-a004-4335-87e1-2ec055f90e9f",
+          "project_id": "51681002-0825-497d-836f-6f413689deb2",
           "kind": "heading",
           "text": "Real figures, not typed ones",
           "image_url": "",
@@ -1067,8 +1067,8 @@
           "sort_order": 6
         },
         {
-          "id": "2355311e-70f7-418f-8400-fe4f3c9c50dc",
-          "project_id": "fd42454b-09b3-4f77-be17-fa2888909b51",
+          "id": "2d025f74-59e1-43fb-a720-8604929ef52c",
+          "project_id": "51681002-0825-497d-836f-6f413689deb2",
           "kind": "text",
           "text": "For the supply business, sales, margin and collections are read straight from the sales platform I built for the company earlier, so the board and the system of record cannot disagree. For figures that only exist on paper, staff enter two counts, such as 19 out of 20, and the board works out the percentage.",
           "image_url": "",
@@ -1076,8 +1076,8 @@
           "sort_order": 7
         },
         {
-          "id": "e7da0704-b178-488b-a0a1-c76cb5148598",
-          "project_id": "fd42454b-09b3-4f77-be17-fa2888909b51",
+          "id": "fae09fb8-30b2-4de6-858a-aa393ca7dbb8",
+          "project_id": "51681002-0825-497d-836f-6f413689deb2",
           "kind": "heading",
           "text": "Private by default",
           "image_url": "",
@@ -1085,8 +1085,8 @@
           "sort_order": 8
         },
         {
-          "id": "cd8acdb9-cf49-4d5d-9789-95ea9f42bdab",
-          "project_id": "fd42454b-09b3-4f77-be17-fa2888909b51",
+          "id": "bece7165-3dc8-4dab-b5a8-6e2393e17798",
+          "project_id": "51681002-0825-497d-836f-6f413689deb2",
           "kind": "text",
           "text": "The board shows what clients owe, so nothing on it is public and there are no screenshots here. Editors sign in. The CEO opens a private view link that reads the board through a single database function, while the tables themselves stay closed.",
           "image_url": "",
@@ -1094,8 +1094,8 @@
           "sort_order": 9
         },
         {
-          "id": "586546b8-8b9d-40ef-ba52-82e812014551",
-          "project_id": "fd42454b-09b3-4f77-be17-fa2888909b51",
+          "id": "ff751461-8eff-43e2-a817-87090088d50e",
+          "project_id": "51681002-0825-497d-836f-6f413689deb2",
           "kind": "text",
           "text": "It is live. The supply business is loaded from January 2026 onward, and the other two are waiting on their first figures.",
           "image_url": "",
@@ -1688,7 +1688,7 @@
       "logo_url": "/logos/papafix.png"
     },
     {
-      "id": "74d9cb50-d38d-4ab2-8de1-93cdc63d9972",
+      "id": "f732f741-7d86-40f7-abbf-7bc3730ea788",
       "title": "Motion Designer (Commissions)",
       "organization": "Product walkthrough films, built in Remotion",
       "year_label": "Nov 2026 – Present",
