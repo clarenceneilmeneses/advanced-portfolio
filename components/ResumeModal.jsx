@@ -6,7 +6,7 @@ import { ChevronRight, Download, ExternalLink, FileText, X } from "lucide-react"
 // One "View Resume" trigger for both resumes: opens a modal with a
 // Development / Analytics toggle and an inline PDF preview, instead of
 // separate buttons that jump to a new tab.
-export default function ResumeButton({ profile, variant = "button" }) {
+export default function ResumeButton({ profile, variant = "button", className = "" }) {
   const p = profile || {};
   const resumes = [
     { key: "dev", label: "Development", url: p.resume_dev_url },
@@ -45,8 +45,13 @@ export default function ResumeButton({ profile, variant = "button" }) {
           </span>
           <ChevronRight size={14} />
         </button>
+      ) : variant === "icon" ? (
+        // Icon only, for inside a pill of controls (the phone's top bar).
+        <button onClick={() => setOpen(true)} className="pill-icon" aria-label="View resume" title="View resume">
+          <FileText size={16} />
+        </button>
       ) : (
-        <button onClick={() => setOpen(true)} className="btn-outline">
+        <button onClick={() => setOpen(true)} className={`btn-outline ${className}`}>
           <FileText size={15} /> View Resume
         </button>
       )}
@@ -91,6 +96,16 @@ export default function ResumeButton({ profile, variant = "button" }) {
             </div>
             <iframe key={current.key} src={current.url} title={`${current.label} resume`}
               className="flex-1 w-full bg-zinc-100 dark:bg-zinc-950" />
+            {/* Phone browsers often can't show a PDF inside a page, so the way
+                out is spelled as a button there, not left as two small icons. */}
+            <div className="sm:hidden grid grid-cols-2 gap-2 p-3 bg-white dark:bg-zinc-900">
+              <a href={current.url} target="_blank" rel="noreferrer" className="btn-outline justify-center">
+                <ExternalLink size={15} /> Open
+              </a>
+              <a href={downloadUrl} download className="btn-primary justify-center">
+                <Download size={15} /> Download
+              </a>
+            </div>
           </div>
         </div>,
         document.body

@@ -49,7 +49,7 @@ export function renderSection(key, data) {
   switch (key) {
     case 'header':
       return (
-        <div className="card p-6">
+        <div className="card p-4 sm:p-6">
           <Header profile={profile} />
         </div>
       );
@@ -70,7 +70,10 @@ export function renderSection(key, data) {
     case 'gallery':
       return gallery?.length > 0 ? (
         <section>
-          <h2 className="text-xl font-bold tracking-tight mb-4">Gallery</h2>
+          <div className="px-1 sm:px-0 mb-3 sm:mb-4">
+            <p className="eyebrow mb-1 sm:hidden">Off the clock</p>
+            <h2 className="text-[22px] leading-tight font-semibold tracking-tight sm:text-xl sm:font-bold">Gallery</h2>
+          </div>
           <Gallery items={gallery} />
         </section>
       ) : null;

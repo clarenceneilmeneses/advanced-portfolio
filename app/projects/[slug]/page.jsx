@@ -36,6 +36,21 @@ function Block({ block }) {
       </figure>
     );
   }
+  if (block.kind === "video") {
+    // A film that ships with the site (public/work/films) has a still of the
+    // same name beside it, shown until the visitor presses play.
+    const src = block.image_url || "";
+    const poster = /^\/work\/.+\.mp4$/.test(src) ? src.replace(/\.mp4$/, ".jpg") : undefined;
+    return (
+      <figure className="my-7">
+        <video src={src} poster={poster} controls playsInline preload="none"
+          className="w-full aspect-video rounded-2xl bg-zinc-200 dark:bg-zinc-900" />
+        {block.caption && (
+          <figcaption className="text-sm text-zinc-500 text-center mt-2">{block.caption}</figcaption>
+        )}
+      </figure>
+    );
+  }
   // default: text paragraph(s)
   return (block.text || "").split(/\n\s*\n/).filter(Boolean).map((t, i) => (
     <p key={i} className="text-[15px] leading-relaxed text-zinc-700 dark:text-zinc-300 my-4">{t}</p>

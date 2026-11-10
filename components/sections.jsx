@@ -5,69 +5,109 @@ import {
 } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 import ResumeButton from './ResumeModal';
+import TechGroups from './TechGroups';
+import { BrandMark, TechLogo, issuerLogoName } from './logos';
 
 export function ViewAll({ href }) {
   return (
-    <Link href={href} className="link-action inline-flex items-center gap-0.5 text-sm">
+    <Link href={href} className="link-action inline-flex items-center gap-0.5 text-sm flex-shrink-0">
       View all <ChevronRight size={14} />
     </Link>
   );
 }
 
+// A section's heading. On a phone the section follows the Malaya page pattern:
+// a spaced eyebrow and a title sit on the page, and the content is the white
+// card under them (.sec / .sec-body in globals.css). From 640px up the whole
+// section is one card again and the eyebrow goes away.
+function SecHead({ eyebrow, title, action, phoneOnly = false }) {
+  return (
+    <div className={`sec-head flex items-end justify-between gap-3 sm:mb-4${phoneOnly ? ' sm:hidden' : ''}`}>
+      <div className="min-w-0">
+        {eyebrow && <p className="eyebrow mb-1 sm:hidden">{eyebrow}</p>}
+        <h2 className="text-[22px] leading-tight font-semibold tracking-tight sm:text-xl sm:font-bold">{title}</h2>
+      </div>
+      {action}
+    </div>
+  );
+}
+
 export function Header({ profile }) {
   const p = profile || {};
+  const roles = (p.headline || '').split('\\').map((s) => s.trim()).filter(Boolean);
   return (
-    <header className="animate-fade-in">
-      <div className="flex items-start md:items-center gap-4 md:gap-6">
-        {p.avatar_url ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={p.avatar_url} alt={p.name} className="rounded-2xl w-28 h-28 md:w-40 md:h-40 object-cover flex-shrink-0" />
-        ) : (
-          <div className="rounded-2xl w-28 h-28 md:w-40 md:h-40 flex-shrink-0 bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-3xl font-bold text-zinc-400">
-            {(p.name || '?').split(' ').map((w) => w[0]).slice(0, 2).join('')}
-          </div>
+    <header className="animate-fade-in grid grid-cols-[auto,minmax(0,1fr)] items-center gap-x-4 md:gap-x-6">
+      {p.avatar_url ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={p.avatar_url} alt={p.name}
+          className="sm:row-span-2 rounded-2xl w-[72px] h-[72px] sm:w-28 sm:h-28 md:w-40 md:h-40 object-cover" />
+      ) : (
+        <div className="sm:row-span-2 rounded-2xl w-[72px] h-[72px] sm:w-28 sm:h-28 md:w-40 md:h-40 bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-2xl sm:text-3xl font-bold text-zinc-400">
+          {(p.name || '?').split(' ').map((w) => w[0]).slice(0, 2).join('')}
+        </div>
+      )}
+
+      <div className="min-w-0 sm:self-end">
+        {p.location && <p className="eyebrow mb-1 sm:hidden">{p.location}</p>}
+        <div className="flex items-start justify-between gap-2">
+          <h1 className="text-xl md:text-2xl font-semibold sm:font-bold leading-snug tracking-tight sm:tracking-normal">
+            {p.name}
+            {/* Inline so the check stays on the line with the last word when the name wraps. */}
+            {p.verified && <BadgeCheck size={20} className="accent-ink text-blue-500 inline-block align-[-3px] ml-1.5 stroke-white dark:stroke-zinc-900" fill="currentColor" />}
+          </h1>
+          {/* On a phone the theme switch lives in the top bar's pill. */}
+          <span className="max-sm:hidden"><ThemeToggle /></span>
+        </div>
+        {p.location && (
+          <p className="hidden sm:flex items-center gap-1 text-sm text-zinc-500 mt-1">
+            <MapPin size={14} /> {p.location}
+          </p>
         )}
-        <div className="flex-1 min-w-0">
-          <div className="flex items-start justify-between gap-2">
-            <h1 className="text-lg md:text-2xl font-bold leading-snug">
-              {p.name}
-              {/* Inline so the check stays on the line with the last word when the name wraps. */}
-              {p.verified && <BadgeCheck size={20} className="accent-ink text-blue-500 inline-block align-[-3px] ml-1.5 stroke-white dark:stroke-zinc-900" fill="currentColor" />}
-            </h1>
-            <ThemeToggle />
-          </div>
-          {p.location && (
-            <p className="flex items-center gap-1 text-sm text-zinc-500 mt-1">
-              <MapPin size={14} /> {p.location}
-            </p>
+      </div>
+
+      <div className="col-span-2 sm:col-span-1 sm:col-start-2 sm:self-start min-w-0 mt-4 sm:mt-2">
+        {/* Phone: what he does and whether he's taking work, as soft chips. */}
+        <div className="flex flex-wrap items-center gap-1.5 sm:hidden">
+          {p.speaking_text && (
+            <span className="status-chip">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" /> {p.speaking_text}
+            </span>
           )}
-          <div className="flex flex-wrap items-center justify-between gap-2 mt-2">
-            {p.headline && <p className="text-sm md:text-base font-medium">{p.headline}</p>}
-            {p.badge_text && (
-              <a href={p.badge_url || '#'} target="_blank" rel="noreferrer"
-                className="badge-accent inline-flex items-center gap-1.5 text-xs font-medium text-white bg-zinc-900 hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200 px-3 py-1.5 rounded-full">
-                <Trophy size={13} /> {p.badge_text}
-              </a>
-            )}
-          </div>
-          <div className="flex flex-wrap items-center gap-2 mt-4">
-            {p.calendly_url && (
-              <a href={p.calendly_url} target="_blank" rel="noreferrer" className="btn-primary">
-                <Calendar size={15} /> Schedule a Call <ChevronRight size={14} />
-              </a>
-            )}
-            {p.email && (
-              <a href={`mailto:${p.email}`} className="btn-outline">
-                <Mail size={15} /> Send Email
-              </a>
-            )}
-            <ResumeButton profile={p} />
-            {p.blog_url && (
-              <a href={p.blog_url} target="_blank" rel="noreferrer" className="btn-outline">
-                <FileText size={15} /> Read my blog
-              </a>
-            )}
-          </div>
+          {roles.map((r) => <span key={r} className="chip !text-xs !py-1 !px-2.5">{r}</span>)}
+        </div>
+        <div className="hidden sm:flex flex-wrap items-center justify-between gap-2">
+          {p.headline && <p className="text-sm md:text-base font-medium">{p.headline}</p>}
+          {p.badge_text && (
+            <a href={p.badge_url || '#'} target="_blank" rel="noreferrer"
+              className="badge-accent inline-flex items-center gap-1.5 text-xs font-medium text-white bg-zinc-900 hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200 px-3 py-1.5 rounded-full">
+              <Trophy size={13} /> {p.badge_text}
+            </a>
+          )}
+        </div>
+        {p.badge_text && (
+          <a href={p.badge_url || '#'} target="_blank" rel="noreferrer"
+            className="badge-accent sm:hidden mt-2 inline-flex items-center gap-1.5 text-xs font-medium text-white bg-zinc-900 dark:bg-white dark:text-zinc-900 px-3 py-1.5 rounded-full">
+            <Trophy size={13} /> {p.badge_text}
+          </a>
+        )}
+        {/* Phone: the main step fills the row, the other two share the next one. */}
+        <div className="grid grid-cols-2 gap-2 mt-4 sm:flex sm:flex-wrap sm:items-center">
+          {p.calendly_url && (
+            <a href={p.calendly_url} target="_blank" rel="noreferrer" className="btn-primary col-span-2 justify-center max-sm:py-2.5">
+              <Calendar size={15} /> Schedule a Call <ChevronRight size={14} />
+            </a>
+          )}
+          {p.email && (
+            <a href={`mailto:${p.email}`} className="btn-outline justify-center">
+              <Mail size={15} /> Send Email
+            </a>
+          )}
+          <ResumeButton profile={p} className="justify-center" />
+          {p.blog_url && (
+            <a href={p.blog_url} target="_blank" rel="noreferrer" className="btn-outline justify-center">
+              <FileText size={15} /> Read my blog
+            </a>
+          )}
         </div>
       </div>
     </header>
@@ -77,9 +117,9 @@ export function Header({ profile }) {
 export function About({ profile }) {
   const paragraphs = (profile?.about || '').split(/\n\s*\n/).filter(Boolean);
   return (
-    <section className="card p-6">
-      <h2 className="section-title mb-3">About</h2>
-      <div className="space-y-4 text-[15px] leading-relaxed text-zinc-700 dark:text-zinc-300">
+    <section className="sec">
+      <SecHead eyebrow="Profile" title="About" />
+      <div className="sec-body space-y-4 text-[15px] leading-relaxed text-zinc-700 dark:text-zinc-300">
         {paragraphs.map((t, i) => <p key={i}>{t}</p>)}
       </div>
     </section>
@@ -116,7 +156,7 @@ function AccessCard({ h }) {
     : undefined;
   return (
     <div
-      className={`rounded-2xl text-white p-6 font-mono shadow-lg ${tinted ? '' : 'bg-gradient-to-br from-zinc-800 via-zinc-900 to-black'}`}
+      className={`rounded-[1.25rem] sm:rounded-2xl text-white p-6 font-mono shadow-lg ${tinted ? '' : 'bg-gradient-to-br from-zinc-800 via-zinc-900 to-black'}`}
       style={tinted}
     >
       <Terminal size={28} className="mb-10 opacity-90" />
@@ -155,12 +195,14 @@ function HighlightImage({ h }) {
 export function Stats({ items }) {
   if (!items?.length) return null;
   return (
-    <section className="card p-6">
-      <div className="flex flex-wrap justify-around gap-x-8 gap-y-6 text-center">
+    <section className="sec">
+      <SecHead eyebrow="Results" title="By the numbers" phoneOnly />
+      {/* Phone: two-column stat tiles. Wider: one strip. */}
+      <div className="sec-body grid grid-cols-2 gap-2.5 sm:flex sm:flex-wrap sm:justify-around sm:gap-x-8 sm:gap-y-6 sm:text-center">
         {items.map((s) => (
-          <div key={s.id} className="min-w-[8rem]">
-            <p className="accent-ink text-3xl font-bold tracking-tight">{s.value}</p>
-            <p className="text-sm text-zinc-500 mt-1">{s.label}</p>
+          <div key={s.id} className="stat-tile sm:min-w-[8rem]">
+            <p className="accent-ink text-2xl sm:text-3xl font-semibold sm:font-bold tracking-tight">{s.value}</p>
+            <p className="text-[13px] sm:text-sm leading-snug text-zinc-500 mt-1">{s.label}</p>
           </div>
         ))}
       </div>
@@ -170,17 +212,22 @@ export function Stats({ items }) {
 
 export function Experience({ items }) {
   return (
-    <section className="card p-6">
-      <h2 className="text-xl font-bold tracking-tight mb-5">Experience</h2>
-      <ol className="relative border-l-2 border-zinc-100 dark:border-zinc-800 ml-1.5 space-y-6">
+    <section className="sec">
+      <SecHead eyebrow="Journey" title="Experience" />
+      <ol className="sec-body space-y-5">
         {items.map((e) => (
-          <li key={e.id} className="pl-5 relative">
-            <span className={`absolute -left-[6px] top-[3px] w-2.5 h-2.5 rounded-full ${e.is_current ? 'accent-bg bg-zinc-900 dark:bg-zinc-100' : 'bg-zinc-300 dark:bg-zinc-600'}`} />
-            {/* Date on its own line above the title, so long labels never push
-                out of a narrow card. */}
-            <p className="text-xs text-zinc-500">{e.year_label}</p>
-            <p className="font-semibold text-[15px] mt-0.5">{e.title}</p>
-            <p className="text-sm text-zinc-500">{e.organization}</p>
+          <li key={e.id} className="rail-item relative flex gap-3">
+            <BrandMark src={e.logo_url} name={e.organization || e.title} size={36} />
+            <div className="min-w-0">
+              {/* Date on its own line above the title, so long labels never push
+                  out of a narrow card. */}
+              <p className="flex items-center gap-1.5 text-xs text-zinc-500">
+                {e.is_current && <span className="accent-bg w-1.5 h-1.5 rounded-full bg-zinc-900 dark:bg-zinc-100" title="Current role" />}
+                {e.year_label}
+              </p>
+              <p className="font-semibold text-[15px] leading-snug mt-0.5">{e.title}</p>
+              <p className="text-sm text-zinc-500">{e.organization}</p>
+            </div>
           </li>
         ))}
       </ol>
@@ -194,22 +241,16 @@ export function TechStack({ items, full = false }) {
     if (!full && !t.featured) continue;
     (grouped[t.category] ||= []).push(t);
   }
+  // The logos are drawn here and handed over ready-made, so the phone's tab
+  // switch (a client component) never has to ship the icon paths itself.
+  const groups = Object.entries(grouped).map(([cat, list]) => ({
+    cat,
+    items: list.map((t) => ({ id: t.id, name: t.name, logo: <TechLogo name={t.name} /> })),
+  }));
   return (
-    <section className="card p-6">
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="text-xl font-bold tracking-tight">Tech Stack</h2>
-        {!full && <ViewAll href="/tech-stack" />}
-      </div>
-      <div className="space-y-5">
-        {Object.entries(grouped).map(([cat, list]) => (
-          <div key={cat}>
-            <h3 className="font-semibold text-sm mb-2">{cat}</h3>
-            <div className="flex flex-wrap gap-2">
-              {list.map((t) => <span key={t.id} className="chip">{t.name}</span>)}
-            </div>
-          </div>
-        ))}
-      </div>
+    <section className="sec">
+      <SecHead eyebrow="Toolkit" title="Tech Stack" action={!full && <ViewAll href="/tech-stack" />} />
+      <TechGroups groups={groups} />
     </section>
   );
 }
@@ -217,35 +258,35 @@ export function TechStack({ items, full = false }) {
 export function Projects({ items, full = false }) {
   const list = full ? items : items.filter((p) => p.featured);
   return (
-    <section className="card p-6">
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="text-xl font-bold tracking-tight">{full ? 'Projects' : 'Recent Projects'}</h2>
-        {!full && <ViewAll href="/projects" />}
-      </div>
-      <div className="grid sm:grid-cols-2 gap-3">
+    <section className="sec">
+      <SecHead eyebrow="Work" title={full ? 'Projects' : 'Recent Projects'} action={!full && <ViewAll href="/projects" />} />
+      <div className="sec-body grid sm:grid-cols-2 gap-2.5 sm:gap-3">
         {list.map((p) => {
           const hasStory = !!p.slug && p.published !== false;
           return (
-            <div key={p.id} className={`${hasStory ? 'tile-link' : 'tile'} relative p-4`}>
-              <div className="flex items-start justify-between gap-2">
-                {hasStory ? (
-                  <Link href={`/projects/${p.slug}`} className="font-semibold after:absolute after:inset-0 after:rounded-2xl">
-                    {p.title}
-                  </Link>
-                ) : (
-                  <p className="font-semibold">{p.title}</p>
-                )}
-                {hasStory && <ChevronRight size={16} className="text-zinc-500 mt-0.5 flex-shrink-0" />}
-              </div>
-              <p className="text-sm text-zinc-500 mt-0.5">{p.description}</p>
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-3">
-                {p.url && (
-                  <a href={p.url} target="_blank" rel="noreferrer"
-                    className="link-action relative z-10 inline-flex items-center gap-1 font-mono text-xs">
-                    {p.display_url || p.url.replace(/^https?:\/\//, '').replace(/\/$/, '')} <ExternalLink size={11} />
-                  </a>
-                )}
-                {hasStory && <span className="text-xs font-medium text-zinc-500">Read the story</span>}
+            <div key={p.id} className={`${hasStory ? 'tile-link' : 'tile'} relative flex gap-3 p-3.5 sm:p-4`}>
+              <BrandMark src={p.logo_url} name={p.title} size={40} />
+              <div className="min-w-0 flex-1">
+                <div className="flex items-start justify-between gap-2">
+                  {hasStory ? (
+                    <Link href={`/projects/${p.slug}`} className="font-semibold leading-snug after:absolute after:inset-0 after:rounded-2xl">
+                      {p.title}
+                    </Link>
+                  ) : (
+                    <p className="font-semibold leading-snug">{p.title}</p>
+                  )}
+                  {hasStory && <ChevronRight size={16} className="text-zinc-500 mt-0.5 flex-shrink-0" />}
+                </div>
+                <p className="text-sm text-zinc-500 mt-1">{p.description}</p>
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-2.5">
+                  {p.url && (
+                    <a href={p.url} target="_blank" rel="noreferrer"
+                      className="link-action relative z-10 inline-flex items-center gap-1 font-mono text-xs">
+                      {p.display_url || p.url.replace(/^https?:\/\//, '').replace(/\/$/, '')} <ExternalLink size={11} />
+                    </a>
+                  )}
+                  {hasStory && <span className="text-xs font-medium text-zinc-500">Read the story</span>}
+                </div>
               </div>
             </div>
           );
@@ -258,17 +299,21 @@ export function Projects({ items, full = false }) {
 export function Certifications({ items, full = false }) {
   const list = full ? items : items.filter((c) => c.featured);
   return (
-    <section className="card p-6">
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="section-title">{full ? 'Certifications' : 'Recent Certifications'}</h2>
-        {!full && <ViewAll href="/certifications" />}
-      </div>
-      <ul className="space-y-2.5">
+    <section className="sec">
+      <SecHead eyebrow="Credentials" title={full ? 'Certifications' : 'Recent Certifications'}
+        action={!full && <ViewAll href="/certifications" />} />
+      <ul className="sec-body space-y-2.5">
         {list.map((c) => {
+          const logo = issuerLogoName(c.issuer);
           const body = (
-            <div className={`${c.url ? 'tile-link' : 'tile'} flex items-center justify-between gap-2 px-4 py-3`}>
-              <div>
-                <p className="font-semibold text-sm">{c.title}</p>
+            <div className={`${c.url ? 'tile-link' : 'tile'} flex items-center gap-3 px-3.5 py-3`}>
+              {logo && (
+                <span className="brand-mark rounded-xl" style={{ width: 36, height: 36 }} aria-hidden="true">
+                  <TechLogo name={logo} size={18} />
+                </span>
+              )}
+              <div className="min-w-0 flex-1">
+                <p className="font-semibold text-sm leading-snug">{c.title}</p>
                 <p className="text-sm text-zinc-500">{c.issuer}</p>
               </div>
               {c.url && <ExternalLink size={14} className="text-zinc-500 flex-shrink-0" />}
@@ -310,49 +355,52 @@ export function SocialLinkCard({ s }) {
 export function FooterGrid({ profile, memberships, socials }) {
   const p = profile || {};
   return (
-    <section className="card p-6 grid md:grid-cols-3 gap-8">
-      <div>
-        <h3 className="font-semibold text-sm mb-3">A member of</h3>
-        <ul className="space-y-2">
-          {memberships.map((m) => (
-            <li key={m.id}><MembershipCard m={m} /></li>
-          ))}
-        </ul>
-      </div>
-      <div>
-        <h3 className="font-semibold text-sm mb-3">Social Links</h3>
-        <ul className="space-y-2">
-          {socials.map((s) => (
-            <li key={s.id}><SocialLinkCard s={s} /></li>
-          ))}
-        </ul>
-      </div>
-      <div className="space-y-2">
-        {p.email && (
-          <a href={`mailto:${p.email}`} className="tile-link block text-sm px-3.5 py-2.5">
-            <span className="flex items-center gap-1.5 text-zinc-500"><Mail size={13} /> Email</span>
-            <span className="font-medium break-all">{p.email}</span>
-          </a>
-        )}
-        {p.calendly_url && (
-          <a href={p.calendly_url} target="_blank" rel="noreferrer" className="tile-link flex items-center justify-between text-sm px-3.5 py-2.5">
-            <span>
-              <span className="flex items-center gap-1.5 text-zinc-500"><Calendar size={13} /> Let&apos;s Talk</span>
-              <span className="font-medium">Schedule a Call</span>
-            </span>
-            <ChevronRight size={14} />
-          </a>
-        )}
-        <ResumeButton profile={p} variant="row" />
-        {p.blog_url && (
-          <a href={p.blog_url} target="_blank" rel="noreferrer" className="tile-link flex items-center justify-between text-sm px-3.5 py-2.5">
-            <span>
-              <span className="flex items-center gap-1.5 text-zinc-500"><FileText size={13} /> Blog</span>
-              <span className="font-medium">Read my blog</span>
-            </span>
-            <ChevronRight size={14} />
-          </a>
-        )}
+    <section className="sec">
+      <SecHead eyebrow="Contact" title="Get in touch" phoneOnly />
+      <div className="sec-body grid md:grid-cols-3 gap-6 md:gap-8">
+        <div>
+          <h3 className="font-semibold text-sm mb-3">A member of</h3>
+          <ul className="space-y-2">
+            {memberships.map((m) => (
+              <li key={m.id}><MembershipCard m={m} /></li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h3 className="font-semibold text-sm mb-3">Social Links</h3>
+          <ul className="space-y-2">
+            {socials.map((s) => (
+              <li key={s.id}><SocialLinkCard s={s} /></li>
+            ))}
+          </ul>
+        </div>
+        <div className="space-y-2">
+          {p.email && (
+            <a href={`mailto:${p.email}`} className="tile-link block text-sm px-3.5 py-2.5">
+              <span className="flex items-center gap-1.5 text-zinc-500"><Mail size={13} /> Email</span>
+              <span className="font-medium break-all">{p.email}</span>
+            </a>
+          )}
+          {p.calendly_url && (
+            <a href={p.calendly_url} target="_blank" rel="noreferrer" className="tile-link flex items-center justify-between text-sm px-3.5 py-2.5">
+              <span>
+                <span className="flex items-center gap-1.5 text-zinc-500"><Calendar size={13} /> Let&apos;s Talk</span>
+                <span className="font-medium">Schedule a Call</span>
+              </span>
+              <ChevronRight size={14} />
+            </a>
+          )}
+          <ResumeButton profile={p} variant="row" />
+          {p.blog_url && (
+            <a href={p.blog_url} target="_blank" rel="noreferrer" className="tile-link flex items-center justify-between text-sm px-3.5 py-2.5">
+              <span>
+                <span className="flex items-center gap-1.5 text-zinc-500"><FileText size={13} /> Blog</span>
+                <span className="font-medium">Read my blog</span>
+              </span>
+              <ChevronRight size={14} />
+            </a>
+          )}
+        </div>
       </div>
     </section>
   );

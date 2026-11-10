@@ -1,6 +1,7 @@
 import { getPortfolioData } from '@/lib/publicData';
 import { accentStyle, mergeLayout, renderSection } from '@/components/portfolioSections';
 import BentoGrid from '@/components/BentoGrid';
+import PhoneChrome from '@/components/PhoneChrome';
 import Link from 'next/link';
 
 // ISR: regenerated in the background at most once a minute.
@@ -63,15 +64,18 @@ export default async function Home() {
 
   const accent = accentStyle(profile.accent_color);
 
+  const cells = visibleItems
+    .map((s) => ({ i: s.i, x: s.x, w: s.w, h: s.h, node: renderSection(s.i, data) }))
+    .filter((it) => it.node);
+
   return (
-    <main className={`max-w-5xl mx-auto px-4 py-8${accent ? ' accent-on' : ''}`} style={accent || undefined}>
+    // Phone: room above for the top bar and below for the floating nav pill.
+    <main className={`max-w-5xl mx-auto px-4 pt-16 pb-28 sm:py-8${accent ? ' accent-on' : ''}`} style={accent || undefined}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <BentoGrid
-        items={visibleItems
-          .map((s) => ({ i: s.i, x: s.x, w: s.w, h: s.h, node: renderSection(s.i, data) }))
-          .filter((it) => it.node)}
-      />
+      <PhoneChrome profile={profile} socials={socials} sections={cells.map((c) => c.i)} />
+
+      <BentoGrid items={cells} />
 
       <footer className="text-center text-sm text-zinc-500 mt-10 pb-4">
         <p>© {new Date().getFullYear()} {profile.name}. All rights reserved.</p>

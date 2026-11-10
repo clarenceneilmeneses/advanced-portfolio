@@ -57,6 +57,7 @@ const COLLECTIONS = [
       { name: 'display_url', label: 'Display URL', placeholder: 'codecred.dev' },
       { name: 'slug', label: 'Slug (case-study URL: /projects/slug)', placeholder: 'codecred' },
       { name: 'published', label: 'Case study visible to the public', type: 'bool' },
+      { name: 'logo_url', label: 'Logo (blank = initials)', placeholder: '/logos/name-mono.png  ·  tech:shopify  ·  an image URL' },
       { name: 'cover_image_url', label: 'Cover image', type: 'image' },
       { name: 'tech', label: 'Tech used (comma-separated)', placeholder: 'Next.js, Node.js, PostgreSQL' },
       { name: 'featured', label: 'Show on home page', type: 'bool', default: true },
@@ -76,6 +77,7 @@ const COLLECTIONS = [
     fields: [
       { name: 'title', label: 'Title' },
       { name: 'organization', label: 'Organization' },
+      { name: 'logo_url', label: 'Logo (blank = initials)', placeholder: '/logos/name-mono.png  ·  tech:shopify  ·  an image URL' },
       { name: 'year_label', label: 'Year', placeholder: '2025' },
       { name: 'is_current', label: 'Current role (filled dot)', type: 'bool' },
       { name: 'sort_order', label: 'Order', type: 'number' },
@@ -582,6 +584,10 @@ const BLOCK_FIELDS = {
     { name: 'image_url', label: 'Image', type: 'image' },
     { name: 'caption', label: 'Caption' },
   ],
+  video: [
+    { name: 'image_url', label: 'Video URL (.mp4) — e.g. /work/films/name.mp4' },
+    { name: 'caption', label: 'Caption' },
+  ],
 };
 
 function BlocksEditor({ projectId, slug }) {
@@ -709,6 +715,7 @@ function BlocksEditor({ projectId, slug }) {
         <button className="glass-btn text-xs" onClick={() => add('heading')}><Plus size={13} /> Heading</button>
         <button className="glass-btn text-xs" onClick={() => add('text')}><Plus size={13} /> Paragraph</button>
         <button className="glass-btn text-xs" onClick={() => add('image')}><Plus size={13} /> Image</button>
+        <button className="glass-btn text-xs" onClick={() => add('video')}><Plus size={13} /> Video</button>
       </div>
     </div>
   );

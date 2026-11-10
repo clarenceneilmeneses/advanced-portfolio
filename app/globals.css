@@ -77,10 +77,88 @@
   .segmented > button[aria-pressed="true"] {
     @apply bg-zinc-100 text-zinc-900 dark:bg-zinc-800 dark:text-white;
   }
+
+  /* Spaced small caps over a title (Malaya's eyebrow). */
+  .eyebrow {
+    @apply text-zinc-500 dark:text-zinc-400;
+    font-size: 0.6875rem;
+    line-height: 1rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  /* "Open for inquiries": the one chip allowed a colour, because it is a status. */
+  .status-chip {
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium bg-emerald-50 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300;
+  }
+
+  /* ── Logos ── drawn in the text colour, never their brand colours. */
+  /* A company or project mark: a soft tile on a white card, a white tile on a soft one. */
+  .brand-mark {
+    @apply inline-flex items-center justify-center flex-shrink-0 font-semibold bg-zinc-100 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-100;
+  }
+  .tile .brand-mark, .tile-link .brand-mark {
+    @apply bg-white dark:bg-zinc-900;
+  }
+  /* The line joining one experience to the next, behind the marks. */
+  .rail-item:not(:last-child)::before {
+    content: '';
+    @apply absolute w-px bg-zinc-200 dark:bg-zinc-800;
+    left: 17.5px;
+    top: 42px;
+    bottom: -14px;
+  }
+  /* Tech stack: a logo in a soft tile with its name under it. */
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(4.25rem, 1fr));
+    gap: 0.875rem 0.25rem;
+  }
+  .tech-tile {
+    @apply flex flex-col items-center gap-1.5 text-center;
+  }
+  .tech-logo {
+    @apply grid place-items-center w-11 h-11 rounded-xl bg-zinc-100 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-100 transition-[background-color,transform] duration-150;
+  }
+  .tech-tile:hover .tech-logo {
+    @apply bg-zinc-200/80 dark:bg-zinc-700 -translate-y-px;
+  }
+  .tech-name {
+    @apply text-[11px] leading-tight text-zinc-600 dark:text-zinc-400;
+  }
+
+  /* Tabs in a white pill; the open one is a soft fill. Scrolls sideways when
+     the labels outgrow a phone. */
+  .tab-pill {
+    @apply flex w-fit max-w-full items-center gap-0.5 overflow-x-auto rounded-full bg-white p-1 dark:bg-zinc-900;
+    box-shadow: 0 1px 2px rgba(24,24,27,0.04), 0 6px 18px -10px rgba(24,24,27,0.12);
+  }
+  .tab-pill > button {
+    @apply flex-shrink-0 whitespace-nowrap rounded-full px-3.5 py-1.5 text-[13px] font-medium text-zinc-500 transition-colors;
+  }
+  .tab-pill > button[aria-selected="true"] {
+    @apply bg-zinc-100 text-zinc-900 dark:bg-zinc-800 dark:text-white;
+  }
+
+  /* An icon button with no edge of its own, for inside a pill of controls. */
+  .pill-icon {
+    @apply inline-flex items-center justify-center w-9 h-9 rounded-full text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800 transition-colors;
+  }
+
+  /* ── Sections ── one card from 640px up; on a phone the heading sits on the
+     page and the content is the card under it. */
+  @media (min-width: 640px) {
+    .sec { @apply card p-6; }
+  }
+  @media (max-width: 639px) {
+    .sec-head { @apply px-1 mb-3; }
+    .sec-body { @apply card p-4; }
+    .stat-tile { @apply tile p-3.5; }
+  }
 }
 
 /* Dark-mode edges for the public controls (outside @layer so they win). */
-.dark .card { box-shadow: none; }
+.dark .card, .dark .sec, .dark .sec-body, .dark .tab-pill { box-shadow: none; }
 .dark .link-action { color: #fafafa; }
 .dark .btn-outline { box-shadow: inset 0 0 0 1px rgba(255,255,255,0.20), 0 1px 0 rgba(0,0,0,0.6); }
 .dark .icon-pill { box-shadow: inset 0 0 0 1px rgba(255,255,255,0.16); }
@@ -133,11 +211,138 @@
 /* One neutral family: a flat page one shade under the white cards. */
 
 .portfolio-bg {
-  background: #f1f1f2;
+  --page: #f1f1f2;
+  background: var(--page);
 }
 .dark .portfolio-bg {
-  background: #09090b;
+  --page: #09090b;
 }
+
+/* ─── Phone chrome (components/PhoneChrome.jsx) ─────────────────────────────── */
+/* Malaya's phone pattern: quick controls in a white pill up top, a floating
+   pill of tabs at the bottom with the main step as a round button beside it. */
+
+.phone-top {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: max(0.5rem, env(safe-area-inset-top)) 1rem 0.5rem;
+  /* The bar turns solid as the header card scrolls under it, following the
+     scroll itself (--fold, 0 → 1) rather than a timed fade. */
+  background: color-mix(in srgb, var(--page) calc(var(--fold, 0) * 100%), transparent);
+  pointer-events: none;
+}
+.phone-top > * { pointer-events: auto; }
+.phone-top-id {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+  opacity: var(--fold, 0);
+  transform: translateY(calc((1 - var(--fold, 0)) * 6px));
+}
+.top-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.125rem;
+  padding: 0.125rem;
+  border-radius: 9999px;
+  background: #fff;
+  box-shadow: inset 0 0 0 1px rgba(24,24,27,0.08), 0 1px 2px rgba(24,24,27,0.05), 0 8px 20px -12px rgba(24,24,27,0.18);
+}
+.dark .top-pill { background: #18181b; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12); }
+
+.phone-dock {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 40;
+  display: flex;
+  align-items: stretch;
+  gap: 0.5rem;
+  padding: 0 0.75rem max(0.75rem, env(safe-area-inset-bottom));
+  pointer-events: none;
+}
+.phone-dock > * { pointer-events: auto; }
+.nav-pill {
+  display: flex;
+  flex: 1 1 0%;
+  min-width: 0;
+  align-items: stretch;
+  gap: 0.125rem;
+  padding: 0.375rem;
+  border-radius: 9999px;
+  background: #fff;
+  box-shadow: inset 0 0 0 1px rgba(24,24,27,0.08), 0 2px 4px rgba(24,24,27,0.06), 0 14px 30px -12px rgba(24,24,27,0.28);
+}
+.dark .nav-pill { background: #18181b; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12), 0 14px 30px -12px rgba(0,0,0,0.8); }
+.nav-tab {
+  display: flex;
+  flex: 1 1 0%;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.125rem;
+  padding: 0.375rem 0;
+  border-radius: 9999px;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: #71717a;
+  transition: color 0.15s, background-color 0.15s;
+}
+.nav-tab[aria-current="true"] { background: #f4f4f5; color: #18181b; }
+.dark .nav-tab { color: #a1a1aa; }
+.dark .nav-tab[aria-current="true"] { background: #27272a; color: #fafafa; }
+/* The main step: as tall as the pill, and round. */
+.nav-fab.btn-primary {
+  flex: 0 0 auto;
+  align-self: center;
+  width: 3.75rem;
+  height: 3.75rem;
+  padding: 0;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(24,24,27,0.10), 0 14px 30px -12px rgba(24,24,27,0.45);
+}
+
+.phone-sheet {
+  width: 100%;
+  max-height: 86vh;
+  overflow-y: auto;
+  padding: 1.25rem 1rem max(1.25rem, env(safe-area-inset-bottom));
+  border-radius: 1.75rem 1.75rem 0 0;
+  background: var(--page);
+  animation: sheet-up 0.22s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@keyframes sheet-up {
+  from { transform: translateY(24px); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+.menu-row {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem;
+  border-radius: 1rem;
+  text-align: left;
+}
+.menu-row:active { background: #f4f4f5; }
+.dark .menu-row:active { background: #27272a; }
+.menu-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.75rem;
+  background: #f4f4f5;
+  color: #27272a;
+}
+.dark .menu-icon { background: #27272a; color: #f4f4f5; }
 
 /* ─── Admin background — iOS system palette ─────────────────────────────────── */
 
@@ -482,13 +687,15 @@
   .bento-masonry {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
   }
   .bento-cell {
     grid-column: 1 / -1 !important;
     grid-row: auto !important;
   }
 }
+/* Jumping to a section from the phone's nav pill stops clear of the top bar. */
+.bento-cell { scroll-margin-top: 4.25rem; }
 
 /* Scrollable but with the scrollbar hidden (admin preview column, sidebar nav) */
 .no-scrollbar {

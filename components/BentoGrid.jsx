@@ -66,6 +66,7 @@ export default function BentoGrid({ items }) {
       {items.map((it) => (
         <div
           key={it.i}
+          id={it.i}
           className="bento-cell"
           style={{
             gridColumn: `${it.x + 1} / span ${it.w}`,
