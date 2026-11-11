@@ -322,13 +322,13 @@
       "featured": true,
       "sort_order": 0,
       "slug": "malaya-obs",
-      "cover_image_url": "",
+      "cover_image_url": "/work/malaya/cover.webp",
       "tech": "React 19, TypeScript, TanStack Start, TanStack Router, Vite, Tailwind CSS 4, Supabase, PostgreSQL, Row Level Security, Xendit, Airbnb iCal, Claude API, Recharts, Vercel",
       "published": true,
       "logo_url": "/logos/malaya-mono.png",
       "blocks": [
         {
-          "id": "0deb7f8e-904c-4068-a564-acb590b180ae",
+          "id": "5d71b690-27e6-4fe1-ba95-1e6fe45c87a6",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "text",
           "text": "Malaya Villas rents out ten private villas, and until this year the business ran on spreadsheets and Messenger threads. In August 2026 I took on Malaya OBS as its developer. What I was handed was a click-through prototype: no database, no login, no public site, and every number invented in the browser. The job was to turn it into the system the company actually runs on.",
@@ -337,166 +337,220 @@
           "sort_order": 1
         },
         {
-          "id": "22358a72-299d-48e1-b66a-e3771c1cc4d0",
+          "id": "ef1659fa-5643-4529-a65c-cd69b124403b",
+          "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
+          "kind": "image",
+          "text": "",
+          "image_url": "/work/malaya/cover.webp",
+          "caption": "Malaya Villas' booking site, on a laptop and a phone.",
+          "sort_order": 2
+        },
+        {
+          "id": "81866e9e-524c-48e4-b010-a450d66f51af",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "heading",
           "text": "What I built",
           "image_url": "",
           "caption": "",
-          "sort_order": 2
+          "sort_order": 3
         },
         {
-          "id": "1af88f12-3311-4323-a5c9-94e77163b964",
+          "id": "235eb1ec-ba07-4585-9fe7-bbd9f3d793ef",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "text",
           "text": "A booking website for guests and a back office for staff, on one Supabase Postgres database with row-level security per role. A guest picks dates and pays on the public site; the stay blocks the calendar, the payment lands in Finance, and staff see the next step on the booking page. Around that loop sit the calendar and pricing, an inbox, maintenance, team roles, and the owner's reports.",
           "image_url": "",
           "caption": "",
-          "sort_order": 3
+          "sort_order": 4
         },
         {
-          "id": "5d94973f-2ac7-4d31-87a4-07a930f47174",
+          "id": "31486f51-6795-439b-9e77-df846c6d5feb",
+          "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
+          "kind": "image",
+          "text": "",
+          "image_url": "/work/malaya/guest-site.webp",
+          "caption": "The guest side: one search across every villa, a page for each villa, and booking with online payment.",
+          "sort_order": 5
+        },
+        {
+          "id": "d226ab7e-4a43-451a-bfda-0b695222559c",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "heading",
           "text": "Going live",
           "image_url": "",
           "caption": "",
-          "sort_order": 4
+          "sort_order": 6
         },
         {
-          "id": "8e87d734-669e-4d03-9796-2247e6735969",
+          "id": "f765fc67-1712-4d2d-b903-aa13a13013de",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "text",
           "text": "On October 1 the system replaced the owner's spreadsheets as the record for all ten villas. Before the switch I imported each villa's booking and cash-flow workbook and reconciled it line by line, and every month since is crosschecked against the sheets, ending in a to-do list for the staff. Guests pay through Xendit checkout, and nine villa calendars sync with Airbnb, so nothing gets double-booked.",
           "image_url": "",
           "caption": "",
-          "sort_order": 5
+          "sort_order": 7
         },
         {
-          "id": "69f2a513-270c-495c-a3bd-1c609ebdbc96",
+          "id": "8f3afaa6-0b8b-411a-bba4-8d52d029485d",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "heading",
           "text": "A database that refuses to be wrong",
           "image_url": "",
           "caption": "",
-          "sort_order": 6
+          "sort_order": 8
         },
         {
-          "id": "5c99571f-ff35-4b88-83b8-8dbbc5e7fe84",
+          "id": "816efe68-e966-4cec-9dd7-6e34895f47c1",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "text",
           "text": "Business rules live in constraints, not just TypeScript. Money is numeric, stay dates are calendar dates so Manila bookings never drift a day on a UTC server, and a GiST exclusion constraint makes a double booking physically impossible. A trigger on every table writes an audit log, so every change shows up as a plain sentence: who did what to which booking.",
           "image_url": "",
           "caption": "",
-          "sort_order": 7
+          "sort_order": 9
         },
         {
-          "id": "7c2e0a78-cad4-4dbe-a005-8139694606b8",
+          "id": "aa8dbd96-0578-4d06-8e90-719911ea2433",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "heading",
           "text": "Security in the database, not the sidebar",
           "image_url": "",
           "caption": "",
-          "sort_order": 8
+          "sort_order": 10
         },
         {
-          "id": "221cb413-cb8b-4af1-bcb2-971c0dedf6b1",
+          "id": "768f1dcd-0e0f-418c-abc8-6c2ff19a8eaa",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "text",
           "text": "Staff, owners and guests share the same tables. The sidebar hides tabs and screens refuse actions, but only Postgres policies are the real boundary: a caretaker cannot read the P&L even by calling the API directly. When the owner asked for custom roles, roles became data, so policies check has_permission() instead of naming a role, and staff can be scoped to only the villas they are assigned.",
           "image_url": "",
           "caption": "",
-          "sort_order": 9
+          "sort_order": 11
         },
         {
-          "id": "844fd26d-d97c-418f-be7b-b5e21360b76c",
+          "id": "15fb4111-4dda-451d-9e40-9ee96c901875",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "heading",
           "text": "Finance built to the owner's own workbooks",
           "image_url": "",
           "caption": "",
-          "sort_order": 10
+          "sort_order": 12
         },
         {
-          "id": "172b3044-16ab-49a9-8596-5425fae04881",
+          "id": "6792af64-1eff-46ce-b19e-b2e37443e0dd",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "text",
           "text": "The owner's spreadsheets outranked the spec for Finance, so the module was built to match them cell by cell: per-villa monthly P&L, owner earnings and cash position, with breakdowns that drill down to each receipt. The importers were ported from Python to TypeScript line for line, with a verifier that had to print IDENTICAL before either changed. Payments and expenses only count once a person has verified them.",
           "image_url": "",
           "caption": "",
-          "sort_order": 11
+          "sort_order": 13
         },
         {
-          "id": "3232f44e-c02a-4a45-abc3-522f7544afdc",
+          "id": "6692e3cb-3ead-4d2b-89fb-c8e7ffeb23db",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "heading",
           "text": "Designed for the people using it",
           "image_url": "",
           "caption": "",
-          "sort_order": 12
+          "sort_order": 14
         },
         {
-          "id": "be5400ca-3c7d-4833-8104-a929ec092b9d",
+          "id": "b8ce518a-9de5-4b5f-b51d-87b4fd447371",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "text",
           "text": "Eighteen staff use it every day. When some of them missed that an action was a button at all, I gave the interface a small, strict vocabulary: brown for the main step, green to confirm, red to remove, white for everything safe, every clickable word underlined, and a confirmation that names the guest, the amount and the booking code before any one-click approval. Depth comes from shades instead of lines, and related controls sit together in rounded pills. This portfolio follows the same rules, and so do the PapaFix mobile apps I redesigned afterwards.",
           "image_url": "",
           "caption": "",
-          "sort_order": 13
-        },
-        {
-          "id": "5bf30eed-473e-42e8-877f-007c9a49b908",
-          "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
-          "kind": "heading",
-          "text": "Payments and AI, kept honest",
-          "image_url": "",
-          "caption": "",
-          "sort_order": 14
-        },
-        {
-          "id": "73411e00-8b3b-4374-9017-06d44a50a307",
-          "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
-          "kind": "text",
-          "text": "Online payments go through Xendit, and the webhook records the payment and confirms the booking in one transaction. Maya, the built-in assistant, is a real Claude call over the figures already on screen. It is never allowed to query the database or calculate a number itself, so it can never disagree with the Finance tab.",
-          "image_url": "",
-          "caption": "",
           "sort_order": 15
         },
         {
-          "id": "11d35dfa-07d2-4bdb-9fd6-f15107011c92",
+          "id": "6614c185-b1fe-4920-b24c-c44e24bd8eb5",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "heading",
-          "text": "Since the switch-over",
+          "text": "Maya, the assistant",
           "image_url": "",
           "caption": "",
           "sort_order": 16
         },
         {
-          "id": "22fe88df-e4e0-49e3-8aca-dc84cbf95434",
+          "id": "2383ad80-9d88-4915-aaa0-55cb57e514c5",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
           "kind": "text",
-          "text": "The system has kept growing with the business. The owner now gets a report by email every night. Receipts are filed in folders that download as one archive. Xendit's fees are reconciled against the gateway's own records. The P&L was rebuilt around one date rule, with a break-even per villa and a forecast. Investors sign in to see only their own branch, and affiliates earn a share of the bookings they bring.",
+          "text": "Maya is a small sparrow and the system's built-in assistant. In the back office she is a real Claude call over the figures already on screen, and she is never allowed to query the database or calculate a number herself, so she can never disagree with the Finance tab. Everywhere else she is a picture: she sits in the top bar, flies over to open the chat, and fills every empty state on the site, guest side included.",
           "image_url": "",
           "caption": "",
           "sort_order": 17
         },
         {
-          "id": "039a7610-acbd-49da-af37-dc0306cd5f17",
+          "id": "6e38b43c-7ca9-4939-aafd-8d70740f601d",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
-          "kind": "heading",
-          "text": "How I work",
-          "image_url": "",
-          "caption": "",
+          "kind": "image",
+          "text": "",
+          "image_url": "/work/malaya/maya-poses.webp",
+          "caption": "Maya's poses, each tied to a moment in the app.",
           "sort_order": 18
         },
         {
-          "id": "f58aaa97-fbae-4f1f-9157-e53c9faeea99",
+          "id": "9df8593b-aefa-442a-b4ad-3e1a542056a8",
           "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
-          "kind": "text",
-          "text": "Every change ships through a pull request the owner reviews, more than 150 so far, each with a test checklist that says who checks what, and I recorded a training video for the staff. Type-checking and tests now run on every pull request before it can merge. This is the project where I learned to own a system a business depends on: reading a spec closely enough to find its contradictions, asking the questions only the owner can answer, and refusing to invent a number. It is ongoing.",
+          "kind": "heading",
+          "text": "A map on the About page",
           "image_url": "",
           "caption": "",
           "sort_order": 19
+        },
+        {
+          "id": "29241746-fe71-478f-85f3-297a77dfb6b1",
+          "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
+          "kind": "text",
+          "text": "The About page draws Cavite and Taal Lake from public PSA and OpenStreetMap shapes, puts a pin on every live villa, and traces a route between them as you scroll.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 20
+        },
+        {
+          "id": "9d27c57e-88a8-48a6-a735-29554c2526de",
+          "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
+          "kind": "image",
+          "text": "",
+          "image_url": "/work/malaya/about-map.webp",
+          "caption": "The About page map.",
+          "sort_order": 21
+        },
+        {
+          "id": "94f73ad0-3fe4-4885-aa04-906872450d53",
+          "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
+          "kind": "heading",
+          "text": "Since the switch-over",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 22
+        },
+        {
+          "id": "e1764837-e980-4b0b-bf27-7c02bc717281",
+          "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
+          "kind": "text",
+          "text": "The system has kept growing with the business. The owner gets a report by email every night. Receipts are filed in folders that download as one archive. Xendit's fees are reconciled against the gateway's own records. The P&L was rebuilt around one date rule, with a break-even per villa and a forecast. Investors sign in to see only their own branch, and affiliates earn a share of the bookings they bring.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 23
+        },
+        {
+          "id": "bed955cc-2766-49b3-b8ee-d8b724cc8fb2",
+          "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
+          "kind": "heading",
+          "text": "How I worked",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 24
+        },
+        {
+          "id": "c078e60f-6046-45ef-a251-f3f5213f1e55",
+          "project_id": "38cd308a-baf1-4f06-b3e0-0548b2e2c424",
+          "kind": "text",
+          "text": "Every change ships through a pull request the owner reviews, more than 150 so far, each with a test checklist that says who checks what, and I recorded a training video for the staff. Type-checking and tests run on every pull request before it can merge. This is the project where I learned to own a system a business depends on: reading a spec closely enough to find its contradictions, asking the questions only the owner can answer, and refusing to invent a number. It is ongoing.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 25
         }
       ]
     },
@@ -509,7 +563,7 @@
       "featured": true,
       "sort_order": 1,
       "slug": "papafix-mobile",
-      "cover_image_url": "",
+      "cover_image_url": "/work/papafix/customer-app-1.webp",
       "tech": "React Native, Expo, Expo Router, TypeScript, Supabase, EAS Update",
       "published": true,
       "logo_url": "/logos/papafix.png",
@@ -678,187 +732,187 @@
       "featured": true,
       "sort_order": 2,
       "slug": "papafix-admin",
-      "cover_image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1781685024610-screencapture-papafix-vercel-app-2026-06-17-15_59_01.png",
+      "cover_image_url": "/work/papafix/web-cover.webp",
       "tech": "React 19, Vite, Supabase, PostgreSQL, Edge Functions, RLS, Leaflet, Recharts",
       "published": true,
       "logo_url": "/logos/papafix.png",
       "blocks": [
         {
-          "id": "bfc42db6-5b78-4631-899e-f9d243e905fe",
+          "id": "d7ce5dd1-f74f-4200-9acf-968fdb8f71fd",
           "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
           "kind": "text",
-          "text": "PapaFix is an on-demand home-repair marketplace for the Philippines, a funded venture under NAM Builders Supply Corp: customers book electricians, plumbers, and aircon technicians from one mobile app, while technicians accept and complete those jobs from another — both now on Google Play. The two apps write to a single Supabase Postgres database, but the business had no way to actually oversee the operation — which jobs were stalling, which payments hadn't cleared, where technicians were in the field, or whether a record had been quietly altered. As founding developer I built the web platform that sits over all of it: the control room for the entire business.",
+          "text": "PapaFix is a home-repair marketplace in Batangas, a funded venture under NAM Builders Supply Corp. Customers book aircon, plumbing and electrical technicians in one Android app, and technicians take the jobs in another. Both apps write to one Supabase database, but nobody could see the whole operation: which jobs were stalling, which payments hadn't cleared, where the technicians were. As founding developer I built the web platform that sits over all of it.",
           "image_url": "",
           "caption": "",
           "sort_order": 1
         },
         {
-          "id": "8b64f416-31ea-43fd-83cf-4d097ad91be3",
+          "id": "497f6246-3bcd-41f4-ad13-cc2c3416d5ea",
           "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
-          "kind": "heading",
-          "text": "What I built",
-          "image_url": "",
-          "caption": "",
+          "kind": "image",
+          "text": "",
+          "image_url": "/work/papafix/web-cover.webp",
+          "caption": "The web platform: the overview dashboard and the live map.",
           "sort_order": 2
         },
         {
-          "id": "9ad256a8-60b5-459b-a9d7-218244ebd802",
+          "id": "1d405821-e449-44ba-8542-d7bb9babbd34",
           "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
-          "kind": "text",
-          "text": "I designed and developed a dark-mode admin panel in React and Supabase that reads, oversees, and corrects everything the two mobile apps generate. The customer app, the technician app, and this panel all share one Postgres database — the apps own the operational writes, and the panel is the layer that gives the business visibility and control over them. It is locked to admin accounts only, enforced not just in the UI but by Postgres row-level security, so it holds full oversight without ever shipping a service key to the browser.",
+          "kind": "heading",
+          "text": "One panel over two apps",
           "image_url": "",
           "caption": "",
           "sort_order": 3
         },
         {
-          "id": "db27fc27-a363-4b42-8793-f694576f49db",
+          "id": "cfe68fc6-da94-46b3-96c4-1ef8b140be47",
           "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
-          "kind": "heading",
-          "text": "Day-to-day operations",
+          "kind": "text",
+          "text": "The admin panel is React on the same Postgres database as the apps. The apps own the day-to-day writes; the panel is where the business sees them and corrects them. Only admin accounts get in, and that is enforced by row-level security, not just by the interface. Anything that needs a privileged key, like creating an account or changing an email, runs in an Edge Function, so the key never reaches the browser.",
           "image_url": "",
           "caption": "",
           "sort_order": 4
         },
         {
-          "id": "b4205374-61ad-48f5-8480-4caf0dafb03a",
+          "id": "e78ada52-5a0d-4122-8485-ae02bac1cff4",
           "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
-          "kind": "image",
-          "text": "",
-          "image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1781685086690-screencapture-papafix-vercel-app-2026-06-17-16_31_15.png",
-          "caption": "The Profiles tab managing customers, technicians, and admins, with role filters and server-side user creation.",
+          "kind": "heading",
+          "text": "Day-to-day operations",
+          "image_url": "",
+          "caption": "",
           "sort_order": 5
         },
         {
-          "id": "4be7b5cd-dc9a-45f7-b462-aa80a1232be6",
+          "id": "bfb6bbab-6cc9-4e1b-8d57-58e42a1ce277",
           "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
           "kind": "text",
-          "text": "The management tabs cover the operational core. I built full create-read-update-delete for user profiles — searchable and role-filtered across customers, technicians, and admins, with base location, service categories and service radius for technicians — and routed account creation and email changes through a secure server-side Edge Function so the service key never touches the browser. Bookings get the same treatment with status, category, payment, and date filters plus a full detail view down to the inspection checklist and on-site QR token. Alongside these sit saved customer locations with inline map previews, a technician availability scheduler with per-slot toggles, and a support-ticket queue with status and priority.",
+          "text": "Profiles for customers, technicians and admins, with search, role filters, and each technician's base location, service categories and radius. Bookings with filters for status, category, payment and date, down to the inspection checklist and the QR code checked at the door. Saved customer locations with map previews, a technician schedule with a toggle for every slot, and a support-ticket queue.",
           "image_url": "",
           "caption": "",
           "sort_order": 6
         },
         {
-          "id": "5c9dc988-8da8-4470-9549-6dc0e67f9a93",
+          "id": "e7bdfee9-7dbf-40a3-8e12-5f109f17b256",
           "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
-          "kind": "heading",
-          "text": "Seeing the field in real time",
-          "image_url": "",
-          "caption": "",
+          "kind": "image",
+          "text": "",
+          "image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1781685086690-screencapture-papafix-vercel-app-2026-06-17-16_31_15.png",
+          "caption": "The Profiles tab: customers, technicians and admins, with role filters and accounts created on the server.",
           "sort_order": 7
         },
         {
-          "id": "2aa5505a-a98f-4a57-a276-be5d9080dea4",
+          "id": "d86bbd89-66b7-4269-9576-3f20a320c092",
           "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
-          "kind": "text",
-          "text": "Because technicians work in the field, the panel tracks them in real time. The Live Map renders every technician on an interactive Leaflet map — green when online, grey when offline — alongside the blue pins of active customer job sites, and it auto-refreshes on its own. A companion Tech Locations view lists each technician's last-known coordinates and how long ago they reported in, for when I need the data as a table rather than a map.",
+          "kind": "heading",
+          "text": "The field, live",
           "image_url": "",
           "caption": "",
           "sort_order": 8
         },
         {
-          "id": "9d68b3b3-525d-4ecc-ab0a-4f582761338c",
+          "id": "b99ed32f-d679-41e6-8eef-ab6bc0504cd2",
+          "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
+          "kind": "text",
+          "text": "Technicians work out in the field, so the Live Map shows every one of them, green when online and grey when offline, beside the blue pins of active job sites, and refreshes on its own. A Tech Locations table lists each technician's last-known position and how long ago it came in.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 9
+        },
+        {
+          "id": "53d873dc-2e9f-4b43-b191-767c0f4948db",
           "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
           "kind": "image",
           "text": "",
           "image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1781685154894-screencapture-papafix-vercel-app-2026-06-17-16_01_10.png",
-          "caption": "The Live Map tracking technicians (online and offline) and customer job sites in real time across Batangas.",
-          "sort_order": 9
-        },
-        {
-          "id": "4359d73d-6960-4fe9-8363-111e24250836",
-          "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
-          "kind": "heading",
-          "text": "Pricing and getting paid",
-          "image_url": "",
-          "caption": "",
+          "caption": "The Live Map across Batangas: technicians online and offline, and customer job sites.",
           "sort_order": 10
         },
         {
-          "id": "19ae565d-8ef3-4ef3-8a47-502293e1642f",
+          "id": "9f3b1d93-cdb5-4b6b-aeab-e9701803bf4f",
           "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
-          "kind": "text",
-          "text": "A marketplace is only as trustworthy as its prices, so the panel owns them outright. I built a pricing surface where an admin sets the aircon price grid and per-category base prices, then layers on the add-on admin fee, VAT, and distance-banded travel-fee tiers — the same numbers the customer app quotes upfront, edited in one place instead of hard-coded in an app release. Payment is the other half: a verification queue moves jobs through awaiting, paid, and unpaid, with cash-proof photos reviewed and rejected with a reason, and settlement handled by a dedicated Edge Function rather than a client-side write. A separate tab manages the GCash, Maya, and bank QR codes customers actually pay against.",
+          "kind": "heading",
+          "text": "Prices in one place",
           "image_url": "",
           "caption": "",
           "sort_order": 11
         },
         {
-          "id": "f326792c-6be7-4171-9675-0f1164e46d37",
+          "id": "533b6c0f-dae9-42f5-972e-46df3785e7a8",
           "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
-          "kind": "heading",
-          "text": "Analytics and insight",
+          "kind": "text",
+          "text": "The aircon price grid, the base price per category, the admin fee, VAT and the distance-based travel fee are all set in the panel. They are the same numbers the customer app quotes up front, changed here instead of in an app release. Payments go through a verification queue: awaiting, paid or unpaid, with cash-proof photos approved or rejected with a reason, and settlement handled by an Edge Function rather than a write from the browser. The GCash, Maya and bank QR codes customers pay against are managed here too.",
           "image_url": "",
           "caption": "",
           "sort_order": 12
         },
         {
-          "id": "c414aba4-1743-4f9d-8a0e-700462f4b0e1",
+          "id": "099ebf42-4e3e-44ee-8be4-a843fcdcb268",
           "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
-          "kind": "text",
-          "text": "The Overview dashboard is the at-a-glance health check: headline KPIs against the previous period, a bookings-and-revenue trend, demand patterns by hour and weekday, a top-technicians leaderboard, a per-city revenue split with an adjustable manager-share percentage, and a needs-attention queue that surfaces stale jobs, unpaid completed work, and low ratings. The Analytics tab goes deeper, with drill-downs by category, status, and payment, and a technician ranking where clicking one bar cross-filters every chart on the page. Both started out pulling thousands of raw booking rows into the browser to crunch client-side, which doesn't scale — so I moved all of that aggregation into PostgreSQL functions that return pre-summarised JSON, backed by targeted indexes and server-side pagination so the panel stays responsive into the hundreds of thousands of rows.",
+          "kind": "heading",
+          "text": "Numbers that hold up as data grows",
           "image_url": "",
           "caption": "",
           "sort_order": 13
         },
         {
-          "id": "05812913-6aad-4b58-b826-4d3f7f8994da",
+          "id": "0b5c0895-71ed-4f87-a78d-4fbd5913672b",
+          "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
+          "kind": "text",
+          "text": "The Overview is the daily health check: headline figures against the previous period, bookings and revenue over time, demand by hour and weekday, a technician leaderboard, revenue per city, and a queue of what needs attention, like stale jobs, unpaid finished work and low ratings. Analytics goes deeper, and clicking one technician filters every chart on the page. Both first pulled thousands of raw rows into the browser, so I moved the aggregation into Postgres functions with the right indexes and server-side paging.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 14
+        },
+        {
+          "id": "0c309178-a813-496b-b421-ae2884efa9db",
           "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
           "kind": "image",
           "text": "",
           "image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1781685210658-screencapture-papafix-vercel-app-2026-06-17-16_03_12.png",
-          "caption": "The Analytics tab with a technician selected — one click cross-filters every chart on the page.",
-          "sort_order": 14
-        },
-        {
-          "id": "cc74f9d8-4b07-4c92-82ca-2e3b9df03840",
-          "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
-          "kind": "heading",
-          "text": "Oversight and integrity",
-          "image_url": "",
-          "caption": "",
+          "caption": "Analytics with one technician selected: every chart on the page follows.",
           "sort_order": 15
         },
         {
-          "id": "27fe56a0-9f3f-4b7f-b327-82ff6f2cc503",
+          "id": "4c6b28b2-3c0c-4e05-a1ee-9236dc5c1e5e",
           "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
-          "kind": "text",
-          "text": "Oversight only means something if the records can be trusted. The audit trail records every booking and payment event the moment a row changes — created, status moved, technician reassigned, payment captured, fee adjusted — written by Postgres triggers through a SECURITY DEFINER function under row-level security with no update or delete policy, so even an admin can't forge or erase one. I deliberately scoped it to the facts that change a record rather than taps, locations, or message contents: a complete paper trail without surveilling users. A separate activity log captures what admins themselves do inside the panel, keeping the two concerns cleanly apart.",
+          "kind": "heading",
+          "text": "A record nobody can rewrite",
           "image_url": "",
           "caption": "",
           "sort_order": 16
         },
         {
-          "id": "3402ee30-cbe4-4d83-a609-8c1d7e969165",
+          "id": "a9ac66f0-538d-4e68-b580-c36f5cabb932",
+          "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
+          "kind": "text",
+          "text": "Every booking and payment event is written to an audit trail by database triggers the moment a row changes: created, status moved, technician reassigned, payment captured, fee adjusted. The table has no update or delete policy, so not even an admin can forge or erase an entry. It records what changed a record, not taps, locations or messages. Admin itself is tiered: a super admin decides which admins can touch pricing, payments or accounts, and misconduct reports from either side land in their own queue.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 17
+        },
+        {
+          "id": "e114577f-f939-4d20-b261-6a581cf49fe7",
           "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
           "kind": "image",
           "text": "",
           "image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1781685276643-screencapture-papafix-vercel-app-2026-06-17-16_23_37.png",
-          "caption": "The append-only audit trail, with every booking and payment event recorded server-side by database triggers.",
-          "sort_order": 17
-        },
-        {
-          "id": "65639af1-1567-4cd6-bcce-e2e43c509188",
-          "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
-          "kind": "text",
-          "text": "Admin itself is tiered rather than all-or-nothing: a roles-and-access screen, reachable only by a super admin, decides which admins can touch pricing, payments, or accounts. Beside it sits a user-reports queue where misconduct reports filed in either direction — customer against technician, or technician against customer — are triaged, so the same trail that protects the records also protects the people using them.",
-          "image_url": "",
-          "caption": "",
+          "caption": "The audit trail, written by the database, never by the browser.",
           "sort_order": 18
         },
         {
-          "id": "90b7b022-0c2e-4f61-94c7-693041d448d1",
+          "id": "61c5be9f-cb19-4b50-8262-0bd2afc21a0a",
           "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
           "kind": "heading",
-          "text": "Conclusion",
+          "text": "How I worked",
           "image_url": "",
           "caption": "",
           "sort_order": 19
         },
         {
-          "id": "ff4980d1-f17d-4189-b46c-a440180e720b",
+          "id": "aa74a247-e65d-4f53-b0f4-a17e828d877e",
           "project_id": "8ca44971-316f-4b4f-af8d-b4f023ca117b",
           "kind": "text",
-          "text": "PapaFix is the project where I owned an entire operational surface end to end — from the React interface down to the Postgres triggers, RPCs, row-level security policies, and the Edge Functions that keep privileged work off the client. The throughline was building for scale and trust: aggregate on the server so it holds up as the data grows, and push integrity into the database where it can't be bypassed. It is the clearest example of how I think about full-stack work — that the hard guarantees belong close to the data, and the browser is just an untrusted client looking in.",
+          "text": "I owned this surface end to end, from the React screens down to the triggers, functions, policies and Edge Functions. The rule I kept was simple: the hard guarantees belong next to the data, and the browser is an untrusted client looking in. Fifteen modules are covered by a 292-case test suite.",
           "image_url": "",
           "caption": "",
           "sort_order": 20
@@ -874,127 +928,136 @@
       "featured": true,
       "sort_order": 3,
       "slug": "motion-films",
-      "cover_image_url": "",
+      "cover_image_url": "/work/films/cover.webp",
       "tech": "Remotion, React, TypeScript, FFmpeg",
       "published": true,
       "logo_url": "tech:remotion",
       "blocks": [
         {
-          "id": "c6ae7f59-5259-44d9-b850-66f3be3d6cff",
+          "id": "f0c2e5f7-6431-4e8a-868b-5055c037b7c3",
+          "project_id": "69042d51-687c-4ead-87e9-da59b6be0b22",
+          "kind": "image",
+          "text": "",
+          "image_url": "/work/films/cover.webp",
+          "caption": "Three films, all made in code: FixLink, Malaya Villas and PapaFix.",
+          "sort_order": 1
+        },
+        {
+          "id": "a9eeffd9-deef-4e74-8ea6-f2e13a451627",
           "project_id": "69042d51-687c-4ead-87e9-da59b6be0b22",
           "kind": "text",
           "text": "I make product films the way I make products: in code. Each one is a React project rendered with Remotion, so a screen in the film is a real component, a wrong number is fixed by changing a line, and a new cut is a re-render instead of a re-edit.",
           "image_url": "",
           "caption": "",
-          "sort_order": 1
+          "sort_order": 2
         },
         {
-          "id": "67572f8b-9c46-46c6-b2de-32272ed06779",
+          "id": "e6b66cab-d636-4bfe-983f-02c62cea7269",
           "project_id": "69042d51-687c-4ead-87e9-da59b6be0b22",
           "kind": "heading",
           "text": "FixLink: app walkthrough (commission)",
           "image_url": "",
           "caption": "",
-          "sort_order": 2
+          "sort_order": 3
         },
         {
-          "id": "87996986-53d7-49e4-b68c-8d3627a58d8a",
+          "id": "4f74bbc0-b856-424a-93a1-47cf9a4bd626",
           "project_id": "69042d51-687c-4ead-87e9-da59b6be0b22",
           "kind": "video",
           "text": "",
           "image_url": "/work/films/fixlink-walkthrough.mp4",
           "caption": "FixLink app walkthrough, 2:30. Every name, address and price in it is invented.",
-          "sort_order": 3
+          "sort_order": 4
         },
         {
-          "id": "00e66043-ba97-44c4-91e8-214ab7ca8192",
+          "id": "06da1b01-da53-4191-94a9-3b1e1732398b",
           "project_id": "69042d51-687c-4ead-87e9-da59b6be0b22",
           "kind": "text",
           "text": "FixLink is a home-services app concept from a student's research, and the brief was a film that explains it from sign-up to review. I followed the client's own flow chart: nine steps, each shown on one phone, with the step's name on the left and a callout on the right. The app's screens are rebuilt as clean cards and made to work. A fingertip taps, fields fill in, a quote adds up, and the camera leans in on each tap. The soundtrack is written in code too, timed to the cuts, with a sound for every tap.",
           "image_url": "",
           "caption": "",
-          "sort_order": 4
+          "sort_order": 5
         },
         {
-          "id": "fd49aa06-9366-4cd1-9c85-554ef57f3968",
+          "id": "2bbda551-5a64-476a-bb0a-fec732b9b26f",
           "project_id": "69042d51-687c-4ead-87e9-da59b6be0b22",
           "kind": "heading",
           "text": "Malaya Villas: guest features",
           "image_url": "",
           "caption": "",
-          "sort_order": 5
+          "sort_order": 6
         },
         {
-          "id": "1d6c893f-fc57-4d23-b412-652d6749115b",
+          "id": "4942721f-e05c-4003-821b-f6a510f5b0f5",
           "project_id": "69042d51-687c-4ead-87e9-da59b6be0b22",
           "kind": "video",
           "text": "",
           "image_url": "/work/films/malaya-features.mp4",
           "caption": "Malaya Villas guest features, one minute.",
-          "sort_order": 6
+          "sort_order": 7
         },
         {
-          "id": "053ff648-4762-4faa-a26a-080a616fc6c6",
+          "id": "86e218bb-d440-4422-95dd-afff2448f840",
           "project_id": "69042d51-687c-4ead-87e9-da59b6be0b22",
           "kind": "text",
           "text": "Made for the villa business whose booking system I build. It shows the guest's side, from searching dates to signing the waiver, one feature per beat, in the brand's own type and colours.",
           "image_url": "",
           "caption": "",
-          "sort_order": 7
+          "sort_order": 8
         },
         {
-          "id": "c26758b7-25fb-4cd4-819a-9107521547b2",
+          "id": "36a31ccf-ce58-453f-8c82-d69aab9fecc7",
           "project_id": "69042d51-687c-4ead-87e9-da59b6be0b22",
           "kind": "heading",
           "text": "PapaFix: product reel",
           "image_url": "",
           "caption": "",
-          "sort_order": 8
+          "sort_order": 9
         },
         {
-          "id": "c2b596fc-c691-4d06-ab20-00e34319ddc9",
+          "id": "4a578ab7-5784-4f29-8df2-37b603fd9808",
           "project_id": "69042d51-687c-4ead-87e9-da59b6be0b22",
           "kind": "video",
           "text": "",
           "image_url": "/work/films/papafix-reel.mp4",
           "caption": "PapaFix product reel, 63 seconds. Also cut in 9:16 for social.",
-          "sort_order": 9
+          "sort_order": 10
         },
         {
-          "id": "d930e350-3699-4cbe-b65d-584763cdad74",
+          "id": "d87a850d-fc77-4cbb-9d27-7ed75d7bea1b",
           "project_id": "69042d51-687c-4ead-87e9-da59b6be0b22",
           "kind": "text",
           "text": "A reel for the home-services app: booking, matching, live tracking, the QR check at the door, and payment. It comes in a wide cut and a vertical cut that share every frame and one soundtrack.",
           "image_url": "",
           "caption": "",
-          "sort_order": 10
+          "sort_order": 11
         },
         {
-          "id": "c16f9bda-80e7-4b4c-9402-633c12ac3e8b",
+          "id": "9c4fe2db-3e1a-46fb-b99c-0f096bd1d774",
           "project_id": "69042d51-687c-4ead-87e9-da59b6be0b22",
           "kind": "heading",
           "text": "Why code",
           "image_url": "",
           "caption": "",
-          "sort_order": 11
+          "sort_order": 12
         },
         {
-          "id": "523e761f-d66e-48b8-ad88-e2b020c7b9b9",
+          "id": "8980008c-93eb-4927-ae29-001b06cb051c",
           "project_id": "69042d51-687c-4ead-87e9-da59b6be0b22",
           "kind": "text",
           "text": "A film built this way stays editable for as long as the product does. When a screen changes, I change the component and render again. I made a seven-minute training video for Malaya's staff the same way, from real screens with guest names replaced, so the people using the system could learn it without having to explore on their own.",
           "image_url": "",
           "caption": "",
-          "sort_order": 12
+          "sort_order": 13
         },
         {
-          "id": "d0e51e2b-0587-4455-af1d-88e0b206303a",
+          "id": "fe26210c-e527-4604-8497-1ea01a7b1c52",
           "project_id": "69042d51-687c-4ead-87e9-da59b6be0b22",
           "kind": "text",
           "text": "Music in the FixLink film uses the Salamander Grand Piano by Alexander Holm (CC BY 3.0), with instruments from Versilian Studios, FreePats and Karoryfer Samples.",
           "image_url": "",
           "caption": "",
-          "sort_order": 13
+          "sort_order": 14
         }
       ]
     },
@@ -1007,13 +1070,13 @@
       "featured": true,
       "sort_order": 4,
       "slug": "nam-kpi-board",
-      "cover_image_url": "",
+      "cover_image_url": "/work/nam/kpi-cover.webp",
       "tech": "React 19, TypeScript, Vite, Tailwind CSS 4, Supabase, PostgreSQL, Row Level Security, Recharts",
       "published": true,
       "logo_url": "/logos/nam-mono.png",
       "blocks": [
         {
-          "id": "eaa24400-d932-4b8d-ad96-266c56de5f03",
+          "id": "c5c6ea48-7323-49ea-9a8b-6f9b0db159b4",
           "project_id": "51681002-0825-497d-836f-6f413689deb2",
           "kind": "text",
           "text": "NAM's CEO runs three businesses and grades them on one scorecard: nine categories, from sales and finance to quality and governance, each with a weight, adding up to 100. He asked for a board that shows where each business stands without anyone compiling a spreadsheet. It is phase one of a larger internal system, started in November 2026.",
@@ -1022,85 +1085,103 @@
           "sort_order": 1
         },
         {
-          "id": "c9848b20-7e68-4553-bdbc-360af235c60d",
+          "id": "22c4d0cc-8a1d-4e6e-aa80-0848383ae49f",
+          "project_id": "51681002-0825-497d-836f-6f413689deb2",
+          "kind": "image",
+          "text": "",
+          "image_url": "/work/nam/kpi-cover.webp",
+          "caption": "An illustration of the board's layout with made-up colours. The real board shows what clients owe, so its figures stay private.",
+          "sort_order": 2
+        },
+        {
+          "id": "4b75d11c-9b81-49ed-895d-9b35a1e79de3",
           "project_id": "51681002-0825-497d-836f-6f413689deb2",
           "kind": "heading",
           "text": "What it shows",
           "image_url": "",
           "caption": "",
-          "sort_order": 2
+          "sort_order": 3
         },
         {
-          "id": "92ec6712-8d0a-4061-8dcf-82b6c6718be4",
+          "id": "bd056ab6-0934-4a7a-81ae-a29ae91c924d",
           "project_id": "51681002-0825-497d-836f-6f413689deb2",
           "kind": "text",
           "text": "One screen answers the first question: a group score, a heatmap of businesses against categories, and a list of what is costing the most points, ranked. Every tile opens the list behind it, every score opens a breakdown of where it came from, and a twelve-month trend sits against the target.",
           "image_url": "",
           "caption": "",
-          "sort_order": 3
+          "sort_order": 4
         },
         {
-          "id": "460a8748-cf6d-4c56-9148-33cd75de164b",
+          "id": "ab75a50f-60d9-4202-a7ef-1c6c4795a957",
           "project_id": "51681002-0825-497d-836f-6f413689deb2",
           "kind": "heading",
           "text": "Scoring that can be explained",
           "image_url": "",
           "caption": "",
-          "sort_order": 4
+          "sort_order": 5
         },
         {
-          "id": "79ab6327-e2db-4f1b-bbb4-8766fb68f215",
+          "id": "67641af6-975c-4ae0-a343-cae5ebe8b529",
           "project_id": "51681002-0825-497d-836f-6f413689deb2",
           "kind": "text",
           "text": "A score nobody can explain gets ignored, so the rules are plain. Attainment is capped at 100 percent, so one great month cannot hide a weak category. A figure nobody reported shows as a gap instead of counting as a zero. A \"How it works\" page walks through the arithmetic using the board's own live numbers.",
           "image_url": "",
           "caption": "",
-          "sort_order": 5
+          "sort_order": 6
         },
         {
-          "id": "33d9ae36-a004-4335-87e1-2ec055f90e9f",
+          "id": "fd6ab92b-d46c-485b-92d5-a6062b245e03",
           "project_id": "51681002-0825-497d-836f-6f413689deb2",
           "kind": "heading",
           "text": "Real figures, not typed ones",
           "image_url": "",
           "caption": "",
-          "sort_order": 6
+          "sort_order": 7
         },
         {
-          "id": "2d025f74-59e1-43fb-a720-8604929ef52c",
+          "id": "b588bac6-f2b8-4b89-a9b9-e271f614f6d4",
           "project_id": "51681002-0825-497d-836f-6f413689deb2",
           "kind": "text",
           "text": "For the supply business, sales, margin and collections are read straight from the sales platform I built for the company earlier, so the board and the system of record cannot disagree. For figures that only exist on paper, staff enter two counts, such as 19 out of 20, and the board works out the percentage.",
           "image_url": "",
           "caption": "",
-          "sort_order": 7
+          "sort_order": 8
         },
         {
-          "id": "fae09fb8-30b2-4de6-858a-aa393ca7dbb8",
+          "id": "4e53594a-4fd8-4d93-92ae-94aaac9e9b82",
           "project_id": "51681002-0825-497d-836f-6f413689deb2",
           "kind": "heading",
           "text": "Private by default",
           "image_url": "",
           "caption": "",
-          "sort_order": 8
-        },
-        {
-          "id": "bece7165-3dc8-4dab-b5a8-6e2393e17798",
-          "project_id": "51681002-0825-497d-836f-6f413689deb2",
-          "kind": "text",
-          "text": "The board shows what clients owe, so nothing on it is public and there are no screenshots here. Editors sign in. The CEO opens a private view link that reads the board through a single database function, while the tables themselves stay closed.",
-          "image_url": "",
-          "caption": "",
           "sort_order": 9
         },
         {
-          "id": "ff751461-8eff-43e2-a817-87090088d50e",
+          "id": "d1a0a904-ebc4-42c9-b950-6d91e200fe22",
+          "project_id": "51681002-0825-497d-836f-6f413689deb2",
+          "kind": "text",
+          "text": "Nothing on the board is public. Editors sign in. The CEO opens a private view link that reads the board through a single database function, while the tables themselves stay closed.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 10
+        },
+        {
+          "id": "8ea7aa37-118b-44ed-9fb2-ea9acb3750ab",
+          "project_id": "51681002-0825-497d-836f-6f413689deb2",
+          "kind": "heading",
+          "text": "Where it stands",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 11
+        },
+        {
+          "id": "537da997-2637-4cae-a473-c1adc21b2804",
           "project_id": "51681002-0825-497d-836f-6f413689deb2",
           "kind": "text",
           "text": "It is live. The supply business is loaded from January 2026 onward, and the other two are waiting on their first figures.",
           "image_url": "",
           "caption": "",
-          "sort_order": 10
+          "sort_order": 12
         }
       ]
     },
@@ -1113,136 +1194,154 @@
       "featured": true,
       "sort_order": 5,
       "slug": "nam-inventory-system",
-      "cover_image_url": "https://i.imgur.com/9Ook8yd.png",
+      "cover_image_url": "/work/nam/inventory-cover.webp",
       "tech": "React 19, TypeScript, Vite, Supabase, PostgreSQL, TanStack Query, Tailwind CSS, Recharts, Vitest, PHP, MySQL",
       "published": true,
       "logo_url": "/logos/nam-mono.png",
       "blocks": [
         {
-          "id": "4c444ee6-09e7-4ccc-8030-36a676d7ade2",
+          "id": "157a62af-6e7a-4908-8c2a-b25003edc955",
           "project_id": "1a417af0-7508-4cdb-b2ba-b764c4614044",
           "kind": "text",
-          "text": "NAM Builders Supply Corp was running a building-supply business on spreadsheets. Quotations were typed by hand, sales lived in one workbook and inventory in another, and putting a single report in front of management meant a week of chasing files across departments. I joined as an IT intern for a 500-hour internship and built the company its first real system.",
+          "text": "NAM Builders Supply Corp ran a building-supply business on spreadsheets. Quotations were typed by hand, sales lived in one workbook and stock in another, and one report for management meant a week of chasing files across departments. I joined as an IT intern for 500 hours and built the company its first real system.",
           "image_url": "",
           "caption": "",
           "sort_order": 1
         },
         {
-          "id": "64754111-a908-4d88-ac87-f9727af0c55a",
+          "id": "30bb9e5e-e900-4896-b8e1-4131baed768c",
           "project_id": "1a417af0-7508-4cdb-b2ba-b764c4614044",
-          "kind": "heading",
-          "text": "What I built",
-          "image_url": "",
-          "caption": "",
+          "kind": "image",
+          "text": "",
+          "image_url": "/work/nam/inventory-cover.webp",
+          "caption": "The sales and inventory platform: the executive dashboard and the stock list.",
           "sort_order": 2
         },
         {
-          "id": "0dc67fa2-52bf-4a19-b72d-df889e10768c",
+          "id": "620cf568-d182-427a-acaa-13adb26735ec",
           "project_id": "1a417af0-7508-4cdb-b2ba-b764c4614044",
-          "kind": "text",
-          "text": "I replaced the spreadsheet workflow with one platform covering quotations, sales entry, the sales ledger, products and stock, finance, logistics, and bulk imports. It is now used daily by staff to run over ₱1M in monthly sales operations. The goal was never to digitise the spreadsheets — it was to make the numbers agree with each other for the first time.",
+          "kind": "heading",
+          "text": "One platform instead of five workbooks",
           "image_url": "",
           "caption": "",
           "sort_order": 3
         },
         {
-          "id": "1f4c12cd-5a59-4d3a-8abc-682e773fd967",
+          "id": "33fd90d5-20de-442e-ba6a-b37811315b6e",
+          "project_id": "1a417af0-7508-4cdb-b2ba-b764c4614044",
+          "kind": "text",
+          "text": "Quotations, sales entry, the sales ledger, products and stock, finance, logistics and bulk imports, all in one place. Staff use it every day to run more than ₱1M in monthly sales. The point was never to put the spreadsheets online. It was to make the numbers agree with each other for the first time.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 4
+        },
+        {
+          "id": "5c74c49d-cfb4-409a-af1f-85518299a75b",
           "project_id": "1a417af0-7508-4cdb-b2ba-b764c4614044",
           "kind": "image",
           "text": "",
           "image_url": "https://i.imgur.com/EuIy8Ht.png",
-          "caption": "The executive dashboard — sales performance and key metrics in one view, replacing a week of manual compilation.",
-          "sort_order": 4
+          "caption": "The executive dashboard: sales and key figures in one view, instead of a week of compiling.",
+          "sort_order": 5
         },
         {
-          "id": "9c91fbd3-235e-40cc-9564-0ffd48f76368",
+          "id": "133dc637-b6f1-426e-b7f6-0090d8b8563d",
           "project_id": "1a417af0-7508-4cdb-b2ba-b764c4614044",
           "kind": "heading",
           "text": "Quotation to sale",
           "image_url": "",
           "caption": "",
-          "sort_order": 5
-        },
-        {
-          "id": "d31312ce-19db-4220-932b-2f89fc3c9d76",
-          "project_id": "1a417af0-7508-4cdb-b2ba-b764c4614044",
-          "kind": "text",
-          "text": "The core workflow moves a quotation through drafting and approval into a confirmed sale, deducting stock as it goes. Quotations print in the company's existing formal document format, so staff did not have to change how they present to clients, and a quote can be converted partially when a client only takes some of the line items. Deliveries carry their own DR numbers through logistics, and finance tracks receivables against payment status.",
-          "image_url": "",
-          "caption": "",
           "sort_order": 6
         },
         {
-          "id": "5f447067-f3cd-4ff9-8f18-5e9532a9da69",
+          "id": "4ba72c0f-9482-4469-aea5-f95cc9312f75",
+          "project_id": "1a417af0-7508-4cdb-b2ba-b764c4614044",
+          "kind": "text",
+          "text": "A quotation is drafted, approved and turned into a confirmed sale, and stock comes off as it goes. Quotations print in the company's own formal layout, so staff present to clients the way they always have, and a quote can be converted in part when a client only takes some of the lines. Deliveries carry their own DR numbers, and finance tracks what is owed against what is paid.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 7
+        },
+        {
+          "id": "181db61a-1a4d-4986-a7f3-dd7e84c2b5f2",
           "project_id": "1a417af0-7508-4cdb-b2ba-b764c4614044",
           "kind": "image",
           "text": "",
           "image_url": "https://i.imgur.com/7hpDunP.png",
-          "caption": "Inventory management — centralized supplier pricing with bulk CSV import.",
-          "sort_order": 7
+          "caption": "Inventory: supplier prices in one list, with bulk CSV import.",
+          "sort_order": 8
         },
         {
-          "id": "d1aabd11-0c16-4bca-ba2a-27e966082f20",
+          "id": "4908f221-a6e8-4927-93b2-4ec72074ca53",
           "project_id": "1a417af0-7508-4cdb-b2ba-b764c4614044",
           "kind": "heading",
           "text": "Numbers that reconcile",
           "image_url": "",
           "caption": "",
-          "sort_order": 8
-        },
-        {
-          "id": "23ebe8ad-8a4f-4226-920c-a0c40cddd39c",
-          "project_id": "1a417af0-7508-4cdb-b2ba-b764c4614044",
-          "kind": "text",
-          "text": "On top of the operational data I built a reporting layer: an executive view with cross-filtering drilldowns by company, category, and account manager. The hard part was trust, not charts. I wrote the pricing and margin logic — income, markup and margin solvers, withholding tax, and the formal-document arithmetic — as a unit-tested calculation engine, so that what the dashboard shows reconciles with what finance calculates by hand.",
-          "image_url": "",
-          "caption": "",
           "sort_order": 9
         },
         {
-          "id": "8dd4d94b-06ee-40c3-9c78-05e4cff20689",
+          "id": "49460fad-736a-4338-9a06-b6beec353f61",
           "project_id": "1a417af0-7508-4cdb-b2ba-b764c4614044",
-          "kind": "heading",
-          "text": "Re-architecting on Postgres",
+          "kind": "text",
+          "text": "The reporting layer filters by company, category and account manager. The hard part was trust, not charts: income, markup and margin, withholding tax and the formal-document arithmetic live in one unit-tested calculation engine, so the dashboard agrees with what finance works out by hand.",
           "image_url": "",
           "caption": "",
           "sort_order": 10
         },
         {
-          "id": "46607742-7d07-4ad6-9dac-3337817616ea",
+          "id": "ed314c2c-5f7f-4944-a349-11ca86ee82ee",
           "project_id": "1a417af0-7508-4cdb-b2ba-b764c4614044",
-          "kind": "text",
-          "text": "The system shipped first in PHP and MySQL. I later re-architected it as a React and TypeScript single-page app on Supabase, which meant moving years of live production data without losing any of it. I wrote the migration myself: a converter that reads the legacy MySQL dump, scrubs currency-formatted values back into numerics, normalises malformed and zero dates, and corrects timezone handling that would otherwise have shifted historical records by a day. A Legacy Restore screen inside the app lets that import be re-run and checked rather than trusted blindly.",
+          "kind": "heading",
+          "text": "Moved to Postgres without losing a row",
           "image_url": "",
           "caption": "",
           "sort_order": 11
         },
         {
-          "id": "89f6ff59-32f9-4fac-b2c9-3b4fabac2b6d",
+          "id": "b4e3ab75-0f4c-45f5-90ca-8f0f668ae664",
           "project_id": "1a417af0-7508-4cdb-b2ba-b764c4614044",
-          "kind": "heading",
-          "text": "Who can see what",
+          "kind": "text",
+          "text": "The system first shipped in PHP and MySQL. I later rebuilt it as a React and TypeScript app on Supabase, which meant moving years of live data. My converter reads the old MySQL dump, turns currency-formatted text back into numbers, fixes broken and zero dates, and corrects a timezone shift that would have moved old records by a day. A Legacy Restore screen lets the import be re-run and checked instead of trusted blindly.",
           "image_url": "",
           "caption": "",
           "sort_order": 12
         },
         {
-          "id": "ef3d96de-5883-4350-8cea-92360ce81022",
+          "id": "9987ac02-4f35-4c64-892c-96060d32850d",
           "project_id": "1a417af0-7508-4cdb-b2ba-b764c4614044",
-          "kind": "text",
-          "text": "Several departments touch the same record, so access is a first-class feature rather than a checkbox. Roles and per-privilege gates are defined in the database and enforced by row-level security, account managers are assigned to the companies they handle, sessions are limited to one active login per account, and an activity log records who changed what. The frontend only ever holds the publishable key.",
+          "kind": "heading",
+          "text": "Who can see what",
           "image_url": "",
           "caption": "",
           "sort_order": 13
         },
         {
-          "id": "776d69dc-f7d4-4325-91d5-2e98ff6cc2bb",
+          "id": "81d626ff-f349-4da3-b181-e427584fec80",
           "project_id": "1a417af0-7508-4cdb-b2ba-b764c4614044",
           "kind": "text",
-          "text": "I finished the internship with a full handover — per-module technical documentation plus training, so staff could run their own reporting without me. The system stayed in daily use after I left, which is the part I judge it by.",
+          "text": "Several departments touch the same record, so roles and per-privilege gates live in the database and are enforced by row-level security. Account managers are assigned to the companies they handle, each account can only be signed in once at a time, and an activity log records who changed what. The browser only ever holds the publishable key.",
           "image_url": "",
           "caption": "",
           "sort_order": 14
+        },
+        {
+          "id": "e2f80c04-61ea-4b87-a3d6-2ba52c5e2bb1",
+          "project_id": "1a417af0-7508-4cdb-b2ba-b764c4614044",
+          "kind": "heading",
+          "text": "How I worked",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 15
+        },
+        {
+          "id": "ccf33443-3a7e-4d83-9f7b-1c3a0cab4b5e",
+          "project_id": "1a417af0-7508-4cdb-b2ba-b764c4614044",
+          "kind": "text",
+          "text": "I finished the internship with a full handover: technical notes for every module and training, so staff could run their own reports without me. The system stayed in daily use after I left, which is the part I judge it by. The company kept me on afterwards, as founding developer of PapaFix.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 16
         }
       ]
     },
@@ -1255,11 +1354,129 @@
       "featured": true,
       "sort_order": 6,
       "slug": "lumea",
-      "cover_image_url": "",
+      "cover_image_url": "/work/lumea/cover.webp",
       "tech": "Shopify, Liquid, Python, Shopify GraphQL Admin API, Kaching Bundles",
-      "published": false,
+      "published": true,
       "logo_url": "tech:shopify",
-      "blocks": []
+      "blocks": [
+        {
+          "id": "6b0622ee-3abf-4c1b-92c1-5cd41509f44c",
+          "project_id": "f7f08f61-16d2-4458-9ba7-47657475eb3f",
+          "kind": "text",
+          "text": "Lumea is a German beauty store on Shopify. In October 2026 the owner hired me to build its product pages: six products, each with its own page design based on a reference page he chose, in German, priced in euros, with quantity bundles.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 1
+        },
+        {
+          "id": "0804134a-50a2-4222-afaa-9caa1046d848",
+          "project_id": "f7f08f61-16d2-4458-9ba7-47657475eb3f",
+          "kind": "image",
+          "text": "",
+          "image_url": "/work/lumea/cover.webp",
+          "caption": "Sections from the soap page I built. The store has since been renamed Eversso.",
+          "sort_order": 2
+        },
+        {
+          "id": "506ab45c-85ed-45ff-8b2f-eaf3e3c1a4ee",
+          "project_id": "f7f08f61-16d2-4458-9ba7-47657475eb3f",
+          "kind": "heading",
+          "text": "Templates, not page-builder pages",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 3
+        },
+        {
+          "id": "efc9ccba-245c-4311-9aa3-53a692891e3e",
+          "project_id": "f7f08f61-16d2-4458-9ba7-47657475eb3f",
+          "kind": "text",
+          "text": "Every page is a Shopify product template made of my own Liquid sections: the reason the product exists, a comparison table, ingredient cards, a guarantee box and an FAQ, plus a size finder for the shapewear. The German copy lives in a Python script that writes the template files, so changing a sentence is a re-run, not an afternoon in the theme editor. Fonts are hosted inside the theme instead of loaded from Google, which keeps the pages clear of a GDPR question.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 4
+        },
+        {
+          "id": "f25b1e12-0b73-4aeb-8b25-631d599eeeba",
+          "project_id": "f7f08f61-16d2-4458-9ba7-47657475eb3f",
+          "kind": "image",
+          "text": "",
+          "image_url": "/work/lumea/sections.webp",
+          "caption": "Three of the soap page's sections: the reason, the comparison and the ingredients.",
+          "sort_order": 5
+        },
+        {
+          "id": "de6542b6-b108-409c-a4e2-789c22c146bd",
+          "project_id": "f7f08f61-16d2-4458-9ba7-47657475eb3f",
+          "kind": "heading",
+          "text": "Bundles that add up",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 6
+        },
+        {
+          "id": "ff3043b8-fb0a-411d-972f-cc4f62275be0",
+          "project_id": "f7f08f61-16d2-4458-9ba7-47657475eb3f",
+          "kind": "text",
+          "text": "Quantity deals run through the Kaching app: 2, 4 or 8 bars of soap, or 1+1, 2+2 and 3+3 free on the shapewear with colour and size picked per piece, and gifts that unlock at each step. Crossed-out prices on bundles are the real quantity times the single price, so the saving shown is the saving you get.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 7
+        },
+        {
+          "id": "f20fb0fc-f0a6-4b01-b548-6fbe35bce52d",
+          "project_id": "f7f08f61-16d2-4458-9ba7-47657475eb3f",
+          "kind": "heading",
+          "text": "Every image in German",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 8
+        },
+        {
+          "id": "da3f6c95-c098-4a6c-b99e-194d705160fa",
+          "project_id": "f7f08f61-16d2-4458-9ba7-47657475eb3f",
+          "kind": "text",
+          "text": "The product images came in English with another brand's name on them. I wrote a Python pipeline that finds the text with OCR, paints it out and sets the German translation in its place. For bottles and tubes it removes the old name and rebuilds the surface from the bottle's own shading, so the Lumea name could go on instead.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 9
+        },
+        {
+          "id": "a74b2642-cf6e-4492-b4c8-edc82087316d",
+          "project_id": "f7f08f61-16d2-4458-9ba7-47657475eb3f",
+          "kind": "heading",
+          "text": "What I left out",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 10
+        },
+        {
+          "id": "165e9d06-bb5b-438e-b325-f1a1aa70abee",
+          "project_id": "f7f08f61-16d2-4458-9ba7-47657475eb3f",
+          "kind": "text",
+          "text": "German competition law forbids fake reviews and invented urgency, so the templates I delivered had none: no made-up ratings or \"100,000+ customers\", no countdowns or \"only 3 left\", no claims the store couldn't prove, and no crossed-out prices that were never charged. The review section was built but left switched off, for real reviews only. Every one of these I listed for the owner with the reason.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 11
+        },
+        {
+          "id": "4c644dea-8b84-43f6-88a9-03d96d235d93",
+          "project_id": "f7f08f61-16d2-4458-9ba7-47657475eb3f",
+          "kind": "heading",
+          "text": "How I worked",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 12
+        },
+        {
+          "id": "bb083f63-b6ba-4780-bf7a-c8576da1186d",
+          "project_id": "f7f08f61-16d2-4458-9ba7-47657475eb3f",
+          "kind": "text",
+          "text": "Products started as drafts and went live only after the owner approved each page. Theme work went to an unpublished copy of the theme first, and files were pushed without deleting anything, so nothing in the live theme was overwritten. The README I kept for the owner lists every price, bundle and open question.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 13
+        }
+      ]
     },
     {
       "id": "bd5efa44-3e9e-4c5a-bb90-2ac416960cd6",
@@ -1270,109 +1487,127 @@
       "featured": true,
       "sort_order": 7,
       "slug": "portfolio-revamped",
-      "cover_image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1782046657116-screencapture-clarenceneilmeneses-vercel-app-2026-06-21-20_53_07.png",
+      "cover_image_url": "/work/portfolio/cover.webp",
       "tech": "Next.js 14, React, Supabase, PostgreSQL, Tailwind CSS, Vercel",
       "published": true,
       "logo_url": "tech:next.js",
       "blocks": [
         {
-          "id": "5949d77c-c642-4b19-a9c5-6ed4aa0f2561",
+          "id": "abc1520e-a81c-4f05-82d0-fd3f5b06786b",
           "project_id": "bd5efa44-3e9e-4c5a-bb90-2ac416960cd6",
           "kind": "text",
-          "text": "I wanted a portfolio I could keep current without touching code or redeploying every time. So I rebuilt mine as a fully content-managed site: every section, from my profile and tech stack to projects, experience, certifications, and gallery, is editable from a private admin panel.",
+          "text": "I wanted a portfolio I could keep current without touching code or redeploying every time. So I built mine as a content-managed site: every section, from my profile and tech stack to projects, experience, certifications and gallery, is edited from a private admin panel. Case studies like this one are content too, built from text, heading, image and video blocks.",
           "image_url": "",
           "caption": "",
           "sort_order": 1
         },
         {
-          "id": "f5d3177b-e49a-400b-bb70-0e58cf3bd85d",
+          "id": "ec34d520-7f77-4608-8a02-c0d4cee77a95",
+          "project_id": "bd5efa44-3e9e-4c5a-bb90-2ac416960cd6",
+          "kind": "image",
+          "text": "",
+          "image_url": "/work/portfolio/cover.webp",
+          "caption": "The site you are on, on a laptop and a phone.",
+          "sort_order": 2
+        },
+        {
+          "id": "6d57808c-8c28-4168-9372-9112ac9add60",
           "project_id": "bd5efa44-3e9e-4c5a-bb90-2ac416960cd6",
           "kind": "heading",
           "text": "What I built",
           "image_url": "",
           "caption": "",
-          "sort_order": 2
-        },
-        {
-          "id": "6e4a81bf-c54d-4bc5-80b3-f26adcf55028",
-          "project_id": "bd5efa44-3e9e-4c5a-bb90-2ac416960cd6",
-          "kind": "image",
-          "text": "",
-          "image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1782046518337-screencapture-clarenceneilmeneses-vercel-app-admin-2026-06-21-20_54_46.png",
-          "caption": "The admin CMS, where I edit and reorder every section of the live site.",
           "sort_order": 3
         },
         {
-          "id": "860ca7a9-6fee-44bd-a096-0ede86476c06",
+          "id": "684cefc2-08b8-4796-b15a-50a18d7f5f72",
           "project_id": "bd5efa44-3e9e-4c5a-bb90-2ac416960cd6",
           "kind": "text",
-          "text": "I built it on Next.js 14 with the App Router and Tailwind CSS, backed by Supabase for Postgres, Auth, and image Storage. The admin lives at /admin behind Supabase Auth, and I deliberately kept all secret keys out of the app. Every write is gated by row-level security, so the public site only ever uses the publishable key.",
+          "text": "Next.js 14 with the App Router and Tailwind CSS, on Supabase for Postgres, Auth and image storage. The admin lives at /admin behind Supabase Auth, every write is gated by row-level security, and the public site only ever uses the publishable key.",
           "image_url": "",
           "caption": "",
           "sort_order": 4
         },
         {
-          "id": "fb49454c-8cab-4ce6-bc4a-9aa76efef20f",
+          "id": "231c24bc-6560-4874-a099-8679c5c31817",
+          "project_id": "bd5efa44-3e9e-4c5a-bb90-2ac416960cd6",
+          "kind": "image",
+          "text": "",
+          "image_url": "https://coxblavototbhnhhtprv.supabase.co/storage/v1/object/public/media/1782046518337-screencapture-clarenceneilmeneses-vercel-app-admin-2026-06-21-20_54_46.png",
+          "caption": "The admin CMS, where I edit and reorder every section of the live site.",
+          "sort_order": 5
+        },
+        {
+          "id": "cc375972-691b-4b4a-a6c8-693f416f54bf",
           "project_id": "bd5efa44-3e9e-4c5a-bb90-2ac416960cd6",
           "kind": "heading",
           "text": "Everything is editable",
           "image_url": "",
           "caption": "",
-          "sort_order": 5
-        },
-        {
-          "id": "1694f4f8-d607-4fd2-9b2e-7cb82893b466",
-          "project_id": "bd5efa44-3e9e-4c5a-bb90-2ac416960cd6",
-          "kind": "text",
-          "text": "There are no hard-coded sections. I manage projects, work history, skills, certifications, social links, and gallery photos directly in the CMS, with drag-and-drop reordering. Slugs are generated automatically, drafts stay hidden until I publish, and changes appear on the live site within seconds.",
-          "image_url": "",
-          "caption": "",
           "sort_order": 6
         },
         {
-          "id": "0010836a-c51d-4685-b038-b90801c88c4f",
+          "id": "7a3dfaad-114b-48e5-a032-7a22065e60bc",
           "project_id": "bd5efa44-3e9e-4c5a-bb90-2ac416960cd6",
-          "kind": "heading",
-          "text": "The challenge: free-tier cold starts",
+          "kind": "text",
+          "text": "There are no hard-coded sections. Projects, work history, skills, certifications, links and gallery photos are managed in the CMS with drag-and-drop ordering. Slugs are made automatically, drafts stay hidden until I publish, and changes reach the live site within minutes.",
           "image_url": "",
           "caption": "",
           "sort_order": 7
         },
         {
-          "id": "261dfd01-994f-4b5e-b2f4-e73885ffa288",
+          "id": "50eb7ad3-f822-493b-a10b-cb3343eb315f",
           "project_id": "bd5efa44-3e9e-4c5a-bb90-2ac416960cd6",
-          "kind": "text",
-          "text": "Supabase pauses free projects after about a week of inactivity, which would leave a portfolio loading slowly or blank. I solved this in three layers: a daily keep-alive cron that pings a lightweight endpoint so the project never registers as idle, ISR caching so visitors always get an instant cached page, and a bundled fallback snapshot that renders the site from local content if the database is ever truly unreachable.",
+          "kind": "heading",
+          "text": "The same design language as my client work",
           "image_url": "",
           "caption": "",
           "sort_order": 8
         },
         {
-          "id": "26ee54aa-c880-4015-9d33-5a2b580efd1a",
+          "id": "3074df09-65b1-4bd1-b505-37b0e8d90fe9",
           "project_id": "bd5efa44-3e9e-4c5a-bb90-2ac416960cd6",
-          "kind": "heading",
-          "text": "SEO that maintains itself",
+          "kind": "text",
+          "text": "In November I rebuilt the public side in the language I use for Malaya Villas and PapaFix: flat cards, rounded pills and depth from shades instead of lines. On a phone it has a top bar and a floating tab bar. The tab bar, the buttons and the switches are Liquid Glass, from the glisse library, over a still wallpaper in the page's accent colour, and the icons are an iOS-style set.",
           "image_url": "",
           "caption": "",
           "sort_order": 9
         },
         {
-          "id": "cdea9862-81d2-45b2-afdb-f199abc95856",
+          "id": "a5048cbc-5294-4ae0-9e84-d2bdeab3eb3d",
           "project_id": "bd5efa44-3e9e-4c5a-bb90-2ac416960cd6",
-          "kind": "text",
-          "text": "Per-page titles, descriptions, canonical URLs, and Open Graph and Twitter tags are generated from the same CMS content. A sitemap that includes every published case study and a robots.txt are produced automatically, so my SEO stays correct as I add new work, with no manual upkeep.",
+          "kind": "heading",
+          "text": "Never cold, never blank",
           "image_url": "",
           "caption": "",
           "sort_order": 10
         },
         {
-          "id": "145fb395-2b65-442d-8a35-6a407feadfca",
+          "id": "f4557751-0b98-44c7-be11-4442b2f6d420",
           "project_id": "bd5efa44-3e9e-4c5a-bb90-2ac416960cd6",
           "kind": "text",
-          "text": "The result is the site you are viewing right now. I can publish a new project or swap an image in seconds, with no deploy and no downtime. It is the foundation I use to keep my entire portfolio current.",
+          "text": "Supabase pauses free projects after about a week without traffic. I handled that in three layers: a daily keep-alive ping, cached pages that rebuild in the background, and a snapshot of the content bundled with the site, so it renders even if the database can't be reached.",
           "image_url": "",
           "caption": "",
           "sort_order": 11
+        },
+        {
+          "id": "a1c23fe9-7799-4af2-badc-79c8ad14b8ab",
+          "project_id": "bd5efa44-3e9e-4c5a-bb90-2ac416960cd6",
+          "kind": "heading",
+          "text": "SEO that maintains itself",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 12
+        },
+        {
+          "id": "1d661858-4535-4eca-8353-fac4d0b28f80",
+          "project_id": "bd5efa44-3e9e-4c5a-bb90-2ac416960cd6",
+          "kind": "text",
+          "text": "Titles, descriptions, canonical URLs and social preview tags are generated from the same content, and the sitemap includes every published case study, so search stays correct as I add work.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 13
         }
       ]
     },
@@ -1385,82 +1620,109 @@
       "featured": false,
       "sort_order": 8,
       "slug": "lexus-industrial",
-      "cover_image_url": "",
+      "cover_image_url": "/work/lexus/cover.webp",
       "tech": "React, TypeScript, Vite, Supabase, PostgreSQL, Tailwind CSS, GSAP",
       "published": true,
       "logo_url": "/logos/lexus-mono.png",
       "blocks": [
         {
-          "id": "cb96423a-1379-42db-84ea-b833d3668e86",
+          "id": "5fb74132-6f5b-4ca1-8dfc-fe33340a7be5",
           "project_id": "62d52e35-a304-452f-9902-fcc2b69a319c",
           "kind": "text",
-          "text": "A product catalog is the worst possible thing to hard-code. The range changes, prices move, photos get replaced — and if every one of those edits needs a developer and a deploy, the site is out of date within weeks and the business stops trusting it. So the brief was less \"build a website\" than \"build something the staff can own\".",
+          "text": "A product catalog is the worst thing to hard-code. The range changes, prices move, photos get replaced, and if every edit needs a developer and a deploy, the site is out of date within weeks. So the brief was less \"build a website\" than \"build something the staff can own\".",
           "image_url": "",
           "caption": "",
           "sort_order": 1
         },
         {
-          "id": "472f5f80-c4df-49a3-92a8-bbc40733e29e",
+          "id": "cbfc8b25-faa1-46cb-aa6a-6e39efc02bdc",
+          "project_id": "62d52e35-a304-452f-9902-fcc2b69a319c",
+          "kind": "image",
+          "text": "",
+          "image_url": "/work/lexus/cover.webp",
+          "caption": "The site and a product page, running on its own sample catalog.",
+          "sort_order": 2
+        },
+        {
+          "id": "082e33c9-8c5d-425d-9926-63ee084e3313",
           "project_id": "62d52e35-a304-452f-9902-fcc2b69a319c",
           "kind": "heading",
           "text": "What I built",
           "image_url": "",
           "caption": "",
-          "sort_order": 2
-        },
-        {
-          "id": "c72356d8-4a36-472a-bf2d-7988a85df312",
-          "project_id": "62d52e35-a304-452f-9902-fcc2b69a319c",
-          "kind": "text",
-          "text": "I built the public site and its admin dashboard as one React and TypeScript application on Supabase. Visitors get a catalog with product listings and detail pages, services, company information, and an enquiry form. Staff sign in to an admin area covering products with image upload, categories, the enquiries that come in through the site, editable page content, user accounts, and settings — no developer in the loop, no redeploy.",
-          "image_url": "",
-          "caption": "",
           "sort_order": 3
         },
         {
-          "id": "6a2b30b4-3817-45c0-920c-6e742057b68e",
+          "id": "ebdd3d9d-3e22-4ac9-ac0e-3c55460c6c52",
           "project_id": "62d52e35-a304-452f-9902-fcc2b69a319c",
-          "kind": "heading",
-          "text": "Three tiers of access",
+          "kind": "text",
+          "text": "The public site and its admin as one React and TypeScript app on Supabase. Visitors get a catalog with product pages, services, company information and an enquiry form. Staff sign in to manage products and their photos, categories, the enquiries that come in, page content, user accounts and settings, with no developer in the loop and no redeploy.",
           "image_url": "",
           "caption": "",
           "sort_order": 4
         },
         {
-          "id": "f8482fac-fac3-4deb-bc77-c76a0ae73c8a",
+          "id": "78a04340-0209-48ca-b6ae-ebe30913cd67",
           "project_id": "62d52e35-a304-452f-9902-fcc2b69a319c",
-          "kind": "text",
-          "text": "Not everyone who edits the site should be able to create logins for it, so I modelled access as three roles rather than a single admin flag: admin, editor, and viewer. The distinction is enforced by row-level security in Postgres, not by hiding buttons — an editor who forged a request would still be refused by the database. Creating and deleting login accounts genuinely needs a privileged key, so I moved that into a Supabase Edge Function that checks the caller is an admin before it acts, which keeps the service key on the server where it belongs.",
+          "kind": "heading",
+          "text": "Three tiers of access",
           "image_url": "",
           "caption": "",
           "sort_order": 5
         },
         {
-          "id": "ca9cb4d5-6d5e-4c26-82c3-a556f26d8b6b",
+          "id": "e0ecefb1-74a8-46c0-bf06-b5af91b6efa7",
           "project_id": "62d52e35-a304-452f-9902-fcc2b69a319c",
-          "kind": "heading",
-          "text": "Finding things",
+          "kind": "text",
+          "text": "Not everyone who edits the site should be able to create logins for it, so access is three roles: admin, editor and viewer. Postgres row-level security enforces them, not hidden buttons, so an editor who forged a request would still be refused. Creating and deleting accounts needs a privileged key, so that runs in an Edge Function that checks the caller is an admin first.",
           "image_url": "",
           "caption": "",
           "sort_order": 6
         },
         {
-          "id": "67509b7c-1cf6-4ab5-b142-1e3c8d245046",
+          "id": "47617458-a9b2-4bc3-823f-08b68f0f746f",
           "project_id": "62d52e35-a304-452f-9902-fcc2b69a319c",
-          "kind": "text",
-          "text": "An industrial catalog is only useful if you can find the one part you came for. I used Postgres full-text search rather than filtering in the browser, so the work happens where the data is and search keeps up as the catalog grows. Product images live in their own storage bucket with its own policies, and every query in the app goes through a single typed API layer, so the shape of the data is checked at compile time instead of discovered in production.",
+          "kind": "heading",
+          "text": "Finding the one part",
           "image_url": "",
           "caption": "",
           "sort_order": 7
         },
         {
-          "id": "92dfd621-4ed0-4fd4-9319-c4ded23c8bcd",
+          "id": "79dc6249-03a6-466a-a374-8069acdf45c4",
           "project_id": "62d52e35-a304-452f-9902-fcc2b69a319c",
           "kind": "text",
-          "text": "What I like about this one is how boring it became to maintain. The catalog stays current because the people who actually know the products are the ones editing it, and the security model means handing someone a login is a low-stakes decision rather than a risk.",
+          "text": "Eighteen categories, from scaffolding to compact boards, and a search that runs as Postgres full-text search rather than filtering in the browser, so it keeps up as the range grows. Product photos have their own storage bucket and policies, and every query goes through one typed API layer, so a wrong data shape is caught when the code is built instead of in production.",
           "image_url": "",
           "caption": "",
           "sort_order": 8
+        },
+        {
+          "id": "5e1a3433-ccf2-4560-baae-c47b46660692",
+          "project_id": "62d52e35-a304-452f-9902-fcc2b69a319c",
+          "kind": "image",
+          "text": "",
+          "image_url": "/work/lexus/catalog.webp",
+          "caption": "The catalog: categories, search and product cards.",
+          "sort_order": 9
+        },
+        {
+          "id": "706d3f8d-cf00-476f-811f-e916ca74fc7e",
+          "project_id": "62d52e35-a304-452f-9902-fcc2b69a319c",
+          "kind": "heading",
+          "text": "How it turned out",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 10
+        },
+        {
+          "id": "2fb17832-e05e-4d80-87da-84bc24f64ade",
+          "project_id": "62d52e35-a304-452f-9902-fcc2b69a319c",
+          "kind": "text",
+          "text": "What I like about this one is how boring it became to maintain. The catalog stays current because the people who know the products edit it themselves, and the role model makes handing someone a login a small decision instead of a risk.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 11
         }
       ]
     },
@@ -1473,31 +1735,31 @@
       "featured": false,
       "sort_order": 9,
       "slug": "nam-landing-page",
-      "cover_image_url": "https://i.imgur.com/I5algSI.png",
+      "cover_image_url": "/work/nam/website-cover.webp",
       "tech": "PHP, MySQL, JavaScript, Bootstrap, HTML5, CSS3",
       "published": false,
       "logo_url": "/logos/nam-mono.png",
       "blocks": [
         {
-          "id": "594b4d0e-f24d-4192-9698-7d6be4281532",
+          "id": "4fec6016-4ff2-440d-a431-ec0b4d28e2dd",
           "project_id": "f0bb8d48-6bd3-497f-b909-dd2e199edc21",
           "kind": "text",
-          "text": "With the internal system in place, NAM still had no public presence — clients found them by word of mouth or by walking in. They needed a site that showed their materials and services, and more importantly one they could keep current themselves. A static page would have been out of date within a month.",
+          "text": "With the internal system in place, NAM still had no public presence: clients found the company by word of mouth or by walking in. It needed a site that showed its materials and services, and one the staff could keep current themselves.",
           "image_url": "",
           "caption": "",
           "sort_order": 1
         },
         {
-          "id": "329e15ca-5d07-4d42-8f0f-e74e7874992a",
+          "id": "38d794c0-6ac3-4124-9454-5b6fa2f8c292",
           "project_id": "f0bb8d48-6bd3-497f-b909-dd2e199edc21",
           "kind": "image",
           "text": "",
-          "image_url": "https://i.imgur.com/ANs0s1j.jpeg",
-          "caption": "The public site — product categories, services, and company information.",
+          "image_url": "/work/nam/website-cover.webp",
+          "caption": "nambuildersandsupplycorp.com on a laptop and a phone.",
           "sort_order": 2
         },
         {
-          "id": "8fb345ca-edae-4c20-bcc1-94348d96f6fa",
+          "id": "d483b336-92ed-4524-adb8-8ba096816a31",
           "project_id": "f0bb8d48-6bd3-497f-b909-dd2e199edc21",
           "kind": "heading",
           "text": "A CMS, not a static site",
@@ -1506,49 +1768,76 @@
           "sort_order": 3
         },
         {
-          "id": "89ae7b2d-9438-4747-936c-f7ef57d67001",
+          "id": "24224da2-eef7-47e7-a2c2-28364cdc8e1c",
           "project_id": "f0bb8d48-6bd3-497f-b909-dd2e199edc21",
           "kind": "text",
-          "text": "So I built the site on a custom content management system in PHP and MySQL rather than hard-coding the pages. The front end is a responsive Bootstrap layout — hero, company profile, a services gallery, and a continuously scrolling client carousel — but every one of those sections reads from the database. Staff sign in to a secure admin dashboard and manage services, clients, business statistics, and incoming enquiries directly. Nobody needs to touch code, and nobody needs to call me to change a price list.",
+          "text": "I built the site on a small content management system in PHP and MySQL. The front end is a responsive Bootstrap layout with a hero, the company profile, a services gallery and a scrolling client carousel, and every one of those sections reads from the database. Staff sign in to manage services, clients, business figures and incoming enquiries, without touching code or calling me to change a price list.",
           "image_url": "",
           "caption": "",
           "sort_order": 4
         },
         {
-          "id": "9da917c6-ae38-4ee2-85f6-3e79a37e3473",
+          "id": "9d428218-bcd0-4121-b5c6-71d32645b89a",
           "project_id": "f0bb8d48-6bd3-497f-b909-dd2e199edc21",
           "kind": "image",
           "text": "",
-          "image_url": "https://i.imgur.com/PxRGLfT.png",
-          "caption": "The admin dashboard where staff manage site content and client messages.",
+          "image_url": "https://i.imgur.com/ANs0s1j.jpeg",
+          "caption": "The public site: product categories, services and company information.",
           "sort_order": 5
         },
         {
-          "id": "bfe70e30-e9ce-4e39-af35-3d9a34dc068d",
+          "id": "5ca3f633-51ae-4902-8764-16d4fa1e8c6f",
           "project_id": "f0bb8d48-6bd3-497f-b909-dd2e199edc21",
-          "kind": "text",
-          "text": "Building the admin side was the real work — session-guarded login, input validation on every write, image upload and replacement for services and client logos, and an editing flow simple enough that non-technical staff would actually use it rather than reverting to phone calls. Contact-form submissions land in the same dashboard, so an enquiry is a record to work through rather than an email someone might miss.",
+          "kind": "heading",
+          "text": "An admin staff actually use",
           "image_url": "",
           "caption": "",
           "sort_order": 6
         },
         {
-          "id": "59133c59-7140-41d6-a2c7-62ed34b139a0",
+          "id": "1c88409a-dbd9-4a10-b335-5a22bd098e1d",
+          "project_id": "f0bb8d48-6bd3-497f-b909-dd2e199edc21",
+          "kind": "text",
+          "text": "The real work was the admin side: a session-guarded login, validation on every write, image upload and replacement for services and client logos, and an editing flow simple enough that staff use it instead of going back to phone calls. Contact-form messages land in the same dashboard, so an enquiry is a record to work through, not an email someone might miss.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 7
+        },
+        {
+          "id": "8ef26cd4-a28d-466d-9285-e3aec73f291a",
+          "project_id": "f0bb8d48-6bd3-497f-b909-dd2e199edc21",
+          "kind": "image",
+          "text": "",
+          "image_url": "https://i.imgur.com/PxRGLfT.png",
+          "caption": "The dashboard where staff manage content and messages.",
+          "sort_order": 8
+        },
+        {
+          "id": "3d5bbb94-624a-48d6-ad0e-489f79956c6f",
           "project_id": "f0bb8d48-6bd3-497f-b909-dd2e199edc21",
           "kind": "image",
           "text": "",
           "image_url": "https://i.imgur.com/Ygerhu2.png",
-          "caption": "Content updates writing straight to the database and appearing live on the site.",
-          "sort_order": 7
+          "caption": "An edit in the admin goes straight to the database and shows on the site.",
+          "sort_order": 9
         },
         {
-          "id": "63560e22-d594-4eec-89a2-c0edf5a67e32",
+          "id": "3d668143-ca9a-4b76-8bcc-883a4b29cd67",
           "project_id": "f0bb8d48-6bd3-497f-b909-dd2e199edc21",
-          "kind": "text",
-          "text": "The site is deployed as the company's primary online presence, and staff update it themselves. Paired with the internal sales platform, it means both sides of the business — what clients see and what the company runs on — are systems the company owns rather than documents they maintain by hand.",
+          "kind": "heading",
+          "text": "How it turned out",
           "image_url": "",
           "caption": "",
-          "sort_order": 8
+          "sort_order": 10
+        },
+        {
+          "id": "2fea779a-0f02-4468-8e80-27e09b2e5ce5",
+          "project_id": "f0bb8d48-6bd3-497f-b909-dd2e199edc21",
+          "kind": "text",
+          "text": "The site is the company's main online presence, and staff keep it up themselves. Together with the sales platform, both sides of the business, what clients see and what the company runs on, are systems the company owns instead of documents kept by hand.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 11
         }
       ]
     },
@@ -1561,109 +1850,154 @@
       "featured": false,
       "sort_order": 10,
       "slug": "pdao-helps",
-      "cover_image_url": "https://i.imgur.com/iD0KcsF.jpeg",
+      "cover_image_url": "/work/pdao/cover.webp",
       "tech": "PHP, MySQL, JavaScript, Leaflet.js, Chart.js, GIS Mapping, Web Accessibility",
       "published": false,
       "logo_url": "",
       "blocks": [
         {
-          "id": "d9c48714-b666-4b95-9e8a-b0345f438fd7",
+          "id": "03deacc4-36e8-413f-8e7c-db90d34888d4",
           "project_id": "b6e29e85-41b0-4990-80a4-1e7c23599c89",
           "kind": "text",
-          "text": "The Persons with Disability Affairs Office of Sto. Tomas ran on paper. Every ID application, renewal, and appointment for the city's roughly 4,000 registered PWDs moved through physical forms and in-person visits, so constituents travelled to the office just to check a status and staff had no way to see the data as a whole. I built this portal as my capstone project, under a memorandum of agreement with the city government.",
+          "text": "The Persons with Disability Affairs Office of Sto. Tomas ran on paper. Every ID application, renewal and appointment for the city's roughly 4,000 registered PWDs went through physical forms and office visits, so people travelled just to check a status, and staff could never see the data as a whole. I built this portal as my capstone project, under a memorandum of agreement with the city government.",
           "image_url": "",
           "caption": "",
           "sort_order": 1
         },
         {
-          "id": "8334fa2c-a41d-4f38-8dc7-ce7c51f71a2b",
+          "id": "027f3747-292c-47bb-898e-de0bacd05298",
           "project_id": "b6e29e85-41b0-4990-80a4-1e7c23599c89",
           "kind": "image",
           "text": "",
-          "image_url": "https://i.imgur.com/zhuQrSq.png",
-          "caption": "The public-facing portal featuring a custom-built accessibility widget for inclusive navigation.",
+          "image_url": "/work/pdao/cover.webp",
+          "caption": "PDAO Helps: the barangay map and the application form.",
           "sort_order": 2
         },
         {
-          "id": "5b446d1d-24e8-46ef-ac05-7b7563f43d31",
+          "id": "3c7d7f4e-52c2-440a-803c-117821c71b21",
           "project_id": "b6e29e85-41b0-4990-80a4-1e7c23599c89",
-          "kind": "text",
-          "text": "A core requirement was ensuring the platform was truly usable by its target audience. I engineered a dedicated Accessibility Widget that allows users to toggle High Contrast Mode, Grayscale, and Dyslexia-Friendly fonts without relying on third-party overlays. This required writing extensive CSS overrides and JavaScript handlers to dynamically manipulate the DOM in real-time.",
+          "kind": "heading",
+          "text": "Built for the people using it",
           "image_url": "",
           "caption": "",
           "sort_order": 3
         },
         {
-          "id": "2790732b-6608-4126-b708-edf2e538380f",
+          "id": "39cf3352-4059-46bf-8b43-08876ff13c4c",
           "project_id": "b6e29e85-41b0-4990-80a4-1e7c23599c89",
-          "kind": "image",
-          "text": "",
-          "image_url": "https://i.imgur.com/T1QKCvh.png",
-          "caption": "The multi-step application form that handles personal data, document uploads, and scheduling.",
+          "kind": "text",
+          "text": "An accessibility widget, written from scratch rather than bought as an overlay, switches the site to high contrast, grayscale or a dyslexia-friendly font.",
+          "image_url": "",
+          "caption": "",
           "sort_order": 4
         },
         {
-          "id": "ca2cc9e3-994e-4046-9cde-ece70ef776d4",
-          "project_id": "b6e29e85-41b0-4990-80a4-1e7c23599c89",
-          "kind": "text",
-          "text": "The system features a comprehensive backend to handle PWD ID applications and appointment bookings. I implemented a secure file upload system for sensitive documents (like medical certificates) and a scheduling algorithm that prevents overbooking by checking daily slot limits against the database. Applicants receive a unique reference number to track their status online, reducing the need for physical follow-ups.",
-          "image_url": "",
-          "caption": "",
-          "sort_order": 5
-        },
-        {
-          "id": "c7c6ce9f-6bda-4e52-8a28-041b2c43b4ec",
+          "id": "7b257d9e-b2e0-45f4-9dde-ef266ed61d91",
           "project_id": "b6e29e85-41b0-4990-80a4-1e7c23599c89",
           "kind": "image",
           "text": "",
-          "image_url": "https://i.imgur.com/Fz9LVlL.png",
-          "caption": "The administrative command center providing real-time insights into application processing and daily schedules.",
+          "image_url": "https://i.imgur.com/zhuQrSq.png",
+          "caption": "The public portal, with the accessibility widget.",
+          "sort_order": 5
+        },
+        {
+          "id": "e4bb3ab9-b4ed-4cad-bba5-25759ee31962",
+          "project_id": "b6e29e85-41b0-4990-80a4-1e7c23599c89",
+          "kind": "heading",
+          "text": "Applications without the trip",
+          "image_url": "",
+          "caption": "",
           "sort_order": 6
         },
         {
-          "id": "b5de6eac-9859-479c-b951-b1285b451277",
+          "id": "87900aac-488f-49b9-9cf2-19b2d5d2979f",
           "project_id": "b6e29e85-41b0-4990-80a4-1e7c23599c89",
           "kind": "text",
-          "text": "To assist local government in resource allocation, I built a GIS (Geographic Information System) module using Leaflet.js. This feature visualizes the distribution of PWDs across different barangays using interactive markers and choropleth layers. It allows officials to filter data by disability type or status, identifying specific areas that may require targeted medical missions or support programs.",
+          "text": "A multi-step form takes the applicant's details, uploads documents like medical certificates securely, and books an appointment, with daily slot limits checked against the database so a day can't be overbooked. Each applicant gets a reference number to follow their status online instead of coming in to ask.",
           "image_url": "",
           "caption": "",
           "sort_order": 7
         },
         {
-          "id": "77fe13e5-ab2e-466b-a76b-03b552896bdf",
+          "id": "eaf1cef2-4f53-4012-b874-f998dfc3d67d",
           "project_id": "b6e29e85-41b0-4990-80a4-1e7c23599c89",
           "kind": "image",
           "text": "",
-          "image_url": "https://i.imgur.com/Tr2BXpY.png",
-          "caption": "Interactive geospatial map helping administrators visualize PWD density across barangays.",
+          "image_url": "https://i.imgur.com/T1QKCvh.png",
+          "caption": "The application form: personal details, documents and scheduling.",
           "sort_order": 8
         },
         {
-          "id": "d7e04f23-4d4b-4d2a-a935-d60ac20c8a49",
+          "id": "873101b7-aa5f-417d-b14f-6a0dfc0c7a65",
           "project_id": "b6e29e85-41b0-4990-80a4-1e7c23599c89",
           "kind": "image",
           "text": "",
-          "image_url": "https://i.imgur.com/YCqK1Ot.png",
-          "caption": "",
+          "image_url": "https://i.imgur.com/Fz9LVlL.png",
+          "caption": "The staff dashboard: applications in progress and today's schedule.",
           "sort_order": 9
         },
         {
-          "id": "497fcf4e-f927-4e46-983a-76f50d5829a4",
+          "id": "01ecb3bc-8498-4527-97d0-01dd1711546f",
           "project_id": "b6e29e85-41b0-4990-80a4-1e7c23599c89",
-          "kind": "text",
-          "text": "The Analytics module transforms raw database records into actionable insights. Using Chart.js, I created dynamic visualizations for demographic data, including age distribution, gender, and employment status. The system also generates printable PDF reports, automating what used to be a tedious manual compilation process for monthly reporting.",
+          "kind": "heading",
+          "text": "A map by barangay",
           "image_url": "",
           "caption": "",
           "sort_order": 10
         },
         {
-          "id": "aa614975-a053-4387-a906-386a9e3b9907",
+          "id": "2b46d6ff-c541-438b-882d-03da411f75f6",
           "project_id": "b6e29e85-41b0-4990-80a4-1e7c23599c89",
           "kind": "text",
-          "text": "I verified the system through structured testing and UAT with office staff before turnover. Throughout development and every demo, the database held synthetic records I generated to match the city's real per-barangay PWD counts — realistic enough to prove the reporting worked, without a single real constituent record ever leaving the office. It was handed over as a system the staff could run themselves.",
+          "text": "A Leaflet map shows how registered PWDs are spread across the barangays, with markers and shaded areas that filter by disability type or status, so the office can see where a medical mission or support program is needed.",
           "image_url": "",
           "caption": "",
           "sort_order": 11
+        },
+        {
+          "id": "33efd89a-5fb2-4343-a858-412b23d051a7",
+          "project_id": "b6e29e85-41b0-4990-80a4-1e7c23599c89",
+          "kind": "image",
+          "text": "",
+          "image_url": "https://i.imgur.com/Tr2BXpY.png",
+          "caption": "The GIS map, by barangay.",
+          "sort_order": 12
+        },
+        {
+          "id": "b7d28fb0-7837-4d98-972f-e1d10c0c777e",
+          "project_id": "b6e29e85-41b0-4990-80a4-1e7c23599c89",
+          "kind": "heading",
+          "text": "Reports without the compiling",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 13
+        },
+        {
+          "id": "4369a735-73c3-430e-baa1-03712f9faecd",
+          "project_id": "b6e29e85-41b0-4990-80a4-1e7c23599c89",
+          "kind": "text",
+          "text": "Charts break the records down by age, gender and employment, and the monthly report prints as a PDF instead of being compiled by hand.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 14
+        },
+        {
+          "id": "8606b801-e980-4ae9-9f7c-42dc6e141842",
+          "project_id": "b6e29e85-41b0-4990-80a4-1e7c23599c89",
+          "kind": "heading",
+          "text": "How I worked",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 15
+        },
+        {
+          "id": "3a628a43-4602-43a5-9444-4186a62b8c82",
+          "project_id": "b6e29e85-41b0-4990-80a4-1e7c23599c89",
+          "kind": "text",
+          "text": "The system went through structured testing and acceptance testing with the office staff before turnover. In development and every demo, the database held synthetic records I generated to match the city's real counts per barangay, realistic enough to prove the reports worked without a single real record leaving the office. It was handed over as a system the staff run themselves.",
+          "image_url": "",
+          "caption": "",
+          "sort_order": 16
         }
       ]
     }

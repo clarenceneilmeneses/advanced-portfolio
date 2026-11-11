@@ -85,7 +85,9 @@ export default async function ProjectPage({ params }) {
         )}
       </header>
 
-      {project.cover_image_url && (
+      {/* The cover sits up top unless the story places it itself (most do,
+          right after the opening paragraph). */}
+      {project.cover_image_url && !blocks.some((b) => b.image_url === project.cover_image_url) && (
         // eslint-disable-next-line @next/next/no-img-element
         <img src={project.cover_image_url} alt={project.title}
           className="w-full rounded-2xl mt-8" />

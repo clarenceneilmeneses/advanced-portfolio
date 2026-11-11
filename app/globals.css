@@ -250,6 +250,60 @@
   .dark .wallpaper .sec-body { background-color: rgb(24 24 27 / 0.76); }
 }
 
+/* ─── Recent Projects picker (components/ProjectPicker.jsx) ───────────────── */
+/* Photo strips on the left, each a link to its story; from 1024px up the
+   hovered or focused strip fills the preview card on the right. */
+.pick { display: grid; gap: 1rem; }
+@media (min-width: 1024px) {
+  .pick { grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr); align-items: start; }
+}
+.pick-list { display: grid; gap: 0.5rem; }
+.pick-strip {
+  position: relative; display: flex; align-items: center; gap: 0.75rem;
+  height: 4rem; padding: 0 0.75rem 0 1rem; border-radius: 1.25rem; overflow: hidden;
+  color: #fff; background: #27272a; isolation: isolate;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.pick-strip:hover { transform: translateY(-1px); }
+.pick-strip:focus-visible { outline: none; }
+/* The ring marks the strip the preview card shows, so it exists only beside the card. */
+@media (min-width: 1024px) {
+  .pick-strip[data-active] { box-shadow: 0 0 0 2px var(--page, #f1f1f2), 0 0 0 4px var(--accent, #18181b); }
+  .dark .pick-strip[data-active] { box-shadow: 0 0 0 2px #18181b, 0 0 0 4px var(--accent-dark, #fafafa); }
+}
+.pick-photo { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.pick-photo-blank { background: linear-gradient(120deg, #3f3f46, #18181b); }
+.pick-shade {
+  position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(90deg, rgb(9 9 11 / 0.82) 0%, rgb(9 9 11 / 0.58) 48%, rgb(9 9 11 / 0.12) 100%);
+}
+.pick-text { min-width: 0; flex: 1; display: grid; gap: 0.125rem; }
+.pick-name { display: flex; align-items: baseline; gap: 0.5rem; font-weight: 600; font-size: 0.9375rem; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pick-no { font-family: ui-monospace, 'JetBrains Mono', monospace; font-size: 0.6875rem; font-weight: 500; opacity: 0.75; }
+.pick-sub { font-size: 0.75rem; line-height: 1.2; color: rgb(255 255 255 / 0.78); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pick-go {
+  flex: none; display: grid; place-items: center; width: 1.75rem; height: 1.75rem; border-radius: 9999px;
+  background: rgb(255 255 255 / 0.18); box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.22);
+}
+/* The preview card: desktop only. */
+.pick-card { display: none; }
+@media (min-width: 1024px) {
+  .pick-card { display: block; position: sticky; top: 1rem; border-radius: 1.25rem; overflow: hidden; background: rgb(255 255 255 / 0.9);
+    box-shadow: 0 1px 2px rgba(24,24,27,0.05), 0 16px 36px -18px rgba(24,24,27,0.28); }
+  .dark .pick-card { background: #1f1f23; box-shadow: none; }
+}
+.pick-card-photo { position: relative; aspect-ratio: 16 / 10; background: #e4e4e7; overflow: hidden; }
+.dark .pick-card-photo { background: #27272a; }
+.pick-card-photo img { width: 100%; height: 100%; object-fit: cover; }
+.pick-fade { animation: pick-fade 0.25s ease both; }
+@keyframes pick-fade { from { opacity: 0.35; } to { opacity: 1; } }
+.pick-badge {
+  position: absolute; top: 0.75rem; right: 0.75rem; padding: 0.3rem 0.7rem; border-radius: 9999px;
+  font: 600 0.75rem/1.2 ui-monospace, 'JetBrains Mono', monospace; color: #18181b;
+}
+.dark .pick-badge { color: #fafafa; }
+.pick-card-body { padding: 1.25rem 1.375rem 1.375rem; }
+
 /* ─── Phone chrome (components/PhoneChrome.jsx) ─────────────────────────────── */
 /* Malaya's phone pattern: quick controls in a white pill up top, a floating
    pill of tabs at the bottom with the main step as a round button beside it. */

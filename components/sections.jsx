@@ -7,6 +7,7 @@ import ThemeToggle from './ThemeToggle';
 import ResumeButton from './ResumeModal';
 import TechGroups from './TechGroups';
 import GlassLink from './GlassLink';
+import ProjectPicker from './ProjectPicker';
 import { BrandMark, TechLogo, issuerLogoName } from './logos';
 
 export function ViewAll({ href }) {
@@ -250,6 +251,17 @@ export function TechStack({ items, full = false }) {
 
 export function Projects({ items, full = false }) {
   const list = full ? items : items.filter((p) => p.featured);
+  // Home: the photo-strip picker. /projects keeps the full grid below.
+  if (!full) {
+    const picked = list.map(({ id, slug, title, description, url, display_url, cover_image_url, published }) =>
+      ({ id, slug, title, description, url, display_url, cover_image_url, published }));
+    return (
+      <section className="sec">
+        <SecHead eyebrow="Work" title="Recent Projects" action={<ViewAll href="/projects" />} />
+        <ProjectPicker items={picked} />
+      </section>
+    );
+  }
   return (
     <section className="sec">
       <SecHead eyebrow="Work" title={full ? 'Projects' : 'Recent Projects'} action={!full && <ViewAll href="/projects" />} />
