@@ -22,8 +22,14 @@ import ResumeButton from './ResumeModal';
 // frosted fallback. glisse reads light/dark from <html data-theme>, which
 // the theme switch keeps in step with the `dark` class.
 
-// Which tab a section belongs to. Anything unlisted lights "More".
-const TAB_OF = { header: 'home', highlights: 'home', about: 'home', stats: 'home', projects: 'work', experience: 'journey' };
+// Which tab a section belongs to. A section not listed here (the tech stack)
+// keeps whichever tab was already lit, so the pill doesn't hop to More and
+// back between two sections of the same part of the page.
+const TAB_OF = {
+  header: 'home', highlights: 'home', about: 'home', stats: 'home',
+  projects: 'work', experience: 'journey',
+  certifications: 'more', gallery: 'more', footer: 'more',
+};
 
 const SOCIAL_ICONS = { linkedin: Linkedin, github: Github, instagram: Instagram };
 
@@ -44,6 +50,9 @@ export default function PhoneChrome({ profile, socials = [], sections = [] }) {
   const [tab, setTab] = useState('home');
   const [more, setMore] = useState(false);
   const [tabW, setTabW] = useState(72);
+  // A tab picked by tap stays lit through the smooth scroll it starts (no
+  // flicker through the sections in between) until the reader scrolls again.
+  const heldRef = useRef(null);
   const has = (k) => sections.includes(k);
 
   // One scroll reader for both bars. The top bar's name follows the scroll
@@ -54,37 +63,66 @@ export default function PhoneChrome({ profile, socials = [], sections = [] }) {
       frame = 0;
       const fold = Math.min(1, Math.max(0, (window.scrollY - 72) / 72));
       barRef.current?.style.setProperty('--fold', fold.toFixed(3));
-      // The open tab is the section whose top most recently crossed the upper
-      // part of the screen, whatever order the layout editor put them in.
-      const line = window.innerHeight * 0.35;
-      let best = 'header';
-      let bestTop = -Infinity;
-      for (const key of sections) {
-        const el = document.getElementById(key);
-        if (!el) continue;
-        const top = el.getBoundingClientRect().top;
-        if (top <= line && top > bestTop) { best = key; bestTop = top; }
-      }
-      // At the very end of the page the last section may never reach the line.
-      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4 && sections.length) {
+      if (heldRef.current) return;
+
+      // The open tab is the section under a reading line in the upper part of
+      // the screen. On wide screens two cards can sit side by side on that
+      // line (a sidebar next to the main column): the wider one wins, so a
+      // sidebar card doesn't steal the pill from what is being read.
+      let best = null;
+      if (window.scrollY < 8) best = 'header';
+      else if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+        // At the very end the last section may never reach the line.
         best = sections[sections.length - 1];
+      } else {
+        const line = window.innerHeight * 0.35;
+        let bestW = -1;
+        let bestLeft = Infinity;
+        for (const key of sections) {
+          const r = document.getElementById(key)?.getBoundingClientRect();
+          if (!r || r.top > line || r.bottom <= line) continue;
+          if (r.width > bestW + 1 || (Math.abs(r.width - bestW) <= 1 && r.left < bestLeft)) {
+            best = key; bestW = r.width; bestLeft = r.left;
+          }
+        }
       }
-      setTab(TAB_OF[best] || 'more');
+      // In a gap between cards, or on a section with no tab of its own, keep
+      // the pill where it is.
+      const next = best && TAB_OF[best];
+      if (next) setTab(next);
     };
     const onScroll = () => { if (!frame) frame = requestAnimationFrame(read); };
+    // The reader taking over the scroll again releases a held tab.
+    const SCROLL_KEYS = ['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '];
+    const release = (e) => {
+      if (!heldRef.current) return;
+      if (e.type === 'keydown' && !SCROLL_KEYS.includes(e.key)) return;
+      heldRef.current = null;
+      onScroll();
+    };
     read();
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
+    window.addEventListener('wheel', release, { passive: true });
+    window.addEventListener('touchmove', release, { passive: true });
+    window.addEventListener('keydown', release);
     return () => {
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onScroll);
+      window.removeEventListener('wheel', release);
+      window.removeEventListener('touchmove', release);
+      window.removeEventListener('keydown', release);
       if (frame) cancelAnimationFrame(frame);
     };
   }, [sections]);
 
   useEffect(() => {
-    // Closed, the sheet hands the bar back to the scroll: re-read where we are.
-    if (!more) { window.dispatchEvent(new Event('scroll')); return; }
+    // Closed without a jump, the sheet hands the bar back to the scroll.
+    if (!more) {
+      if (heldRef.current === 'more') heldRef.current = null;
+      window.dispatchEvent(new Event('scroll'));
+      return;
+    }
     const onKey = (e) => e.key === 'Escape' && setMore(false);
     window.addEventListener('keydown', onKey);
     document.body.style.overflow = 'hidden';
@@ -94,7 +132,13 @@ export default function PhoneChrome({ profile, socials = [], sections = [] }) {
     };
   }, [more]);
 
-  const jump = (id) => { setMore(false); go(id); };
+  const jump = (id) => {
+    const t = TAB_OF[id] || 'more';
+    heldRef.current = t;
+    setTab(t);
+    setMore(false);
+    go(id);
+  };
   const firstName = (p.name || '').split(' ')[0];
   const lastName = (p.name || '').split(' ').slice(-1)[0];
   const shortName = firstName && lastName && firstName !== lastName ? `${firstName} ${lastName}` : p.name;
@@ -132,6 +176,7 @@ export default function PhoneChrome({ profile, socials = [], sections = [] }) {
   const pick = (key) => {
     const t = tabs.find((x) => x.key === key);
     if (!t) return;
+    heldRef.current = key;
     setTab(key);
     t.onClick();
   };
