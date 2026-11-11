@@ -8,6 +8,7 @@ import ResumeButton from './ResumeModal';
 import TechGroups from './TechGroups';
 import GlassLink from './GlassLink';
 import ProjectPicker from './ProjectPicker';
+import AppStack from './AppStack';
 import { BrandMark, TechLogo, issuerLogoName } from './logos';
 
 export function ViewAll({ href }) {
@@ -258,44 +259,65 @@ export function Projects({ items, full = false }) {
     return (
       <section className="sec">
         <SecHead eyebrow="Work" title="Recent Projects" action={<ViewAll href="/projects" />} />
+        <AppStack />
         <ProjectPicker items={picked} />
       </section>
     );
   }
+  // /projects: the app stack, then every project as a cover card.
   return (
     <section className="sec">
-      <SecHead eyebrow="Work" title={full ? 'Projects' : 'Recent Projects'} action={!full && <ViewAll href="/projects" />} />
-      <div className="sec-body grid sm:grid-cols-2 gap-2.5 sm:gap-3">
-        {list.map((p) => {
-          const hasStory = !!p.slug && p.published !== false;
-          return (
-            <div key={p.id} className={`${hasStory ? 'tile-link' : 'tile'} relative flex gap-3 p-3.5 sm:p-4`}>
-              <BrandMark src={p.logo_url} name={p.title} size={40} />
-              <div className="min-w-0 flex-1">
-                <div className="flex items-start justify-between gap-2">
-                  {hasStory ? (
-                    <Link href={`/projects/${p.slug}`} className="font-semibold leading-snug after:absolute after:inset-0 after:rounded-2xl">
-                      {p.title}
-                    </Link>
+      <SecHead eyebrow="Work" title="Projects" />
+      <div className="sec-body">
+        <AppStack />
+        <div className="proj-grid">
+          {list.map((p, i) => {
+            const hasStory = !!p.slug && p.published !== false;
+            const m = (p.title || '').match(/^(.+?)\s*(?:—|–|:)\s*(.+)$/);
+            const [name, sub] = m ? [m[1], m[2]] : [p.title, ''];
+            const cover = p.cover_image_url && /^\/work\/.+\.webp$/.test(p.cover_image_url)
+              ? p.cover_image_url.replace(/\.webp$/, '-800.webp') : p.cover_image_url;
+            const link = p.url && (p.display_url || p.url.replace(/^https?:\/\//, '').replace(/\/$/, ''));
+            return (
+              <article key={p.id} className={`proj-card${hasStory ? ' proj-card-link' : ''}`}>
+                <div className="proj-cover">
+                  {cover ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={cover} alt="" loading={i < 4 ? 'eager' : 'lazy'} />
                   ) : (
-                    <p className="font-semibold leading-snug">{p.title}</p>
+                    <span className="proj-cover-blank"><BrandMark src={p.logo_url} name={p.title} size={56} /></span>
                   )}
-                  {hasStory && <ChevronRight size={16} className="text-zinc-500 mt-0.5 flex-shrink-0" />}
+                  <span className="proj-no">No. {String(i + 1).padStart(2, '0')}</span>
                 </div>
-                <p className="text-sm text-zinc-500 mt-1">{p.description}</p>
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-2.5">
-                  {p.url && (
-                    <a href={p.url} target="_blank" rel="noreferrer"
-                      className="link-action relative z-10 inline-flex items-center gap-1 font-mono text-xs">
-                      {p.display_url || p.url.replace(/^https?:\/\//, '').replace(/\/$/, '')} <ExternalLink size={11} />
-                    </a>
-                  )}
-                  {hasStory && <span className="text-xs font-medium text-zinc-500">Read the story</span>}
+                <div className="proj-body">
+                  <div className="flex items-center gap-2.5">
+                    <BrandMark src={p.logo_url} name={p.title} size={32} />
+                    <div className="min-w-0">
+                      {hasStory ? (
+                        <Link href={`/projects/${p.slug}`} className="block font-semibold leading-snug after:absolute after:inset-0 after:rounded-[1.25rem]">
+                          {name}
+                        </Link>
+                      ) : (
+                        <p className="font-semibold leading-snug">{name}</p>
+                      )}
+                      {sub && <p className="text-xs text-zinc-500 leading-snug">{sub}</p>}
+                    </div>
+                  </div>
+                  <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mt-3">{p.description}</p>
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-auto pt-4">
+                    {hasStory && <span className="inline-flex items-center gap-1 text-xs font-medium">Read the story <ChevronRight size={12} /></span>}
+                    {link && (
+                      <a href={p.url} target="_blank" rel="noreferrer"
+                        className="link-action relative z-10 inline-flex items-center gap-1 font-mono text-xs">
+                        {link} <ExternalLink size={11} />
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </div>
-          );
-        })}
+              </article>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

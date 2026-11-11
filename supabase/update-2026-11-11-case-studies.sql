@@ -24,6 +24,8 @@ update projects set cover_image_url = $$/work/pdao/cover.webp$$ where slug = $$p
 
 -- Lumea had no story until now, so its page was unpublished.
 update projects set published = true where slug = $$lumea$$;
+-- The NAM project is the refactored app, not the old nam-internal one.
+update projects set display_url = $$nam-refactored.vercel.app$$, url = $$https://nam-refactored.vercel.app/$$ where slug = $$nam-inventory-system$$;
 
 delete from project_blocks where project_id = (select id from projects where slug = $$malaya-obs$$);
 insert into project_blocks (project_id, kind, text, image_url, caption, sort_order)
@@ -111,22 +113,22 @@ insert into project_blocks (project_id, kind, text, image_url, caption, sort_ord
 select p.id, b.kind, b.text, b.image_url, b.caption, b.ord
   from projects p,
   (values
-    (1, $$text$$, $$NAM Builders Supply Corp ran a building-supply business on spreadsheets. Quotations were typed by hand, sales lived in one workbook and stock in another, and one report for management meant a week of chasing files across departments. I joined as an IT intern for 500 hours and built the company its first real system.$$, $$$$, $$$$),
-    (2, $$image$$, $$$$, $$/work/nam/inventory-cover.webp$$, $$The sales and inventory platform: the executive dashboard and the stock list.$$),
-    (3, $$heading$$, $$One platform instead of five workbooks$$, $$$$, $$$$),
-    (4, $$text$$, $$Quotations, sales entry, the sales ledger, products and stock, finance, logistics and bulk imports, all in one place. Staff use it every day to run more than ₱1M in monthly sales. The point was never to put the spreadsheets online. It was to make the numbers agree with each other for the first time.$$, $$$$, $$$$),
-    (5, $$image$$, $$$$, $$https://i.imgur.com/EuIy8Ht.png$$, $$The executive dashboard: sales and key figures in one view, instead of a week of compiling.$$),
-    (6, $$heading$$, $$Quotation to sale$$, $$$$, $$$$),
-    (7, $$text$$, $$A quotation is drafted, approved and turned into a confirmed sale, and stock comes off as it goes. Quotations print in the company's own formal layout, so staff present to clients the way they always have, and a quote can be converted in part when a client only takes some of the lines. Deliveries carry their own DR numbers, and finance tracks what is owed against what is paid.$$, $$$$, $$$$),
-    (8, $$image$$, $$$$, $$https://i.imgur.com/7hpDunP.png$$, $$Inventory: supplier prices in one list, with bulk CSV import.$$),
-    (9, $$heading$$, $$Numbers that reconcile$$, $$$$, $$$$),
-    (10, $$text$$, $$The reporting layer filters by company, category and account manager. The hard part was trust, not charts: income, markup and margin, withholding tax and the formal-document arithmetic live in one unit-tested calculation engine, so the dashboard agrees with what finance works out by hand.$$, $$$$, $$$$),
-    (11, $$heading$$, $$Moved to Postgres without losing a row$$, $$$$, $$$$),
-    (12, $$text$$, $$The system first shipped in PHP and MySQL. I later rebuilt it as a React and TypeScript app on Supabase, which meant moving years of live data. My converter reads the old MySQL dump, turns currency-formatted text back into numbers, fixes broken and zero dates, and corrects a timezone shift that would have moved old records by a day. A Legacy Restore screen lets the import be re-run and checked instead of trusted blindly.$$, $$$$, $$$$),
-    (13, $$heading$$, $$Who can see what$$, $$$$, $$$$),
-    (14, $$text$$, $$Several departments touch the same record, so roles and per-privilege gates live in the database and are enforced by row-level security. Account managers are assigned to the companies they handle, each account can only be signed in once at a time, and an activity log records who changed what. The browser only ever holds the publishable key.$$, $$$$, $$$$),
+    (1, $$text$$, $$NAM Builders Supply Corp used to run a building-supply business on spreadsheets. During my 500-hour internship I built the company its first sales system in PHP and MySQL, and it went into daily use. NAM Refactored is that system rebuilt: a React and TypeScript app on Supabase, with every year of live sales data carried across.$$, $$$$, $$$$),
+    (2, $$image$$, $$$$, $$/work/nam/inventory-cover.webp$$, $$NAM Refactored's sign-in. Everything behind it is the company's live sales data, so this is as far as the pictures go.$$),
+    (3, $$heading$$, $$Why rebuild something that worked$$, $$$$, $$$$),
+    (4, $$text$$, $$The PHP version did its job, and more than ₱1M a month ran through it. The rewrite puts access rules in the database and the money math in one tested module, instead of repeating both on every page, so the system can keep growing without the numbers drifting apart.$$, $$$$, $$$$),
+    (5, $$heading$$, $$One typed path to the data$$, $$$$, $$$$),
+    (6, $$text$$, $$React 19 and TypeScript on Vite. Every read and write goes through typed TanStack Query hooks, tables use TanStack Table, and forms are checked with React Hook Form and Zod before anything is sent. Amounts show as pesos and dates run on Manila time everywhere.$$, $$$$, $$$$),
+    (7, $$heading$$, $$Quotation to sale to delivery$$, $$$$, $$$$),
+    (8, $$text$$, $$A quotation is drafted, approved and printed in the company's own formal layout, and can be turned into a sale in part when a client only takes some of the lines. Sales are entered in batches and take stock off as they go. The ledger tracks each sales invoice number and its payment, finance follows what is owed, and logistics carries every delivery under its DR number.$$, $$$$, $$$$),
+    (9, $$heading$$, $$Two people for every sale$$, $$$$, $$$$),
+    (10, $$text$$, $$Roles decide which pages someone can open. On top of that, three privileges belong to people, not roles: entering an invoice number, reviewing it, and marking it paid. The encoder and the reviewer share the same admin role, so a database trigger enforces the separation person by person. Each account can be signed in once at a time, every create, update and delete writes a system log, and the browser only ever holds the publishable key.$$, $$$$, $$$$),
+    (11, $$heading$$, $$Years of data, moved and checked$$, $$$$, $$$$),
+    (12, $$text$$, $$Moving to Postgres meant bringing the whole sales history along. My converter reads the old MySQL dump, turns currency-formatted text back into numbers, fixes broken and zero dates, and corrects a timezone shift that would have moved old records by a day. A Legacy Restore screen re-runs the import whenever it's needed, keeping the columns only the new system owns, and reconciliation queries compare the old and new records by amount and fingerprint before anyone trusts them.$$, $$$$, $$$$),
+    (13, $$heading$$, $$Numbers that reconcile$$, $$$$, $$$$),
+    (14, $$text$$, $$Income, markup and margin, withholding tax and the formal-document arithmetic live in one calculation module with unit tests, so the dashboard agrees with what finance works out by hand.$$, $$$$, $$$$),
     (15, $$heading$$, $$How I worked$$, $$$$, $$$$),
-    (16, $$text$$, $$I finished the internship with a full handover: technical notes for every module and training, so staff could run their own reports without me. The system stayed in daily use after I left, which is the part I judge it by. The company kept me on afterwards, as founding developer of PapaFix.$$, $$$$, $$$$)
+    (16, $$text$$, $$The internship ended with a full handover, technical notes for every module and training for the staff, and the company kept me on afterwards as founding developer of PapaFix. The rewrite has its own page-by-page documentation, one file per module, so whoever works on it next starts from the docs, not from me.$$, $$$$, $$$$)
   ) as b(ord, kind, text, image_url, caption)
  where p.slug = $$nam-inventory-system$$;
 
