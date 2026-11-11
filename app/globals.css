@@ -252,7 +252,7 @@
 
 /* ─── Recent Projects picker (components/ProjectPicker.jsx) ───────────────── */
 /* Photo strips on the left, each a link to its story; from 1024px up the
-   hovered or focused strip fills the preview card on the right. */
+   clicked or focused strip fills the preview card on the right. */
 .pick { display: grid; gap: 1rem; }
 @media (min-width: 1024px) {
   .pick { grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr); align-items: start; }
@@ -311,23 +311,26 @@
 .apps-tags.app-tags { margin: 0 0 0.75rem 0.25rem; }
 .apps-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; padding: 0.75rem 0.25rem; }
 /* Each card hangs from a pin above its top edge, tilted outward, and sways
-   a little on its own (mirrored, slightly out of step). */
-.app-card {
+   a little on its own (mirrored, slightly out of step). The wrapper sways;
+   the card inside is turned by the pointer (components/AppStack.jsx). */
+.app-hang {
+  display: flex; min-width: 0;
   --tilt: 3deg; transform-origin: 50% -2rem; transform: rotate(var(--tilt));
   animation: app-hang 5s ease-in-out infinite alternate;
 }
-.app-card:nth-child(2) { --tilt: -3deg; animation-duration: 5.8s; animation-delay: -2s; }
+.app-hang:nth-child(2) { --tilt: -3deg; animation-duration: 5.8s; animation-delay: -2s; }
 /* Wide cards swing further at the corners, so they tilt less. */
 @media (min-width: 640px) {
-  .app-card { --tilt: 1.75deg; }
-  .app-card:nth-child(2) { --tilt: -1.75deg; }
+  .app-hang { --tilt: 1.75deg; }
+  .app-hang:nth-child(2) { --tilt: -1.75deg; }
 }
+.app-hang > .app-card { flex: 1; transform-origin: 50% -2rem; touch-action: manipulation; }
 @keyframes app-hang {
   from { transform: rotate(var(--tilt)); }
   to   { transform: rotate(calc(var(--tilt) * 0.35)); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .app-card { animation: none !important; }
+  .app-hang { animation: none !important; }
 }
 .app-card {
   display: flex; flex-direction: column; align-items: flex-start; min-width: 0;

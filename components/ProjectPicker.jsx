@@ -7,7 +7,7 @@ import GlassLink from './GlassLink';
 
 // Recent Projects as a picker: a stack of photo strips (number, name, what it
 // is, a chevron), each a link to its story. From 1024px up a large preview
-// card sits beside them and shows whichever strip is hovered or focused;
+// card sits beside them and shows whichever strip was clicked or focused;
 // below that the strips stand alone and a tap opens the story.
 
 // "Malaya OBS — Villa Operations…" → ["Malaya OBS", "Villa Operations…"]
@@ -56,8 +56,16 @@ export default function ProjectPicker({ items }) {
           const props = {
             className: 'pick-strip',
             'data-active': i === active ? '' : undefined,
-            onMouseEnter: () => setActive(i),
-            onFocus: () => setActive(i),
+            // Beside the preview card (1024px up) a click picks the strip and a
+            // second click opens its story; nothing changes on hover. Narrower,
+            // the strip is a plain link. Keyboard focus still picks it.
+            onClick: (e) => {
+              if (i !== active && window.matchMedia('(min-width: 1024px)').matches) {
+                e.preventDefault();
+                setActive(i);
+              }
+            },
+            onFocus: (e) => { if (e.target.matches(':focus-visible')) setActive(i); },
           };
           return (
             <li key={p.id}>
