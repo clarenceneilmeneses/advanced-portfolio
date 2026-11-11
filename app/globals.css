@@ -262,9 +262,8 @@
   position: relative; display: flex; align-items: center; gap: 0.75rem;
   height: 4rem; padding: 0 0.75rem 0 1rem; border-radius: 1.25rem; overflow: hidden;
   color: #fff; background: #27272a; isolation: isolate;
-  transition: box-shadow 0.2s, transform 0.2s;
+  transition: box-shadow 0.2s;
 }
-.pick-strip:hover { transform: translateY(-1px); }
 .pick-strip:focus-visible { outline: none; }
 /* The ring marks the strip the preview card shows, so it exists only beside the card. */
 @media (min-width: 1024px) {
@@ -310,7 +309,26 @@
    the bottom so both badges line up whatever the text length. */
 .apps { margin-bottom: 1.5rem; }
 .apps-tags.app-tags { margin: 0 0 0.75rem 0.25rem; }
-.apps-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
+.apps-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; padding: 0.75rem 0.25rem; }
+/* Each card hangs from a pin above its top edge, tilted outward, and sways
+   a little on its own (mirrored, slightly out of step). */
+.app-card {
+  --tilt: 3deg; transform-origin: 50% -2rem; transform: rotate(var(--tilt));
+  animation: app-hang 5s ease-in-out infinite alternate;
+}
+.app-card:nth-child(2) { --tilt: -3deg; animation-duration: 5.8s; animation-delay: -2s; }
+/* Wide cards swing further at the corners, so they tilt less. */
+@media (min-width: 640px) {
+  .app-card { --tilt: 1.75deg; }
+  .app-card:nth-child(2) { --tilt: -1.75deg; }
+}
+@keyframes app-hang {
+  from { transform: rotate(var(--tilt)); }
+  to   { transform: rotate(calc(var(--tilt) * 0.35)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .app-card { animation: none !important; }
+}
 .app-card {
   display: flex; flex-direction: column; align-items: flex-start; min-width: 0;
   padding: 1.25rem; border-radius: 1.5rem; background: #fff; color: #18181b; text-align: left;
@@ -340,7 +358,7 @@
 .apps-foot { margin-top: 0.875rem; text-align: center; font-size: 0.8125rem; color: #71717a; }
 /* Phones: two narrow columns, so everything steps down a size. */
 @media (max-width: 639px) {
-  .apps-pair { gap: 0.5rem; }
+  .apps-pair { gap: 0.625rem; padding: 0.5rem 0.125rem; }
   .app-card { padding: 0.875rem; border-radius: 1.125rem; }
   .app-icon { width: 3rem; height: 3rem; border-radius: 0.75rem; }
   .app-name { margin-top: 0.625rem; font-size: 0.9375rem; }
@@ -360,14 +378,12 @@
 @media (min-width: 640px) { .proj-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .proj-card {
   position: relative; display: flex; flex-direction: column; border-radius: 1.25rem; overflow: hidden;
-  background: #f4f4f5; transition: transform 0.2s, box-shadow 0.2s;
+  background: #f4f4f5;
 }
 .dark .proj-card { background: #27272a; }
-.proj-card-link:hover { transform: translateY(-2px); box-shadow: 0 18px 36px -20px rgba(24,24,27,0.35); }
 .proj-cover { position: relative; aspect-ratio: 16 / 10; background: #e4e4e7; overflow: hidden; }
 .dark .proj-cover { background: #18181b; }
-.proj-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
-.proj-card-link:hover .proj-cover img { transform: scale(1.03); }
+.proj-cover img { width: 100%; height: 100%; object-fit: cover; }
 .proj-cover-blank { position: absolute; inset: 0; display: grid; place-items: center; }
 .proj-no {
   position: absolute; top: 0.625rem; right: 0.625rem; padding: 0.25rem 0.6rem; border-radius: 9999px;
