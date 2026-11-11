@@ -308,6 +308,50 @@
   box-shadow: 0 2px 4px rgba(24,24,27,0.10), 0 14px 30px -12px rgba(24,24,27,0.45);
 }
 
+/* Liquid Glass (glisse) on the three floating pieces. The site's ink is the
+   selected tab's colour, or the page accent when one is set. */
+.glass-chrome {
+  --lg-foreground: #18181b;
+  --lg-muted: #71717a;
+  --lg-fill: var(--accent, #18181b);
+}
+.dark .glass-chrome {
+  --lg-foreground: #fafafa;
+  --lg-muted: #a1a1aa;
+  --lg-fill: var(--accent-dark, #fafafa);
+}
+.glass-top {
+  display: flex;
+  align-items: center;
+  gap: 0.125rem;
+  padding: 0.125rem;
+  border-radius: 9999px;
+}
+.glass-dock { align-items: center; justify-content: center; }
+.glass-tabs { flex: none; }
+.glass-tabs .lg-tab-bar {
+  --lg-tab-width: var(--dock-tab, 72px);
+  --lg-tab-height: 52px;
+  border-radius: 9999px;
+}
+.glass-tabs .lg-tab-icon > svg { width: 22px; height: 22px; }
+.glass-tabs :is(.lg-tab, .lg-tab-copy) { font-size: 10.5px; }
+/* The round call button: as tall as the bar (52px + its 4px padding). */
+.glass-fab {
+  flex: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 9999px;
+}
+.glass-fab > a {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  color: var(--lg-fill);
+}
+
 .phone-sheet {
   width: 100%;
   max-height: 86vh;

@@ -1,5 +1,6 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
+import { Glass, TabBar } from 'glisse';
 import {
   Award, Briefcase, Calendar, ChevronRight, Github, Home, Image as ImageIcon, Instagram, Layers,
   Link as LinkIcon, Linkedin, Mail, MoreHorizontal, Phone, Route, UserRound, X,
@@ -14,11 +15,34 @@ import ResumeButton from './ResumeModal';
 //            a soft fill) with the main step as a round button beside it
 //   More   — a sheet of grouped rows for everything the pill has no room for
 // Nothing here shows from 640px up; the desktop layout has no bars.
+//
+// The three floating pieces are Liquid Glass (glisse, github.com/0kzh/glisse,
+// pinned to 0.5.0): the page scrolls under them, so there is something to
+// bend. Chromium refracts the backdrop; Safari and iPhones get glisse's
+// frosted fallback.
 
 // Which tab a section belongs to. Anything unlisted lights "More".
 const TAB_OF = { header: 'home', highlights: 'home', about: 'home', stats: 'home', projects: 'work', experience: 'journey' };
 
 const SOCIAL_ICONS = { linkedin: Linkedin, github: Github, instagram: Instagram };
+
+// The site's own light/dark (the `dark` class on <html>), which glisse reads
+// as data-theme on an ancestor.
+function subscribeTheme(onChange) {
+  const watch = new MutationObserver(onChange);
+  watch.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+  return () => watch.disconnect();
+}
+const isDark = () => document.documentElement.classList.contains('dark');
+function useIsDark() {
+  return useSyncExternalStore(subscribeTheme, isDark, () => false);
+}
+
+// glisse's tabs are a fixed width; ours share what the dock leaves beside the
+// round button: 12px gutters, an 8px gap, the 60px button and the bar's 8px
+// of padding. Between 60px (a 320px phone) and 84px.
+const tabWidth = (n, withFab) =>
+  Math.max(60, Math.min(84, Math.floor((window.innerWidth - 24 - 8 - (withFab ? 68 : 0)) / n)));
 
 function go(id) {
   if (id === 'header') { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
@@ -30,6 +54,8 @@ export default function PhoneChrome({ profile, socials = [], sections = [] }) {
   const barRef = useRef(null);
   const [tab, setTab] = useState('home');
   const [more, setMore] = useState(false);
+  const [tabW, setTabW] = useState(72);
+  const dark = useIsDark();
   const has = (k) => sections.includes(k);
 
   // One scroll reader for both bars. The top bar's name follows the scroll
@@ -69,7 +95,8 @@ export default function PhoneChrome({ profile, socials = [], sections = [] }) {
   }, [sections]);
 
   useEffect(() => {
-    if (!more) return;
+    // Closed, the sheet hands the bar back to the scroll: re-read where we are.
+    if (!more) { window.dispatchEvent(new Event('scroll')); return; }
     const onKey = (e) => e.key === 'Escape' && setMore(false);
     window.addEventListener('keydown', onKey);
     document.body.style.overflow = 'hidden';
@@ -88,7 +115,9 @@ export default function PhoneChrome({ profile, socials = [], sections = [] }) {
     { key: 'home', label: 'Home', icon: Home, onClick: () => go('header') },
     has('projects') && { key: 'work', label: 'Work', icon: Briefcase, onClick: () => go('projects') },
     has('experience') && { key: 'journey', label: 'Journey', icon: Route, onClick: () => go('experience') },
-    { key: 'more', label: 'More', icon: MoreHorizontal, onClick: () => setMore(true) },
+    // The sheet waits for the bar's press lens to settle: covered mid-spring,
+    // the glass stalls the page's frames (seen in Chromium).
+    { key: 'more', label: 'More', icon: MoreHorizontal, onClick: () => setTimeout(() => setMore(true), 320) },
   ].filter(Boolean);
 
   const sectionRows = [
@@ -103,8 +132,24 @@ export default function PhoneChrome({ profile, socials = [], sections = [] }) {
     ? { href: p.calendly_url, label: 'Schedule a call', icon: Calendar, external: true }
     : p.email ? { href: `mailto:${p.email}`, label: 'Send an email', icon: Mail, external: false } : null;
 
+  useEffect(() => {
+    const fit = () => setTabW(tabWidth(tabs.length, !!cta));
+    fit();
+    window.addEventListener('resize', fit);
+    return () => window.removeEventListener('resize', fit);
+  }, [tabs.length, !!cta]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // A tab's step. glisse calls this on every tap (the open tab too) and at
+  // the end of a drag; the bar's own setActive never calls back.
+  const pick = (key) => {
+    const t = tabs.find((x) => x.key === key);
+    if (!t) return;
+    setTab(key);
+    t.onClick();
+  };
+
   return (
-    <div className="sm:hidden">
+    <div className="sm:hidden glass-chrome" data-theme={dark ? 'dark' : 'light'}>
       {/* ── Top bar ── */}
       <div ref={barRef} className="phone-top" style={{ '--fold': 0 }}>
         <button onClick={() => go('header')} className="phone-top-id" aria-label="Back to the top">
@@ -118,28 +163,34 @@ export default function PhoneChrome({ profile, socials = [], sections = [] }) {
           )}
           <span className="text-sm font-semibold truncate">{shortName}</span>
         </button>
-        <div className="top-pill">
+        <Glass className="glass-top">
           <ResumeButton profile={p} variant="icon" />
           <ThemeToggle bare />
-        </div>
+        </Glass>
       </div>
 
       {/* ── Bottom pill + the main step ── */}
-      <nav className="phone-dock" aria-label="Sections">
-        <div className="nav-pill">
-          {tabs.map((t) => (
-            <button key={t.key} onClick={t.onClick} aria-current={tab === t.key ? 'true' : undefined}
-              aria-expanded={t.key === 'more' ? more : undefined} className="nav-tab">
-              <t.icon size={19} strokeWidth={1.9} />
-              <span>{t.label}</span>
-            </button>
-          ))}
+      <nav className="phone-dock glass-dock" aria-label="Sections"
+        style={{ '--dock-tab': `${tabW}px` }}>
+        <div className="glass-tabs">
+          <TabBar
+            aria-label="Sections"
+            value={tab}
+            onValueChange={pick}
+            items={tabs.map((t) => ({
+              value: t.key,
+              label: t.label,
+              icon: <t.icon strokeWidth={1.9} />,
+            }))}
+          />
         </div>
         {cta && (
-          <a href={cta.href} target={cta.external ? '_blank' : undefined} rel={cta.external ? 'noreferrer' : undefined}
-            className="nav-fab btn-primary" aria-label={cta.label} title={cta.label}>
-            <cta.icon size={21} strokeWidth={1.9} />
-          </a>
+          <Glass className="glass-fab">
+            <a href={cta.href} target={cta.external ? '_blank' : undefined} rel={cta.external ? 'noreferrer' : undefined}
+              aria-label={cta.label} title={cta.label}>
+              <cta.icon size={22} strokeWidth={1.9} />
+            </a>
+          </Glass>
         )}
       </nav>
 
