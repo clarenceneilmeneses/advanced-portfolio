@@ -1,7 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import { ChevronRight, Download, ExternalLink, FileText, X } from "lucide-react";
+import { Button, SegmentedControl } from "glisse";
+import { ChevronRight, Download, ExternalLink, FileText, X } from "./icons";
 
 // One "View Resume" trigger for both resumes: opens a modal with a
 // Development / Analytics toggle and an inline PDF preview, instead of
@@ -51,9 +52,9 @@ export default function ResumeButton({ profile, variant = "button", className = 
           <FileText size={16} />
         </button>
       ) : (
-        <button onClick={() => setOpen(true)} className={`btn-outline ${className}`}>
-          <FileText size={15} /> View Resume
-        </button>
+        <Button icon={<FileText size={16} />} onClick={() => setOpen(true)} className={className}>
+          View Resume
+        </Button>
       )}
 
       {/* Portal to <body>: ancestors with backdrop-filter/transform (e.g. the
@@ -66,13 +67,13 @@ export default function ResumeButton({ profile, variant = "button", className = 
             {/* Header sits a shade above the PDF well — no rule between them. */}
             <div className="flex items-center gap-2 px-3 py-2.5 md:px-4 bg-white dark:bg-zinc-900">
               {resumes.length > 1 ? (
-                <div className="segmented" role="group" aria-label="Choose a resume">
-                  {resumes.map((r, i) => (
-                    <button key={r.key} onClick={() => setActive(i)} aria-pressed={i === active}>
-                      {r.label}
-                    </button>
-                  ))}
-                </div>
+                <SegmentedControl
+                  aria-label="Choose a resume"
+                  className="resume-seg"
+                  items={resumes.map((r) => ({ value: r.key, label: r.label }))}
+                  value={current.key}
+                  onValueChange={(k) => setActive(Math.max(0, resumes.findIndex((r) => r.key === k)))}
+                />
               ) : (
                 <span className="text-sm font-medium px-1">{current.label} Resume</span>
               )}

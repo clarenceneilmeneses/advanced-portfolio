@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" data-theme="light" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
         />
         <script
           dangerouslySetInnerHTML={{
-            __html: "try{if(localStorage.theme===\"dark\")document.documentElement.classList.add(\"dark\")}catch(e){}",
+            __html: "(function(){var r=document.documentElement,d=false;try{d=localStorage.theme===\"dark\"}catch(e){}if(d)r.classList.add(\"dark\");r.dataset.theme=d?\"dark\":\"light\"})()",
           }}
         />
       </head>

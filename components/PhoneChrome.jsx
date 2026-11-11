@@ -1,42 +1,31 @@
 'use client';
-import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
-import { Glass, TabBar } from 'glisse';
+import { useEffect, useRef, useState } from 'react';
+import { Button, Glass, TabBar } from 'glisse';
 import {
-  Award, Briefcase, Calendar, ChevronRight, Github, Home, Image as ImageIcon, Instagram, Layers,
-  Link as LinkIcon, Linkedin, Mail, MoreHorizontal, Phone, Route, UserRound, X,
-} from 'lucide-react';
+  Award, BriefcaseFill, Calendar, ChevronRight, EllipsisCircleFill, Github, HomeFill, Image as ImageIcon,
+  Instagram, Layers, Link as LinkIcon, Linkedin, Mail, MapFill, Phone, UserRound, X,
+} from './icons';
 import ThemeToggle from './ThemeToggle';
 import ResumeButton from './ResumeModal';
 
-// The phone's chrome, in the Malaya phone language:
-//   top    — who you're reading on the left (fades in as the header card
-//            scrolls away), the quick controls in one white pill on the right
-//   bottom — a floating pill of tabs (icon over a short label, the open one on
-//            a soft fill) with the main step as a round button beside it
-//   More   — a sheet of grouped rows for everything the pill has no room for
-// Nothing here shows from 640px up; the desktop layout has no bars.
+// The floating chrome, in the Malaya phone language:
+//   top    — phone only: who you're reading on the left (fades in as the
+//            header card scrolls away), the quick controls in a pill on the right
+//   bottom — every screen: a floating bar of tabs (icon over a short label)
+//            with the main step as a round button beside it, centred
+//   More   — a sheet of grouped rows for everything the bar has no room for
+//            (a bottom sheet on a phone, a centred card from 640px up)
 //
-// The three floating pieces are Liquid Glass (glisse, github.com/0kzh/glisse,
+// The floating pieces are Liquid Glass (glisse, github.com/0kzh/glisse,
 // pinned to 0.5.0): the page scrolls under them, so there is something to
 // bend. Chromium refracts the backdrop; Safari and iPhones get glisse's
-// frosted fallback.
+// frosted fallback. glisse reads light/dark from <html data-theme>, which
+// the theme switch keeps in step with the `dark` class.
 
 // Which tab a section belongs to. Anything unlisted lights "More".
 const TAB_OF = { header: 'home', highlights: 'home', about: 'home', stats: 'home', projects: 'work', experience: 'journey' };
 
 const SOCIAL_ICONS = { linkedin: Linkedin, github: Github, instagram: Instagram };
-
-// The site's own light/dark (the `dark` class on <html>), which glisse reads
-// as data-theme on an ancestor.
-function subscribeTheme(onChange) {
-  const watch = new MutationObserver(onChange);
-  watch.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-  return () => watch.disconnect();
-}
-const isDark = () => document.documentElement.classList.contains('dark');
-function useIsDark() {
-  return useSyncExternalStore(subscribeTheme, isDark, () => false);
-}
 
 // glisse's tabs are a fixed width; ours share what the dock leaves beside the
 // round button: 12px gutters, an 8px gap, the 60px button and the bar's 8px
@@ -55,7 +44,6 @@ export default function PhoneChrome({ profile, socials = [], sections = [] }) {
   const [tab, setTab] = useState('home');
   const [more, setMore] = useState(false);
   const [tabW, setTabW] = useState(72);
-  const dark = useIsDark();
   const has = (k) => sections.includes(k);
 
   // One scroll reader for both bars. The top bar's name follows the scroll
@@ -112,12 +100,12 @@ export default function PhoneChrome({ profile, socials = [], sections = [] }) {
   const shortName = firstName && lastName && firstName !== lastName ? `${firstName} ${lastName}` : p.name;
 
   const tabs = [
-    { key: 'home', label: 'Home', icon: Home, onClick: () => go('header') },
-    has('projects') && { key: 'work', label: 'Work', icon: Briefcase, onClick: () => go('projects') },
-    has('experience') && { key: 'journey', label: 'Journey', icon: Route, onClick: () => go('experience') },
+    { key: 'home', label: 'Home', icon: HomeFill, onClick: () => go('header') },
+    has('projects') && { key: 'work', label: 'Work', icon: BriefcaseFill, onClick: () => go('projects') },
+    has('experience') && { key: 'journey', label: 'Journey', icon: MapFill, onClick: () => go('experience') },
     // The sheet waits for the bar's press lens to settle: covered mid-spring,
     // the glass stalls the page's frames (seen in Chromium).
-    { key: 'more', label: 'More', icon: MoreHorizontal, onClick: () => setTimeout(() => setMore(true), 320) },
+    { key: 'more', label: 'More', icon: EllipsisCircleFill, onClick: () => setTimeout(() => setMore(true), 320) },
   ].filter(Boolean);
 
   const sectionRows = [
@@ -149,8 +137,9 @@ export default function PhoneChrome({ profile, socials = [], sections = [] }) {
   };
 
   return (
-    <div className="sm:hidden glass-chrome" data-theme={dark ? 'dark' : 'light'}>
-      {/* ── Top bar ── */}
+    <div className="glass-chrome">
+      {/* ── Top bar (phone) ── */}
+      <div className="sm:hidden">
       <div ref={barRef} className="phone-top" style={{ '--fold': 0 }}>
         <button onClick={() => go('header')} className="phone-top-id" aria-label="Back to the top">
           {p.avatar_url ? (
@@ -168,8 +157,9 @@ export default function PhoneChrome({ profile, socials = [], sections = [] }) {
           <ThemeToggle bare />
         </Glass>
       </div>
+      </div>
 
-      {/* ── Bottom pill + the main step ── */}
+      {/* ── Bottom bar + the main step ── */}
       <nav className="phone-dock glass-dock" aria-label="Sections"
         style={{ '--dock-tab': `${tabW}px` }}>
         <div className="glass-tabs">
@@ -180,7 +170,7 @@ export default function PhoneChrome({ profile, socials = [], sections = [] }) {
             items={tabs.map((t) => ({
               value: t.key,
               label: t.label,
-              icon: <t.icon strokeWidth={1.9} />,
+              icon: <t.icon />,
             }))}
           />
         </div>
@@ -188,7 +178,7 @@ export default function PhoneChrome({ profile, socials = [], sections = [] }) {
           <Glass className="glass-fab">
             <a href={cta.href} target={cta.external ? '_blank' : undefined} rel={cta.external ? 'noreferrer' : undefined}
               aria-label={cta.label} title={cta.label}>
-              <cta.icon size={22} strokeWidth={1.9} />
+              <cta.icon size={24} />
             </a>
           </Glass>
         )}
@@ -196,15 +186,15 @@ export default function PhoneChrome({ profile, socials = [], sections = [] }) {
 
       {/* ── More ── */}
       {more && (
-        <div className="fixed inset-0 z-50 flex items-end bg-black/45" role="dialog" aria-modal="true"
+        <div className="fixed inset-0 z-50 flex items-end justify-center sm:items-center sm:p-6 bg-black/45" role="dialog" aria-modal="true"
           aria-label="More" onClick={() => setMore(false)}>
-          <div className="phone-sheet" onClick={(e) => e.stopPropagation()}>
+          <div className="phone-sheet no-scrollbar" onClick={(e) => e.stopPropagation()}>
             <div className="flex items-center justify-between px-1 mb-3">
               <div>
                 <p className="eyebrow mb-0.5">Menu</p>
                 <p className="text-[22px] leading-tight font-semibold tracking-tight">More</p>
               </div>
-              <button onClick={() => setMore(false)} className="icon-pill" aria-label="Close"><X size={16} /></button>
+              <Button icon={<X />} onClick={() => setMore(false)} aria-label="Close" />
             </div>
 
             {sectionRows.length > 0 && (

@@ -1,6 +1,6 @@
 "use client";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, X } from "./icons";
 
 // Gallery photos are uploaded straight from a phone, so the originals run to
 // several MB each. Supabase Storage can resize on request: swapping the public

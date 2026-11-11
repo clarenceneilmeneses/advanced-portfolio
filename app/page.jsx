@@ -69,8 +69,8 @@ export default async function Home() {
     .filter((it) => it.node);
 
   return (
-    // Phone: room above for the top bar and below for the floating nav pill.
-    <main className={`max-w-5xl mx-auto px-4 pt-16 pb-28 sm:py-8${accent ? ' accent-on' : ''}`} style={accent || undefined}>
+    // Room below for the floating tab bar (every size); above for the phone's top bar.
+    <main className={`max-w-5xl mx-auto px-4 pt-16 pb-28 sm:pt-8 sm:pb-32${accent ? ' accent-on' : ''}`} style={accent || undefined}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <PhoneChrome profile={profile} socials={socials} sections={cells.map((c) => c.i)} />

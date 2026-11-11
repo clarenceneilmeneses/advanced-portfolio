@@ -6,7 +6,7 @@ import {
 } from 'simple-icons';
 import {
   BarChart3, ClipboardCheck, Clapperboard, Code2, Database, Map as MapIcon, Sheet, Smartphone, Webhook,
-} from 'lucide-react';
+} from './icons';
 
 // Logos are drawn in the text colour, never in their brand colours: the page is
 // one neutral family with the accent as its only colour, so a row of logos

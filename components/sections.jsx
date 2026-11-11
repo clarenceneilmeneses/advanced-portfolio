@@ -2,10 +2,11 @@ import Link from 'next/link';
 import {
   MapPin, BadgeCheck, Trophy, Calendar, Mail, FileText, ChevronRight,
   Terminal, Linkedin, Github, Instagram, Link as LinkIcon, ExternalLink, QrCode,
-} from 'lucide-react';
+} from './icons';
 import ThemeToggle from './ThemeToggle';
 import ResumeButton from './ResumeModal';
 import TechGroups from './TechGroups';
+import GlassLink from './GlassLink';
 import { BrandMark, TechLogo, issuerLogoName } from './logos';
 
 export function ViewAll({ href }) {
@@ -53,7 +54,7 @@ export function Header({ profile }) {
           <h1 className="text-xl md:text-2xl font-semibold sm:font-bold leading-snug tracking-tight sm:tracking-normal">
             {p.name}
             {/* Inline so the check stays on the line with the last word when the name wraps. */}
-            {p.verified && <BadgeCheck size={20} className="accent-ink text-blue-500 inline-block align-[-3px] ml-1.5 stroke-white dark:stroke-zinc-900" fill="currentColor" />}
+            {p.verified && <BadgeCheck size={20} className="accent-ink text-blue-500 inline-block align-[-3px] ml-1.5" />}
           </h1>
           {/* On a phone the theme switch lives in the top bar's pill. */}
           <span className="max-sm:hidden"><ThemeToggle /></span>
@@ -66,13 +67,8 @@ export function Header({ profile }) {
       </div>
 
       <div className="col-span-2 sm:col-span-1 sm:col-start-2 sm:self-start min-w-0 mt-4 sm:mt-2">
-        {/* Phone: what he does and whether he's taking work, as soft chips. */}
+        {/* Phone: what he does, as soft chips. */}
         <div className="flex flex-wrap items-center gap-1.5 sm:hidden">
-          {p.speaking_text && (
-            <span className="status-chip">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" /> {p.speaking_text}
-            </span>
-          )}
           {roles.map((r) => <span key={r} className="chip !text-xs !py-1 !px-2.5">{r}</span>)}
         </div>
         <div className="hidden sm:flex flex-wrap items-center justify-between gap-2">
@@ -90,23 +86,20 @@ export function Header({ profile }) {
             <Trophy size={13} /> {p.badge_text}
           </a>
         )}
-        {/* Phone: the main step fills the row, the other two share the next one. */}
-        <div className="grid grid-cols-2 gap-2 mt-4 sm:flex sm:flex-wrap sm:items-center">
+        {/* Glass buttons (glisse). Phone: the main step fills the row, the
+            other two share the next one. */}
+        <div className="header-actions grid grid-cols-2 gap-2 mt-4 sm:flex sm:flex-wrap sm:items-center">
           {p.calendly_url && (
-            <a href={p.calendly_url} target="_blank" rel="noreferrer" className="btn-primary col-span-2 justify-center max-sm:py-2.5">
-              <Calendar size={15} /> Schedule a Call <ChevronRight size={14} />
-            </a>
+            <GlassLink href={p.calendly_url} external variant="filled" icon={<Calendar size={16} />} className="col-span-2">
+              Schedule a Call
+            </GlassLink>
           )}
           {p.email && (
-            <a href={`mailto:${p.email}`} className="btn-outline justify-center">
-              <Mail size={15} /> Send Email
-            </a>
+            <GlassLink href={`mailto:${p.email}`} icon={<Mail size={16} />}>Send Email</GlassLink>
           )}
-          <ResumeButton profile={p} className="justify-center" />
+          <ResumeButton profile={p} />
           {p.blog_url && (
-            <a href={p.blog_url} target="_blank" rel="noreferrer" className="btn-outline justify-center">
-              <FileText size={15} /> Read my blog
-            </a>
+            <GlassLink href={p.blog_url} external icon={<FileText size={16} />}>Read my blog</GlassLink>
           )}
         </div>
       </div>

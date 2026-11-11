@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ArrowLeft, ExternalLink } from "@/components/icons";
 import { getProject, getPortfolioData } from "@/lib/publicData";
 
 export const revalidate = 300;

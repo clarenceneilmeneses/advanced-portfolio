@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft } from "@/components/icons";
 import { getPortfolioData } from "@/lib/publicData";
 import { TechStack } from "@/components/sections";
 
