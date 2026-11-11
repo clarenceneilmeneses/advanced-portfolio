@@ -141,7 +141,9 @@ export default function PhoneChrome({ profile, socials = [], sections = [] }) {
       {/* ── Top bar (phone) ── */}
       <div className="sm:hidden">
       <div ref={barRef} className="phone-top" style={{ '--fold': 0 }}>
-        <button onClick={() => go('header')} className="phone-top-id" aria-label="Back to the top">
+        {/* Who you're reading, in its own glass pill that fades in with the scroll. */}
+        <Glass className="phone-top-id glass-id">
+        <button onClick={() => go('header')} className="flex items-center gap-2 min-w-0 pr-3" aria-label="Back to the top">
           {p.avatar_url ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img src={p.avatar_url} alt="" className="w-8 h-8 rounded-full object-cover" />
@@ -152,6 +154,7 @@ export default function PhoneChrome({ profile, socials = [], sections = [] }) {
           )}
           <span className="text-sm font-semibold truncate">{shortName}</span>
         </button>
+        </Glass>
         <Glass className="glass-top">
           <ResumeButton profile={p} variant="icon" />
           <ThemeToggle bare />

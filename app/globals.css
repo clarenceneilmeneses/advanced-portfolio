@@ -214,6 +214,42 @@
   --page: #09090b;
 }
 
+/* ─── Wallpaper behind the glass (home page) ────────────────────────────────── */
+/* Glass only reads as glass when there is colour behind it, so the page gets a
+   still wallpaper: three soft glows in the page accent (graphite when none is
+   set), fixed behind everything. No animation and no blur of its own: the
+   glass bars re-render what moves under them, so the wallpaper never moves.
+   The cards let a little of it through. */
+.wallpaper::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  --wall: var(--accent, #71717a);
+  background:
+    radial-gradient(60vmax 45vmax at 0% 0%, color-mix(in srgb, var(--wall) 24%, transparent), transparent 70%),
+    radial-gradient(50vmax 42vmax at 100% 45%, color-mix(in srgb, var(--wall) 15%, transparent), transparent 70%),
+    radial-gradient(55vmax 40vmax at 15% 100%, color-mix(in srgb, var(--wall) 12%, transparent), transparent 70%);
+}
+.dark .wallpaper::before {
+  --wall: var(--accent-dark, #a1a1aa);
+  background:
+    radial-gradient(60vmax 45vmax at 0% 0%, color-mix(in srgb, var(--wall) 30%, transparent), transparent 70%),
+    radial-gradient(50vmax 42vmax at 100% 45%, color-mix(in srgb, var(--wall) 18%, transparent), transparent 70%),
+    radial-gradient(55vmax 40vmax at 15% 100%, color-mix(in srgb, var(--wall) 14%, transparent), transparent 70%);
+}
+.wallpaper :is(.card, .tab-pill) { background-color: rgb(255 255 255 / 0.82); }
+.dark .wallpaper :is(.card, .tab-pill) { background-color: rgb(24 24 27 / 0.76); }
+@media (min-width: 640px) {
+  .wallpaper .sec { background-color: rgb(255 255 255 / 0.82); }
+  .dark .wallpaper .sec { background-color: rgb(24 24 27 / 0.76); }
+}
+@media (max-width: 639px) {
+  .wallpaper .sec-body { background-color: rgb(255 255 255 / 0.82); }
+  .dark .wallpaper .sec-body { background-color: rgb(24 24 27 / 0.76); }
+}
+
 /* ─── Phone chrome (components/PhoneChrome.jsx) ─────────────────────────────── */
 /* Malaya's phone pattern: quick controls in a white pill up top, a floating
    pill of tabs at the bottom with the main step as a round button beside it. */
@@ -227,9 +263,9 @@
   justify-content: space-between;
   gap: 0.75rem;
   padding: max(0.5rem, env(safe-area-inset-top)) 1rem 0.5rem;
-  /* The bar turns solid as the header card scrolls under it, following the
-     scroll itself (--fold, 0 → 1) rather than a timed fade. */
-  background: color-mix(in srgb, var(--page) calc(var(--fold, 0) * 100%), transparent);
+  /* No band behind the bar: the page (and its wallpaper) scrolls under two
+     glass pills. The name's pill fades in with the scroll itself (--fold,
+     0 → 1) rather than a timed fade. */
   pointer-events: none;
 }
 .phone-top > * { pointer-events: auto; }
@@ -238,6 +274,8 @@
   align-items: center;
   gap: 0.5rem;
   min-width: 0;
+  padding: 0.25rem;
+  border-radius: 9999px;
   opacity: var(--fold, 0);
   transform: translateY(calc((1 - var(--fold, 0)) * 6px));
 }
