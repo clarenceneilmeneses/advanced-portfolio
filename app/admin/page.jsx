@@ -59,6 +59,7 @@ const COLLECTIONS = [
       { name: 'published', label: 'Case study visible to the public', type: 'bool' },
       { name: 'logo_url', label: 'Logo (blank = initials)', placeholder: '/logos/name-mono.png  ·  tech:shopify  ·  an image URL' },
       { name: 'cover_image_url', label: 'Cover image', type: 'image' },
+      { name: 'preview_video_url', label: 'Strip video (muted loop on the home page; blank = photo)', placeholder: '/work/name/strip.mp4  ·  an .mp4 URL' },
       { name: 'tech', label: 'Tech used (comma-separated)', placeholder: 'Next.js, Node.js, PostgreSQL' },
       { name: 'featured', label: 'Show on home page', type: 'bool', default: true },
       { name: 'sort_order', label: 'Order', type: 'number' },

@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { Glass } from 'glisse';
 import { ArrowRight, ChevronRight, ExternalLink, Lock } from './icons';
@@ -24,6 +24,30 @@ const strip = (url) => (shipped(url) ? url.replace(/\.webp$/, '-strip.webp') : u
 
 const no = (i) => String(i + 1).padStart(2, '0');
 
+// A project's strip video (preview_video_url): a muted loop over the strip
+// photo. It plays only while the strip is on screen, fades in once it is
+// actually playing (the photo shows until then), and never starts for
+// readers who ask for reduced motion.
+function StripVideo({ src }) {
+  const ref = useRef(null);
+  const [playing, setPlaying] = useState(false);
+  useEffect(() => {
+    const v = ref.current;
+    if (!v || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) v.play().catch(() => {});
+      else v.pause();
+    });
+    io.observe(v);
+    return () => io.disconnect();
+  }, []);
+  return (
+    <video ref={ref} src={src} muted loop playsInline preload="none" aria-hidden="true" tabIndex={-1}
+      className="pick-photo pick-video" data-playing={playing ? '' : undefined}
+      onPlaying={() => setPlaying(true)} />
+  );
+}
+
 export default function ProjectPicker({ items }) {
   const [active, setActive] = useState(0);
   const current = items[Math.min(active, items.length - 1)];
@@ -45,6 +69,7 @@ export default function ProjectPicker({ items }) {
               ) : (
                 <span className="pick-photo pick-photo-blank" />
               )}
+              {p.preview_video_url && <StripVideo src={p.preview_video_url} />}
               <span className="pick-shade" />
               <span className="pick-text">
                 <span className="pick-name"><span className="pick-no">{no(i)}</span>{n}</span>
@@ -55,6 +80,7 @@ export default function ProjectPicker({ items }) {
           );
           const props = {
             className: 'pick-strip',
+            'data-video': p.preview_video_url ? '' : undefined,
             'data-active': i === active ? '' : undefined,
             // Beside the preview card (1024px up) a click picks the strip and a
             // second click opens its story; nothing changes on hover. Narrower,

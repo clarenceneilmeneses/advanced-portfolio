@@ -254,8 +254,8 @@ export function Projects({ items, full = false }) {
   const list = full ? items : items.filter((p) => p.featured);
   // Home: the photo-strip picker. /projects keeps the full grid below.
   if (!full) {
-    const picked = list.map(({ id, slug, title, description, url, display_url, cover_image_url, published }) =>
-      ({ id, slug, title, description, url, display_url, cover_image_url, published }));
+    const picked = list.map(({ id, slug, title, description, url, display_url, cover_image_url, preview_video_url, published }) =>
+      ({ id, slug, title, description, url, display_url, cover_image_url, preview_video_url, published }));
     return (
       <section className="sec">
         <SecHead eyebrow="Work" title="Recent Projects" action={<ViewAll href="/projects" />} />

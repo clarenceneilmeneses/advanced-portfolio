@@ -28,7 +28,7 @@
         "i": "about",
         "w": 3,
         "x": 0,
-        "y": 1,
+        "y": 2,
         "visible": true
       },
       {
@@ -37,14 +37,14 @@
         "w": 1,
         "x": 3,
         "y": 0,
-        "visible": true
+        "visible": false
       },
       {
         "h": 1,
         "i": "tech_stack",
         "w": 3,
         "x": 0,
-        "y": 2,
+        "y": 3,
         "visible": true
       },
       {
@@ -52,7 +52,7 @@
         "i": "projects",
         "w": 3,
         "x": 0,
-        "y": 3,
+        "y": 1,
         "visible": true
       },
       {
@@ -60,7 +60,7 @@
         "i": "experience",
         "w": 1,
         "x": 3,
-        "y": 1,
+        "y": 0,
         "visible": true
       },
       {
@@ -326,6 +326,7 @@
       "tech": "React 19, TypeScript, TanStack Start, TanStack Router, Vite, Tailwind CSS 4, Supabase, PostgreSQL, Row Level Security, Xendit, Airbnb iCal, Claude API, Recharts, Vercel",
       "published": true,
       "logo_url": "/logos/malaya-mono.png",
+      "preview_video_url": "/work/malaya/strip.mp4",
       "blocks": [
         {
           "id": "bad46d89-b561-4321-88fb-c9ba8c3bd5ca",
@@ -567,6 +568,7 @@
       "tech": "React Native, Expo, Expo Router, TypeScript, Supabase, EAS Update",
       "published": true,
       "logo_url": "/logos/papafix.png",
+      "preview_video_url": "",
       "blocks": [
         {
           "id": "1424d8d1-8579-41a4-8f0a-7fdb9fc5d3c8",
@@ -736,6 +738,7 @@
       "tech": "React 19, Vite, Supabase, PostgreSQL, Edge Functions, RLS, Leaflet, Recharts",
       "published": true,
       "logo_url": "/logos/papafix.png",
+      "preview_video_url": "",
       "blocks": [
         {
           "id": "154b9669-2e29-4f4c-80ff-fb50714e9458",
@@ -932,6 +935,7 @@
       "tech": "Remotion, React, TypeScript, FFmpeg",
       "published": true,
       "logo_url": "tech:remotion",
+      "preview_video_url": "",
       "blocks": [
         {
           "id": "471ebda3-87e6-4ae7-a273-5254e10884de",
@@ -1074,6 +1078,7 @@
       "tech": "React 19, TypeScript, Vite, Tailwind CSS 4, Supabase, PostgreSQL, Row Level Security, Recharts",
       "published": true,
       "logo_url": "/logos/nam-mono.png",
+      "preview_video_url": "",
       "blocks": [
         {
           "id": "a67411b9-e8b7-4847-85e1-7fcb7f9ca397",
@@ -1198,6 +1203,7 @@
       "tech": "React 19, TypeScript, Vite, Supabase, PostgreSQL, TanStack Query, Tailwind CSS, Recharts, Vitest, PHP, MySQL",
       "published": true,
       "logo_url": "/logos/nam-mono.png",
+      "preview_video_url": "",
       "blocks": [
         {
           "id": "45c6c5af-b09f-4fcd-bc09-deb4e173e36a",
@@ -1358,6 +1364,7 @@
       "tech": "Shopify, Liquid, Python, Shopify GraphQL Admin API, Kaching Bundles",
       "published": true,
       "logo_url": "tech:shopify",
+      "preview_video_url": "",
       "blocks": [
         {
           "id": "95b53cb4-7619-414c-ad73-0f4b37c7deb6",
@@ -1491,6 +1498,7 @@
       "tech": "Next.js 14, React, Supabase, PostgreSQL, Tailwind CSS, Vercel",
       "published": true,
       "logo_url": "tech:next.js",
+      "preview_video_url": "",
       "blocks": [
         {
           "id": "cb404c23-c57c-4720-915b-ff3181ad0266",
@@ -1624,6 +1632,7 @@
       "tech": "React, TypeScript, Vite, Supabase, PostgreSQL, Tailwind CSS, GSAP",
       "published": true,
       "logo_url": "/logos/lexus-mono.png",
+      "preview_video_url": "",
       "blocks": [
         {
           "id": "99461282-2151-4ee9-b804-aa1e4d6e7c0f",
@@ -1739,6 +1748,7 @@
       "tech": "PHP, MySQL, JavaScript, Bootstrap, HTML5, CSS3",
       "published": false,
       "logo_url": "/logos/nam-mono.png",
+      "preview_video_url": "",
       "blocks": [
         {
           "id": "9f031e4f-487f-4abf-a957-dec80c1313d5",
@@ -1854,6 +1864,7 @@
       "tech": "PHP, MySQL, JavaScript, Leaflet.js, Chart.js, GIS Mapping, Web Accessibility",
       "published": false,
       "logo_url": "",
+      "preview_video_url": "",
       "blocks": [
         {
           "id": "27c0a62d-d5ba-4b31-b0d5-fdfabb09a2f2",

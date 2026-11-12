@@ -272,6 +272,19 @@
 }
 .pick-photo { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: center; }
 .pick-photo-blank { background: linear-gradient(120deg, #3f3f46, #18181b); }
+/* A strip video takes the right side of the strip, fading in from the dark
+   behind the name, so a light film never sits under the white text. Until
+   it plays the photo shows; once it plays the photo gives way to the dark. */
+.pick-strip .pick-video {
+  left: 38%; width: 62%; opacity: 0; transition: opacity 0.6s ease;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 34%);
+  mask-image: linear-gradient(90deg, transparent, #000 34%);
+}
+.pick-video[data-playing] { opacity: 1; }
+.pick-strip:has(.pick-video[data-playing]) img.pick-photo { opacity: 0; transition: opacity 0.6s ease; }
+.pick-strip[data-video] .pick-shade { background: linear-gradient(90deg, rgb(9 9 11 / 0.85) 0%, rgb(9 9 11 / 0.8) 38%, rgb(9 9 11 / 0.45) 62%, rgb(9 9 11 / 0.08) 88%); }
+.pick-strip[data-video] .pick-text { text-shadow: 0 1px 10px rgb(0 0 0 / 0.55); }
+.pick-strip[data-video] .pick-go { background: rgb(9 9 11 / 0.55); box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.18); }
 .pick-shade {
   position: absolute; inset: 0; z-index: -1;
   background: linear-gradient(90deg, rgb(9 9 11 / 0.82) 0%, rgb(9 9 11 / 0.58) 48%, rgb(9 9 11 / 0.12) 100%);
